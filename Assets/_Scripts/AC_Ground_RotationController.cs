@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 namespace _Scripts
 {
@@ -19,56 +20,84 @@ namespace _Scripts
         // Update is called once per frame
         private void Update()
         {
+            var rotationX = transform.rotation.x;
+            var rotationZ = transform.rotation.z;
+            var rotationY = transform.rotation.y;
             if (_keyboard.wKey.IsPressed())
             {
-                if (transform.rotation.x is < MaxRotation and > -MaxRotation)
+                if (rotationX is < MaxRotation and > -MaxRotation)
                 {
-                    this.transform.Rotate(new Vector3(rotationRate, 0, 0)  * Time.deltaTime);
+                    var rotation = new Vector3(rotationRate, 0f, 0f);
+                    if (rotationX < 0) rotation.x += rotationRate;
+                    this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
             }
 
             if (_keyboard.sKey.IsPressed())
             {
-                if (transform.rotation.x is < MaxRotation and > -MaxRotation)
+                if (rotationX is < MaxRotation and > -MaxRotation)
                 {
-                    this.transform.Rotate(new Vector3(-rotationRate, 0, 0)  * Time.deltaTime);
+                    var rotation = new Vector3(-rotationRate, 0f, 0f);
+                    if (rotationX > 0) rotation.x -= rotationRate;
+                    this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
             }
         
             if (_keyboard.aKey.IsPressed())
             {
-                if (transform.rotation.z is < MaxRotation and > -MaxRotation)
+                if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
-                    this.transform.Rotate(new Vector3(0, 0, rotationRate)  * Time.deltaTime);
+                    var rotation = new Vector3(0f, 0f, rotationRate);
+                    if (rotationZ < 0) rotation.z += rotationRate;
+                    this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
             }
         
             if (_keyboard.dKey.IsPressed())
             {
-                if (transform.rotation.z is < MaxRotation and > -MaxRotation)
+                if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
-                    this.transform.Rotate(new Vector3(0, 0, -rotationRate)  * Time.deltaTime);
+                    var rotation = new Vector3(0f, 0f, -rotationRate);
+                    if (rotationZ > 0) rotation.z -= rotationRate;
+                    this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
             }
-        
-            if(transform.rotation.x == 0 && transform.rotation.z == 0) return;
-        
-            if(transform.rotation.x > 0) 
-                this.transform.Rotate(-rotationRate  * Time.deltaTime, 0, 0);
-            if(transform.rotation.x < 0) 
-                this.transform.Rotate(rotationRate  * Time.deltaTime, 0, 0);
-            if(transform.rotation.z < 0) 
-                this.transform.Rotate(0, 0, rotationRate  * Time.deltaTime);
-            if(transform.rotation.z > 0) 
-                this.transform.Rotate(0, 0, -rotationRate  * Time.deltaTime);
-            if(transform.rotation.y > 0) 
-                this.transform.Rotate(0, -rotationRate  * Time.deltaTime, 0);
-            if(transform.rotation.y < 0) 
-                this.transform.Rotate(0, rotationRate  * Time.deltaTime, 0);
+
+            switch (rotationX)
+            {
+                case 0 when rotationZ == 0:
+                    return;
+                case > 0:
+                    this.transform.Rotate(-rotationRate  * Time.deltaTime, 0, 0);
+                    break;
+                case < 0:
+                    this.transform.Rotate(rotationRate  * Time.deltaTime, 0, 0);
+                    break;
+            }
+
+            switch (rotationZ)
+            {
+                case < 0:
+                    this.transform.Rotate(0, 0, rotationRate  * Time.deltaTime);
+                    break;
+                case > 0:
+                    this.transform.Rotate(0, 0, -rotationRate  * Time.deltaTime);
+                    break;
+            }
+
+            switch (rotationY)
+            {
+                case > 0:
+                    this.transform.Rotate(0, -rotationRate  * Time.deltaTime, 0);
+                    break;
+                case < 0:
+                    this.transform.Rotate(0, rotationRate  * Time.deltaTime, 0);
+                    break;
+            }
         }
     }
 }
