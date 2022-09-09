@@ -57,5 +57,9 @@ public class AC_Ground_RotationController : MonoBehaviour
             this.transform.Rotate(0, 0, rotationRate);
         if(transform.rotation.z > 0) 
             this.transform.Rotate(0, 0, -rotationRate);
+        if(transform.rotation.y > 0) 
+            this.transform.Rotate(0, -rotationRate, 0);
+        if(transform.rotation.y < 0) 
+            this.transform.Rotate(0, rotationRate, 0);
     }
 }
