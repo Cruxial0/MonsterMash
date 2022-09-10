@@ -122,7 +122,7 @@ namespace _Scripts
                     var rotation = new Vector3(rotationRate, 0f, 0f);
                     
                     //If floor already has been rotated, add extra momentum.
-                    if (rotationX < 0) rotation.x += rotationRate;
+                    if (rotationX < 0) rotation.x += rotationRate  * 1.5f;
                     
                     //Rotate floor by the "rotation" variable declared above.
                     this.transform.Rotate(rotation  * Time.deltaTime);
@@ -136,7 +136,7 @@ namespace _Scripts
                 if (rotationX is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(-rotationRate, 0f, 0f);
-                    if (rotationX > 0) rotation.x -= rotationRate;
+                    if (rotationX > 0) rotation.x -= rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
@@ -148,7 +148,7 @@ namespace _Scripts
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(0f, 0f, rotationRate);
-                    if (rotationZ < 0) rotation.z += rotationRate;
+                    if (rotationZ < 0) rotation.z += rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
@@ -160,7 +160,7 @@ namespace _Scripts
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(0f, 0f, -rotationRate);
-                    if (rotationZ > 0) rotation.z -= rotationRate;
+                    if (rotationZ > 0) rotation.z -= rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
@@ -180,7 +180,7 @@ namespace _Scripts
                     var rotation = new Vector3(rotationRate, 0f, 0f);
                     
                     //If floor already has been rotated, add extra momentum.
-                    if (rotationX < 0) rotation.x += rotationRate;
+                    if (rotationX < 0) rotation.x += rotationRate  * 1.5f;
                     
                     //Rotate floor by the "rotation" variable declared above.
                     this.transform.Rotate(rotation  * Time.deltaTime);
@@ -194,7 +194,7 @@ namespace _Scripts
                 if (rotationX is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(-rotationRate, 0f, 0f);
-                    if (rotationX > 0) rotation.x -= rotationRate;
+                    if (rotationX > 0) rotation.x -= rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
@@ -206,7 +206,7 @@ namespace _Scripts
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(0f, 0f, rotationRate);
-                    if (rotationZ < 0) rotation.z += rotationRate;
+                    if (rotationZ < 0) rotation.z += rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
@@ -218,7 +218,7 @@ namespace _Scripts
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
                     var rotation = new Vector3(0f, 0f, -rotationRate);
-                    if (rotationZ > 0) rotation.z -= rotationRate;
+                    if (rotationZ > 0) rotation.z -= rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
                     return;
                 }
