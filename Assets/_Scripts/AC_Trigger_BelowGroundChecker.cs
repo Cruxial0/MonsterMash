@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Scripts
 {
-    public class AcTriggerBelowGroundChecker : MonoBehaviour
+    public class AC_Trigger_BelowGroundChecker : MonoBehaviour
     {
         // Start is called before the first frame update
         private void Start()
