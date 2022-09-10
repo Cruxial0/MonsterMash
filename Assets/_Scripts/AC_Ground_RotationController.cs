@@ -10,6 +10,8 @@ namespace _Scripts
         public float rotationRate; //Rate of which the floor will rotate at.
         private const float MaxRotation = 0.30f; //Max rotation angle.
         private Keyboard _keyboard; //Keyboard.
+       
+       
         
         // Start is called before the first frame update
         private void Start()
