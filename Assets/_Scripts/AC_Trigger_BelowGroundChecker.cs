@@ -14,7 +14,7 @@ namespace _Scripts
             var localScale = plane.transform.localScale;
             
             //Use simple mathematic formula to dynamically scale the collider to the size of the ground.
-            this.transform.localScale += new Vector3(localScale.x * 2, 0, localScale.z * 2);
+            this.transform.localScale += new Vector3(localScale.x / localScale.x, 0, localScale.z / localScale.z);
         }
 
         // Update is called once per frame
