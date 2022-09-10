@@ -201,7 +201,7 @@ namespace _Scripts
             }
         
             //Same as Up-Arrow key, but with different axis
-            if (_keyboard.rightArrowKey.IsPressed())
+            if (_keyboard.leftArrowKey.IsPressed())
             {
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
@@ -213,7 +213,7 @@ namespace _Scripts
             }
         
             //Same as Up-Arrow key, but with different axis
-            if (_keyboard.leftArrowKey.IsPressed())
+            if (_keyboard.rightArrowKey.IsPressed())
             {
                 if (rotationZ is < MaxRotation and > -MaxRotation)
                 {
