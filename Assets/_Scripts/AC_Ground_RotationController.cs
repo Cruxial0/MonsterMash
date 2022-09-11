@@ -56,10 +56,13 @@ namespace _Scripts
                 RegressRotation(rotationX, rotationY, rotationZ);
                 if (this.transform.rotation.x is > MaxRotation or < -MaxRotation) return;
                 if (this.transform.rotation.z is > MaxRotation or < -MaxRotation) return;
+                if (_rotate == Vector2.zero) return;
                 
-                this.transform.Rotate(new Vector3((_rotate.y / 9f) * ControllerSensitivity,0f, (-_rotate.x / 9f) * ControllerSensitivity), Space.World);
-
-                
+                this.transform.Rotate(new Vector3(
+                        (_rotate.y / 9f) * ControllerSensitivity,
+                        0f, 
+                        (-_rotate.x / 9f) * ControllerSensitivity), 
+                    Space.World);
                 
                 return;
             }
@@ -90,12 +93,12 @@ namespace _Scripts
                 case > 0:
                     //Because X is rotated in the positive direction,
                     //reset it by rotating in the negative direction.
-                    this.transform.Rotate((-rotationRate / RegressionRate)  * Time.deltaTime, 0, 0);
+                    this.transform.Rotate(new Vector3((-rotationRate / RegressionRate) * Time.deltaTime, 0, 0));
                     break;
                 //Because X is rotated in the negative direction,
                 //reset it by rotating in the positive direction.
                 case < 0:
-                    this.transform.Rotate((rotationRate / RegressionRate)  * Time.deltaTime, 0, 0);
+                    this.transform.Rotate(new Vector3((rotationRate / RegressionRate) * Time.deltaTime, 0, 0));
                     break;
                 
             }
@@ -110,13 +113,13 @@ namespace _Scripts
                 case > 0:
                     //Because Y is rotated in the positive direction,
                     //reset it by rotating in the negative direction.
-                    this.transform.Rotate(0, (-rotationRate / RegressionRate)  * Time.deltaTime, 0);
+                    this.transform.Rotate(new Vector3(0, (-rotationRate / RegressionRate) * Time.deltaTime, 0));
                     break;
                 //When rotation on Y axis is less than 0, reset rotation over time.
                 case < 0:
                     //Because Y is rotated in the negative direction,
                     //reset it by rotating in the positive direction.
-                    this.transform.Rotate(0, (rotationRate / RegressionRate)  * Time.deltaTime, 0);
+                    this.transform.Rotate(new Vector3(0, (rotationRate / RegressionRate) * Time.deltaTime, 0));
                     break;
             }
             
@@ -130,13 +133,13 @@ namespace _Scripts
                 case < 0:
                     //Because Z is rotated in the negative direction,
                     //reset it by rotating in the positive direction.
-                    this.transform.Rotate(0, 0, (rotationRate / RegressionRate)  * Time.deltaTime);
+                    this.transform.Rotate(new Vector3(0, 0, (rotationRate / RegressionRate) * Time.deltaTime));
                     break;
                 //When rotation on Z axis is more than 0, reset rotation over time.
                 case > 0:
                     //Because Z is rotated in the positive direction,
                     //reset it by rotating in the negative direction.
-                    this.transform.Rotate(0, 0, (-rotationRate / RegressionRate)  * Time.deltaTime);
+                    this.transform.Rotate(new Vector3(0, 0, (-rotationRate / RegressionRate) * Time.deltaTime));
                     break;
             }
             
@@ -160,7 +163,7 @@ namespace _Scripts
                     if (rotationX < 0) rotation.x += rotationRate  * 1.5f;
                     
                     //Rotate floor by the "rotation" variable declared above.
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -172,7 +175,7 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(-rotationRate, 0f, 0f);
                     if (rotationX > 0) rotation.x -= rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -184,8 +187,7 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(0f, 0f, rotationRate);
                     if (rotationZ < 0) rotation.z += rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
-                    HandleRotate(rotation);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -197,14 +199,14 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(0f, 0f, -rotationRate);
                     if (rotationZ > 0) rotation.z -= rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
         }
 
         private Vector3 HandleRotate(Vector3 rotation) 
-            => Vector3.Lerp(transform.position, rotation, Time.deltaTime * 7f);
+            => Vector3.Lerp(transform.rotation.eulerAngles, rotation, Time.deltaTime);
 
         private void MoveArrowKeys(float rotationX, float rotationZ)
         {
@@ -222,7 +224,7 @@ namespace _Scripts
                     if (rotationX < 0) rotation.x += rotationRate  * 1.5f;
                     
                     //Rotate floor by the "rotation" variable declared above.
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -234,7 +236,7 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(-rotationRate, 0f, 0f);
                     if (rotationX > 0) rotation.x -= rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -246,7 +248,7 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(0f, 0f, rotationRate);
                     if (rotationZ < 0) rotation.z += rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
@@ -258,7 +260,7 @@ namespace _Scripts
                 {
                     var rotation = new Vector3(0f, 0f, -rotationRate);
                     if (rotationZ > 0) rotation.z -= rotationRate  * 1.5f;
-                    this.transform.Rotate(rotation  * Time.deltaTime);
+                    this.transform.Rotate(HandleRotate(rotation)  * Time.deltaTime);
                     return;
                 }
             }
