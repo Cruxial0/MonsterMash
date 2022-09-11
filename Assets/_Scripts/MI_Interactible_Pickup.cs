@@ -7,6 +7,7 @@ namespace _Scripts
     {
         private void OnTriggerEnter(Collider collision)
         {
+            //If collider has the "Player" tag, proceed.
             if (collision.gameObject.CompareTag("Player"))
             {
                 //TODO:
