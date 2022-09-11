@@ -9,8 +9,13 @@ namespace _Scripts
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                print($"{collision.gameObject.name} entered");
+                //TODO:
+                //Add points to external handler
+                //Add SFX and VFX
+                
+                //Destroy script-holder.
                 Destroy(this.gameObject);
+                //Destroy this script instance to free up memory.
                 Destroy(this);
             }
         }
