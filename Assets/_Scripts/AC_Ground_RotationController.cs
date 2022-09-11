@@ -15,18 +15,25 @@ namespace _Scripts
         private const float RegressionRate = 2f; //Used for calculating regress speed
         private Keyboard _keyboard; //Keyboard.
 
+        //Instance for Unity's InputSystem
         private PlayerControls _controls;
+        //Callback value for RotateOnPerformed
         private Vector2 _rotate;
+        //Controller Sensitivity, who would have guessed
         private const float ControllerSensitivity = 1.3f;
 
         private void Awake()
         {
+            //Instantiate PlayerControls object
             _controls = new PlayerControls();
 
+            //Subscribe to controller events
+            //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
             _controls.Gameplay.Rotate.performed += RotateOnPerformed;
             _controls.Gameplay.Rotate.canceled += ctx => _rotate = Vector2.zero;
         }
 
+        //Function used for event subscription
         private void RotateOnPerformed(InputAction.CallbackContext obj)
         {
             _rotate = obj.ReadValue<Vector2>();
@@ -39,7 +46,9 @@ namespace _Scripts
             _keyboard = Keyboard.current;
         }
 
+        //Called when gameObject becomes active
         private void OnEnable() => _controls.Gameplay.Enable();
+        //Called when gameObject becomes inactive
         private void OnDisable() => _controls.Gameplay.Disable();
 
         // Update is called once per frame
@@ -51,19 +60,28 @@ namespace _Scripts
             var rotationZ = transform.rotation.z;
             var rotationY = transform.rotation.y;
             
+            //if useController is true, proceed
             if (useController)
             {
+                //Regress rotation on all axis
                 RegressRotation(rotationX, rotationY, rotationZ);
+                
+                //If the X or Y rotation exceeds MaxRotation, return.
                 if (this.transform.rotation.x is > MaxRotation or < -MaxRotation) return;
                 if (this.transform.rotation.z is > MaxRotation or < -MaxRotation) return;
+                
+                //If _rotate = (0,0), return
                 if (_rotate == Vector2.zero) return;
                 
+                //Might need fine tuning
+                //Rotate the object with formula: (axis / 9f) * ControllerSensitivity
                 this.transform.Rotate(new Vector3(
                         (_rotate.y / 9f) * ControllerSensitivity,
                         0f, 
                         (-_rotate.x / 9f) * ControllerSensitivity), 
                     Space.World);
                 
+                //Return so no other controls get processed
                 return;
             }
 
