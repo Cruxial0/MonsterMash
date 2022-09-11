@@ -17,6 +17,7 @@ namespace _Scripts
                 //TODO:
                 //Play SFX
                 //Play animation
+                //Properly position origin point of visualFeedback (using Mesh.bounds?)
                 
                 //Create instance of visualFeedback (probably some kind of animation or particle system)
                 //Also create it with it's original rotation, and on our gameObject's position.
