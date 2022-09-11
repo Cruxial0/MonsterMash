@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -8,10 +9,28 @@ namespace _Scripts
     {
         public GameObject player; //Public reference to the player object.
         public float rotationRate; //Rate of which the floor will rotate at.
+        public bool useController;
         public bool mainPlayer;
-        private const float MaxRotation = 30f; //Max rotation angle.
+        private const float MaxRotation = 0.3f; //Max rotation angle.
         private const float RegressionRate = 2f; //Used for calculating regress speed
         private Keyboard _keyboard; //Keyboard.
+
+        private PlayerControls _controls;
+        private Vector2 _rotate;
+        private const float ControllerSensitivity = 1.3f;
+
+        private void Awake()
+        {
+            _controls = new PlayerControls();
+
+            _controls.Gameplay.Rotate.performed += RotateOnPerformed;
+            _controls.Gameplay.Rotate.canceled += ctx => _rotate = Vector2.zero;
+        }
+
+        private void RotateOnPerformed(InputAction.CallbackContext obj)
+        {
+            _rotate = obj.ReadValue<Vector2>();
+        }
 
         // Start is called before the first frame update
         private void Start()
@@ -19,6 +38,9 @@ namespace _Scripts
             //Set _keyboard variable to current system keyboard.
             _keyboard = Keyboard.current;
         }
+
+        private void OnEnable() => _controls.Gameplay.Enable();
+        private void OnDisable() => _controls.Gameplay.Disable();
 
         // Update is called once per frame
         private void Update()
@@ -28,6 +50,19 @@ namespace _Scripts
             var rotationX = transform.rotation.x;
             var rotationZ = transform.rotation.z;
             var rotationY = transform.rotation.y;
+            
+            if (useController)
+            {
+                RegressRotation(rotationX, rotationY, rotationZ);
+                if (this.transform.rotation.x is > MaxRotation or < -MaxRotation) return;
+                if (this.transform.rotation.z is > MaxRotation or < -MaxRotation) return;
+                
+                this.transform.Rotate(new Vector3((_rotate.y / 9f) * ControllerSensitivity,0f, (-_rotate.x / 9f) * ControllerSensitivity), Space.World);
+
+                
+                
+                return;
+            }
 
             switch (mainPlayer)
             {
@@ -150,6 +185,7 @@ namespace _Scripts
                     var rotation = new Vector3(0f, 0f, rotationRate);
                     if (rotationZ < 0) rotation.z += rotationRate  * 1.5f;
                     this.transform.Rotate(rotation  * Time.deltaTime);
+                    HandleRotate(rotation);
                     return;
                 }
             }
@@ -166,6 +202,9 @@ namespace _Scripts
                 }
             }
         }
+
+        private Vector3 HandleRotate(Vector3 rotation) 
+            => Vector3.Lerp(transform.position, rotation, Time.deltaTime * 7f);
 
         private void MoveArrowKeys(float rotationX, float rotationZ)
         {
