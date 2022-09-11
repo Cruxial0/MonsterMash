@@ -21,7 +21,9 @@ namespace _Scripts
                 
                 //Create instance of visualFeedback (probably some kind of animation or particle system)
                 //Also create it with it's original rotation, and on our gameObject's position.
-                var obj = Instantiate(visualFeedback, this.gameObject.transform.position, visualFeedback.transform.rotation);
+                var obj = Instantiate(visualFeedback, this.gameObject.transform.GetChild(0).position, visualFeedback.transform.rotation);
+                obj.transform.position += Vector3.down;
+                obj.transform.position += Vector3.back;
 
             }
         }
