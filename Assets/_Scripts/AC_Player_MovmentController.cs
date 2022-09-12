@@ -12,7 +12,7 @@ public class AC_Player_MovmentController : MonoBehaviour
     //Callback value for RotateOnPerformed
     private Vector2 _rotate;
     //Controller Sensitivity, who would have guessed
-    private const float ControllerSensitivity = 0.5f;
+    private const float ControllerSensitivity = 4f;
     private Rigidbody _rigidbody;
     private void Awake()
     {
@@ -25,15 +25,21 @@ public class AC_Player_MovmentController : MonoBehaviour
         _controls.Gameplay.Rotate.canceled += ctx => _rotate = Vector2.zero;
     }
 
+    //Called when gameObject becomes active
+    private void OnEnable() => _controls.Gameplay.Enable();
+    //Called when gameObject becomes inactive
+    private void OnDisable() => _controls.Gameplay.Disable();
+    
     private void RotateOnPerformed(InputAction.CallbackContext obj)
     {
         _rotate = obj.ReadValue<Vector2>();
+        print(_rotate);
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = this.gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
