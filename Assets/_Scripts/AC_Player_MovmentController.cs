@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using _Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class AC_Player_MovmentController : MonoBehaviour
 {
+    public ControlType ControlPreset;
+    
     //Instance for Unity's InputSystem
     private PlayerControls _controls;
     //Callback value for RotateOnPerformed
@@ -45,9 +48,29 @@ public class AC_Player_MovmentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (ControlPreset)
+        {
+            case ControlType.Joystick:
+                MoveJoystick();
+                break;
+            
+            case ControlType.Keyboard:
+                MoveKeyboard();
+                break;
+        }
+        
+    }
+
+    private void MoveKeyboard()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void MoveJoystick()
+    {
         _rigidbody.AddForce(new Vector3(_rotate.x * ControllerSensitivity, 0, _rotate.y * ControllerSensitivity), ForceMode.Force);
     }
-    
+
     public enum ControlType
     {
         Joystick = 0,
