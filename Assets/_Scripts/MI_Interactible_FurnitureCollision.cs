@@ -6,7 +6,7 @@ namespace _Scripts
     {
         //This is a flag. This flag essentially makes visualFeedback public.
         [SerializeField]
-        GameObject visualFeedback;
+        private GameObject visualFeedback;
         
         //OnCollisionEnter is called when something collides with Collider and/or Rigidbody
         private void OnCollisionEnter(Collision collision)
@@ -18,12 +18,18 @@ namespace _Scripts
                 //Play SFX
                 //Play animation
                 //Properly position origin point of visualFeedback (using Mesh.bounds?)
-                
-                //Create instance of visualFeedback (probably some kind of animation or particle system)
+
+                Vector3 instantiatePos = this.gameObject.transform.GetChild(0).position;
+                instantiatePos.y = 0;
+
+                if (collision.gameObject.transform.position.z < instantiatePos.z)
+                    instantiatePos.z -= gameObject.transform.localScale.z / 0.5f;
+                else
+                    instantiatePos.z += gameObject.transform.localScale.z / 0.5f;
+
+                    //Create instance of visualFeedback (probably some kind of animation or particle system)
                 //Also create it with it's original rotation, and on our gameObject's position.
-                var obj = Instantiate(visualFeedback, this.gameObject.transform.GetChild(0).position, visualFeedback.transform.rotation);
-                obj.transform.position += Vector3.down;
-                obj.transform.position += Vector3.back;
+                Instantiate(visualFeedback, instantiatePos, visualFeedback.transform.rotation);
 
             }
         }
