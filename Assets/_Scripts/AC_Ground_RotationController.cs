@@ -20,7 +20,7 @@ namespace _Scripts
         //Callback value for RotateOnPerformed
         private Vector2 _rotate;
         //Controller Sensitivity, who would have guessed
-        private const float ControllerSensitivity = 1.3f;
+        private const float ControllerSensitivity = 0.5f;
 
         private void Awake()
         {
@@ -63,6 +63,9 @@ namespace _Scripts
             //if useController is true, proceed
             if (useController)
             {
+                player.GetComponent<Rigidbody>().AddForce(new Vector3(_rotate.x * ControllerSensitivity, 0, _rotate.y * ControllerSensitivity), ForceMode.Force);
+                
+                return;
                 //Regress rotation on all axis
                 RegressRotation(rotationX, rotationY, rotationZ);
                 
