@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Opponent
   - Furniture
+  - Interactible
   layers:
   - Default
   - TransparentFX
