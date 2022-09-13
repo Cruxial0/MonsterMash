@@ -35,7 +35,7 @@ public class UI_Timer_Handler : MonoBehaviour
             TimeSpan time = new TimeSpan();
             var timeSpan = time.Add(TimeSpan.FromSeconds(currTime));
 
-            text.text = $"{timeSpan.Minutes}:{timeSpan.Seconds}";
+            text.text = $"{timeSpan.Minutes}:{timeSpan.Seconds:00}";
 
             currTime -= Time.deltaTime;
         }
