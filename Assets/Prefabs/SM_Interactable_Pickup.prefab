@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4870768629660870657}
   - component: {fileID: 4870768629660870656}
   - component: {fileID: 4870768629660870659}
-  - component: {fileID: 4870768629660870663}
   - component: {fileID: 8660030383246957495}
   m_Layer: 0
   m_Name: SM_Interactable_Pickup
@@ -152,18 +151,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4870768629660870663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4870768629660870658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a82656436ce874438adeeaf466cdc53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8660030383246957495
 MonoBehaviour:
   m_ObjectHideFlags: 0
