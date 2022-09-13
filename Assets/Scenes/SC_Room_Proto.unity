@@ -1244,7 +1244,6 @@ GameObject:
   - component: {fileID: 1976142604}
   - component: {fileID: 1976142603}
   - component: {fileID: 1976142602}
-  - component: {fileID: 1976142601}
   m_Layer: 0
   m_Name: AC_Room_Floor_00
   m_TagString: Untagged
@@ -1252,22 +1251,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1976142601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976142600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc67f5951dc8b214ca7d059c2e488057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  rotationRate: 30
-  useController: 0
-  mainPlayer: 1
 --- !u!65 &1976142602
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1359,11 +1342,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094983371}
-  - component: {fileID: 2094983372}
   - component: {fileID: 2094983373}
+  - component: {fileID: 2094983374}
   m_Layer: 0
   m_Name: SM_Interactible_Furniture
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1384,19 +1367,6 @@ Transform:
   m_Father: {fileID: 907279640}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094983372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094983370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba395ac54d50b894e9978117d3aa4df2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualFeedback: {fileID: 8755653741362827867, guid: fe1a96e4353b3b447add8e81dcd38472, type: 3}
 --- !u!54 &2094983373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1413,6 +1383,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2094983374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094983370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 2656599857109841851, guid: 2783df3589353da46a2e5abddd7e5a63, type: 3}
 --- !u!1 &2111083050
 GameObject:
   m_ObjectHideFlags: 0

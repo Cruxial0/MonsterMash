@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4623896546920815188}
   - component: {fileID: 2656599857109841851}
   - component: {fileID: 7378296681993665762}
+  - component: {fileID: 2521624468087428968}
   m_Layer: 0
   m_Name: PS_DustCloud
   m_TagString: Untagged
@@ -4870,3 +4871,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2521624468087428968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499217569081607446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4f51563292de545a62665a47be271e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

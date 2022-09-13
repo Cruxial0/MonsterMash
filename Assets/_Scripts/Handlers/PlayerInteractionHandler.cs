@@ -23,9 +23,63 @@ namespace _Scripts.Handlers
         }
         
         
-        private void HandleCollision(object sender, Collision c)
+        private void HandleCollision(object sender, CollisionEventArgs c)
         {
-            Debug.Log(c.collider.name);
+            InteractableObject obj = sender as InteractableObject;
+
+            if (c.TriggerEvent == null) HandleCollisionEvent(obj, c.CollisionEvent);
+            if(c.CollisionEvent == null) HandleTriggerEvent(obj, c.TriggerEvent);
+        }
+
+        private void HandleTriggerEvent(InteractableObject interactableObject, Collider triggerEvent)
+        {
+            var collisionType = interactableObject.InteractType;
+
+            switch (collisionType)
+            {
+                case InteractType.Pickup:
+                    interactableObject.Destroy();
+                    Debug.Log("destroyed in handler");
+                    break;
+                
+                case InteractType.Trap:
+                    break;
+            }
+        }
+
+        private void HandleCollisionEvent(InteractableObject interactableObject, Collision collisionEvent)
+        {
+            var collisionType = interactableObject.InteractType;
+
+            switch (collisionType)
+            {
+                case InteractType.Collision:
+                    Object.Instantiate(interactableObject.VisualFeedback, collisionEvent.gameObject.transform.position,
+                        interactableObject.VisualFeedback.transform.rotation);
+                    break;
+                
+            }
+        }
+
+        private void DetermineVisualFeedback(InteractableObject obj, Collision collision)
+        {
+            //TODO:
+            //Play SFX
+            //Play animation
+            //Properly position origin point of visualFeedback (using Mesh.bounds?)
+
+            Vector3 instantiatePos = obj.Parent.transform.GetChild(0).position;
+            var instantiateScale = obj.Parent.transform.localScale;
+            instantiatePos.y = 0;
+
+            if (collision.gameObject.transform.position.z < instantiatePos.z)
+                instantiatePos.z -= instantiateScale.z / 0.5f;
+            else
+                instantiatePos.z += instantiateScale.z / 0.5f;
+
+            //Create instance of visualFeedback (probably some kind of animation or particle system)
+            //Also create it with it's original rotation, and on our gameObject's position.
+            Object.Instantiate(obj.VisualFeedback, instantiatePos, obj.VisualFeedback.transform.rotation);
         }
     }
 }

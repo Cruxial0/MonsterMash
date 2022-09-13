@@ -17,9 +17,17 @@ public class MI_Interactible_Initialize : MonoBehaviour
 
     public void AddInteractionHandlerReference(PlayerInteractionHandler handler) => _handler = handler;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision c)
     {
+        if(!c.collider.CompareTag("Player")) return;
         _handler.InteractableHandler.Interactibles.First(x => x.Parent == this.gameObject)
-            .AddCollisionEntry(collision);
+            .AddCollisionEntry(new CollisionEventArgs(collision: c));
+    }
+    
+    private void OnTriggerEnter(Collider c)
+    {
+        if(!c.gameObject.CompareTag("Player")) return;
+        _handler.InteractableHandler.Interactibles.First(x => x.Parent == this.gameObject)
+            .AddCollisionEntry(new CollisionEventArgs(trigger: c));
     }
 }
