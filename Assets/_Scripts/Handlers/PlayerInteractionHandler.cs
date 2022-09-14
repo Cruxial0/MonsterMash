@@ -31,9 +31,12 @@ namespace _Scripts.Handlers
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
         {
+            
             _player = player;
             InteractableHandler = new InteractableHandler();
             _guiParent = GameObject.FindGameObjectWithTag("UI");
+            
+            
             
             CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
                 .First(x => x.name == "UI_Collectable_Text");
@@ -41,6 +44,8 @@ namespace _Scripts.Handlers
                 .First(x => x.name == "UI_Timer");
             _timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
 
+            Debug.Log("did the thing");
+            
             _timerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
@@ -49,9 +54,10 @@ namespace _Scripts.Handlers
                 interactable.Parent.GetComponent<MI_Interactible_Initialize>().AddInteractionHandlerReference(this);
                 interactable.CollisionAdded += HandleCollision;
             }
-
+            
             InitializeGUI();
             StartTimer();
+            
         }
 
         private void HandleTimer(object sender)
