@@ -10,6 +10,5 @@ public class AC_Player_Initialize : MonoBehaviour
     void Start()
     {
         PlayerInteractionHandler = new PlayerInteractionHandler(this.gameObject);
-        print(PlayerInteractionHandler.InteractableHandler.Interactibles.Count);
     }
 }

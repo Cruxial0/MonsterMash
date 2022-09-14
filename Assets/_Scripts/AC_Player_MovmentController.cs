@@ -17,6 +17,7 @@ public class AC_Player_MovmentController : MonoBehaviour
     //Controller Sensitivity, who would have guessed
     private const float ControllerSensitivity = 4f;
     private Rigidbody _rigidbody;
+    private Keyboard _keyboard = Keyboard.current;
     private void Awake()
     {
         //Instantiate PlayerControls object
@@ -57,13 +58,30 @@ public class AC_Player_MovmentController : MonoBehaviour
             case ControlType.Keyboard:
                 MoveKeyboard();
                 break;
+                
+            case ControlType.Gyroscope:
+                MoveGyroscope();
+                break;
         }
         
     }
 
+    private void MoveGyroscope()
+    {
+        Debug.LogError("Gyroscope controls not implemented!");
+    }
+
     private void MoveKeyboard()
     {
-        throw new NotImplementedException();
+        
+        if (_keyboard.aKey.IsPressed())
+            _rigidbody.AddForce(Vector3.left, ForceMode.Force);
+        if (_keyboard.dKey.IsPressed())
+            _rigidbody.AddForce(Vector3.right, ForceMode.Force);
+        if (_keyboard.wKey.IsPressed())
+            _rigidbody.AddForce(Vector3.forward, ForceMode.Force);
+        if (_keyboard.sKey.IsPressed())
+            _rigidbody.AddForce(Vector3.back, ForceMode.Force);
     }
 
     private void MoveJoystick()
