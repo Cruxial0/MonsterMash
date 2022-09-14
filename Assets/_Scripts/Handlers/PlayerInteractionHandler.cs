@@ -7,7 +7,6 @@ using System.Timers;
 using TMPro;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
-using Event = Unity.Services.Analytics.Internal.Event;
 using Object = UnityEngine.Object;
 
 namespace _Scripts.Handlers
