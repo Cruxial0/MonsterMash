@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SC_Room_Proto.unity
     guid: a23dfd7a957f0624cade71d3ba7c9fc4
   m_configObjects: {}

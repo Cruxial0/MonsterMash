@@ -38,15 +38,15 @@ namespace _Scripts.Handlers
             
             
             
-            //CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                //.First(x => x.name == "UI_Collectable_Text");
-            //TimerText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                //.First(x => x.name == "UI_Timer");
-            //_timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
+            CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
+                .First(x => x.name == "UI_Collectable_Text");
+            TimerText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
+                .First(x => x.name == "UI_Timer");
+            _timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
 
             Debug.Log("did the thing");
             
-            //_timerHandler.TimerDepleted += HandleTimer;
+            _timerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
             foreach (var interactable in InteractableHandler.Interactibles)
@@ -54,11 +54,9 @@ namespace _Scripts.Handlers
                 interactable.Parent.GetComponent<MI_Interactible_Initialize>().AddInteractionHandlerReference(this);
                 interactable.CollisionAdded += HandleCollision;
             }
-
             
-            
-            //InitializeGUI();
-            //StartTimer();
+            InitializeGUI();
+            StartTimer();
             
         }
 
