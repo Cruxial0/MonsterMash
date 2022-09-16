@@ -19,7 +19,7 @@ public class AC_Player_MovmentController : MonoBehaviour
     private Rigidbody _rigidbody;
     private Keyboard _keyboard = Keyboard.current;
     private const float MovementSpeed = 70f;
-    private FixedJoystick _virtualJoystick;
+    //private FixedJoystick _virtualJoystick;
 
     private void Awake()
     {
@@ -28,24 +28,24 @@ public class AC_Player_MovmentController : MonoBehaviour
         
         //Subscribe to controller events
         //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
-        _controls.Gameplay.Rotate.performed += RotateOnPerformed;
-        _controls.Gameplay.Rotate.canceled += ctx => _rotate = Vector2.zero;
+        _controls.Player.Movement.performed += RotateOnPerformed;
+        _controls.Player.Movement.canceled += ctx => _rotate = Vector2.zero;
     }
 
     private void Start()
     {
         
-        _virtualJoystick = AC_Player_Initialize.PlayerInteractionHandler.VirtualJoystick;
+        //_virtualJoystick = AC_Player_Initialize.PlayerInteractionHandler.VirtualJoystick;
 
         _rigidbody = this.gameObject.GetComponent<Rigidbody>();
 
-        Debug.Log($"X: {_virtualJoystick.Horizontal} Y: {_virtualJoystick.Vertical}");
+        //Debug.Log($"X: {_virtualJoystick.Horizontal} Y: {_virtualJoystick.Vertical}");
     }
 
     //Called when gameObject becomes active
-    private void OnEnable() => _controls.Gameplay.Enable();
+    private void OnEnable() => _controls.Player.Movement.Enable();
     //Called when gameObject becomes inactive
-    private void OnDisable() => _controls.Gameplay.Disable();
+    private void OnDisable() => _controls.Player.Movement.Disable();
     
     private void RotateOnPerformed(InputAction.CallbackContext obj)
     {
@@ -93,7 +93,7 @@ public class AC_Player_MovmentController : MonoBehaviour
 
     private void MoveJoystick()
     {
-        _rigidbody.AddForce(new Vector3(_rotate.x * ControllerSensitivity, 0, _rotate.y * ControllerSensitivity), ForceMode.Force);
+        _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime, ForceMode.Force);
     }
 
     public enum ControlType

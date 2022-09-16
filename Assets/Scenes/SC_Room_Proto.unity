@@ -1561,6 +1561,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 6912114493202960716, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: deadZone
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912114493202960716, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: axisOptions
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912114493202960716, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: handleRange
+      value: 338.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
 --- !u!1001 &4870768630417838690

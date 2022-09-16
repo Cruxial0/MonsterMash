@@ -26,13 +26,13 @@ namespace _Scripts
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
-            ""id"": ""97c7baa4-c190-492c-9002-1af6437f6f25"",
+            ""name"": ""Player"",
+            ""id"": ""efff696e-f01f-4b8b-b34e-220036dd562a"",
             ""actions"": [
                 {
-                    ""name"": ""Rotate"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
-                    ""id"": ""e3938ad6-bc36-4804-b8bf-89c4cc6ff216"",
+                    ""id"": ""9055b116-4e89-4b77-9b17-ec2a4d101e81"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -42,12 +42,12 @@ namespace _Scripts
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""89a0c104-3715-47c1-bf78-b3277c25ad4b"",
+                    ""id"": ""1b1ad651-11db-442c-9cea-92d497d53061"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,9 +56,9 @@ namespace _Scripts
     ],
     ""controlSchemes"": []
 }");
-            // Gameplay
-            m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-            m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
+            // Player
+            m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+            m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -115,41 +115,41 @@ namespace _Scripts
             return asset.FindBinding(bindingMask, out action);
         }
 
-        // Gameplay
-        private readonly InputActionMap m_Gameplay;
-        private IGameplayActions m_GameplayActionsCallbackInterface;
-        private readonly InputAction m_Gameplay_Rotate;
-        public struct GameplayActions
+        // Player
+        private readonly InputActionMap m_Player;
+        private IPlayerActions m_PlayerActionsCallbackInterface;
+        private readonly InputAction m_Player_Movement;
+        public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
-            public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
-            public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+            public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Movement => m_Wrapper.m_Player_Movement;
+            public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-            public void SetCallbacks(IGameplayActions instance)
+            public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+            public void SetCallbacks(IPlayerActions instance)
             {
-                if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+                if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
                 {
-                    @Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                    @Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                    @Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
+                    @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                    @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                    @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 }
-                m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+                m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Rotate.started += instance.OnRotate;
-                    @Rotate.performed += instance.OnRotate;
-                    @Rotate.canceled += instance.OnRotate;
+                    @Movement.started += instance.OnMovement;
+                    @Movement.performed += instance.OnMovement;
+                    @Movement.canceled += instance.OnMovement;
                 }
             }
         }
-        public GameplayActions @Gameplay => new GameplayActions(this);
-        public interface IGameplayActions
+        public PlayerActions @Player => new PlayerActions(this);
+        public interface IPlayerActions
         {
-            void OnRotate(InputAction.CallbackContext context);
+            void OnMovement(InputAction.CallbackContext context);
         }
     }
 }
