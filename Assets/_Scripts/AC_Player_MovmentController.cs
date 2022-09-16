@@ -18,6 +18,7 @@ public class AC_Player_MovmentController : MonoBehaviour
     private const float ControllerSensitivity = 4f;
     private Rigidbody _rigidbody;
     private Keyboard _keyboard = Keyboard.current;
+    private const float MovementSpeed = 70f;
     private void Awake()
     {
         //Instantiate PlayerControls object
@@ -74,14 +75,14 @@ public class AC_Player_MovmentController : MonoBehaviour
     private void MoveKeyboard()
     {
         
-        if (_keyboard.aKey.IsPressed())
-            _rigidbody.AddForce(Vector3.left, ForceMode.Force);
-        if (_keyboard.dKey.IsPressed())
-            _rigidbody.AddForce(Vector3.right, ForceMode.Force);
         if (_keyboard.wKey.IsPressed())
-            _rigidbody.AddForce(Vector3.forward, ForceMode.Force);
+            _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed) * Time.deltaTime, ForceMode.Force);
         if (_keyboard.sKey.IsPressed())
-            _rigidbody.AddForce(Vector3.back, ForceMode.Force);
+            _rigidbody.AddForce(new Vector3(0, 0,-MovementSpeed) * Time.deltaTime, ForceMode.Force);
+        if (_keyboard.aKey.IsPressed())
+            _rigidbody.AddForce(new Vector3(-MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
+        if (_keyboard.dKey.IsPressed())
+            _rigidbody.AddForce(new Vector3(MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
     }
 
     private void MoveJoystick()

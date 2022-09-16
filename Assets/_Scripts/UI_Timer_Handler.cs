@@ -7,7 +7,7 @@ using UnityEngine;
 public class UI_Timer_Handler : MonoBehaviour
 {
     private TextMeshProUGUI text;
-    private float roundTime = 10f;
+    private float roundTime = 100f;
     private float currTime = 0f;
     private bool timerActive = false;
     void Start()

@@ -43,8 +43,6 @@ namespace _Scripts.Handlers
                 .First(x => x.name == "UI_Timer");
             _timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
 
-            Debug.Log("did the thing");
-            
             _timerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
