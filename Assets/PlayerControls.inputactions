@@ -2,13 +2,13 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Gameplay",
-            "id": "97c7baa4-c190-492c-9002-1af6437f6f25",
+            "name": "Player",
+            "id": "efff696e-f01f-4b8b-b34e-220036dd562a",
             "actions": [
                 {
-                    "name": "Rotate",
+                    "name": "Movement",
                     "type": "Value",
-                    "id": "e3938ad6-bc36-4804-b8bf-89c4cc6ff216",
+                    "id": "9055b116-4e89-4b77-9b17-ec2a4d101e81",
                     "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
@@ -18,12 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "89a0c104-3715-47c1-bf78-b3277c25ad4b",
+                    "id": "1b1ad651-11db-442c-9cea-92d497d53061",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

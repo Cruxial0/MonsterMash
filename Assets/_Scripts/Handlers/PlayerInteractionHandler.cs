@@ -26,6 +26,8 @@ namespace _Scripts.Handlers
         private int _currCollectable = 0;
 
         private UI_Timer_Handler _timerHandler { get; }
+        
+        //public FixedJoystick VirtualJoystick { get; set; }
 
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
@@ -34,13 +36,12 @@ namespace _Scripts.Handlers
             _player = player;
             InteractableHandler = new InteractableHandler();
             _guiParent = GameObject.FindGameObjectWithTag("UI");
-            
-            
-            
+
             CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
                 .First(x => x.name == "UI_Collectable_Text");
             TimerText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
                 .First(x => x.name == "UI_Timer");
+            //VirtualJoystick = _guiParent.transform.GetComponentsInChildren<FixedJoystick>().First();
             _timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
 
             _timerHandler.TimerDepleted += HandleTimer;
