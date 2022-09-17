@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2386159764605979978}
   - component: {fileID: 9037147840278636392}
   m_Layer: 0
-  m_Name: MI_Interactable_Trap
+  m_Name: TrapObject
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

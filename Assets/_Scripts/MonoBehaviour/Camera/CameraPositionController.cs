@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace _Scripts
+namespace _Scripts.MonoBehaviour.Camera
 {
-    public class AC_Camera_PositionManager : MonoBehaviour
+    public class CameraPositionController : UnityEngine.MonoBehaviour
     {
         public GameObject player; //Public reference to the player object.
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_Timer_Handler : MonoBehaviour
+public class TimerHandler : MonoBehaviour
 {
     private TextMeshProUGUI text;
     private float roundTime = 100f;

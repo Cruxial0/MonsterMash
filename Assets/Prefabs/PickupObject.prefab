@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4870768629660870659}
   - component: {fileID: 8660030383246957495}
   m_Layer: 0
-  m_Name: SM_Interactable_Pickup
+  m_Name: PickupObject
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

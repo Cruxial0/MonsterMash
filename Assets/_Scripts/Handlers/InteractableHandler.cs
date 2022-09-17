@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts.MonoBehaviour.Interactables.Pickup;
 using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -15,7 +16,7 @@ namespace _Scripts.Handlers
         {
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Interactable"))
             {
-                Interactibles.Add(new InteractableObject(gameObject, gameObject.GetComponent<MI_Interactible_Initialize>()));
+                Interactibles.Add(new InteractableObject(gameObject, gameObject.GetComponent<InteractableInitialize>()));
             }
         }
     }
@@ -28,7 +29,7 @@ namespace _Scripts.Handlers
         public InteractType InteractType { get; }
         public List<CollisionEventArgs> CollisionLog = new List<CollisionEventArgs>();
 
-        public InteractableObject(GameObject parent, MI_Interactible_Initialize initialize)
+        public InteractableObject(GameObject parent, InteractableInitialize initialize)
         {
             Parent = parent;
             if(initialize.VisualFeedback != null) 
