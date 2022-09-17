@@ -14,7 +14,7 @@ namespace _Scripts.Handlers
 
         public void Lose()
         {
-            Object.Destroy(_player);
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             Debug.Log("You lose");
         }
         

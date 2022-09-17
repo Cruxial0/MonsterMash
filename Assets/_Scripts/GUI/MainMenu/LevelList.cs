@@ -18,7 +18,6 @@ namespace _Scripts.GUI.MainMenu
         public GameObject ButtonPrefab;
         private void OnEnable()
         {
-            print("enabled");
             List<ILevel> levels = LevelManager.GetAllScenes();
 
             foreach (var level in levels.OrderBy(x=> x.LevelID))
@@ -33,10 +32,11 @@ namespace _Scripts.GUI.MainMenu
         {
             GameObject btn = Instantiate(ButtonPrefab);
             var button = btn.GetComponent<Button>();
-            var text = button.GetComponentInChildren<TextMeshProUGUI>();
+            var text = button.GetComponentsInChildren<TextMeshProUGUI>();
 
-            text.text = $"{level.Level.SceneName} (ID {level.LevelID})";
-
+            text[0].text = $"{level.Level.SceneName} (ID {level.LevelID})";
+            text[1].text = $"'{level.Events.First().EventName}': {level.Events.First().Description}";
+            
             button.onClick.AddListener(LevelButtonClicked);
             
             return btn;
@@ -46,9 +46,7 @@ namespace _Scripts.GUI.MainMenu
         {
             var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
             ILevel level = LevelButtons[button];
-            
-            print(level.Level.LevelScene.name);
-            
+
             LevelManager.LoadScene(level);
         }
     }

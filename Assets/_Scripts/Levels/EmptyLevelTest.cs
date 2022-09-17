@@ -1,4 +1,6 @@
-﻿using _Scripts.Handlers;
+﻿using System.Collections.Generic;
+using _Scripts.Handlers;
+using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
 using UnityEngine.SceneManagement;
 
@@ -12,5 +14,7 @@ namespace _Scripts.Levels
         {
             LevelName = "Empty Level lmao"
         };
+
+        public List<IEvent> Events => new List<IEvent>() { new NoEvent() };
     }
 }

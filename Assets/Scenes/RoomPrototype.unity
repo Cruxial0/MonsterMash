@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 177184732}
   - component: {fileID: 177184731}
   m_Layer: 0
-  m_Name: Furniture_00
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 209648459}
   - component: {fileID: 209648458}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Furniture_00
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

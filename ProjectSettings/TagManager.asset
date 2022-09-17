@@ -13,6 +13,9 @@ TagManager:
   - RoomFloor
   - RoomWall
   - Light
+  - CollectSprite
+  - CollectCounter
+  - Timer
   layers:
   - Default
   - TransparentFX

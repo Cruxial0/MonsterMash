@@ -20,44 +20,24 @@ namespace _Scripts.Handlers
     {
         public Scene CurrentLevel;
         //Reference to player
-        private GameObject _player { get; }
         public readonly InteractableHandler InteractableHandler;
         public readonly TrapHandler TrapHandler;
         public readonly GameStateManager GameStateManager;
-        public SceneObjects SceneObjects;
-
-        private GameObject _guiParent { get; }
-        private TextMeshProUGUI CollectableText { get; set; }
-        
-        private TextMeshProUGUI TimerText { get; set; }
+        public static SceneObjects SceneObjects;
 
         private int _collectableCount = 0;
         private int _currCollectable = 0;
-
-        private TimerHandler _timerHandler { get; }
-        
-        //public FixedJoystick VirtualJoystick { get; set; }
 
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
         {
             CurrentLevel = SceneManager.GetActiveScene();
-            _player = player;
             InteractableHandler = new InteractableHandler();
-            GameStateManager = new GameStateManager(player, this);
             TrapHandler = new TrapHandler();
-            //GameStateManager = new GameStateManager(player, this);
-            _guiParent = GameObject.FindGameObjectWithTag("UI");
             SceneObjects = new SceneObjects(CurrentLevel, this);
+            GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
 
-            CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                .First(x => x.name == "CollectableCounter");
-            TimerText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                .First(x => x.name == "Timer");
-            //VirtualJoystick = _guiParent.transform.GetComponentsInChildren<FixedJoystick>().First();
-            _timerHandler = TimerText.GetComponent<TimerHandler>();
-
-            _timerHandler.TimerDepleted += HandleTimer;
+            SceneObjects.UI.Timer.TimerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
             foreach (var interactable in InteractableHandler.Interactibles)
@@ -66,16 +46,12 @@ namespace _Scripts.Handlers
                 interactable.CollisionAdded += HandleCollision;
             }
             
-            
-            
             foreach (var interactable in TrapHandler.Interactibles)
             {
                 interactable.Parent.GetComponent<TrapInitialize>().AddInteractionHandlerReference(this);
                 interactable.TrapCollisionAdded += HandleTrapCollision;
             }
-            
-            Debug.Log(InteractableHandler.Interactibles.Count());
-            
+
             InitializeGUI();
             StartTimer();
             
@@ -84,28 +60,27 @@ namespace _Scripts.Handlers
         private void HandleTrapCollision(object sender, TrapEventArgs e)
         {
             e.ScriptReference.OnCollision(20f);
-            SceneObjects.Room.PickupObject.First().SpriteRenderer.color = Color.cyan;
+            SceneObjects.Room.TrapObjects.First().SpriteRenderer.color = Color.clear;
         }
 
         private void HandleTimer(object sender)
         {
             Debug.Log("timer depleted");
-            Object.Destroy(_player);
+            Object.Destroy(SceneObjects.Player.Self);
         }
 
-        public void StartTimer() => _timerHandler.StartTimer();
-        public void StopTimer() => _timerHandler.StopTimer();
+        public void StartTimer() => SceneObjects.UI.Timer.TimerHandler.StartTimer();
+        public void StopTimer() => SceneObjects.UI.Timer.TimerHandler.StopTimer();
 
         private void InitializeGUI()
         {
             _collectableCount = InteractableHandler.Interactibles.Count(x => x.InteractType == InteractType.Pickup);
-            Debug.Log(_collectableCount);
-            CollectableText.text = $"{_currCollectable}/{_collectableCount}";
+            SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
         }
 
         private void UpdateGUI(object sender)
         {
-            CollectableText.text = $"{_currCollectable}/{_collectableCount}";
+            SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
             if (_currCollectable == _collectableCount)
             {
                 StopTimer();

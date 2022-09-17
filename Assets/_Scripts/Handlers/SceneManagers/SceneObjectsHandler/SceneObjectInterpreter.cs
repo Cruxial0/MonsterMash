@@ -1,9 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
+using _Scripts.MonoBehaviour.Camera;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using _Scripts.MonoBehaviour.Interactables.Traps;
+using _Scripts.MonoBehaviour.Player;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.UI;
 
 namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
 {
@@ -27,18 +32,40 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
         
         //REVERT TO DEFAULT VALUES
 
+        public PlayerSceneObject GetPlayer(List<GameObject> rootObjects)
+        {
+            GameObject player = rootObjects.First(x => x.CompareTag("Player"));
+
+            return new PlayerSceneObject()
+            {
+                Collider = player.GetComponent<Collider>(),
+                InitializeScript = player.GetComponent<PlayerInitialize>(),
+                MeshFilter = player.GetComponent<MeshFilter>(),
+                MeshRenderer = player.GetComponent<MeshRenderer>(),
+                MovmentController = player.GetComponent<PlayerMovmentController>(),
+                Rigidbody = player.GetComponent<Rigidbody>(),
+                Transform = player.GetComponent<Transform>(),
+                PlayerStates = player.GetComponent<PlayerStates>(),
+                Self = player
+            };
+        }
+
+        public CameraSceneObject GetMainCamera(List<GameObject> rootObjects)
+        {
+            GameObject camera = rootObjects.First(x => x.CompareTag("MainCamera"));
+
+            return new CameraSceneObject() { Script = camera.GetComponent<CameraPositionController>() };
+        }
+        
         public RoomSceneObject GetRoom(List<GameObject> rootObjects)
         {
             RoomSceneObject room = new RoomSceneObject();
-
-            Debug.Log("getroom");
+            
             foreach (var gameObject in rootObjects.Where(x => x.CompareTag("RoomParent")))
             {
                 foreach (Transform obj in gameObject.transform)
                 {
                     var floor = obj.gameObject;
-                    
-                    Debug.Log("found floor");
                     room.Floor = floor;
 
                     foreach (Transform innerChild in floor.transform)
@@ -62,12 +89,19 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                                         });
                                         break;
                                     case InteractType.Collision:
+                                        var body = child.transform.GetChild(0).gameObject;
                                         room.FurnitureObjects.Add(new FurnitureSceneObject()
                                         {
-                                            Collider = child.GetComponent<Collider>(),
-                                            MeshFilter = child.GetComponent<MeshFilter>(),
-                                            MeshRenderer = child.GetComponent<MeshRenderer>(),
-                                            Transform = child.GetComponent<Transform>()
+                                            Rigidbody = child.GetComponent<Rigidbody>(),
+                                            Transform = child.GetComponent<Transform>(),
+                                            Script = child.GetComponent<InteractableInitialize>(),
+                                            Body = new FurnitureBody()
+                                            {
+                                                Collider = body.GetComponent<Collider>(),
+                                                MeshFilter = body.GetComponent<MeshFilter>(),
+                                                MeshRenderer = body.GetComponent<MeshRenderer>(),
+                                                Transform = body.GetComponent<Transform>()
+                                            }
                                         });
                                         break;
                                     case InteractType.Collision | InteractType.Pickup:
@@ -92,7 +126,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                                 room.Walls.Add(child);
                                 break;
                             case "Light":
-                                Debug.Log("found light");
                                 room.LightObject = new LightSceneObject()
                                 {
                                     Light = child.GetComponent<Light>(),
@@ -105,6 +138,67 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
             }
             
             return room;
+        }
+
+        public UISceneObject GetGUI(List<GameObject> rootObjects)
+        {
+            UISceneObject gui = new UISceneObject();
+
+            var uiParent = rootObjects.First(x => x.CompareTag("UI"));
+            var canvas = uiParent.transform.GetChild(0).gameObject;
+
+            gui.CanvasObject = new CanvasObject()
+            {
+                Canvas = canvas.GetComponent<Canvas>(),
+                CanvasScaler = canvas.GetComponent<CanvasScaler>(),
+                GraphicRaycaster = canvas.GetComponent<GraphicRaycaster>(),
+                RectTransform = canvas.GetComponent<RectTransform>()
+            };
+
+            foreach (Transform obj in canvas.transform)
+            {
+                var child = obj.gameObject;
+
+                switch (child.tag)
+                {
+                    case "GameController":
+                        gui.MobileJoystick = new MobileJoystick()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            Image = child.GetComponent<Image>(),
+                            OnScreenStick = child.GetComponent<OnScreenStick>(),
+                            RectTransform = child.GetComponent<RectTransform>()
+                        };
+                        break;
+                    case "CollectSprite":
+                        gui.CollectableSprite = new CollectableSprite()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            Image = child.GetComponent<Image>(),
+                            RectTransform = child.GetComponent<RectTransform>()
+                        };
+                        break;
+                    case "CollectCounter":
+                        gui.CollectableCounter = new CollectableCounter()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            RectTransform = child.GetComponent<RectTransform>(),
+                            Text = child.GetComponent<TextMeshProUGUI>()
+                        };
+                        break;
+                    case "Timer":
+                        gui.Timer = new Timer()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            RectTransform = child.GetComponent<RectTransform>(),
+                            Text = child.GetComponent<TextMeshProUGUI>(),
+                            TimerHandler = child.GetComponent<TimerHandler>()
+                        };
+                        break;
+                }
+            }
+
+            return gui;
         }
     }
 }

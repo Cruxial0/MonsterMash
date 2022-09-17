@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1602659869691012702}
   m_Layer: 5
   m_Name: CollectableCounter
-  m_TagString: Untagged
+  m_TagString: CollectCounter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1602659870266681883}
   m_Layer: 5
   m_Name: CollectableSprite
-  m_TagString: Untagged
+  m_TagString: CollectSprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 1602659871429674490}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

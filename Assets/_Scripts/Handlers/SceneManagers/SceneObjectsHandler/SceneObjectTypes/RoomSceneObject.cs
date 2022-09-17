@@ -24,9 +24,17 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
     public class FurnitureSceneObject
     {
         public Transform Transform { get; set; }
+        public Rigidbody Rigidbody { get; set; }
+        public FurnitureBody Body { get; set; }
+        public InteractableInitialize Script { get; set; }
+    }
+
+    public class FurnitureBody
+    {
+        public Transform Transform { get; set; }
+        public Collider Collider { get; set; }
         public MeshFilter MeshFilter { get; set; }
         public MeshRenderer MeshRenderer { get; set; }
-        public Collider Collider { get; set; }
     }
 
     public class TrapSceneObject
