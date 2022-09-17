@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7378296681993665762}
   - component: {fileID: 2521624468087428968}
   m_Layer: 0
-  m_Name: PS_DustCloud
+  m_Name: DustCloudParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
