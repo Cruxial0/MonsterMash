@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
+using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
+using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using _Scripts.MonoBehaviour.Interactables.Traps;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
@@ -15,12 +18,14 @@ namespace _Scripts.Handlers
 {
     public class PlayerInteractionHandler
     {
+        public Scene CurrentLevel;
         //Reference to player
         private GameObject _player { get; }
         public readonly InteractableHandler InteractableHandler;
         public readonly TrapHandler TrapHandler;
         public readonly GameStateManager GameStateManager;
-        
+        public SceneObjects SceneObjects;
+
         private GameObject _guiParent { get; }
         private TextMeshProUGUI CollectableText { get; set; }
         
@@ -36,13 +41,14 @@ namespace _Scripts.Handlers
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
         {
-            
+            CurrentLevel = SceneManager.GetActiveScene();
             _player = player;
             InteractableHandler = new InteractableHandler();
             GameStateManager = new GameStateManager(player, this);
             TrapHandler = new TrapHandler();
             //GameStateManager = new GameStateManager(player, this);
             _guiParent = GameObject.FindGameObjectWithTag("UI");
+            SceneObjects = new SceneObjects(CurrentLevel, this);
 
             CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
                 .First(x => x.name == "CollectableCounter");
@@ -78,6 +84,7 @@ namespace _Scripts.Handlers
         private void HandleTrapCollision(object sender, TrapEventArgs e)
         {
             e.ScriptReference.OnCollision(20f);
+            SceneObjects.Room.PickupObject.First().SpriteRenderer.color = Color.cyan;
         }
 
         private void HandleTimer(object sender)

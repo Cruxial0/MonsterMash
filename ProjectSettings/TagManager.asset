@@ -9,6 +9,10 @@ TagManager:
   - Interactable
   - UI
   - Trap
+  - RoomParent
+  - RoomFloor
+  - RoomWall
+  - Light
   layers:
   - Default
   - TransparentFX

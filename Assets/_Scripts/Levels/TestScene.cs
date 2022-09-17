@@ -9,7 +9,7 @@ namespace _Scripts.Levels
     {
         public int LevelID => 0;
 
-        public Level Level => new Level("RoomPrototype", new Scene())
+        public Level Level => new Level("RoomPrototype")
         {
             LevelName = "Test Name"
         };

@@ -17,10 +17,9 @@ namespace _Scripts.Handlers
         public string SceneName { get; }
         public Scene LevelScene { get; set; }
 
-        public Level(string sceneName, Scene levelScene)
+        public Level(string sceneName)
         {
             SceneName = sceneName;
-            LevelScene = levelScene;
         }
     }
 }

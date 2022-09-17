@@ -9,6 +9,7 @@ namespace _Scripts.Handlers
 {
     public static class LevelManager
     {
+        public static ILevel SelectedLevel;
         public static List<ILevel> GetAllScenes()
         {
             List<ILevel> Levels = new List<ILevel>();
@@ -30,8 +31,12 @@ namespace _Scripts.Handlers
         
         public static void LoadScene(ILevel level)
         {
-            SceneManager.LoadScene(level.Level.SceneName);
-            level.Level.LevelScene = SceneManager.GetSceneByName(level.Level.SceneName);
+            SelectedLevel = level;
+            SceneManager.LoadSceneAsync(level.Level.SceneName).completed += delegate(AsyncOperation operation)
+            {
+                level.Level.LevelScene = SceneManager.GetActiveScene();
+            };
+            
         }
     }
 }

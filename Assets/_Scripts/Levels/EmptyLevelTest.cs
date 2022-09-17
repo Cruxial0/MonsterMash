@@ -8,7 +8,7 @@ namespace _Scripts.Levels
     {
         public int LevelID => 1;
 
-        public Level Level => new Level("EmptyLevel", new Scene())
+        public Level Level => new Level("EmptyLevel")
         {
             LevelName = "Empty Level lmao"
         };
