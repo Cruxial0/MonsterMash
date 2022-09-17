@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
+using _Scripts.MonoBehaviour.Interactables.Pickup;
+using _Scripts.MonoBehaviour.Interactables.Traps;
 using TMPro;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -27,7 +29,7 @@ namespace _Scripts.Handlers
         private int _collectableCount = 0;
         private int _currCollectable = 0;
 
-        private UI_Timer_Handler _timerHandler { get; }
+        private TimerHandler _timerHandler { get; }
         
         //public FixedJoystick VirtualJoystick { get; set; }
 
@@ -43,24 +45,24 @@ namespace _Scripts.Handlers
             _guiParent = GameObject.FindGameObjectWithTag("UI");
 
             CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                .First(x => x.name == "UI_Collectable_Text");
+                .First(x => x.name == "CollectableCounter");
             TimerText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
-                .First(x => x.name == "UI_Timer");
+                .First(x => x.name == "Timer");
             //VirtualJoystick = _guiParent.transform.GetComponentsInChildren<FixedJoystick>().First();
-            _timerHandler = TimerText.GetComponent<UI_Timer_Handler>();
+            _timerHandler = TimerText.GetComponent<TimerHandler>();
 
             _timerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
             foreach (var interactable in InteractableHandler.Interactibles)
             {
-                interactable.Parent.GetComponent<MI_Interactible_Initialize>().AddInteractionHandlerReference(this);
+                interactable.Parent.GetComponent<InteractableInitialize>().AddInteractionHandlerReference(this);
                 interactable.CollisionAdded += HandleCollision;
             }
             
             foreach (var interactable in TrapHandler.Interactibles)
             {
-                interactable.Parent.GetComponent<MI_Trap_Initialize>().AddInteractionHandlerReference(this);
+                interactable.Parent.GetComponent<TrapInitialize>().AddInteractionHandlerReference(this);
                 interactable.TrapCollisionAdded += HandleTrapCollision;
             }
             
@@ -124,7 +126,7 @@ namespace _Scripts.Handlers
                     break;
                 
                 case InteractType.Trap:
-                    triggerEvent.gameObject.GetComponent<MI_Trap_Initialize>().OnCollision(20f);
+                    triggerEvent.gameObject.GetComponent<TrapInitialize>().OnCollision(20f);
                     break;
             }
         }
