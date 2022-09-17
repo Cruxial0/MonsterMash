@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -22,14 +23,16 @@ namespace _Scripts.Handlers
     public class InteractableObject
     {
         public GameObject Parent { get; }
-        public ParticleSystem VisualFeedback { get; set; }
+        [CanBeNull] public ParticleSystem VisualFeedback { get; set; }
+        [CanBeNull] public Animation Animation { get; set; }
         public InteractType InteractType { get; }
         public List<CollisionEventArgs> CollisionLog = new List<CollisionEventArgs>();
 
         public InteractableObject(GameObject parent, MI_Interactible_Initialize initialize)
         {
             Parent = parent;
-            VisualFeedback = initialize.VisualFeedback;
+            if(initialize.VisualFeedback != null) 
+                VisualFeedback = initialize.VisualFeedback;
             InteractType = initialize.Type;
             Evaluate();
         }

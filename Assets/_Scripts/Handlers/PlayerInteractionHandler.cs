@@ -16,6 +16,8 @@ namespace _Scripts.Handlers
         //Reference to player
         private GameObject _player { get; }
         public readonly InteractableHandler InteractableHandler;
+        public readonly TrapHandler TrapHandler;
+        public readonly GameStateManager GameStateManager;
         
         private GameObject _guiParent { get; }
         private TextMeshProUGUI CollectableText { get; set; }
@@ -35,6 +37,9 @@ namespace _Scripts.Handlers
             
             _player = player;
             InteractableHandler = new InteractableHandler();
+            GameStateManager = new GameStateManager(player, this);
+            TrapHandler = new TrapHandler();
+            //GameStateManager = new GameStateManager(player, this);
             _guiParent = GameObject.FindGameObjectWithTag("UI");
 
             CollectableText = _guiParent.transform.GetComponentsInChildren<TextMeshProUGUI>()
@@ -53,9 +58,20 @@ namespace _Scripts.Handlers
                 interactable.CollisionAdded += HandleCollision;
             }
             
+            foreach (var interactable in TrapHandler.Interactibles)
+            {
+                interactable.Parent.GetComponent<MI_Trap_Initialize>().AddInteractionHandlerReference(this);
+                interactable.TrapCollisionAdded += HandleTrapCollision;
+            }
+            
             InitializeGUI();
             StartTimer();
             
+        }
+
+        private void HandleTrapCollision(object sender, TrapEventArgs e)
+        {
+            e.ScriptReference.OnCollision(20f);
         }
 
         private void HandleTimer(object sender)
@@ -64,8 +80,8 @@ namespace _Scripts.Handlers
             Object.Destroy(_player);
         }
 
-        private void StartTimer() => _timerHandler.StartTimer();
-        private void StopTimer() => _timerHandler.StopTimer();
+        public void StartTimer() => _timerHandler.StartTimer();
+        public void StopTimer() => _timerHandler.StopTimer();
 
         private void InitializeGUI()
         {
@@ -108,6 +124,7 @@ namespace _Scripts.Handlers
                     break;
                 
                 case InteractType.Trap:
+                    triggerEvent.gameObject.GetComponent<MI_Trap_Initialize>().OnCollision(20f);
                     break;
             }
         }
