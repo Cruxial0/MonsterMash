@@ -60,11 +60,15 @@ namespace _Scripts.Handlers
                 interactable.CollisionAdded += HandleCollision;
             }
             
+            
+            
             foreach (var interactable in TrapHandler.Interactibles)
             {
                 interactable.Parent.GetComponent<TrapInitialize>().AddInteractionHandlerReference(this);
                 interactable.TrapCollisionAdded += HandleTrapCollision;
             }
+            
+            Debug.Log(InteractableHandler.Interactibles.Count());
             
             InitializeGUI();
             StartTimer();
@@ -88,6 +92,7 @@ namespace _Scripts.Handlers
         private void InitializeGUI()
         {
             _collectableCount = InteractableHandler.Interactibles.Count(x => x.InteractType == InteractType.Pickup);
+            Debug.Log(_collectableCount);
             CollectableText.text = $"{_currCollectable}/{_collectableCount}";
         }
 
