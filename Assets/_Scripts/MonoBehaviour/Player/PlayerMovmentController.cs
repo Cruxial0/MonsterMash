@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,8 @@ namespace _Scripts.MonoBehaviour.Player
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         private Rigidbody _rigidbody; //Attached rigidbody
         private Keyboard _keyboard = Keyboard.current; //Keyboard
-        private const float MovementSpeed = 70f; //MovementSpeed
+        [NonSerialized]
+        public float MovementSpeed = 70f; //MovementSpeed
 
         private void Awake()
         {

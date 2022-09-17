@@ -9,11 +9,11 @@ namespace _Scripts.Levels
 {
     public class TestScene : ILevel
     {
-        public int LevelID => 0;
+        public int LevelID => 1;
 
         public Level Level => new Level("RoomPrototype")
         {
-            LevelName = "Test Name"
+            LevelName = "Event Level"
         };
 
         public List<IEvent> Events => new List<IEvent>() { new ZoomEvent() };

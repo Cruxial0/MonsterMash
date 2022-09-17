@@ -1,5 +1,4 @@
-﻿using UnityEditorInternal.Profiling.Memory.Experimental;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
 {

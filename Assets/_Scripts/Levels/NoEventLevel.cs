@@ -2,17 +2,16 @@
 using _Scripts.Handlers;
 using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
-using UnityEngine.SceneManagement;
 
 namespace _Scripts.Levels
 {
-    public class EmptyLevelTest : ILevel
+    public class NoEventLevel : ILevel
     {
-        public int LevelID => 3;
+        public int LevelID => 0;
 
-        public Level Level => new Level("EmptyLevel")
+        public Level Level => new Level("NoEventLevel")
         {
-            LevelName = "Empty Level lmao"
+            LevelName = "Event-Free Level"
         };
 
         public List<IEvent> Events => new List<IEvent>() { new NoEvent() };

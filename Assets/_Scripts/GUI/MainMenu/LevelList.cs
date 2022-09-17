@@ -4,7 +4,6 @@ using System.Linq;
 using _Scripts.Handlers;
 using _Scripts.Interfaces;
 using TMPro;
-using UnityEditor.Experimental.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +33,7 @@ namespace _Scripts.GUI.MainMenu
             var button = btn.GetComponent<Button>();
             var text = button.GetComponentsInChildren<TextMeshProUGUI>();
 
-            text[0].text = $"{level.Level.SceneName} (ID {level.LevelID})";
+            text[0].text = $"{level.Level.LevelName} (ID: {level.LevelID})";
             text[1].text = $"'{level.Events.First().EventName}': {level.Events.First().Description}";
             
             button.onClick.AddListener(LevelButtonClicked);
