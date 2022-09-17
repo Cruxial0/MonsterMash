@@ -14,6 +14,6 @@ namespace _Scripts.Levels
             LevelName = "LightsOutEvent"
         };
 
-        public List<IEvent> Events => new List<IEvent>() { new LightsOutEvent() };
+        public List<IEvent> Events => new List<IEvent>() { new LightsOutEvent(), new ZoomEvent() };
     }
 }

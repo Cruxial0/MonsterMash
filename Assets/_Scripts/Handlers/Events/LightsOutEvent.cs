@@ -12,9 +12,11 @@ namespace _Scripts.Handlers.Events
         public void ApplyEvent()
         {
             Objects.Room.LightObject.Light.color = Color.black;
-            var light = Objects.Player.Self.AddComponent<Light>();
-            light.intensity = 1f;
-            light.range = 10f;
+
+            // Add the light component
+            Light light = Objects.Player.PlayerLight;
+            light.intensity = 2.65f;
+            light.range = 15f;
         }
     }
 }

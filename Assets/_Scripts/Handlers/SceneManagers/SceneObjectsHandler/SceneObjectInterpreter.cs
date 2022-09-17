@@ -46,6 +46,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                 Rigidbody = player.GetComponent<Rigidbody>(),
                 Transform = player.GetComponent<Transform>(),
                 PlayerStates = player.GetComponent<PlayerStates>(),
+                PlayerLight = player.transform.GetChild(0).gameObject.GetComponent<Light>(),
                 Self = player
             };
         }

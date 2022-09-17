@@ -7,6 +7,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
     {
         public GameObject Self { get; set; }
         public Transform Transform { get; set; }
+        public Light PlayerLight { get; set; }
         public MeshFilter MeshFilter { get; set; }
         public MeshRenderer MeshRenderer { get; set; }
         public Collider Collider { get; set; }
