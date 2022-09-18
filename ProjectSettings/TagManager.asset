@@ -9,6 +9,13 @@ TagManager:
   - Interactable
   - UI
   - Trap
+  - RoomParent
+  - RoomFloor
+  - RoomWall
+  - Light
+  - CollectSprite
+  - CollectCounter
+  - Timer
   layers:
   - Default
   - TransparentFX

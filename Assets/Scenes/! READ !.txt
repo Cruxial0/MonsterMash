@@ -1,0 +1,5 @@
+there is a weird lighting bug when loading scenes in real time.
+I found a workaround as follows:
+Naviage to Window -> Rendering -> Lighting
+Click the "Generate Lighting" button near the bottom right of the window.
+This fixed the issue for me, hopefully it works on more sophisticated lighting setups too.
