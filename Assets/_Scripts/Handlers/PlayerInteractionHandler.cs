@@ -82,10 +82,12 @@ namespace _Scripts.Handlers
         private void UpdateGUI(object sender)
         {
             SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
-            
-            if(SceneObjects.Room.PickupObject.Count == 0)
+
+            if (SceneObjects.Room.PickupObject.Count == 0)
+            {
                 SceneObjects.UI.CollectableCounter.Text.color = Color.green;
                 SceneObjects.UI.Timer.Text.color = Color.yellow;
+            }
         }
 
         private void HandleCollision(object sender, CollisionEventArgs c)
