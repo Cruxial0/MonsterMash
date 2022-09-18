@@ -22,7 +22,8 @@ namespace _Scripts.Handlers
         
         public void Win()
         {
-            Object.Destroy(_player);
+            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
+            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             Debug.Log("You win");
         }
     }

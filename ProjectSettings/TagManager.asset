@@ -16,6 +16,7 @@ TagManager:
   - CollectSprite
   - CollectCounter
   - Timer
+  - Bed
   layers:
   - Default
   - TransparentFX
