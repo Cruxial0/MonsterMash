@@ -66,11 +66,15 @@ namespace _Scripts.Handlers
         private void HandleTimer(object sender)
         {
             Debug.Log("timer depleted");
+            SceneObjects.UI.Timer.Text.color = Color.red;
             Object.Destroy(SceneObjects.Player.Self);
         }
 
         public void StartTimer() => SceneObjects.UI.Timer.TimerHandler.StartTimer();
-        public void StopTimer() => SceneObjects.UI.Timer.TimerHandler.StopTimer();
+        public void StopTimer()  {
+            SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            SceneObjects.UI.Timer.Text.color = Color.green;
+        }
 
         private void InitializeGUI()
         {

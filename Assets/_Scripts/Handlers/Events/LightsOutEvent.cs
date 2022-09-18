@@ -13,6 +13,9 @@ namespace _Scripts.Handlers.Events
         {
             Objects.Room.LightObject.Light.color = Color.black;
 
+            Objects.UI.Timer.Text.color = Color.white;
+            Objects.UI.CollectableCounter.Text.color = Color.white;
+
             // Add the light component
             Light light = Objects.Player.PlayerLight;
             light.intensity = 2.65f;

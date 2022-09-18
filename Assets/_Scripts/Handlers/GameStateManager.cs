@@ -15,6 +15,8 @@ namespace _Scripts.Handlers
         public void Lose()
         {
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
+            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
+            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             Debug.Log("You lose");
         }
         
