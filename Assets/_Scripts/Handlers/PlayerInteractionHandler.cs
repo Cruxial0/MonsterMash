@@ -22,7 +22,7 @@ namespace _Scripts.Handlers
         //Reference to player
         public readonly InteractableHandler InteractableHandler;
         public readonly TrapHandler TrapHandler;
-        public readonly GameStateManager GameStateManager;
+        public static GameStateManager GameStateManager;
         public static SceneObjects SceneObjects;
 
         private int _collectableCount = 0;
@@ -71,10 +71,7 @@ namespace _Scripts.Handlers
         }
 
         public void StartTimer() => SceneObjects.UI.Timer.TimerHandler.StartTimer();
-        public void StopTimer()  {
-            SceneObjects.UI.Timer.TimerHandler.StopTimer();
-            SceneObjects.UI.Timer.Text.color = Color.green;
-        }
+        public void StopTimer()  => SceneObjects.UI.Timer.TimerHandler.StopTimer();
 
         private void InitializeGUI()
         {
@@ -85,12 +82,10 @@ namespace _Scripts.Handlers
         private void UpdateGUI(object sender)
         {
             SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
-            if (_currCollectable == _collectableCount)
-            {
-                StopTimer();
-                Debug.Log("YOU WIN!!!!");
-                //End game
-            }
+            
+            if(SceneObjects.Room.PickupObject.Count == 0)
+                SceneObjects.UI.CollectableCounter.Text.color = Color.green;
+                SceneObjects.UI.Timer.Text.color = Color.yellow;
         }
 
         private void HandleCollision(object sender, CollisionEventArgs c)
@@ -110,6 +105,9 @@ namespace _Scripts.Handlers
                 case InteractType.Pickup:
                     interactableObject.Destroy();
                     _currCollectable++;
+                    var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
+                        x.Collider == interactableObject.Parent.GetComponent<Collider>());
+                    SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
 
                     OnInteractablePickupEventHandler handler = InteractablePickedUp;
                     handler?.Invoke(this);

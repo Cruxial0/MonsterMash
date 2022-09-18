@@ -26,6 +26,11 @@ public class BedController : MonoBehaviour
         {
             IsUnderBed = true;
             PlayerInteractionHandler.SceneObjects.Player.MeshRenderer.enabled = false;
+
+            if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
+            {
+                PlayerInteractionHandler.GameStateManager.Win();
+            }
         }
     }
 
