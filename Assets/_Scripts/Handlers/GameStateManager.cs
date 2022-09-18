@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
 {
@@ -12,19 +17,45 @@ namespace _Scripts.Handlers
             _handler = handler;
         }
 
-        public void Lose()
+        public async void Lose()
         {
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             Debug.Log("You lose");
+            
+            var text = Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
+
+            var textObjects = text.GetComponentsInChildren<TextMeshProUGUI>();
+
+            textObjects[0].text = "You lost!";
+            textObjects[0].color = Color.red;
+            
+            textObjects[1].color = Color.red;
+            
+            await Task.Delay(5000);
+
+            SceneManager.LoadScene("MenuTest");
         }
         
-        public void Win()
+        public async void Win()
         {
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
+
+            await Task.Delay(5000);
+
+            SceneManager.LoadScene("MenuTest");
+
             Debug.Log("You win");
+        }
+        
+        IEnumerator ExecuteAfterTime(float time)
+        {
+            yield return new WaitForSeconds(time);
+ 
+            // Code to execute after the delay
         }
     }
 }
