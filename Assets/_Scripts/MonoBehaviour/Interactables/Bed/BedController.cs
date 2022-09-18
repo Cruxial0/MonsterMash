@@ -8,6 +8,8 @@ public class BedController : MonoBehaviour
 {
     [NonSerialized]
     public bool IsUnderBed = false;
+
+    public GameObject WinPrefab;
     // Start is called before the first frame update
     void Start()
     {
