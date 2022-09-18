@@ -133,6 +133,17 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                                     Transform = child.GetComponent<Transform>()
                                 };
                                 break;
+                            case "Bed":
+                                room.BedObject = new BedSceneObject()
+                                {
+                                    Transform = child.GetComponent<Transform>(),
+                                    MeshFilter = child.GetComponent<MeshFilter>(),
+                                    MeshRenderer = child.GetComponent<MeshRenderer>(),
+                                    Rigidbody = child.GetComponent<Rigidbody>(),
+                                    Collider = child.GetComponent<Collider>(),
+                                    Script = child.GetComponent<BedController>()
+                                };
+                                break;
                         }
                     }
                 }

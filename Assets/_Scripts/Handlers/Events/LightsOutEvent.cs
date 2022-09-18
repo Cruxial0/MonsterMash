@@ -20,6 +20,7 @@ namespace _Scripts.Handlers.Events
             Light light = Objects.Player.PlayerLight;
             light.intensity = 2.65f;
             light.range = 15f;
+            light.enabled = true;
         }
     }
 }

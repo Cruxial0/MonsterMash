@@ -45,6 +45,16 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public TrapInitialize Script { get; set; }
     }
     
+    public class BedSceneObject
+    {
+        public Transform Transform { get; set; }
+        public MeshFilter MeshFilter { get; set; }
+        public MeshRenderer MeshRenderer { get; set; }
+        public Rigidbody Rigidbody { get; set; }
+        public Collider Collider { get; set; }
+        public BedController Script { get; set; }
+    }
+    
     public class RoomSceneObject
     {
         public GameObject ParentObject { get; set; }
@@ -54,5 +64,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public List<PickupSceneObject> PickupObject = new List<PickupSceneObject>();
         public List<FurnitureSceneObject> FurnitureObjects = new List<FurnitureSceneObject>();
         public List<TrapSceneObject> TrapObjects = new List<TrapSceneObject>();
+        public BedSceneObject BedObject { get; set; }
     }
 }
