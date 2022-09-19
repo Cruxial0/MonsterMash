@@ -17,6 +17,7 @@ TagManager:
   - CollectCounter
   - Timer
   - Bed
+  - NoiseMeter
   layers:
   - Default
   - TransparentFX

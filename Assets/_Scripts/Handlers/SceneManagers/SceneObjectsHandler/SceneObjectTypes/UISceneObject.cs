@@ -42,6 +42,21 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public TextMeshProUGUI Text { get; set; }
         public TimerHandler TimerHandler { get; set; }
     }
+
+    public class NoiseMeter
+    {
+        public RectTransform RectTransform { get; set; }
+        public CanvasRenderer CanvasRenderer { get; set; }
+        public TextMeshProUGUI Text { get; set; }
+        public NoiseProperties NoiseProperties { get; set; }
+        public NoiseMeterHandler Script { get; set; }
+    }
+
+    public class NoiseProperties
+    {
+        public int MaxNoise { get; set; }
+        public int CurrentNoise { get; set; }
+    }
     
     public class UISceneObject
     {
@@ -49,6 +64,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public MobileJoystick MobileJoystick { get; set; }
         public CollectableSprite CollectableSprite { get; set; }
         public CollectableCounter CollectableCounter { get; set; }
+        public NoiseMeter NoiseMeter { get; set; }
         public Timer Timer { get; set; }
     }
 }

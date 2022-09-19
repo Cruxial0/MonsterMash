@@ -9,7 +9,7 @@ namespace _Scripts.MonoBehaviour.Player
     public class PlayerInitialize : UnityEngine.MonoBehaviour
     {
         public static PlayerInteractionHandler PlayerInteractionHandler;
-        void Start()
+        void Awake()
         {
             //LevelManager.SelectedLevel.Level.LevelScene = this.gameObject.scene;
             PlayerInteractionHandler = new PlayerInteractionHandler(this.gameObject);
