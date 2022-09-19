@@ -198,6 +198,20 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             Text = child.GetComponent<TextMeshProUGUI>()
                         };
                         break;
+                    case "NoiseMeter":
+                        gui.NoiseMeter = new NoiseMeter()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            RectTransform = child.GetComponent<RectTransform>(),
+                            Text = child.GetComponent<TextMeshProUGUI>(),
+                            NoiseProperties = new NoiseProperties()
+                            {
+                                CurrentNoise = 0,
+                                MaxNoise = 0
+                            },
+                            Script = child.GetComponent<NoiseMeterHandler>()
+                        };
+                        break;
                     case "Timer":
                         gui.Timer = new Timer()
                         {
