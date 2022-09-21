@@ -30,12 +30,12 @@ namespace _Scripts.Handlers
 
             textObjects[0].text = "You lost!";
             textObjects[0].color = Color.red;
-            
             textObjects[1].color = Color.red;
             
             await Task.Delay(5000);
-
-            SceneManager.LoadScene("MenuTest");
+            
+            SceneManager.LoadSceneAsync("MenuTest");
+            return;
         }
         
         public async void Win()
@@ -49,13 +49,6 @@ namespace _Scripts.Handlers
             SceneManager.LoadScene("MenuTest");
 
             Debug.Log("You win");
-        }
-        
-        IEnumerator ExecuteAfterTime(float time)
-        {
-            yield return new WaitForSeconds(time);
- 
-            // Code to execute after the delay
         }
     }
 }
