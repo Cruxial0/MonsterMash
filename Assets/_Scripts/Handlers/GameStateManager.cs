@@ -32,7 +32,8 @@ namespace _Scripts.Handlers
             textObjects[0].color = Color.red;
             textObjects[1].color = Color.red;
             
-            await Task.Delay(5000);
+            if(Application.platform != RuntimePlatform.WebGLPlayer)
+                await Task.Delay(5000);
             
             SceneManager.LoadSceneAsync("MenuTest");
             return;
@@ -44,7 +45,8 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
 
-            await Task.Delay(5000);
+            if(Application.platform != RuntimePlatform.WebGLPlayer)
+                await Task.Delay(5000);
 
             SceneManager.LoadScene("MenuTest");
 
