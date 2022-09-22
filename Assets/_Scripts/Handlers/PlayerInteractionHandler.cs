@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
+using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
@@ -24,6 +25,7 @@ namespace _Scripts.Handlers
         public readonly TrapHandler TrapHandler;
         public static GameStateManager GameStateManager;
         public static SceneObjects SceneObjects;
+        public static readonly PowerManager PowerManager = new PowerManager();
 
         private int _collectableCount = 0;
         private int _currCollectable = 0;
@@ -36,6 +38,7 @@ namespace _Scripts.Handlers
             TrapHandler = new TrapHandler();
             SceneObjects = new SceneObjects(CurrentLevel, this);
             GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
+            PowerManager.GetAll();
 
             SceneObjects.UI.Timer.TimerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
