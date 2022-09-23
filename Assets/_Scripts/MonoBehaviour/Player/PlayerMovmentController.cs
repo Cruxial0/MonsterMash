@@ -21,7 +21,6 @@ namespace _Scripts.MonoBehaviour.Player
         {
             //Instantiate PlayerControls object
             _controls = new PlayerControls();
-            InputSystem.EnableDevice(Gyroscope.current);
 
             //Subscribe to controller events
             //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
@@ -32,6 +31,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void Start()
         {
             _rigidbody = this.gameObject.GetComponent<Rigidbody>();
+            InputSystem.EnableDevice(Gyroscope.current);
         }
 
         //Called when gameObject becomes active
@@ -66,8 +66,15 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveGyroscope()
         {
-            var velocity = _gyroscope.angularVelocity.ReadValue();
-            _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
+            print($"supports gyro: {SystemInfo.supportsGyroscope}");
+            if(_gyroscope != null && _gyroscope.enabled)
+            {
+                print("Gyroscope is enabled");
+                print($"{_gyroscope.angularVelocity.x}");
+                var velocity = _gyroscope.angularVelocity.ReadValue();
+                _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
+
+            }
         }
 
         private void MoveKeyboard()
@@ -85,11 +92,6 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveJoystick()
         {
-            if(_gyroscope.enabled)
-            {
-                print("Gyroscope is enabled");
-                print($"{_gyroscope.angularVelocity.x}");
-            }
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime, ForceMode.Force);
         }
 
