@@ -21,12 +21,13 @@ namespace _Scripts.MonoBehaviour.Player
         {
             //Instantiate PlayerControls object
             _controls = new PlayerControls();
-            InputSystem.EnableDevice(Gyroscope.current);
+            //InputSystem.EnableDevice(Gyroscope.current);
 
             //Subscribe to controller events
             //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
             _controls.Player.Movement.performed += RotateOnPerformed;
             _controls.Player.Movement.canceled += ctx => _rotate = Vector2.zero;
+            
         }
 
         private void Start()
@@ -74,7 +75,7 @@ namespace _Scripts.MonoBehaviour.Player
                 print("Gyroscope is enabled");
                 print($"clamp constant x: {_gyroscope.angularVelocity.x.clampConstant}");
                 print($"clamp {_gyroscope.angularVelocity.x.clamp}");
-                var velocity = _gyroscope.angularVelocity.ReadValue();
+                var velocity = _controls.Player.Gyro.ReadValue<Vector3>();
                 _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
 
             }
@@ -95,11 +96,6 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveJoystick()
         {
-            if(_gyroscope.enabled)
-            {
-                print("Gyroscope is enabled");
-                print($"{_gyroscope.angularVelocity.x}");
-            }
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime, ForceMode.Force);
         }
 
