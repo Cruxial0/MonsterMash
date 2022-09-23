@@ -9,7 +9,7 @@ namespace _Scripts.Levels
     {
         public int LevelID => 0;
 
-        public Level Level => new Level("NoEventLevel")
+        public Level Level => new Level("Level1")
         {
             LevelName = "Event-Free Level"
         };

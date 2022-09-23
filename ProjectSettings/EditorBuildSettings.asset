@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LightsOutLevel.unity
     guid: 5e6a6de57a9562c44b9b83a754e7511f
+  - enabled: 1
+    path: Assets/Scenes/Prototype leves/Level1.unity
+    guid: 55b52ba025d30a84b95af38e4a40ec55
+  - enabled: 1
+    path: Assets/Scenes/Prototype leves/Level0.unity
+    guid: 46d4d2186c71d5943941adaf281bed07
   m_configObjects: {}
