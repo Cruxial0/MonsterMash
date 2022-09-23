@@ -17,7 +17,8 @@ namespace _Scripts.Handlers.Powers
         {
             Parent.AddComponent<SlowPower>();
             print("power activated");
-            SceneObjects.Player.MovmentController.MovementSpeed = 20f;
+            SceneObjects.Player.MovmentController.MovementSpeed = 50f;
+            SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 1f;
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
         }
@@ -33,6 +34,7 @@ namespace _Scripts.Handlers.Powers
             {
                 print("power deactivated");
                 SceneObjects.Player.MovmentController.MovementSpeed = 70f;
+                SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 3f;
                 active = false;
             }
         }
