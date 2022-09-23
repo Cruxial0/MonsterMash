@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Android;
 using Gyroscope = UnityEngine.InputSystem.Gyroscope;
 
 namespace _Scripts.MonoBehaviour.Player
@@ -20,7 +21,8 @@ namespace _Scripts.MonoBehaviour.Player
         {
             //Instantiate PlayerControls object
             _controls = new PlayerControls();
-        
+            InputSystem.EnableDevice(Gyroscope.current);
+
             //Subscribe to controller events
             //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
             _controls.Player.Movement.performed += RotateOnPerformed;
@@ -64,9 +66,8 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveGyroscope()
         {
-            InputSystem.EnableDevice(Gyroscope.current);
-            var velocity = _gyroscope.angularVelocity;
-            _rigidbody.AddForce(new Vector3(velocity.x.clampConstant, 0, velocity.z.clampConstant) * Time.deltaTime, ForceMode.Force);
+            var velocity = _gyroscope.angularVelocity.ReadValue();
+            _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
         }
 
         private void MoveKeyboard()
@@ -84,6 +85,11 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveJoystick()
         {
+            if(_gyroscope.enabled)
+            {
+                print("Gyroscope is enabled");
+                print($"{_gyroscope.angularVelocity.x}");
+            }
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime, ForceMode.Force);
         }
 
