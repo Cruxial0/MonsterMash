@@ -17,7 +17,7 @@ namespace _Scripts.Handlers.Powers
 
         private void ForceLogic()
         {
-            SceneObjects.Player.Rigidbody.AddForce(new Vector3(0, 0, -400f), ForceMode.Force);
+            SceneObjects.Player.Rigidbody.AddForce(new Vector3(0, 0, 400f), ForceMode.Force);
         }
     }
 }
