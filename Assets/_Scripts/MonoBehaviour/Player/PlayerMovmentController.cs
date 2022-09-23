@@ -32,6 +32,11 @@ namespace _Scripts.MonoBehaviour.Player
         private void Start()
         {
             _rigidbody = this.gameObject.GetComponent<Rigidbody>();
+<<<<<<< Updated upstream
+=======
+            InputSystem.EnableDevice(Gyroscope.current);
+            _gyroscope.MakeCurrent();
+>>>>>>> Stashed changes
         }
 
         //Called when gameObject becomes active
@@ -66,8 +71,21 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveGyroscope()
         {
+<<<<<<< Updated upstream
             var velocity = _gyroscope.angularVelocity.ReadValue();
             _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
+=======
+            print($"supports gyro: {SystemInfo.supportsGyroscope}");
+            if(_gyroscope != null && _gyroscope.enabled)
+            {
+                print("Gyroscope is enabled");
+                print($"clamp constant x: {_gyroscope.angularVelocity.x.clampConstant}");
+                print($"clamp {_gyroscope.angularVelocity.x.clamp}");
+                var velocity = _gyroscope.angularVelocity.ReadValue();
+                _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
+
+            }
+>>>>>>> Stashed changes
         }
 
         private void MoveKeyboard()
