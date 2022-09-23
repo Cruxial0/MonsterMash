@@ -41,6 +41,7 @@ namespace _Scripts.Handlers
         
         public async void Win()
         {
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);

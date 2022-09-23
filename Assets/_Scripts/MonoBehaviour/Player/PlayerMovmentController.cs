@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Gyroscope = UnityEngine.InputSystem.Gyroscope;
 
 namespace _Scripts.MonoBehaviour.Player
 {
@@ -11,6 +12,7 @@ namespace _Scripts.MonoBehaviour.Player
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         private Rigidbody _rigidbody; //Attached rigidbody
         private Keyboard _keyboard = Keyboard.current; //Keyboard
+        private Gyroscope _gyroscope = Gyroscope.current;
         [NonSerialized]
         public float MovementSpeed = 70f; //MovementSpeed
 
@@ -38,7 +40,6 @@ namespace _Scripts.MonoBehaviour.Player
         private void RotateOnPerformed(InputAction.CallbackContext obj)
         {
             _rotate = obj.ReadValue<Vector2>();
-            print(_rotate);
         }
 
         // Update is called once per frame
@@ -63,7 +64,9 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void MoveGyroscope()
         {
-            Debug.LogError("Gyroscope controls not implemented!");
+            InputSystem.EnableDevice(Gyroscope.current);
+            var velocity = _gyroscope.angularVelocity;
+            _rigidbody.AddForce(new Vector3(velocity.x.clampConstant, 0, velocity.z.clampConstant) * Time.deltaTime, ForceMode.Force);
         }
 
         private void MoveKeyboard()
