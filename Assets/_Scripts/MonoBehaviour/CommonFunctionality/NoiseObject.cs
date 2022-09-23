@@ -7,7 +7,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
     {
         private void OnCollisionEnter(Collision collision)
         {
-            PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Script.AddNoise();
+            if(collision.gameObject.CompareTag("Player"))
+                PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Script.AddNoise();
         }
     }
 }
