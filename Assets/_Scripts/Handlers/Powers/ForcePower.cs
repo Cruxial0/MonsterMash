@@ -21,7 +21,7 @@ namespace _Scripts.Handlers.Powers
         {
             Parent.AddComponent<ForcePower>();
             print("power activated");
-            SceneObjects.Player.MovmentController.MovementSpeed = 300f;
+            SceneObjects.Player.MovmentController.MovementSpeed = 170f;
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
         }
