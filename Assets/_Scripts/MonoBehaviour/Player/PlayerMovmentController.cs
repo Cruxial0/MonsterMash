@@ -72,10 +72,12 @@ namespace _Scripts.MonoBehaviour.Player
             print($"supports gyro: {SystemInfo.supportsGyroscope}");
             if(_gyroscope != null && _gyroscope.enabled)
             {
-                print("Gyroscope is enabled");
-                print($"clamp constant x: {_gyroscope.angularVelocity.x.clampConstant}");
-                print($"clamp {_gyroscope.angularVelocity.x.clamp}");
                 var velocity = _controls.Player.Gyro.ReadValue<Vector3>();
+                
+                print("Gyroscope is enabled");
+                print($"clamp constant x: {velocity.normalized}");
+                print($"x: {velocity.x}");
+                
                 _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
 
             }
