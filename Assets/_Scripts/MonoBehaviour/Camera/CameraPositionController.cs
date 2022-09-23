@@ -32,7 +32,7 @@ namespace _Scripts.MonoBehaviour.Camera
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
             playerPos.z = position.z;
-            playerPos.y = position.y + 14f; //+14f for a consistent height above ground.
+            playerPos.y = position.y + 10f; //+14f for a consistent height above ground.
 
             //Apply position to camera.
             this.transform.position = playerPos;
