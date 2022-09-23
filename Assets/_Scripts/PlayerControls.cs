@@ -37,6 +37,15 @@ namespace _Scripts
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Gyro"",
+                    ""type"": ""Value"",
+                    ""id"": ""4f7d5488-8773-4b98-b9e0-1a686a141446"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -50,6 +59,17 @@ namespace _Scripts
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1043af2b-02e7-4ed6-9741-7b03af8903ae"",
+                    ""path"": ""<Gyroscope>/angularVelocity"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gyro"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -59,6 +79,7 @@ namespace _Scripts
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+            m_Player_Gyro = m_Player.FindAction("Gyro", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -119,11 +140,13 @@ namespace _Scripts
         private readonly InputActionMap m_Player;
         private IPlayerActions m_PlayerActionsCallbackInterface;
         private readonly InputAction m_Player_Movement;
+        private readonly InputAction m_Player_Gyro;
         public struct PlayerActions
         {
             private @PlayerControls m_Wrapper;
             public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
+            public InputAction @Gyro => m_Wrapper.m_Player_Gyro;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -136,6 +159,9 @@ namespace _Scripts
                     @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                     @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                     @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                    @Gyro.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
+                    @Gyro.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
+                    @Gyro.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGyro;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -143,6 +169,9 @@ namespace _Scripts
                     @Movement.started += instance.OnMovement;
                     @Movement.performed += instance.OnMovement;
                     @Movement.canceled += instance.OnMovement;
+                    @Gyro.started += instance.OnGyro;
+                    @Gyro.performed += instance.OnGyro;
+                    @Gyro.canceled += instance.OnGyro;
                 }
             }
         }
@@ -150,6 +179,7 @@ namespace _Scripts
         public interface IPlayerActions
         {
             void OnMovement(InputAction.CallbackContext context);
+            void OnGyro(InputAction.CallbackContext context);
         }
     }
 }

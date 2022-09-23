@@ -1,31 +1,27 @@
-﻿using System;
 using _Scripts.Handlers.PowerHandlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace _Scripts.Handlers.Powers
 {
-    public class ForcePower : UnityEngine.MonoBehaviour, IPower
+    public class SlowPower : UnityEngine.MonoBehaviour, IPower
     {
-        public string PowerName => "ForcePower";
-        public string PowerDescription => "Adds instant force to the player";
-
-        public PowerObject PowerObject => new PowerObject(ForceLogic);
+        public string PowerName => "SlowPower";
+        public string PowerDescription => "Slows the player down for 3 seconds";
+        public PowerObject PowerObject => new PowerObject(SlowLogic);
         public GameObject Parent { get; set; } = null;
-
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
-
-        private void ForceLogic()
+        
+        private void SlowLogic()
         {
-            Parent.AddComponent<ForcePower>();
+            Parent.AddComponent<SlowPower>();
             print("power activated");
-            SceneObjects.Player.MovmentController.MovementSpeed = 300f;
+            SceneObjects.Player.MovmentController.MovementSpeed = 20f;
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
         }
-
+        
         private float buffTime = 3f;
         private float currTime = 0f;
         private bool active = true;
