@@ -1279,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602659871429674490, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: roundTime
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2624048986227296191, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: MaxNoise
