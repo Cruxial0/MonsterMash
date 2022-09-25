@@ -1327,6 +1327,10 @@ PrefabInstance:
       propertyPath: MaxNoise
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6257382202697719665, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
 --- !u!1001 &2088163175
@@ -1957,7 +1961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9191802133856075606, guid: 50d0185e20af71e459c95b0707ec2d3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.087
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 9191802133856075606, guid: 50d0185e20af71e459c95b0707ec2d3b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1965,7 +1969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9191802133856075606, guid: 50d0185e20af71e459c95b0707ec2d3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.585
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 9191802133856075606, guid: 50d0185e20af71e459c95b0707ec2d3b, type: 3}
       propertyPath: m_LocalRotation.w
