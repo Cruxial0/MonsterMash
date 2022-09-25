@@ -38,6 +38,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         public void OnCollision(float playerSpeed)
         {
             PlayerInteractionHandler.GameStateManager.Lose();
+            GetComponent<AudioSource>().Play();
         }
     }
 }

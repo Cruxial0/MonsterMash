@@ -772,6 +772,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5422988235549456468, guid: 991d36de164d65f4ebfbbf38b855a76a, type: 3}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991d36de164d65f4ebfbbf38b855a76a, type: 3}
 --- !u!1001 &553414176
@@ -1284,6 +1288,10 @@ PrefabInstance:
     - target: {fileID: 2624048986227296191, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: MaxNoise
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257382202697719665, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
