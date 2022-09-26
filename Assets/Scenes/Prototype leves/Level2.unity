@@ -851,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9095311469629480475, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
       propertyPath: ControlPreset
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
