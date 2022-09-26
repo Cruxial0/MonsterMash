@@ -22,6 +22,8 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
+
             Debug.Log("You lose");
             
             var text = Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
@@ -44,11 +46,25 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
 
             if(Application.platform != RuntimePlatform.WebGLPlayer)
                 await Task.Delay(5000);
 
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "Level0":
+                    SceneManager.LoadScene("Level1");
+                    return;
+                case "Level1":
+                    SceneManager.LoadScene("Level2");
+                    return;
+                case "Level2":
+                    SceneManager.LoadScene("Level3");
+                    break;
+            }
+            
             SceneManager.LoadScene("MenuTest");
 
             Debug.Log("You win");
