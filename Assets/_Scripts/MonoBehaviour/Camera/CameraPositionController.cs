@@ -9,6 +9,8 @@ namespace _Scripts.MonoBehaviour.Camera
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.
         [NonSerialized]
         public bool PlayerDestroyed;
+
+        [NonSerialized] public float CameraDistace = 7f;
     
         // Start is called before the first frame update
         private void Start()
@@ -32,7 +34,7 @@ namespace _Scripts.MonoBehaviour.Camera
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
             playerPos.z = position.z;
-            playerPos.y = position.y + 7f; //+14f for a consistent height above ground.
+            playerPos.y = position.y + CameraDistace; //+14f for a consistent height above ground.
 
             //Apply position to camera.
             this.transform.position = playerPos;

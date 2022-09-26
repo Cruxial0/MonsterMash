@@ -12,11 +12,13 @@ namespace _Scripts.Handlers.Events
         public void ApplyEvent()
         {
             Objects.Camera.Script.isEnabled = true;
+            Objects.Camera.Script.CameraDistace = 14f;
             Debug.Log(Objects.Player.PlayerStates);
             Objects.Player.PlayerStates.OnPlayerDestroyed += delegate(bool destroyed)
             {
                 Debug.Log("destroyed");
                 Objects.Camera.Script.PlayerDestroyed = destroyed;
+                
             };
         }
     }
