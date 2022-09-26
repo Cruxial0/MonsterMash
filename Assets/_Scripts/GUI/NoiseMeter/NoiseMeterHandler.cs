@@ -23,13 +23,13 @@ public class NoiseMeterHandler : MonoBehaviour
     public void AddNoise()
     {
         var currNoise = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.NoiseProperties.CurrentNoise += 1;
-        if (currNoise > MaxNoise)
+        if (currNoise == MaxNoise)
         {
             PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.color = Color.red;
             PlayerInteractionHandler.GameStateManager.Lose();
         }
         
-        if(currNoise == MaxNoise)
+        if(currNoise == MaxNoise - 1)
             PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.color = Color.yellow;
         
         PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.text = $"{currNoise}/{MaxNoise}";
