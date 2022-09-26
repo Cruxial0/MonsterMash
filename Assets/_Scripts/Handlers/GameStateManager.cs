@@ -63,6 +63,9 @@ namespace _Scripts.Handlers
                 case "Level2":
                     SceneManager.LoadScene("Level3");
                     break;
+                case "Level3":
+                    SceneManager.LoadScene("Level4");
+                    break;
             }
             
             SceneManager.LoadScene("MenuTest");
