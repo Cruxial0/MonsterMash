@@ -42,7 +42,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public Transform Transform { get; set; }
         public SpriteRenderer SpriteRenderer { get; set; }
         public Collider Collider { get; set; }
-        public TrapInitialize Script { get; set; }
+        public ITrapCollision Script { get; set; }
     }
     
     public class BedSceneObject

@@ -8,7 +8,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
     {
         public InteractType Type;
         public ParticleSystem VisualFeedback;
-        private PlayerInteractionHandler _handler;
+        private PlayerInteractionHandler _handler = PlayerInteractionHandler.Self;
         void Awake()
         {
             if(Type == null) Destroy(this.gameObject);
@@ -25,7 +25,8 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
     
         private void OnTriggerEnter(Collider c)
         {
-            if(!c.gameObject.CompareTag("Player")) return;
+            if(!c.gameObject.CompareTag("Player")) return; 
+            
             _handler.InteractableHandler.Interactibles.First(x => x.Parent == this.gameObject)
                 .AddCollisionEntry(new CollisionEventArgs(trigger: c));
         }
