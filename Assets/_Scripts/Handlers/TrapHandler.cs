@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Scripts.Handlers.Interfaces;
 using _Scripts.MonoBehaviour.Interactables.Traps;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace _Scripts.Handlers
         {
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Trap"))
             {
-                Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<TrapInitialize>()));
+                Debug.Log(gameObject.GetComponent<ITrapCollision>().TrapName);
+                Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<ITrapCollision>()));
             }
         }
     }
@@ -24,17 +26,15 @@ namespace _Scripts.Handlers
     {
         public GameObject Parent { get; }
         public Animation Animation { get; set; }
-        public InteractType InteractType { get; }
         public List<TrapEventArgs> CollisionLog = new List<TrapEventArgs>();
 
-        private TrapInitialize _initialize;
+        public ITrapCollision Script;
 
-        public TrapObject(GameObject parent, TrapInitialize initialize)
+        public TrapObject(GameObject parent, ITrapCollision initialize)
         {
             Parent = parent;
             Animation = initialize.Animation;
-            InteractType = initialize.Type;
-            _initialize = initialize;
+            Script = initialize;
             Evaluate();
         }
 
@@ -66,8 +66,8 @@ namespace _Scripts.Handlers
     {
         public Collider TriggerEvent;
         public Collision CollisionEvent;
-        public TrapInitialize ScriptReference;
-        public TrapEventArgs(TrapInitialize scriptReference, Collider trigger = null, Collision collision = null)
+        public ITrapCollision ScriptReference;
+        public TrapEventArgs(ITrapCollision scriptReference, Collider trigger = null, Collision collision = null)
         {
             if (trigger == null && collision == null) return;
             TriggerEvent = trigger;

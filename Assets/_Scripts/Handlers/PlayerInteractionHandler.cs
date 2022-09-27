@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
+using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
+using _Scripts.MonoBehaviour.CommonFunctionality;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using _Scripts.MonoBehaviour.Interactables.Traps;
 using TMPro;
@@ -26,6 +28,7 @@ namespace _Scripts.Handlers
         public static GameStateManager GameStateManager;
         public static SceneObjects SceneObjects;
         public static readonly PowerManager PowerManager = new PowerManager();
+        public static PlayerInteractionHandler Self;
 
         private int _collectableCount = 0;
         private int _currCollectable = 0;
@@ -40,6 +43,8 @@ namespace _Scripts.Handlers
             GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
             PowerManager.GetAll();
 
+            Self = this;
+            
             SceneObjects.UI.Timer.TimerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
@@ -51,7 +56,7 @@ namespace _Scripts.Handlers
             
             foreach (var interactable in TrapHandler.Interactibles)
             {
-                interactable.Parent.GetComponent<TrapInitialize>().AddInteractionHandlerReference(this);
+                interactable.Parent.GetComponent<ITrapCollision>().AddInteractionHandlerReference(this);
                 interactable.TrapCollisionAdded += HandleTrapCollision;
             }
 
@@ -63,7 +68,6 @@ namespace _Scripts.Handlers
         private void HandleTrapCollision(object sender, TrapEventArgs e)
         {
             e.ScriptReference.OnCollision(20f);
-            SceneObjects.Room.TrapObjects.First().SpriteRenderer.color = Color.clear;
         }
 
         private void HandleTimer(object sender)
@@ -98,7 +102,7 @@ namespace _Scripts.Handlers
             InteractableObject obj = sender as InteractableObject;
 
             if (c.TriggerEvent == null) HandleCollisionEvent(obj, c.CollisionEvent);
-            if(c.CollisionEvent == null) HandleTriggerEvent(obj, c.TriggerEvent);
+            if (c.CollisionEvent == null) HandleTriggerEvent(obj, c.TriggerEvent);
         }
 
         private void HandleTriggerEvent(InteractableObject interactableObject, Collider triggerEvent)
@@ -120,7 +124,7 @@ namespace _Scripts.Handlers
                     break;
                 
                 case InteractType.Trap:
-                    triggerEvent.gameObject.GetComponent<TrapInitialize>().OnCollision(20f);
+                    triggerEvent.gameObject.GetComponent<ITrapCollision>().OnCollision(20f);
                     break;
             }
         }

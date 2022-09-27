@@ -26,13 +26,14 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         private void OnTriggerEnter(Collider c)
         {
             if(!c.gameObject.CompareTag("Player")) return;
-            _handler.TrapHandler.Interactibles.First(x => x.Parent == this.gameObject)
+            _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == this.TrapName)
                 .AddCollisionEntry(new TrapEventArgs(this, trigger: c));
         }
 
         public void AddInteractionHandlerReference(PlayerInteractionHandler handler) => _handler = handler;
     
         //Inherited from ITrapCollision
+        public string TrapName => "Bear Trap";
         public GameObject TrapInstance { get; set; }
         public Animation Animation { get; set; }
         public void OnCollision(float playerSpeed)

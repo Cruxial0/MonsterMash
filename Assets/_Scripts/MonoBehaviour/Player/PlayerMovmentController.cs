@@ -14,8 +14,10 @@ namespace _Scripts.MonoBehaviour.Player
         private Rigidbody _rigidbody; //Attached rigidbody
         private Keyboard _keyboard = Keyboard.current; //Keyboard
         private Gyroscope _gyroscope = Gyroscope.current;
-        [NonSerialized]
-        public float MovementSpeed = 70f; //MovementSpeed
+        [NonSerialized] public float MovementSpeed = 70f; //MovementSpeed
+        [NonSerialized] public bool CanControl = true;
+        [NonSerialized] public Vector3 PreviousMovement;
+
 
         private void Awake()
         {
@@ -50,6 +52,8 @@ namespace _Scripts.MonoBehaviour.Player
         // Update is called once per frame
         void Update()
         {
+            if(!CanControl) return;
+            
             switch (ControlPreset)
             {
                 case ControlType.Joystick:
