@@ -8,7 +8,10 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized]
         public bool Destroyed = false;
 
+        //Destroys parent
         public void DestroySelf() => Destroy(this.gameObject);
+        
+        //Invokes OnPlayerDestroyed Event
         private void OnDestroy() => OnPlayerDestroyed?.Invoke(true);
 
         public event OnPlayerDestroyedEvent OnPlayerDestroyed;

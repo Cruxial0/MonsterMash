@@ -19,25 +19,27 @@ namespace _Scripts.Handlers.Powers
 
         private void ForceLogic()
         {
-            Parent.AddComponent<ForcePower>();
-            print("power activated");
-            SceneObjects.Player.MovmentController.MovementSpeed = 170f;
+            Parent.AddComponent<ForcePower>(); //Add component of power
+            
+            SceneObjects.Player.MovmentController.MovementSpeed = 170f; //Set speed of player
+            
+            //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
         }
 
+        //Assign values for timer
         private float buffTime = 3f;
         private float currTime = 0f;
         private bool active = true;
         
         private void FixedUpdate()
         {
-            currTime += Time.deltaTime;
+            currTime += Time.deltaTime; //Increment timer
             if (currTime > buffTime && active)
             {
-                print("power deactivated");
-                SceneObjects.Player.MovmentController.MovementSpeed = 70f;
-                active = false;
+                SceneObjects.Player.MovmentController.MovementSpeed = 70f; //Revert speed of player
+                active = false; //Deactivate timer
             }
         }
     }

@@ -15,27 +15,31 @@ namespace _Scripts.Handlers.Powers
         
         private void SlowLogic()
         {
-            Parent.AddComponent<SlowPower>();
-            print("power activated");
-            SceneObjects.Player.MovmentController.MovementSpeed = 50f;
-            SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 1f;
+            Parent.AddComponent<SlowPower>(); //Add instance of script to object
+            
+            SceneObjects.Player.MovmentController.MovementSpeed = 50f; //Set speed of player
+            SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 1f; //Set Angular Drag of player
+            
+            //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
         }
         
+        //Assign values for timer
         private float buffTime = 3f;
         private float currTime = 0f;
         private bool active = true;
         
         private void FixedUpdate()
         {
+            //Increment timer
             currTime += Time.deltaTime;
             if (currTime > buffTime && active)
             {
-                print("power deactivated");
+                //Revert speed and drag
                 SceneObjects.Player.MovmentController.MovementSpeed = 70f;
                 SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 3f;
-                active = false;
+                active = false; //Deactivate timer
             }
         }
     }

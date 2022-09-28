@@ -4,13 +4,11 @@ namespace _Scripts.Handlers.PowerHandlers
 {
     public class PowerObject
     {
-        public UnityAction PowerLogic;
-        
-        public PowerObject(UnityAction action)
-        {
-            PowerLogic = action;
-        }
+        public UnityAction PowerLogic; //Associated script
 
-        public void Execute() => PowerLogic.Invoke();
+        //Set PowerLogic to action
+        public PowerObject(UnityAction action) => PowerLogic = action;
+
+        public void Execute() => PowerLogic.Invoke(); //Execute script
     }
 }

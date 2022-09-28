@@ -10,6 +10,9 @@ namespace _Scripts.Handlers
         
     }
 
+    /// <summary>
+    /// Level Object
+    /// </summary>
     public class Level
     {
         public string LevelName { get; set; }

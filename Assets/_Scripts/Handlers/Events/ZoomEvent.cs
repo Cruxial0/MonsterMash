@@ -11,14 +11,15 @@ namespace _Scripts.Handlers.Events
         public SceneObjects Objects => PlayerInteractionHandler.SceneObjects;
         public void ApplyEvent()
         {
+            //Enables the zoom feature
             Objects.Camera.Script.isEnabled = true;
-            Objects.Camera.Script.CameraDistace = 14f;
-            Debug.Log(Objects.Player.PlayerStates);
+            Objects.Camera.Script.CameraDistace = 14f; //Set the camera distance
+            
+            //Subscribe to OnPlayerDestroyed event
             Objects.Player.PlayerStates.OnPlayerDestroyed += delegate(bool destroyed)
             {
-                Debug.Log("destroyed");
+                //Set PlayerDestroyed bool to passed value
                 Objects.Camera.Script.PlayerDestroyed = destroyed;
-                
             };
         }
     }

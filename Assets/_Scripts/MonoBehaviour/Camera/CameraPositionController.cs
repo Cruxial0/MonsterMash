@@ -11,18 +11,12 @@ namespace _Scripts.MonoBehaviour.Camera
         public bool PlayerDestroyed;
 
         [NonSerialized] public float CameraDistace = 7f;
-    
-        // Start is called before the first frame update
-        private void Start()
-        {
-        
-        }
 
         // Update is called once per frame
         private void Update()
         {
             
-            //if isEnabled is false, return.
+            //if isEnabled is false or player is destroyed, return.
             if(!isEnabled || PlayerDestroyed) return; //return will skip all the code underneath.
 
             //Define a variable of type Vector3 for player position.
@@ -34,7 +28,7 @@ namespace _Scripts.MonoBehaviour.Camera
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
             playerPos.z = position.z;
-            playerPos.y = position.y + CameraDistace; //+14f for a consistent height above ground.
+            playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
             //Apply position to camera.
             this.transform.position = playerPos;

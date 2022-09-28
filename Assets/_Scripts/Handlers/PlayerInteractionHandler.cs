@@ -21,39 +21,44 @@ namespace _Scripts.Handlers
 {
     public class PlayerInteractionHandler
     {
-        public Scene CurrentLevel;
-        //Reference to player
-        public readonly InteractableHandler InteractableHandler;
-        public readonly TrapHandler TrapHandler;
-        public static GameStateManager GameStateManager;
-        public static SceneObjects SceneObjects;
-        public static readonly PowerManager PowerManager = new PowerManager();
-        public static PlayerInteractionHandler Self;
+        public Scene CurrentLevel; //Active Level
+        public readonly InteractableHandler InteractableHandler; //InteractableHandler
+        public readonly TrapHandler TrapHandler; //TrapHandler
+        public static GameStateManager GameStateManager; //GameStateManager
+        public static SceneObjects SceneObjects; //SceneObjects
+        public static readonly PowerManager PowerManager = new PowerManager(); //PowerManager
+        public static PlayerInteractionHandler Self; //this
 
-        private int _collectableCount = 0;
-        private int _currCollectable = 0;
+        private int _collectableCount = 0; //Amount of pickups
+        private int _currCollectable = 0; //Current amount picked up
 
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
         {
-            CurrentLevel = SceneManager.GetActiveScene();
+            CurrentLevel = SceneManager.GetActiveScene(); //CurrentLevel = ActiveScene
+            
+            //Instantiate objects
             InteractableHandler = new InteractableHandler();
             TrapHandler = new TrapHandler();
             SceneObjects = new SceneObjects(CurrentLevel, this);
             GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
-            PowerManager.GetAll();
+            
+            PowerManager.GetAll(); //Get all powers
 
             Self = this;
             
+            //Subscribe to events
             SceneObjects.UI.Timer.TimerHandler.TimerDepleted += HandleTimer;
             this.InteractablePickedUp += UpdateGUI;
 
+            //Get all pickups
             foreach (var interactable in InteractableHandler.Interactibles)
             {
                 interactable.Parent.GetComponent<InteractableInitialize>().AddInteractionHandlerReference(this);
                 interactable.CollisionAdded += HandleCollision;
             }
             
+            //Get all traps
             foreach (var interactable in TrapHandler.Interactibles)
             {
                 interactable.Parent.GetComponent<ITrapCollision>().AddInteractionHandlerReference(this);
@@ -62,34 +67,40 @@ namespace _Scripts.Handlers
 
             InitializeGUI();
             StartTimer();
-            
         }
 
         private void HandleTrapCollision(object sender, TrapEventArgs e)
         {
+            //Execute script collision script
             e.ScriptReference.OnCollision(20f);
         }
 
         private void HandleTimer(object sender)
         {
-            Debug.Log("timer depleted");
+            //Set color to red and destroy player
             SceneObjects.UI.Timer.Text.color = Color.red;
             Object.Destroy(SceneObjects.Player.Self);
         }
 
+        //Starts the timer
         public void StartTimer() => SceneObjects.UI.Timer.TimerHandler.StartTimer();
+        //Stops the timer
         public void StopTimer()  => SceneObjects.UI.Timer.TimerHandler.StopTimer();
 
         private void InitializeGUI()
         {
+            //Gets amount of pickups in scene
             _collectableCount = InteractableHandler.Interactibles.Count(x => x.InteractType == InteractType.Pickup);
+            //Set text
             SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
         }
 
         private void UpdateGUI(object sender)
         {
+            //Set text
             SceneObjects.UI.CollectableCounter.Text.text = $"{_currCollectable}/{_collectableCount}";
 
+            //Change color of text when all pickups are picked up
             if (SceneObjects.Room.PickupObject.Count == 0)
             {
                 SceneObjects.UI.CollectableCounter.Text.color = Color.green;
@@ -99,47 +110,60 @@ namespace _Scripts.Handlers
 
         private void HandleCollision(object sender, CollisionEventArgs c)
         {
+            //Get event sender from event args
             InteractableObject obj = sender as InteractableObject;
 
+            //Handle Triggers and Collisions separately
             if (c.TriggerEvent == null) HandleCollisionEvent(obj, c.CollisionEvent);
             if (c.CollisionEvent == null) HandleTriggerEvent(obj, c.TriggerEvent);
         }
 
         private void HandleTriggerEvent(InteractableObject interactableObject, Collider triggerEvent)
         {
+            //Get the collision type of object
             var collisionType = interactableObject.InteractType;
-
+            
             switch (collisionType)
             {
+                //In case of type Pickup:
                 case InteractType.Pickup:
-                    interactableObject.Destroy();
-                    _currCollectable++;
+                    interactableObject.Destroy(); //Destroy object
+                    
+                    _currCollectable++; //Increment currCollectable
+                    
+                    //Get SceneObject from LINQ expression
                     var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
                         x.Collider == interactableObject.Parent.GetComponent<Collider>());
+                    //Remove SceneObject from PickupObject list
                     SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
 
+                    //Invoke event
                     OnInteractablePickupEventHandler handler = InteractablePickedUp;
                     handler?.Invoke(this);
                     
                     break;
-                
+                //In case of type Trap:
                 case InteractType.Trap:
+                    //Execute ITrapCollision.OnCollision() method
                     triggerEvent.gameObject.GetComponent<ITrapCollision>().OnCollision(20f);
                     break;
             }
         }
-
+        
+        //Pickup event handlers
         private event OnInteractablePickupEventHandler InteractablePickedUp;
-
         private delegate void OnInteractablePickupEventHandler(object sender);
-
+        
         private void HandleCollisionEvent(InteractableObject interactableObject, Collision collisionEvent)
         {
+            //Get type of collision
             var collisionType = interactableObject.InteractType;
 
             switch (collisionType)
             {
+                //In case of type Collision:
                 case InteractType.Collision:
+                    //Instantiate VisualFeedback
                     Object.Instantiate(interactableObject.VisualFeedback, collisionEvent.gameObject.transform.position,
                         interactableObject.VisualFeedback.transform.rotation);
                     break;
@@ -147,6 +171,11 @@ namespace _Scripts.Handlers
             }
         }
 
+        /// <summary>
+        /// Currently obsolete, might use later.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="collision"></param>
         private void DetermineVisualFeedback(InteractableObject obj, Collision collision)
         {
             //TODO:

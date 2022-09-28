@@ -13,23 +13,22 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         // Start is called before the first frame update
         void Start()
         {
+            //Create instances
             TrapInstance = this.gameObject;
             Animation = new Animation();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         private void OnTriggerEnter(Collider c)
         {
+            //If collider is not of tag player, return
             if(!c.gameObject.CompareTag("Player")) return;
+            
+            //Get the correct trap object using LINQ
             _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == this.TrapName)
                 .AddCollisionEntry(new TrapEventArgs(this, trigger: c));
         }
 
+        //Get reference to PlayerInteractionHandler
         public void AddInteractionHandlerReference(PlayerInteractionHandler handler) => _handler = handler;
     
         //Inherited from ITrapCollision
@@ -38,6 +37,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         public Animation Animation { get; set; }
         public void OnCollision(float playerSpeed)
         {
+            //Lose
             PlayerInteractionHandler.GameStateManager.Lose();
         }
     }

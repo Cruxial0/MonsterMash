@@ -11,11 +11,13 @@ public class StoryButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Add onClick Listener
         button.onClick.AddListener(LoadScene);
     }
 
     void LoadScene()
     {
+        //Load Scene of name "Level0"
         SceneManager.LoadScene("Level0");
     }
 }

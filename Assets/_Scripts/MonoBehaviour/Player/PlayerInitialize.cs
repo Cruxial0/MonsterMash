@@ -11,8 +11,9 @@ namespace _Scripts.MonoBehaviour.Player
         public static PlayerInteractionHandler PlayerInteractionHandler;
         void Awake()
         {
-            //LevelManager.SelectedLevel.Level.LevelScene = this.gameObject.scene;
+            //Instantiate PlayerInteractionHandler, the central system.
             PlayerInteractionHandler = new PlayerInteractionHandler(this.gameObject);
+            //Initialize the events
             var eventInitialize = new EventInitialize(LevelManager.SelectedLevel);
         }
     }

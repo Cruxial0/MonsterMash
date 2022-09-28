@@ -12,26 +12,11 @@ using UnityEngine.UI;
 
 namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
 {
+    /// <summary>
+    /// Gets usable instances of all objects and properties
+    /// </summary>
     public class SceneObjectInterpreter
     {
-        //OBJECTS
-        //MainCamera
-            //CameraScript
-        //List of walls
-        //Floor
-        //Bed
-        //Light
-        //List of Pickups and Collision (Intractables)
-        //List of Traps (ITrapCollision)
-
-        //PROPERTIES (some given from interfaces)
-        //Player speed
-        //Timer
-        //Noise
-        
-        
-        //REVERT TO DEFAULT VALUES
-
         public PlayerSceneObject GetPlayer(List<GameObject> rootObjects)
         {
             GameObject player = rootObjects.First(x => x.CompareTag("Player"));

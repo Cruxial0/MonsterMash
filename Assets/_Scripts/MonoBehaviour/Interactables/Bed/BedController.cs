@@ -10,25 +10,17 @@ public class BedController : MonoBehaviour
     public bool IsUnderBed = false;
 
     public GameObject WinPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             IsUnderBed = true;
+            
+            //Hide player
             PlayerInteractionHandler.SceneObjects.Player.MeshRenderer.enabled = false;
 
+            //If all objects are picked up, win
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
             {
                 PlayerInteractionHandler.GameStateManager.Win();
@@ -39,6 +31,8 @@ public class BedController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         IsUnderBed = false;
+        
+        //Show player
         PlayerInteractionHandler.SceneObjects.Player.MeshRenderer.enabled = true;
     }
 }

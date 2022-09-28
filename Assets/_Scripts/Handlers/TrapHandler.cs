@@ -10,13 +10,15 @@ namespace _Scripts.Handlers
 {
     public class TrapHandler
     {
+        //Create list of Interactables
         public List<TrapObject> Interactibles = new List<TrapObject>();
 
         public TrapHandler()
         {
+            //Get all objects with tag 'Trap' in the Scene
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Trap"))
             {
-                Debug.Log(gameObject.GetComponent<ITrapCollision>().TrapName);
+                //Create and add TrapObject to list of Interactables
                 Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<ITrapCollision>()));
             }
         }
@@ -24,28 +26,32 @@ namespace _Scripts.Handlers
     
     public class TrapObject
     {
-        public GameObject Parent { get; }
-        public Animation Animation { get; set; }
-        public List<TrapEventArgs> CollisionLog = new List<TrapEventArgs>();
+        public GameObject Parent { get; } //Parent GameObject
+        public Animation Animation { get; set; } //Animation
+        public List<TrapEventArgs> CollisionLog = new List<TrapEventArgs>(); //Log of collisions
 
-        public ITrapCollision Script;
+        public ITrapCollision Script; //Script reference
 
         public TrapObject(GameObject parent, ITrapCollision initialize)
         {
+            //Assign values
             Parent = parent;
             Animation = initialize.Animation;
             Script = initialize;
-            Evaluate();
+            Evaluate(); //Evaluate properties
         }
 
+        //Destroys parent
         public void Destroy() => Object.Destroy(Parent);
-
+        
+        //Add collision log
         public void AddCollisionEntry(TrapEventArgs c)
         {
-            CollisionLog.Add(c);
-            OnCollisionEnter(c);
+            CollisionLog.Add(c); //Add collision to log
+            OnCollisionEnter(c); //Invoke event
         }
 
+        //Event for trap collision
         private void OnCollisionEnter(TrapEventArgs c)
         {
             TrapCollisionEventAddedEventHandler handler = TrapCollisionAdded;

@@ -8,6 +8,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         // Update is called once per frame
         void Update()
         {
+            //Looks at ObjectToFace
             this.gameObject.transform.LookAt(ObjectToFace.transform);
         }
     }

@@ -26,7 +26,7 @@ namespace _Scripts.MonoBehaviour.Player
             //InputSystem.EnableDevice(Gyroscope.current);
 
             //Subscribe to controller events
-            //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+            //Learn what events are: https://docs.microsoft.com /en-us/dotnet/csharp/programming-guide/events/
             _controls.Player.Movement.performed += RotateOnPerformed;
             _controls.Player.Movement.canceled += ctx => _rotate = Vector2.zero;
             
@@ -34,9 +34,9 @@ namespace _Scripts.MonoBehaviour.Player
 
         private void Start()
         {
+            //Get rigidbody component
             _rigidbody = this.gameObject.GetComponent<Rigidbody>();
-            InputSystem.EnableDevice(Gyroscope.current);
-            _gyroscope.MakeCurrent();
+            InputSystem.EnableDevice(Gyroscope.current); //Enable gyro
         }
 
         //Called when gameObject becomes active
@@ -44,14 +44,13 @@ namespace _Scripts.MonoBehaviour.Player
         //Called when gameObject becomes inactive
         private void OnDisable() => _controls.Player.Movement.Disable();
     
-        private void RotateOnPerformed(InputAction.CallbackContext obj)
-        {
-            _rotate = obj.ReadValue<Vector2>();
-        }
+        //Read value from joystick
+        private void RotateOnPerformed(InputAction.CallbackContext obj) => _rotate = obj.ReadValue<Vector2>();
 
         // Update is called once per frame
         void Update()
         {
+            //If player cant control, return
             if(!CanControl) return;
             
             switch (ControlPreset)
@@ -71,6 +70,9 @@ namespace _Scripts.MonoBehaviour.Player
         
         }
 
+        /// <summary>
+        /// This is hilariously broken, so I wont be commenting it yet
+        /// </summary>
         private void MoveGyroscope()
         {
             print($"supports gyro: {SystemInfo.supportsGyroscope}");
@@ -82,14 +84,15 @@ namespace _Scripts.MonoBehaviour.Player
                 print($"clamp constant x: {velocity.normalized}");
                 print($"x: {velocity.x}");
                 
-                _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);
-
+                _rigidbody.AddForce(new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime, ForceMode.Force);  
             }
         }
 
+        /// <summary>
+        /// Applies force based on WASD controls
+        /// </summary>
         private void MoveKeyboard()
         {
-        
             if (_keyboard.wKey.IsPressed())
                 _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.sKey.IsPressed())
@@ -100,6 +103,9 @@ namespace _Scripts.MonoBehaviour.Player
                 _rigidbody.AddForce(new Vector3(MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
         }
 
+        /// <summary>
+        /// Applies force based on the On-Screen Joystick
+        /// </summary>
         private void MoveJoystick()
         {
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime, ForceMode.Force);

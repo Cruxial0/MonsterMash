@@ -8,30 +8,39 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
 {
     public class IceBucketTrap: UnityEngine.MonoBehaviour, ITrapCollision
     {
-        public InteractType Type;
-        private PlayerInteractionHandler _handler;
+        public InteractType Type; //Interact type
+        private PlayerInteractionHandler _handler; //Reference to PlayerInteractionHandler
 
-        private Vector3 _playerMovement = new Vector3();
+        private Vector3 _playerMovement = new Vector3(); //Reference to player velocity
+        private bool TrapActive = false; //Trap active?
         
         // Start is called before the first frame update
         void Start()
         {
-            TrapInstance = this.gameObject;
-            Animation = new Animation();
+            TrapInstance = this.gameObject; //Set TrapInstance
+            Animation = new Animation(); //Create new empty animation
         }
 
         private void OnTriggerEnter(Collider c)
         {
+            //if collider is not type of Player, return
             if(!c.gameObject.CompareTag("Player")) return;
+            
+            //Get the correct trap instance using a LINQ expression
             _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == this.TrapName)
                 .AddCollisionEntry(new TrapEventArgs(this, trigger: c));
+            
+            //Set trap to active
             TrapActive = true;
+            
+            //Get velocity from player
             _playerMovement = PlayerInteractionHandler.SceneObjects.Player.Rigidbody.velocity;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            TrapActive = false;
+            TrapActive = false; //Deactivate trap
+            //Let player control again
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = true;
         }
         
@@ -43,14 +52,15 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
 
         public void OnCollision(float playerSpeed)
         {
+            //Remove player control
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
         }
 
-        private bool TrapActive = false;
-        
         void Update()
         {
-            if(TrapActive == false) return;
+            //If trap is not active, return
+            if(!TrapActive) return;
+            //Add force to player based on the entry velocity
             PlayerInteractionHandler.SceneObjects.Player.Rigidbody.AddForce((_playerMovement * PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed / 4) * Time.deltaTime);
         }
     }
