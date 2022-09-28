@@ -1,83 +1,43 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 
 namespace _Scripts.Handlers
 {
     public class GameStateManager : UnityEngine.MonoBehaviour
     {
-        private GameObject _player;
-        private PlayerInteractionHandler _handler;
-        
-        private float delay = 5;
-        private float currTime = 0f;
-        private bool lost = false;
-        
+        private PlayerInteractionHandler _handler; //Instance of PlayerInteractionHandler
+        private GameObject _player; //Instance of player
+        private float currTime; //Current time
+
+        private float delay = 5; //Transition delay
+        private bool lost; //Lost?
+
         public GameStateManager(GameObject player, PlayerInteractionHandler handler)
         {
-            _player = player;
-            _handler = handler;
-        }
-
-        public void Lose()
-        {
-            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
-            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
-            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
-            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
-
-            Debug.Log("You lose");
-            
-            var text = Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
-
-            var textObjects = text.GetComponentsInChildren<TextMeshProUGUI>();
-
-            textObjects[0].text = "You lost!";
-            textObjects[0].color = Color.red;
-            textObjects[1].color = Color.red;
-
-            lost = true;
-
-            GameObject go = new GameObject();
-            go.AddComponent<GameStateManager>();
-        }
-        
-        public void Win()
-        {
-            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
-            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
-            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
-            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
-            Object.Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
-            
-            GameObject go = new GameObject();
-            go.AddComponent<GameStateManager>();
+            _player = player; //Assign player
+            _handler = handler; //Assign value
         }
 
         private void Awake()
         {
-            delay = 3f;
+            delay = 3f; //Set delay
         }
 
         private void Update()
         {
-            currTime += Time.deltaTime;
-            print(delay);
-            print(currTime);
-            
+            currTime += Time.deltaTime; //Increment time
+
             if (currTime >= delay)
             {
                 if (lost)
                 {
+                    //Load MainMenu
                     SceneManager.LoadScene("MenuTest");
                     return;
                 }
-                
+
+                //Switch on Scene names
                 switch (SceneManager.GetActiveScene().name)
                 {
                     case "Level0":
@@ -90,11 +50,54 @@ namespace _Scripts.Handlers
                         SceneManager.LoadScene("Level3");
                         return;
                 }
-            
-                SceneManager.LoadScene("MenuTest");
 
-                Debug.Log("You win");
+                SceneManager.LoadScene("MenuTest");
             }
+        }
+
+        public void Lose()
+        {
+            //Destroy player
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
+            //Set text color to red
+            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
+            //Stop timer
+            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            //Disable camera script
+            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
+
+            //Instantiate loss screen
+            var text = Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
+
+            //Get text objects
+            var textObjects = text.GetComponentsInChildren<TextMeshProUGUI>();
+
+            //Format text
+            textObjects[0].text = "You lost!";
+            textObjects[0].color = Color.red;
+            textObjects[1].color = Color.red;
+
+            lost = true;
+
+            var go = new GameObject(); //Add empty handler
+            go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+        }
+
+        public void Win()
+        {
+            //Destroy player
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
+            //Set text color to green
+            PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.green;
+            //Stop timer
+            PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
+            //Disable camera script
+            PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
+            //Instantiate win screen
+            Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
+
+            var go = new GameObject(); //Add empty handler
+            go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
         }
     }
 }

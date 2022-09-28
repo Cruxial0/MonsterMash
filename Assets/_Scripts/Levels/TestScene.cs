@@ -2,8 +2,6 @@
 using _Scripts.Handlers;
 using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
-using UnityEngine.SceneManagement;
-using SceneManager = UnityEngine.SceneManagement.SceneManager;
 
 namespace _Scripts.Levels
 {
@@ -11,11 +9,11 @@ namespace _Scripts.Levels
     {
         public int LevelID => 1;
 
-        public Level Level => new Level("RoomPrototype")
+        public Level Level => new("RoomPrototype")
         {
             LevelName = "Event Level"
         };
 
-        public List<IEvent> Events => new List<IEvent>() { new ZoomEvent() };
+        public List<IEvent> Events => new() { new ZoomEvent() };
     }
 }

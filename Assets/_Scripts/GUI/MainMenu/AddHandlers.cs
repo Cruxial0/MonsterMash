@@ -1,34 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Scripts.GUI.MainMenu;
-using _Scripts.Handlers;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AddHandlers : MonoBehaviour
 {
-    public Button loadSceneButton;
-    public GameObject LevelList;
+    public Button loadSceneButton; //Reference to level button
+    public GameObject LevelList; //Canvas
 
-    private LevelSelectButton _levelSelectButton;
-    
-    
+    private LevelSelectButton _levelSelectButton; //Instance of LevelSelectButton class
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _levelSelectButton = new LevelSelectButton();
-        
-        var button = loadSceneButton.GetComponent<Button>();
-        //button.onClick.AddListener(LevelManager.LoadScene);
-        button.onClick.AddListener(ToLevelSelect);
+        _levelSelectButton = new LevelSelectButton(); //Instantiate LevelSelectButton
+
+        var button = loadSceneButton.GetComponent<Button>(); //Get Button component
+        button.onClick.AddListener(ToLevelSelect); //Add onClick Listener
     }
 
-    void ToLevelSelect() => _levelSelectButton.ToLevelList(this.gameObject, LevelList);
-    
-    // Update is called once per frame
-    void Update()
+    //Swap view to level list
+    private void ToLevelSelect()
     {
-        
+        _levelSelectButton.ToLevelList(gameObject, LevelList);
     }
 }

@@ -6,10 +6,8 @@ namespace _Scripts.Handlers.EventHandlers
     {
         public EventInitialize(ILevel level)
         {
-            foreach (var levelEvent in level.Events)
-            {
-                levelEvent.ApplyEvent();
-            }
+            //Apply all events to level
+            foreach (var levelEvent in level.Events) levelEvent.ApplyEvent();
         }
     }
 }

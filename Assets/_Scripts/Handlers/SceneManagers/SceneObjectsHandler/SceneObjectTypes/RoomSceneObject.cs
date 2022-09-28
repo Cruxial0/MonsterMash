@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Handlers.Interfaces;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
-using _Scripts.MonoBehaviour.Interactables.Traps;
 using UnityEngine;
 
 namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
@@ -44,7 +43,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public Collider Collider { get; set; }
         public ITrapCollision Script { get; set; }
     }
-    
+
     public class BedSceneObject
     {
         public Transform Transform { get; set; }
@@ -54,16 +53,16 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public Collider Collider { get; set; }
         public BedController Script { get; set; }
     }
-    
+
     public class RoomSceneObject
     {
+        public List<FurnitureSceneObject> FurnitureObjects = new();
+        public List<PickupSceneObject> PickupObject = new();
+        public List<TrapSceneObject> TrapObjects = new();
+        public List<GameObject> Walls = new();
         public GameObject ParentObject { get; set; }
         public GameObject Floor { get; set; }
-        public List<GameObject> Walls = new List<GameObject>();
         public LightSceneObject LightObject { get; set; }
-        public List<PickupSceneObject> PickupObject = new List<PickupSceneObject>();
-        public List<FurnitureSceneObject> FurnitureObjects = new List<FurnitureSceneObject>();
-        public List<TrapSceneObject> TrapObjects = new List<TrapSceneObject>();
         public BedSceneObject BedObject { get; set; }
     }
 }

@@ -9,11 +9,11 @@ namespace _Scripts.Levels
     {
         public int LevelID => 2;
 
-        public Level Level => new Level("LightsOutLevel")
+        public Level Level => new("LightsOutLevel")
         {
             LevelName = "LightsOutEvent"
         };
 
-        public List<IEvent> Events => new List<IEvent>() { new LightsOutEvent(), new ZoomEvent() };
+        public List<IEvent> Events => new() { new LightsOutEvent(), new ZoomEvent() };
     }
 }
