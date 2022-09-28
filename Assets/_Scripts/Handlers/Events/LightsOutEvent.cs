@@ -5,16 +5,18 @@ using UnityEngine;
 namespace _Scripts.Handlers.Events
 {
     /// <summary>
-    /// Makes the level dark and adds a light around the player
+    ///     Makes the level dark and adds a light around the player
     /// </summary>
     public class LightsOutEvent : IEvent
     {
         /// <summary>
-        /// Inherited from IEvent
+        ///     Inherited from IEvent
         /// </summary>
         public string EventName => "Lights Out!";
+
         public string Description => "Where did everything go?..";
         public SceneObjects Objects => PlayerInteractionHandler.SceneObjects;
+
         public void ApplyEvent()
         {
             //Change light color to black
@@ -25,7 +27,7 @@ namespace _Scripts.Handlers.Events
             Objects.UI.CollectableCounter.Text.color = Color.white;
 
             // Add the player light component
-            Light light = Objects.Player.PlayerLight;
+            var light = Objects.Player.PlayerLight;
             light.intensity = 2.65f;
             light.range = 15f;
             light.enabled = true;

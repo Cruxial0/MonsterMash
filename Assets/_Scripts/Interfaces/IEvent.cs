@@ -1,4 +1,3 @@
-using _Scripts.Handlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 
 namespace _Scripts.Interfaces

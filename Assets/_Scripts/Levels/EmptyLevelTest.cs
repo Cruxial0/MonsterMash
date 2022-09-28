@@ -2,7 +2,6 @@
 using _Scripts.Handlers;
 using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
-using UnityEngine.SceneManagement;
 
 namespace _Scripts.Levels
 {
@@ -10,11 +9,11 @@ namespace _Scripts.Levels
     {
         public int LevelID => 3;
 
-        public Level Level => new Level("EmptyLevel")
+        public Level Level => new("EmptyLevel")
         {
             LevelName = "Empty Level lmao"
         };
 
-        public List<IEvent> Events => new List<IEvent>() { new NoEvent() };
+        public List<IEvent> Events => new() { new NoEvent() };
     }
 }

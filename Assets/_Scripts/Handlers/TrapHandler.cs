@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Scripts.Handlers.Interfaces;
-using _Scripts.MonoBehaviour.Interactables.Traps;
-using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -11,24 +9,22 @@ namespace _Scripts.Handlers
     public class TrapHandler
     {
         //Create list of Interactables
-        public List<TrapObject> Interactibles = new List<TrapObject>();
+        public List<TrapObject> Interactibles = new();
 
         public TrapHandler()
         {
             //Get all objects with tag 'Trap' in the Scene
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Trap"))
-            {
                 //Create and add TrapObject to list of Interactables
                 Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<ITrapCollision>()));
-            }
         }
     }
-    
+
     public class TrapObject
     {
-        public GameObject Parent { get; } //Parent GameObject
-        public Animation Animation { get; set; } //Animation
-        public List<TrapEventArgs> CollisionLog = new List<TrapEventArgs>(); //Log of collisions
+        public delegate void TrapCollisionEventAddedEventHandler(object sender, TrapEventArgs e);
+
+        public List<TrapEventArgs> CollisionLog = new(); //Log of collisions
 
         public ITrapCollision Script; //Script reference
 
@@ -41,9 +37,15 @@ namespace _Scripts.Handlers
             Evaluate(); //Evaluate properties
         }
 
+        public GameObject Parent { get; } //Parent GameObject
+        public Animation Animation { get; set; } //Animation
+
         //Destroys parent
-        public void Destroy() => Object.Destroy(Parent);
-        
+        public void Destroy()
+        {
+            Object.Destroy(Parent);
+        }
+
         //Add collision log
         public void AddCollisionEntry(TrapEventArgs c)
         {
@@ -54,12 +56,11 @@ namespace _Scripts.Handlers
         //Event for trap collision
         private void OnCollisionEnter(TrapEventArgs c)
         {
-            TrapCollisionEventAddedEventHandler handler = TrapCollisionAdded;
+            var handler = TrapCollisionAdded;
             handler?.Invoke(this, c);
         }
-        
+
         public event TrapCollisionEventAddedEventHandler TrapCollisionAdded;
-        public delegate void TrapCollisionEventAddedEventHandler(object sender, TrapEventArgs e);
 
         private void Evaluate()
         {
@@ -67,12 +68,13 @@ namespace _Scripts.Handlers
             if (Animation == null) Animation = new Animation();
         }
     }
-    
+
     public class TrapEventArgs : EventArgs
     {
-        public Collider TriggerEvent;
         public Collision CollisionEvent;
         public ITrapCollision ScriptReference;
+        public Collider TriggerEvent;
+
         public TrapEventArgs(ITrapCollision scriptReference, Collider trigger = null, Collision collision = null)
         {
             if (trigger == null && collision == null) return;

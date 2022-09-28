@@ -9,33 +9,37 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         public InteractType Type; //Interact type
         public ParticleSystem VisualFeedback; //Visual feedback
         private PlayerInteractionHandler _handler; //Instance of PlayerInteractionHandler
-        void Awake()
+
+        private void Awake()
         {
             //if type is null, gameObject is invalid, thus, destroy.
-            if(Type == null) Destroy(this.gameObject);
+            if (Type == null) Destroy(gameObject);
         }
-
-        //Get reference to PlayerInteractionHandler
-        public void AddInteractionHandlerReference(PlayerInteractionHandler handler) => _handler = handler;
 
         private void OnCollisionEnter(Collision c)
         {
             //If collider is not of tag player, return
-            if(!c.collider.CompareTag("Player")) return;
-            
+            if (!c.collider.CompareTag("Player")) return;
+
             //Find correct object using LINQ
-            _handler.InteractableHandler.Interactibles.First(x => x.Parent == this.gameObject)
+            _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
                 .AddCollisionEntry(new CollisionEventArgs(collision: c));
         }
-    
+
         private void OnTriggerEnter(Collider c)
         {
             //If collider is not of tag player, return
-            if(!c.gameObject.CompareTag("Player")) return;
-            
+            if (!c.gameObject.CompareTag("Player")) return;
+
             //Find correct object using LINQ
-            _handler.InteractableHandler.Interactibles.First(x => x.Parent == this.gameObject)
-                .AddCollisionEntry(new CollisionEventArgs(trigger: c));
+            _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
+                .AddCollisionEntry(new CollisionEventArgs(c));
+        }
+
+        //Get reference to PlayerInteractionHandler
+        public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
+        {
+            _handler = handler;
         }
     }
 }

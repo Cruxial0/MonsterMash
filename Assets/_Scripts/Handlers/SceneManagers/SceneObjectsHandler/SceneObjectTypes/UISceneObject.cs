@@ -34,7 +34,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public CanvasRenderer CanvasRenderer { get; set; }
         public TextMeshProUGUI Text { get; set; }
     }
-    
+
     public class Timer
     {
         public RectTransform RectTransform { get; set; }
@@ -57,7 +57,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public int MaxNoise { get; set; }
         public int CurrentNoise { get; set; }
     }
-    
+
     public class UISceneObject
     {
         public CanvasObject CanvasObject { get; set; }

@@ -1,55 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Timers;
+﻿using System.Linq;
 using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
-using _Scripts.Interfaces;
-using _Scripts.MonoBehaviour.CommonFunctionality;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
-using _Scripts.MonoBehaviour.Interactables.Traps;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = UnityEngine.Debug;
-using Object = UnityEngine.Object;
 
 namespace _Scripts.Handlers
 {
     public class PlayerInteractionHandler
     {
-        public Scene CurrentLevel; //Active Level
-        public readonly InteractableHandler InteractableHandler; //InteractableHandler
-        public readonly TrapHandler TrapHandler; //TrapHandler
         public static GameStateManager GameStateManager; //GameStateManager
         public static SceneObjects SceneObjects; //SceneObjects
-        public static readonly PowerManager PowerManager = new PowerManager(); //PowerManager
+        public static readonly PowerManager PowerManager = new(); //PowerManager
         public static PlayerInteractionHandler Self; //this
+        public readonly InteractableHandler InteractableHandler; //InteractableHandler
+        public readonly TrapHandler TrapHandler; //TrapHandler
 
-        private int _collectableCount = 0; //Amount of pickups
-        private int _currCollectable = 0; //Current amount picked up
+        private int _collectableCount; //Amount of pickups
+        private int _currCollectable; //Current amount picked up
+        public Scene CurrentLevel; //Active Level
 
         //Build new instance of class
         public PlayerInteractionHandler(GameObject player)
         {
             CurrentLevel = SceneManager.GetActiveScene(); //CurrentLevel = ActiveScene
-            
+
             //Instantiate objects
             InteractableHandler = new InteractableHandler();
             TrapHandler = new TrapHandler();
             SceneObjects = new SceneObjects(CurrentLevel, this);
             GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
-            
+
             PowerManager.GetAll(); //Get all powers
 
             Self = this;
-            
+
             //Subscribe to events
             SceneObjects.UI.Timer.TimerHandler.TimerDepleted += HandleTimer;
-            this.InteractablePickedUp += UpdateGUI;
+            InteractablePickedUp += UpdateGUI;
 
             //Get all pickups
             foreach (var interactable in InteractableHandler.Interactibles)
@@ -57,7 +46,7 @@ namespace _Scripts.Handlers
                 interactable.Parent.GetComponent<InteractableInitialize>().AddInteractionHandlerReference(this);
                 interactable.CollisionAdded += HandleCollision;
             }
-            
+
             //Get all traps
             foreach (var interactable in TrapHandler.Interactibles)
             {
@@ -83,9 +72,16 @@ namespace _Scripts.Handlers
         }
 
         //Starts the timer
-        public void StartTimer() => SceneObjects.UI.Timer.TimerHandler.StartTimer();
+        public void StartTimer()
+        {
+            SceneObjects.UI.Timer.TimerHandler.StartTimer();
+        }
+
         //Stops the timer
-        public void StopTimer()  => SceneObjects.UI.Timer.TimerHandler.StopTimer();
+        public void StopTimer()
+        {
+            SceneObjects.UI.Timer.TimerHandler.StopTimer();
+        }
 
         private void InitializeGUI()
         {
@@ -111,7 +107,7 @@ namespace _Scripts.Handlers
         private void HandleCollision(object sender, CollisionEventArgs c)
         {
             //Get event sender from event args
-            InteractableObject obj = sender as InteractableObject;
+            var obj = sender as InteractableObject;
 
             //Handle Triggers and Collisions separately
             if (c.TriggerEvent == null) HandleCollisionEvent(obj, c.CollisionEvent);
@@ -122,15 +118,15 @@ namespace _Scripts.Handlers
         {
             //Get the collision type of object
             var collisionType = interactableObject.InteractType;
-            
+
             switch (collisionType)
             {
                 //In case of type Pickup:
                 case InteractType.Pickup:
                     interactableObject.Destroy(); //Destroy object
-                    
+
                     _currCollectable++; //Increment currCollectable
-                    
+
                     //Get SceneObject from LINQ expression
                     var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
                         x.Collider == interactableObject.Parent.GetComponent<Collider>());
@@ -138,9 +134,9 @@ namespace _Scripts.Handlers
                     SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
 
                     //Invoke event
-                    OnInteractablePickupEventHandler handler = InteractablePickedUp;
+                    var handler = InteractablePickedUp;
                     handler?.Invoke(this);
-                    
+
                     break;
                 //In case of type Trap:
                 case InteractType.Trap:
@@ -149,11 +145,10 @@ namespace _Scripts.Handlers
                     break;
             }
         }
-        
+
         //Pickup event handlers
         private event OnInteractablePickupEventHandler InteractablePickedUp;
-        private delegate void OnInteractablePickupEventHandler(object sender);
-        
+
         private void HandleCollisionEvent(InteractableObject interactableObject, Collision collisionEvent)
         {
             //Get type of collision
@@ -167,12 +162,11 @@ namespace _Scripts.Handlers
                     Object.Instantiate(interactableObject.VisualFeedback, collisionEvent.gameObject.transform.position,
                         interactableObject.VisualFeedback.transform.rotation);
                     break;
-                
             }
         }
 
         /// <summary>
-        /// Currently obsolete, might use later.
+        ///     Currently obsolete, might use later.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="collision"></param>
@@ -183,7 +177,7 @@ namespace _Scripts.Handlers
             //Play animation
             //Properly position origin point of visualFeedback (using Mesh.bounds?)
 
-            Vector3 instantiatePos = obj.Parent.transform.GetChild(0).position;
+            var instantiatePos = obj.Parent.transform.GetChild(0).position;
             var instantiateScale = obj.Parent.transform.localScale;
             instantiatePos.y = 0;
 
@@ -196,5 +190,7 @@ namespace _Scripts.Handlers
             //Also create it with it's original rotation, and on our gameObject's position.
             Object.Instantiate(obj.VisualFeedback, instantiatePos, obj.VisualFeedback.transform.rotation);
         }
+
+        private delegate void OnInteractablePickupEventHandler(object sender);
     }
 }

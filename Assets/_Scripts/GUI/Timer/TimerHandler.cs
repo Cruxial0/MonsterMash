@@ -1,30 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class TimerHandler : MonoBehaviour
 {
-    private TextMeshProUGUI text; //Instance of Text
+    public delegate void TimerDepletedEventHandler(object sender);
+
     public float roundTime = 100f; //Round time
-    private float currTime = 0f; //Current time
-    private bool timerActive = false; //Timer active?
-    
-    void Start()
+    private float currTime; //Current time
+    private TextMeshProUGUI text; //Instance of Text
+    private bool timerActive; //Timer active?
+
+    private void Start()
     {
-        text = this.GetComponent<TextMeshProUGUI>(); //Get Text component and assign it
+        text = GetComponent<TextMeshProUGUI>(); //Get Text component and assign it
         currTime = roundTime; //Set Current Time to Round Time
     }
 
-    //Starts Timer
-    public void StartTimer() => timerActive = true;
-
-    //Stops Timer
-    public void StopTimer() => timerActive = false;
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //If Timer is active
         if (timerActive)
@@ -36,9 +30,11 @@ public class TimerHandler : MonoBehaviour
                 timerActive = false;
                 OnTimerDepleted(); //Call event function
                 return;
-            };
-            
-            TimeSpan time = new TimeSpan(); //Get new instance of TimeSpan
+            }
+
+            ;
+
+            var time = new TimeSpan(); //Get new instance of TimeSpan
             var timeSpan = time.Add(TimeSpan.FromSeconds(currTime)); //TimeSpan += currTime
 
             text.text = $"{timeSpan.Minutes}:{timeSpan.Seconds:00}"; //Format text
@@ -47,13 +43,25 @@ public class TimerHandler : MonoBehaviour
         }
     }
 
+    //Starts Timer
+    public void StartTimer()
+    {
+        timerActive = true;
+    }
+
+    //Stops Timer
+    public void StopTimer()
+    {
+        timerActive = false;
+    }
+
     //Event function for when timer depletes
     //Learn more about events at: https://learn.microsoft.com/en-us/dotnet/standard/events/
     private void OnTimerDepleted()
     {
-        TimerDepletedEventHandler handler = TimerDepleted;
+        var handler = TimerDepleted;
         handler?.Invoke(this);
     }
+
     public event TimerDepletedEventHandler TimerDepleted;
-    public delegate void TimerDepletedEventHandler(object sender);
 }

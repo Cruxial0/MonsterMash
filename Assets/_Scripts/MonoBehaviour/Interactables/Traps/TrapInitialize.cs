@@ -9,32 +9,36 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
     {
         public InteractType Type;
         private PlayerInteractionHandler _handler;
-    
+
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             //Create instances
-            TrapInstance = this.gameObject;
+            TrapInstance = gameObject;
             Animation = new Animation();
         }
 
         private void OnTriggerEnter(Collider c)
         {
             //If collider is not of tag player, return
-            if(!c.gameObject.CompareTag("Player")) return;
-            
+            if (!c.gameObject.CompareTag("Player")) return;
+
             //Get the correct trap object using LINQ
-            _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == this.TrapName)
-                .AddCollisionEntry(new TrapEventArgs(this, trigger: c));
+            _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == TrapName)
+                .AddCollisionEntry(new TrapEventArgs(this, c));
         }
 
         //Get reference to PlayerInteractionHandler
-        public void AddInteractionHandlerReference(PlayerInteractionHandler handler) => _handler = handler;
-    
+        public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
+        {
+            _handler = handler;
+        }
+
         //Inherited from ITrapCollision
         public string TrapName => "Bear Trap";
         public GameObject TrapInstance { get; set; }
         public Animation Animation { get; set; }
+
         public void OnCollision(float playerSpeed)
         {
             //Lose

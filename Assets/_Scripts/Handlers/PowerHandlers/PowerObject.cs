@@ -7,8 +7,15 @@ namespace _Scripts.Handlers.PowerHandlers
         public UnityAction PowerLogic; //Associated script
 
         //Set PowerLogic to action
-        public PowerObject(UnityAction action) => PowerLogic = action;
+        public PowerObject(UnityAction action)
+        {
+            PowerLogic = action;
+        }
 
-        public void Execute() => PowerLogic.Invoke(); //Execute script
+        public void Execute()
+        {
+            PowerLogic.Invoke();
+            //Execute script
+        }
     }
 }
