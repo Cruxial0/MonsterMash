@@ -21,7 +21,7 @@ namespace _Scripts.MonoBehaviour.Player
         private Rigidbody _rigidbody; //Attached rigidbody
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         [NonSerialized] public bool CanControl = true;
-        [NonSerialized] public float MovementSpeed = 70f; //MovementSpeed
+        [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public Vector3 PreviousMovement;
 
 
@@ -32,7 +32,7 @@ namespace _Scripts.MonoBehaviour.Player
             //InputSystem.EnableDevice(Gyroscope.current);
 
             //Subscribe to controller events
-            //Learn what events are: https://docs.microsoft.com /en-us/dotnet/csharp/programming-guide/events/
+            //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
             _controls.Player.Movement.performed += RotateOnPerformed;
             _controls.Player.Movement.canceled += ctx => _rotate = Vector2.zero;
         }
@@ -89,7 +89,6 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveGyroscope()
         {
-            print($"supports gyro: {SystemInfo.supportsGyroscope}");
             if (_gyroscope != null && _gyroscope.enabled)
             {
                 var velocity = _controls.Player.Gyro.ReadValue<Vector3>();
@@ -125,7 +124,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void MoveJoystick()
         {
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime,
-                ForceMode.Force);
+                ForceMode.VelocityChange);
         }
     }
 }

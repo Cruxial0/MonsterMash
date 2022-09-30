@@ -1,4 +1,5 @@
-﻿using _Scripts.Handlers.PowerHandlers;
+﻿using System;
+using _Scripts.Handlers.PowerHandlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
 using UnityEngine;
@@ -15,12 +16,17 @@ namespace _Scripts.Handlers.Powers
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
 
+        private void Start()
+        {
+            SceneObjects.Player.MovmentController.MovementSpeed = 50f; //Set speed of player
+        }
+
         private void FixedUpdate()
         {
             currTime += Time.deltaTime; //Increment timer
             if (currTime > buffTime && active)
             {
-                SceneObjects.Player.MovmentController.MovementSpeed = 70f; //Revert speed of player
+                SceneObjects.Player.MovmentController.MovementSpeed = 20f; //Revert speed of player
                 active = false; //Deactivate timer
             }
         }
@@ -34,9 +40,7 @@ namespace _Scripts.Handlers.Powers
         private void ForceLogic()
         {
             Parent.AddComponent<ForcePower>(); //Add component of power
-
-            SceneObjects.Player.MovmentController.MovementSpeed = 170f; //Set speed of player
-
+            
             //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
