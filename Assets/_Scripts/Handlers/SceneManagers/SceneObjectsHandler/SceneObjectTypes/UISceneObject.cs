@@ -47,7 +47,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
     {
         public RectTransform RectTransform { get; set; }
         public CanvasRenderer CanvasRenderer { get; set; }
-        public TextMeshProUGUI Text { get; set; }
+        public Image Image { get; set; } = null;
         public NoiseProperties NoiseProperties { get; set; }
         public NoiseMeterHandler Script { get; set; }
     }

@@ -68,7 +68,8 @@ namespace _Scripts.Handlers
         {
             //Set color to red and destroy player
             SceneObjects.UI.Timer.Text.color = Color.red;
-            //Object.Destroy(SceneObjects.Player.Self);
+            GameStateManager.Lose();
+            Object.Destroy(SceneObjects.Player.Self);
         }
 
         //Starts the timer
