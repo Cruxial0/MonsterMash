@@ -18,7 +18,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public RectTransform RectTransform { get; set; }
         public CanvasRenderer CanvasRenderer { get; set; }
         public Image Image { get; set; }
-        public OnScreenStick OnScreenStick { get; set; }
+        public FixedJoystick OnScreenStick { get; set; }
     }
 
     public class CollectableSprite

@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Handlers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Gyroscope = UnityEngine.InputSystem.Gyroscope;
@@ -23,8 +24,7 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized] public bool CanControl = true;
         [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public readonly float DefaultMovementSpeed = 10f; //MovementSpeed
-        
-
+        [NonSerialized] public FixedJoystick Joystick;
 
         private void Awake()
         {
@@ -44,14 +44,18 @@ namespace _Scripts.MonoBehaviour.Player
             //Get rigidbody component
             _rigidbody = gameObject.GetComponent<Rigidbody>();
             InputSystem.EnableDevice(Gyroscope.current); //Enable gyro
+            Joystick = PlayerInteractionHandler.SceneObjects.UI.MobileJoystick.OnScreenStick;
         }
 
         // Update is called once per frame
         private void Update()
         {
+            if (Joystick == null) Joystick = PlayerInteractionHandler.SceneObjects.UI.MobileJoystick.OnScreenStick;
             //If player cant control, return
             if (!CanControl) return;
 
+            print($"({Joystick.Horizontal}, {Joystick.Vertical})");
+            
             switch (ControlPreset)
             {
                 case ControlType.Joystick:
@@ -126,7 +130,8 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveJoystick()
         {
-            _rigidbody.velocity += new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime;
+            _rigidbody.velocity += 
+                new Vector3(Joystick.Horizontal * MovementSpeed, 0, Joystick.Vertical * MovementSpeed) * Time.deltaTime;
         }
     }
 }
