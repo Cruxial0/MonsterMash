@@ -1,4 +1,5 @@
-﻿using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
+﻿using System.Linq;
+using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace _Scripts.Handlers.Events
         public void ApplyEvent()
         {
             //Change light color to black
-            Objects.Room.LightObject.Light.color = Color.black;
+            Objects.Room.LightObject.First().Light.color = Color.black;
 
             //Change UI Colors to white
             Objects.UI.Timer.Text.color = Color.white;

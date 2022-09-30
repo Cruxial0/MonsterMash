@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using _Scripts.GUI.PostLevelScreens;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,12 @@ namespace _Scripts.Handlers
         private PlayerInteractionHandler _handler; //Instance of PlayerInteractionHandler
         private GameObject _player; //Instance of player
         private float currTime; //Current time
+        private GameStateScreen gameScreens = new GameStateScreen();
 
         private float delay = 5; //Transition delay
-        private bool lost; //Lost?
+        private bool lost = false; //Lost?
+        private bool postLost;
+        private bool enabled = true;
 
         public GameStateManager(GameObject player, PlayerInteractionHandler handler)
         {
@@ -22,18 +26,27 @@ namespace _Scripts.Handlers
         private void Awake()
         {
             delay = 3f; //Set delay
+            currTime = 0f;
+            enabled = true;
         }
 
         private void Update()
         {
+            Debug.Log(lost);
+            
+            if(!enabled) return;
+
             currTime += Time.deltaTime; //Increment time
 
-            if (currTime >= delay)
+            if (currTime > delay)
             {
                 if (lost)
                 {
+                    Debug.Log("Entered");
                     //Load MainMenu
-                    SceneManager.LoadScene("MenuTest");
+                    var scene = SceneManager.GetActiveScene().buildIndex;
+                    SceneManager.LoadScene(scene);
+                    enabled = false;
                     return;
                 }
 
@@ -57,6 +70,11 @@ namespace _Scripts.Handlers
 
         public void Lose()
         {
+            var go = new GameObject(); //Add empty handler
+            var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+            
+            manager.lost = true;
+
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to red
@@ -67,20 +85,7 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
 
             //Instantiate loss screen
-            var text = Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
-
-            //Get text objects
-            var textObjects = text.GetComponentsInChildren<TextMeshProUGUI>();
-
-            //Format text
-            textObjects[0].text = "You lost!";
-            textObjects[0].color = Color.red;
-            textObjects[1].color = Color.red;
-
-            lost = true;
-
-            var go = new GameObject(); //Add empty handler
-            go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+            Instantiate(gameScreens.RestartLevelScreen());
         }
 
         public void Win()
@@ -94,7 +99,7 @@ namespace _Scripts.Handlers
             //Disable camera script
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             //Instantiate win screen
-            Instantiate(PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab);
+            Instantiate(gameScreens.WinLevelScreen());
 
             var go = new GameObject(); //Add empty handler
             go.AddComponent<GameStateManager>(); //Add GameStateManager component to object

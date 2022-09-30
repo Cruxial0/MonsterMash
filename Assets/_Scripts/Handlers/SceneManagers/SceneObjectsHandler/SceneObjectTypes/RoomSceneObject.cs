@@ -62,7 +62,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public List<GameObject> Walls = new();
         public GameObject ParentObject { get; set; }
         public GameObject Floor { get; set; }
-        public LightSceneObject LightObject { get; set; }
+        public List<LightSceneObject> LightObject { get; set; }
         public BedSceneObject BedObject { get; set; }
     }
 }
