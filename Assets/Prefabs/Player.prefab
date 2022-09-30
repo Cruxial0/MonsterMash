@@ -175,6 +175,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
@@ -196,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115670789203755409, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.255
+      value: 0.498
       objectReference: {fileID: 0}
     - target: {fileID: 8115670789203755409, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -234,7 +238,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLight
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9214165338820244605, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4297940769272388831, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
 --- !u!4 &8531346949163800080 stripped
 Transform:
