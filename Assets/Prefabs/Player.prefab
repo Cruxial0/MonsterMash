@@ -163,8 +163,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 8713938483471802648}
     m_Modifications:
     - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Range
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.441
       objectReference: {fileID: 0}
     - target: {fileID: 4297940769272388831, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Constraints
@@ -176,11 +192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115670789203755409, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8115670789203755409, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.255
       objectReference: {fileID: 0}
     - target: {fileID: 8115670789203755409, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_LocalPosition.z
