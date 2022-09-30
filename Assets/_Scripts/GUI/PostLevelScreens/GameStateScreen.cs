@@ -16,13 +16,13 @@ namespace _Scripts.GUI.PostLevelScreens
             //Format text
             textObjects[0].text = "You lost!";
             textObjects[0].color = Color.red;
-            
+
             textObjects[1].text = "Restarting in 5 seconds...";
             textObjects[1].color = Color.red;
 
             return restartMenu;
         }
-        
+
         public GameObject WinLevelScreen()
         {
             var winMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
@@ -33,13 +33,13 @@ namespace _Scripts.GUI.PostLevelScreens
             //Format text
             textObjects[0].text = "You win!!";
             textObjects[0].color = Color.green;
-            
+
             textObjects[1].text = "Proceeding to next level...";
             textObjects[1].color = Color.green;
 
             return winMenu;
         }
-        
+
         public GameObject ReturnToMenuScreenWin()
         {
             var winMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
@@ -50,13 +50,13 @@ namespace _Scripts.GUI.PostLevelScreens
             //Format text
             textObjects[0].text = "You win!!";
             textObjects[0].color = Color.green;
-            
+
             textObjects[1].text = "Returning to the menu in 5 seconds...";
             textObjects[1].color = Color.green;
 
             return winMenu;
         }
-        
+
         public GameObject ReturnToMenuScreenLose()
         {
             var loseMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
@@ -67,7 +67,7 @@ namespace _Scripts.GUI.PostLevelScreens
             //Format text
             textObjects[0].text = "You lose!";
             textObjects[0].color = Color.red;
-            
+
             textObjects[1].text = "Returning to the menu in 5 seconds...";
             textObjects[1].color = Color.red;
 

@@ -21,7 +21,7 @@ namespace _Scripts.MonoBehaviour.Player
         private Rigidbody _rigidbody; //Attached rigidbody
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         [NonSerialized] public bool CanControl = true;
-        [NonSerialized] public float MovementSpeed = 70f; //MovementSpeed
+        [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public Vector3 PreviousMovement;
 
 
@@ -124,7 +124,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void MoveJoystick()
         {
             _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime,
-                ForceMode.Force);
+                ForceMode.VelocityChange);
         }
     }
 }

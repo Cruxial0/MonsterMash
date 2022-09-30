@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Handlers;
 using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Camera
@@ -7,10 +8,20 @@ namespace _Scripts.MonoBehaviour.Camera
     {
         public GameObject player; //Public reference to the player object.
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.
-
-        [NonSerialized] public float CameraDistace = 7f;
+        public float CameraDistace = 7f;
+        public float halfViewport;
 
         [NonSerialized] public bool PlayerDestroyed;
+
+        private UnityEngine.Camera _camera;
+        private Bounds floorBounds;
+
+        private void Start()
+        {
+            _camera = this.GetComponent<UnityEngine.Camera>();
+            halfViewport = _camera.orthographicSize * _camera.aspect;
+            floorBounds = PlayerInteractionHandler.SceneObjects.Room.Floor.GetComponent<Collider>().bounds;
+        }
 
         // Update is called once per frame
         private void Update()
@@ -29,8 +40,34 @@ namespace _Scripts.MonoBehaviour.Camera
             playerPos.z = position.z;
             playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
+            //Clip camera to room bounds
+            if (playerPos.x >= floorBounds.extents.x + 2 - halfViewport) 
+                playerPos.x = floorBounds.extents.x + 2 - halfViewport;
+            if (playerPos.x <= -floorBounds.extents.x - 2 + halfViewport) 
+                playerPos.x = -floorBounds.extents.x - 2 + halfViewport;
+            if (playerPos.z >= floorBounds.extents.z + 2 - (halfViewport / 2)) 
+                playerPos.z = floorBounds.extents.z + 2 - (halfViewport / 2);
+            if (playerPos.z <= -floorBounds.extents.z - 2 + (halfViewport / 2)) 
+                playerPos.z = -floorBounds.extents.z - 2 + (halfViewport / 2);
+            
             //Apply position to camera.
             transform.position = playerPos;
+        }
+        
+        private float WorldBoundaryReached()
+        {
+            float playerXPosition = player.transform.position.x;
+            Debug.Log(playerXPosition);
+            if (playerXPosition + halfViewport >= floorBounds.extents.x)
+            {
+                return floorBounds.extents.x - halfViewport;
+            }
+            else if (playerXPosition - halfViewport <= -floorBounds.extents.x)
+            {
+                return floorBounds.extents.x + halfViewport;
+            }
+            else
+                return 0f;
         }
     }
 }
