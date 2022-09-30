@@ -32,8 +32,6 @@ public class TimerHandler : MonoBehaviour
                 return;
             }
 
-            ;
-
             var time = new TimeSpan(); //Get new instance of TimeSpan
             var timeSpan = time.Add(TimeSpan.FromSeconds(currTime)); //TimeSpan += currTime
 

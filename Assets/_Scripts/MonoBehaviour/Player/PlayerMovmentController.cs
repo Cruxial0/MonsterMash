@@ -32,7 +32,7 @@ namespace _Scripts.MonoBehaviour.Player
             //InputSystem.EnableDevice(Gyroscope.current);
 
             //Subscribe to controller events
-            //Learn what events are: https://docs.microsoft.com /en-us/dotnet/csharp/programming-guide/events/
+            //Learn what events are: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
             _controls.Player.Movement.performed += RotateOnPerformed;
             _controls.Player.Movement.canceled += ctx => _rotate = Vector2.zero;
         }
@@ -89,7 +89,6 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveGyroscope()
         {
-            print($"supports gyro: {SystemInfo.supportsGyroscope}");
             if (_gyroscope != null && _gyroscope.enabled)
             {
                 var velocity = _controls.Player.Gyro.ReadValue<Vector3>();
