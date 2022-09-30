@@ -33,7 +33,7 @@ namespace _Scripts
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""9055b116-4e89-4b77-9b17-ec2a4d101e81"",
-                    ""expectedControlType"": ""Stick"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -54,7 +54,7 @@ namespace _Scripts
                     ""id"": ""1b1ad651-11db-442c-9cea-92d497d53061"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=1.401298E-45,max=0.1)"",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
