@@ -22,13 +22,11 @@ namespace _Scripts.MonoBehaviour.Player
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         [NonSerialized] public bool CanControl = true;
         [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
-        [NonSerialized] public readonly float DefaultMovementSpeed = 10f; //MovementSpeed
-        
+        [NonSerialized] public Vector3 PreviousMovement;
 
 
         private void Awake()
         {
-            MovementSpeed = DefaultMovementSpeed;
             //Instantiate PlayerControls object
             _controls = new PlayerControls();
             //InputSystem.EnableDevice(Gyroscope.current);
@@ -83,7 +81,7 @@ namespace _Scripts.MonoBehaviour.Player
         //Read value from joystick
         private void RotateOnPerformed(InputAction.CallbackContext obj)
         {
-            _rotate = obj.ReadValue<Vector2>() * MovementSpeed;
+            _rotate = obj.ReadValue<Vector2>();
         }
 
         /// <summary>
@@ -100,7 +98,7 @@ namespace _Scripts.MonoBehaviour.Player
                 print($"x: {velocity.x}");
 
                 _rigidbody.AddForce(
-                    new Vector3(velocity.x, 0, velocity.z) * Time.deltaTime,
+                    new Vector3(velocity.x * MovementSpeed, 0, velocity.z * MovementSpeed) * Time.deltaTime,
                     ForceMode.Force);
             }
         }
@@ -125,8 +123,8 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveJoystick()
         {
-            _rigidbody.velocity +=
-                new Vector3(_rotate.x, 0, _rotate.y) * Time.deltaTime;
+            _rigidbody.AddForce(new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime,
+                ForceMode.VelocityChange);
         }
     }
 }

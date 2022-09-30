@@ -14,6 +14,6 @@ namespace _Scripts.Levels
             LevelName = "Event Level"
         };
 
-        public List<IEvent> Events => new() { new FloorLavaEvent() };
+        public List<IEvent> Events => new() { new ZoomEvent() };
     }
 }

@@ -171,8 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 506693353}
   isEnabled: 0
-  CameraDistace: 7
-  halfViewport: 0
 --- !u!81 &14147290
 AudioListener:
   m_ObjectHideFlags: 0
@@ -602,10 +600,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7735896160083347376, guid: bed5f94a61dd5d84bb74b5c879d53857, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fa33abb1a60eeb7448924ded70f24001, type: 2}
     - target: {fileID: 7735896161035015100, guid: bed5f94a61dd5d84bb74b5c879d53857, type: 3}
       propertyPath: m_RootOrder
       value: 4

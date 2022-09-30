@@ -11,14 +11,14 @@ namespace _Scripts.Handlers.Powers
         private bool active = true;
 
         //Assign values for timer
-        private readonly float buffTime = 2f;
+        private readonly float buffTime = 3f;
         private float currTime;
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
 
         private void Start()
         {
-            SceneObjects.Player.MovmentController.MovementSpeed = 20f; //Set speed of player
+            SceneObjects.Player.MovmentController.MovementSpeed = 50f; //Set speed of player
         }
 
         private void FixedUpdate()
@@ -26,8 +26,7 @@ namespace _Scripts.Handlers.Powers
             currTime += Time.deltaTime; //Increment timer
             if (currTime > buffTime && active)
             {
-                SceneObjects.Player.MovmentController.MovementSpeed = 
-                    SceneObjects.Player.MovmentController.DefaultMovementSpeed; //Revert speed of player
+                SceneObjects.Player.MovmentController.MovementSpeed = 20f; //Revert speed of player
                 active = false; //Deactivate timer
             }
         }

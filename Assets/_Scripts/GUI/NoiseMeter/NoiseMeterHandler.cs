@@ -1,41 +1,38 @@
-using System.Collections.Generic;
 using _Scripts.Handlers;
-using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class NoiseMeterHandler : MonoBehaviour
 {
     public int MaxNoise;
-    public List<Sprite> NoiseSprites = new List<Sprite>();
-
-    private Dictionary<int, Sprite> noiseLevels = new Dictionary<int, Sprite>();
-    private NoiseMeter noiseMeter;
 
     // Start is called before the first frame update
     private void Start()
     {
-        for (int i = 0; i < MaxNoise; i++)
-        {
-            noiseLevels.Add(i, NoiseSprites[i]);
-        }
-        noiseMeter = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter;
+        //Assign MaxNoise to SceneObjects
+        PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.NoiseProperties.MaxNoise = MaxNoise;
+        //Assign Text to SceneObjects
+        PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.text =
+            $"{PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.NoiseProperties.CurrentNoise}/{MaxNoise}";
     }
 
     public void AddNoise()
     {
-        PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Image.sprite =
-            noiseLevels[noiseMeter.NoiseProperties.CurrentNoise];
-        
         //Current Noise += 1
-        var currNoise = noiseMeter.NoiseProperties.CurrentNoise += 1;
+        var currNoise = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.NoiseProperties.CurrentNoise += 1;
 
         if (currNoise == MaxNoise)
         {
             //Set text color to red
-            //GetComponent<Image>().sprite = noiseLevels[currNoise];
+            PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.color = Color.red;
             //Lose
             PlayerInteractionHandler.GameStateManager.Lose();
         }
+
+        //Change color if currNoise = (MaxNoise - 1)
+        if (currNoise == MaxNoise - 1)
+            PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.color = Color.yellow;
+
+        //Update Text
+        PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Text.text = $"{currNoise}/{MaxNoise}";
     }
 }
