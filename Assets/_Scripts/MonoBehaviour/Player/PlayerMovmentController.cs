@@ -83,7 +83,8 @@ namespace _Scripts.MonoBehaviour.Player
         //Read value from joystick
         private void RotateOnPerformed(InputAction.CallbackContext obj)
         {
-            _rotate = obj.ReadValue<Vector2>() * MovementSpeed;
+            _rotate = obj.ReadValue<Vector2>();
+            print(_rotate);
         }
 
         /// <summary>
@@ -125,8 +126,7 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveJoystick()
         {
-            _rigidbody.velocity +=
-                new Vector3(_rotate.x, 0, _rotate.y) * Time.deltaTime;
+            _rigidbody.velocity += new Vector3(_rotate.x * MovementSpeed, 0, _rotate.y * MovementSpeed) * Time.deltaTime;
         }
     }
 }
