@@ -3,6 +3,7 @@ using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
+using _Scripts.MonoBehaviour.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,17 +17,19 @@ namespace _Scripts.Handlers
         public static PlayerInteractionHandler Self; //this
         public readonly InteractableHandler InteractableHandler; //InteractableHandler
         public readonly TrapHandler TrapHandler; //TrapHandler
+        public readonly PlayerMovmentController.ControlType ControlType;
 
         private int _collectableCount; //Amount of pickups
         private int _currCollectable; //Current amount picked up
         public Scene CurrentLevel; //Active Level
 
         //Build new instance of class
-        public PlayerInteractionHandler(GameObject player)
+        public PlayerInteractionHandler(GameObject player, PlayerMovmentController.ControlType controlType = PlayerMovmentController.ControlType.Joystick)
         {
             CurrentLevel = SceneManager.GetActiveScene(); //CurrentLevel = ActiveScene
 
             //Instantiate objects
+            ControlType = controlType;
             InteractableHandler = new InteractableHandler();
             TrapHandler = new TrapHandler();
             SceneObjects = new SceneObjects(CurrentLevel, this);

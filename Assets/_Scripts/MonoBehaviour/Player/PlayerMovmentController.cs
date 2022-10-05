@@ -15,7 +15,7 @@ namespace _Scripts.MonoBehaviour.Player
             Gyroscope = 2
         }
 
-        public ControlType ControlPreset; //Control Configuration
+        [NonSerialized]public ControlType ControlPreset; //Control Configuration
         private PlayerControls _controls; //Instance for Unity's InputSystem
         private readonly Gyroscope _gyroscope = Gyroscope.current;
         private readonly Keyboard _keyboard = Keyboard.current; //Keyboard
@@ -43,8 +43,10 @@ namespace _Scripts.MonoBehaviour.Player
         {
             //Get rigidbody component
             _rigidbody = gameObject.GetComponent<Rigidbody>();
-            InputSystem.EnableDevice(Gyroscope.current); //Enable gyro
+            //InputSystem.EnableDevice(Gyroscope.current); //Enable gyro
             Joystick = PlayerInteractionHandler.SceneObjects.UI.MobileJoystick.OnScreenStick;
+            //Get the set control preset
+            ControlPreset = PlayerInteractionHandler.Self.ControlType;
         }
 
         // Update is called once per frame
@@ -53,8 +55,6 @@ namespace _Scripts.MonoBehaviour.Player
             if (Joystick == null) Joystick = PlayerInteractionHandler.SceneObjects.UI.MobileJoystick.OnScreenStick;
             //If player cant control, return
             if (!CanControl) return;
-
-            print($"({Joystick.Horizontal}, {Joystick.Vertical})");
             
             switch (ControlPreset)
             {
@@ -88,7 +88,6 @@ namespace _Scripts.MonoBehaviour.Player
         private void RotateOnPerformed(InputAction.CallbackContext obj)
         {
             _rotate = obj.ReadValue<Vector2>();
-            print(_rotate);
         }
 
         /// <summary>

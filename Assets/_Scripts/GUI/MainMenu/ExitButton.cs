@@ -13,7 +13,6 @@ public class ExitButton : MonoBehaviour
 
     private void ExitGame()
     {
-        Application.Quit();
-        //Exit game
+        Application.Quit(); //Exit game
     }
 }
