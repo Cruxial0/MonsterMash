@@ -14,8 +14,8 @@ public class AddHandlers : MonoBehaviour
     {
         _levelSelectButton = new LevelSelectButton(); //Instantiate LevelSelectButton
 
-        var button = loadSceneButton.GetComponent<Button>(); //Get Button component
-        button.onClick.AddListener(ToLevelSelect); //Add onClick Listener
+        //var button = loadSceneButton.GetComponent<Button>(); //Get Button component
+        loadSceneButton.onClick.AddListener(ToLevelSelect); //Add onClick Listener
     }
 
     //Swap view to level list

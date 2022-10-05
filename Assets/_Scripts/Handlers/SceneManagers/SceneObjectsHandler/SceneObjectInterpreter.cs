@@ -161,7 +161,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             OnScreenStick = child.GetComponent<FixedJoystick>(),
                             RectTransform = child.GetComponent<RectTransform>()
                         };
-                        Debug.Log(gui.MobileJoystick.OnScreenStick.HandleRange);
                         break;
                     case "CollectSprite":
                         gui.CollectableSprite = new CollectableSprite

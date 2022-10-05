@@ -10,7 +10,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void Awake()
         {
             //Instantiate PlayerInteractionHandler, the central system.
-            PlayerInteractionHandler = new PlayerInteractionHandler(gameObject);
+            PlayerInteractionHandler = new PlayerInteractionHandler(gameObject, DropDownHandler.ControlType);
             //Initialize the events
             var eventInitialize = new EventInitialize(LevelManager.SelectedLevel);
         }
