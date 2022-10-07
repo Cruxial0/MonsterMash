@@ -37,7 +37,7 @@ namespace _Scripts.MonoBehaviour.Camera
 
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
-            playerPos.z = position.z;
+            playerPos.z = position.z - 2f;
             playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
             //Clip camera to room bounds
@@ -45,10 +45,10 @@ namespace _Scripts.MonoBehaviour.Camera
                 playerPos.x = floorBounds.extents.x + 2 - halfViewport;
             if (playerPos.x <= -floorBounds.extents.x - 2 + halfViewport) 
                 playerPos.x = -floorBounds.extents.x - 2 + halfViewport;
-            if (playerPos.z >= floorBounds.extents.z + 2 - (halfViewport / 2)) 
-                playerPos.z = floorBounds.extents.z + 2 - (halfViewport / 2);
-            if (playerPos.z <= -floorBounds.extents.z - 2 + (halfViewport / 2)) 
-                playerPos.z = -floorBounds.extents.z - 2 + (halfViewport / 2);
+            if (playerPos.z >= floorBounds.extents.z + 1 - (halfViewport / 2)) 
+                playerPos.z = floorBounds.extents.z + 1 - (halfViewport / 2);
+            if (playerPos.z <= -floorBounds.extents.z - 4 + (halfViewport / 2)) 
+                playerPos.z = -floorBounds.extents.z - 4 + (halfViewport / 2);
             
             //Apply position to camera.
             transform.position = playerPos;
