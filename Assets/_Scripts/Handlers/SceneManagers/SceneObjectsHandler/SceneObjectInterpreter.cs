@@ -20,19 +20,25 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
         public PlayerSceneObject GetPlayer(List<GameObject> rootObjects)
         {
             var player = rootObjects.First(x => x.CompareTag("Player"));
+            GameObject sprite = player.transform.GetChild(1).gameObject;
 
             return new PlayerSceneObject
             {
                 Collider = player.GetComponent<Collider>(),
                 InitializeScript = player.GetComponent<PlayerInitialize>(),
-                MeshFilter = player.GetComponent<MeshFilter>(),
-                MeshRenderer = player.GetComponent<MeshRenderer>(),
                 MovmentController = player.GetComponent<PlayerMovmentController>(),
                 Rigidbody = player.GetComponent<Rigidbody>(),
                 Transform = player.GetComponent<Transform>(),
                 PlayerStates = player.GetComponent<PlayerStates>(),
                 PlayerLight = player.transform.GetChild(0).gameObject.GetComponent<Light>(),
-                Self = player
+                Sprites = player.GetComponent<AssetContainer>(),
+                Self = player,
+                Sprite = new PlayerSprite()
+                {
+                    Plane = sprite,
+                    SpriteMask = sprite.GetComponent<SpriteMask>(),
+                    SpriteRenderer = sprite.GetComponent<SpriteRenderer>()
+                }
             };
         }
 
