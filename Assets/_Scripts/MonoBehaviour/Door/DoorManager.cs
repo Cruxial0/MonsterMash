@@ -33,7 +33,7 @@ public class DoorManager : MonoBehaviour
             
             if (doorOpen)
             {
-                DoorPivot.transform.Rotate(new Vector3(0,50,0));
+                DoorPivot.transform.Rotate(new Vector3(0,-32,0));
                 interval = Random.Range(minRand, maxRand);
                 doorOpen = false;
                 IsInRoom = false;
@@ -41,9 +41,14 @@ public class DoorManager : MonoBehaviour
             }
             
             interval = 2f;
-            DoorPivot.transform.Rotate(new Vector3(0,-50,0));
+            DoorPivot.transform.Rotate(new Vector3(0,32,0));
             doorOpen = true;
             IsInRoom = true;
+        }
+
+        if (!PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.IsUnderBed && IsInRoom)
+        {
+            PlayerInteractionHandler.GameStateManager.Lose();
         }
     }
 }
