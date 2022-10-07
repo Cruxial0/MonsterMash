@@ -56,7 +56,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         public string TrapName => "Ice Bucket";
         public GameObject TrapInstance { get; set; }
         public Animation Animation { get; set; }
-
+        
         public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
         {
             _handler = handler;
