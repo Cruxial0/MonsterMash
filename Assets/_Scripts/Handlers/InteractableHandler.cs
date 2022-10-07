@@ -16,8 +16,12 @@ namespace _Scripts.Handlers
         {
             //Get all interactables
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Interactable"))
+            {
                 Interactibles.Add(new InteractableObject(gameObject,
                     gameObject.GetComponent<InteractableInitialize>()));
+                Debug.Log(gameObject);
+                
+            }
         }
     }
 

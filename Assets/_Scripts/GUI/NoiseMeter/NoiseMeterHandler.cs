@@ -6,20 +6,21 @@ using UnityEngine.UI;
 
 public class NoiseMeterHandler : MonoBehaviour
 {
-    public int MaxNoise;
+    private int MaxNoise;
     public List<Sprite> NoiseSprites = new List<Sprite>();
 
     private Dictionary<int, Sprite> noiseLevels = new Dictionary<int, Sprite>();
     private NoiseMeter noiseMeter;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Start()    
     {
         for (int i = 0; i < MaxNoise; i++)
         {
             noiseLevels.Add(i, NoiseSprites[i]);
         }
         noiseMeter = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter;
+        MaxNoise = noiseLevels.Count;
     }
 
     public void AddNoise()
