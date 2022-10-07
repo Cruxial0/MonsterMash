@@ -126,6 +126,16 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             Script = child.GetComponent<BedController>()
                         };
                         break;
+                    case "Door":
+                        GameObject main = child.transform.GetChild(0).gameObject;
+                        room.DoorObject = new DoorSceneObject
+                        {
+                            Transform = main.transform,
+                            DoorPivot = main,
+                            MeshFilter = child.GetComponent<MeshFilter>(),
+                            MeshRenderer = child.GetComponent<MeshRenderer>()
+                        };
+                        break;
                 }
             }
             

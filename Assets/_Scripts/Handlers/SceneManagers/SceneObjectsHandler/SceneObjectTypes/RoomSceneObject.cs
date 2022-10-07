@@ -54,6 +54,15 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public BedController Script { get; set; }
     }
 
+    public class DoorSceneObject
+    {
+        public Transform Transform { get; set; }
+        public MeshFilter MeshFilter { get; set; }
+        public MeshRenderer MeshRenderer { get; set; }
+        public GameObject DoorPivot { get; set; }
+        public DoorManager Script { get; set; }
+    }
+    
     public class RoomSceneObject
     {
         public List<FurnitureSceneObject> FurnitureObjects = new();
@@ -64,5 +73,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public GameObject Floor { get; set; }
         public List<LightSceneObject> LightObject { get; set; }
         public BedSceneObject BedObject { get; set; }
+        public DoorSceneObject DoorObject { get; set; }
     }
 }

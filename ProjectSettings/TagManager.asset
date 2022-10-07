@@ -18,6 +18,7 @@ TagManager:
   - Timer
   - Bed
   - NoiseMeter
+  - Door
   layers:
   - Default
   - TransparentFX
