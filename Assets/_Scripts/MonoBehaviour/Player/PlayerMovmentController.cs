@@ -70,6 +70,9 @@ namespace _Scripts.MonoBehaviour.Player
                     MoveGyroscope();
                     break;
             }
+            
+            if(Joystick.Direction != Vector2.zero)
+                transform.eulerAngles = new Vector3( 0, Mathf.Atan2( Joystick.Horizontal, Joystick.Vertical) * 180 / Mathf.PI, 0 );
         }
 
         //Called when gameObject becomes active
@@ -132,5 +135,8 @@ namespace _Scripts.MonoBehaviour.Player
             _rigidbody.velocity += 
                 new Vector3(Joystick.Horizontal * MovementSpeed, 0, Joystick.Vertical * MovementSpeed) * Time.deltaTime;
         }
+        
     }
+    
+    
 }

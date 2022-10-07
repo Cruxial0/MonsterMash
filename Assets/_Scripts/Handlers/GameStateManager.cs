@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 namespace _Scripts.Handlers
 {
@@ -72,7 +73,7 @@ namespace _Scripts.Handlers
         {
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
-            
+
             manager.lost = true;
 
             //Destroy player

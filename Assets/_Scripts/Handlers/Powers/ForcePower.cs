@@ -15,19 +15,30 @@ namespace _Scripts.Handlers.Powers
         private float currTime;
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
+        
+        private static readonly int Emission = Shader.PropertyToID("_EmissionColor");
 
         private void Start()
         {
             SceneObjects.Player.MovmentController.MovementSpeed = 20f; //Set speed of player
+            
+            SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
+                SceneObjects.Player.Sprites.Sprites[2];
         }
 
         private void FixedUpdate()
         {
+            if(SceneObjects.Player.PlayerStates.Destroyed) return;
+            
             currTime += Time.deltaTime; //Increment timer
             if (currTime > buffTime && active)
             {
                 SceneObjects.Player.MovmentController.MovementSpeed = 
                     SceneObjects.Player.MovmentController.DefaultMovementSpeed; //Revert speed of player
+                
+                SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
+                    SceneObjects.Player.Sprites.Sprites[0];
+                
                 active = false; //Deactivate timer
             }
         }

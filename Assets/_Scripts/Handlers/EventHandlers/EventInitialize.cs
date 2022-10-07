@@ -7,7 +7,7 @@ namespace _Scripts.Handlers.EventHandlers
         public EventInitialize(ILevel level)
         {
             //If there are no events, return
-            if(level.Events.Count == 0) return;
+            if(level == null || level.Events.Count == 0) return;
             //Apply all events to level
             foreach (var levelEvent in level.Events) levelEvent.ApplyEvent();
         }
