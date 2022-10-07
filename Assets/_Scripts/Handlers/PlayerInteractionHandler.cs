@@ -163,8 +163,7 @@ namespace _Scripts.Handlers
                 //In case of type Collision:
                 case InteractType.Collision:
                     //Instantiate VisualFeedback
-                    Object.Instantiate(interactableObject.VisualFeedback, collisionEvent.gameObject.transform.position,
-                        interactableObject.VisualFeedback.transform.rotation);
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.ChangeColor(1);
                     break;
             }
         }

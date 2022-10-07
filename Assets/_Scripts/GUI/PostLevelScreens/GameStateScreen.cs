@@ -1,6 +1,7 @@
 using _Scripts.Handlers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Scripts.GUI.PostLevelScreens
 {
@@ -14,11 +15,14 @@ namespace _Scripts.GUI.PostLevelScreens
             var textObjects = restartMenu.GetComponentsInChildren<TextMeshProUGUI>();
 
             //Format text
-            textObjects[0].text = "You lost!";
-            textObjects[0].color = Color.red;
-
-            textObjects[1].text = "Restarting in 5 seconds...";
-            textObjects[1].color = Color.red;
+            // textObjects[0].text = "You lost!";
+            // textObjects[0].color = Color.red;
+            //
+            // textObjects[1].text = "Restarting in 5 seconds...";
+            // textObjects[1].color = Color.red;
+            
+            restartMenu.transform.GetChild(0).GetComponent<Image>().sprite =
+                restartMenu.GetComponent<AssetContainer>().Sprites[1];
 
             return restartMenu;
         }
@@ -31,11 +35,14 @@ namespace _Scripts.GUI.PostLevelScreens
             var textObjects = winMenu.GetComponentsInChildren<TextMeshProUGUI>();
 
             //Format text
-            textObjects[0].text = "You win!!";
-            textObjects[0].color = Color.green;
-
-            textObjects[1].text = "Proceeding to next level...";
-            textObjects[1].color = Color.green;
+            // textObjects[0].text = "You win!!";
+            // textObjects[0].color = Color.green;
+            //
+            // textObjects[1].text = "Proceeding to next level...";
+            // textObjects[1].color = Color.green;
+            
+            winMenu.transform.GetChild(0).GetComponent<Image>().sprite =
+                winMenu.GetComponent<AssetContainer>().Sprites[0];
 
             return winMenu;
         }

@@ -13,7 +13,7 @@ public class BedController : MonoBehaviour
         IsUnderBed = false;
 
         //Show player
-        PlayerInteractionHandler.SceneObjects.Player.MeshRenderer.enabled = true;
+        //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -23,7 +23,7 @@ public class BedController : MonoBehaviour
             IsUnderBed = true;
 
             //Hide player
-            PlayerInteractionHandler.SceneObjects.Player.MeshRenderer.enabled = false;
+            //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = false;
 
             //If all objects are picked up, win
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
