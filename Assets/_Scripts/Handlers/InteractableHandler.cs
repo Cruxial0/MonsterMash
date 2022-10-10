@@ -19,8 +19,6 @@ namespace _Scripts.Handlers
             {
                 Interactibles.Add(new InteractableObject(gameObject,
                     gameObject.GetComponent<InteractableInitialize>()));
-                Debug.Log(gameObject);
-                
             }
         }
     }

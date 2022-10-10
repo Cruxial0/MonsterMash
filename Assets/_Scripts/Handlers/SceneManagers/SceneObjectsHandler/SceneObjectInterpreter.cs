@@ -195,7 +195,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                         };
                         break;
                     case "NoiseMeter":
-                        Debug.Log("noisemeter");
                         gui.NoiseMeter = new NoiseMeter
                         {
                             CanvasRenderer = child.GetComponent<CanvasRenderer>(),
@@ -208,7 +207,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             },
                             Script = child.GetComponent<NoiseMeterHandler>()
                         };
-                        Debug.Log(gui.NoiseMeter.Image.sprite.name);
                         break;
                     case "Timer":
                         gui.Timer = new Timer
