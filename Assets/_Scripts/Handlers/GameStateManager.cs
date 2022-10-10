@@ -33,8 +33,6 @@ namespace _Scripts.Handlers
 
         private void Update()
         {
-            Debug.Log(lost);
-            
             if(!enabled) return;
 
             currTime += Time.deltaTime; //Increment time

@@ -4,19 +4,21 @@ using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NoiseMeterHandler : MonoBehaviour
+public class NoiseMeterHandler : UnityEngine.MonoBehaviour
 {
     private int MaxNoise;
-    public List<Sprite> NoiseSprites = new List<Sprite>();
+    public List<Sprite> NoiseSprites;
 
     private Dictionary<int, Sprite> noiseLevels = new Dictionary<int, Sprite>();
     private NoiseMeter noiseMeter;
 
     // Start is called before the first frame update
-    private void Start()    
+    private void Start()
     {
+        MaxNoise = NoiseSprites.Count;
         for (int i = 0; i < MaxNoise; i++)
         {
+            print(NoiseSprites[i].name);
             noiseLevels.Add(i, NoiseSprites[i]);
         }
         noiseMeter = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter;
@@ -25,6 +27,7 @@ public class NoiseMeterHandler : MonoBehaviour
 
     public void AddNoise()
     {
+        print(noiseMeter.NoiseProperties.CurrentNoise);
         PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Image.sprite =
             noiseLevels[noiseMeter.NoiseProperties.CurrentNoise];
         
