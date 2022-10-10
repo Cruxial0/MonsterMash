@@ -3521,6 +3521,10 @@ PrefabInstance:
       propertyPath: MaxNoise
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4532237902649619584, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.099976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
 --- !u!1 &1939237677
