@@ -501,6 +501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1806674062459991472, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e523d86ddac3cb64590083afaacecc4a, type: 2}
     - target: {fileID: 4870768629660870658, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
       propertyPath: m_Name
       value: PickupObject (3)
