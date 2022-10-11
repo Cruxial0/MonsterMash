@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 1806674062459991472, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e523d86ddac3cb64590083afaacecc4a, type: 2}
+      objectReference: {fileID: 2100000, guid: deef5ffa62a2c4e4f88fe7917ac1e9ca, type: 2}
     - target: {fileID: 4870768629660870658, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
       propertyPath: m_Name
       value: PickupObject
@@ -290,6 +290,18 @@ PrefabInstance:
     - target: {fileID: 4870768629660870662, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870768629660870662, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13359
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870768629660870662, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.13359
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870768629660870662, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.13359
       objectReference: {fileID: 0}
     - target: {fileID: 4870768629660870662, guid: 639b53b0a2921844a99142497fb200ed, type: 3}
       propertyPath: m_LocalPosition.x
