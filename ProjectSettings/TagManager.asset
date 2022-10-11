@@ -19,6 +19,7 @@ TagManager:
   - Bed
   - NoiseMeter
   - Door
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

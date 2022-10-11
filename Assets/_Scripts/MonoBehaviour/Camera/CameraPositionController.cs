@@ -47,8 +47,8 @@ namespace _Scripts.MonoBehaviour.Camera
                 playerPos.x = -floorBounds.extents.x - 2 + halfViewport;
             if (playerPos.z >= floorBounds.extents.z + 1 - (halfViewport / 2)) 
                 playerPos.z = floorBounds.extents.z + 1 - (halfViewport / 2);
-            if (playerPos.z <= -floorBounds.extents.z - 4 + (halfViewport / 2)) 
-                playerPos.z = -floorBounds.extents.z - 4 + (halfViewport / 2);
+            if (playerPos.z <= -floorBounds.extents.z - 3 + (halfViewport / 2)) 
+                playerPos.z = -floorBounds.extents.z - 3 + (halfViewport / 2);
             
             //Apply position to camera.
             transform.position = playerPos;
