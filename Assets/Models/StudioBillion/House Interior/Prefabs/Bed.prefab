@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 7491156906783894060}
   - component: {fileID: 731184822414651647}
   - component: {fileID: 6845801317876789995}
+  - component: {fileID: 9100937249846878089}
+  - component: {fileID: 6969179267732363753}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -336,6 +338,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9100937249846878089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479137908057868918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 1.5, z: 1.74}
+  m_Center: {x: 0.19, y: 0, z: 0.48}
+--- !u!114 &6969179267732363753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479137908057868918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a127878ba7f5c45af62a3a538b7831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinPrefab: {fileID: 2626518202504174075, guid: 5c8040b73112c7140945d4461e88c23b, type: 3}
 --- !u!1 &8359792558667213784
 GameObject:
   m_ObjectHideFlags: 0

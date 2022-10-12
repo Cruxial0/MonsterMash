@@ -118,13 +118,13 @@ namespace _Scripts.MonoBehaviour.Player
         private void MoveKeyboard()
         {
             if (_keyboard.wKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed * 2) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.sKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(0, 0, -MovementSpeed) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(0, 0, -MovementSpeed * 2) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.aKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(-MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(-MovementSpeed * 2, 0, 0) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.dKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(MovementSpeed * 2, 0, 0) * Time.deltaTime, ForceMode.Force);
         }
 
         /// <summary>
