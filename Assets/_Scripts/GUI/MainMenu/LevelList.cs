@@ -38,8 +38,9 @@ namespace _Scripts.GUI.MainMenu
             var button = btn.GetComponent<Button>(); //Get Button Component
             var text = button.GetComponentsInChildren<TextMeshProUGUI>(); //Get multiple text components
 
-            text[0].text = $"{level.Level.LevelName} (ID: {level.LevelID})"; //Set first text component
-            text[1].text =
+            text[0].text = level.LevelID.ToString();
+            text[1].text = $"{level.Level.LevelName}"; //Set first text component
+            text[2].text =
                 $"'{level.Events.First().EventName}': {level.Events.First().Description}"; //Set second text component
 
             button.onClick.AddListener(LevelButtonClicked); //Add onClick Listener

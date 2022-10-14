@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneEventObjects;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
 using _Scripts.MonoBehaviour.Camera;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
@@ -8,6 +9,7 @@ using _Scripts.MonoBehaviour.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
@@ -143,6 +145,34 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                         };
                         break;
                 }
+
+                if (child.transform.childCount > 0 && child.CompareTag("EventObject"))
+                {
+                    switch (child.transform.GetChild(0).GetComponent<UnityEngine.MonoBehaviour>())
+                    {
+                        case SecurityCameraHandler:
+                            var ch = child.transform.GetChild(0);
+                            room.EventObjects.Add(new CameraObject()
+                            {
+                                Animation = child.GetComponent<Animation>(),
+                                Animator = child.GetComponent<Animator>(),
+                                MeshFilter = child.GetComponent<MeshFilter>(),
+                                MeshRenderer = child.GetComponent<MeshRenderer>(),
+                                PlayableDirector = child.GetComponent<PlayableDirector>(),
+                                Transform = child.GetComponent<Transform>(),
+                                CameraView = new CameraViewArea()
+                                {
+                                    Collider = ch.GetComponent<Collider>(),
+                                    MeshFilter = ch.GetComponent<MeshFilter>(),
+                                    MeshRenderer = ch.GetComponent<MeshRenderer>(),
+                                    Script = ch.GetComponent<SecurityCameraHandler>(),
+                                    Transform = ch.GetComponent<Transform>()
+                                }
+                            });
+                            break;
+                    }
+                }
+                
             }
             
             return room;
