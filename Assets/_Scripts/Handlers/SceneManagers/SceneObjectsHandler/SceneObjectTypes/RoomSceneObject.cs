@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Handlers.Interfaces;
+using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneEventObjects;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
@@ -74,5 +76,8 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public List<LightSceneObject> LightObject { get; set; }
         public BedSceneObject BedObject { get; set; }
         public DoorSceneObject DoorObject { get; set; }
+        
+        [CanBeNull] [ItemCanBeNull] 
+        public List<EventObject> EventObjects { get; set; } = new();
     }
 }
