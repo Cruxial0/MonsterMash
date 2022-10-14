@@ -2826,9 +2826,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731573315}
     m_Modifications:
+    - target: {fileID: 1703541065137420515, guid: 966c098099361ca48bd357ef72fbf666, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5284063493639188002, guid: 966c098099361ca48bd357ef72fbf666, type: 3}
       propertyPath: m_Name
       value: NightLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284063493639188002, guid: 966c098099361ca48bd357ef72fbf666, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754014645428802961, guid: 966c098099361ca48bd357ef72fbf666, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6915385858360261522, guid: 966c098099361ca48bd357ef72fbf666, type: 3}
       propertyPath: m_RootOrder
