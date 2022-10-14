@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts.Extensions.Materials;
 using _Scripts.Handlers;
 using UnityEngine;
 
@@ -25,7 +26,9 @@ public class BedController : MonoBehaviour
         
         foreach (var renderer in _meshFilters)
         {
-            renderer.enabled = true;
+            var c = renderer.material.color;
+            c.a = 1f;
+            renderer.material.color = new Color(c.r, c.g, c.b, c.a);
         }
 
         //Show player
@@ -40,7 +43,9 @@ public class BedController : MonoBehaviour
 
             foreach (var renderer in _meshFilters)
             {
-                renderer.enabled = false;
+                var c = renderer.material.color;
+                c.a = 0.5f;
+                renderer.material.color = c;
             }
             
 

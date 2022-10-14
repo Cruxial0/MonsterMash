@@ -18,6 +18,5 @@ public class BoostHovering : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(initPosit.x, 0.5f + Mathf.Sin(Time.time * freq) * amp, initPosit.z);
-        
     }
 }
