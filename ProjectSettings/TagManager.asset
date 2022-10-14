@@ -20,6 +20,7 @@ TagManager:
   - NoiseMeter
   - Door
   - PauseMenu
+  - EventObject
   layers:
   - Default
   - TransparentFX

@@ -1,19 +1,17 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using _Scripts.Handlers;
 using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
 
-namespace _Scripts.Levels
+namespace DefaultNamespace
 {
-    public class NoEventLevel : ILevel
+    public class Level0 : ILevel
     {
         public int LevelID => 0;
-
-        public Level Level => new("Level1")
+        public Level Level => new Level("Level0")
         {
-            LevelName = "Event-Free Level"
+            LevelName = "Tutorial"
         };
-
         public List<IEvent> Events => new() { new NoEvent() };
     }
 }
