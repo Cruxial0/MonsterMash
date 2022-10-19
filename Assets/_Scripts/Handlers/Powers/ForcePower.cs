@@ -28,7 +28,7 @@ namespace _Scripts.Handlers.Powers
 
         private void FixedUpdate()
         {
-            if(SceneObjects.Player.PlayerStates.Destroyed) return;
+            if(SceneObjects.Player == null) Destroy(this);
             
             currTime += Time.deltaTime; //Increment timer
             if (currTime > buffTime && active)
