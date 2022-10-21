@@ -1132,7 +1132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -263.5}
+  m_AnchoredPosition: {x: 0, y: -280.4}
   m_SizeDelta: {x: 638.4, y: 52.849976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6275717303005146252
@@ -1456,7 +1456,6 @@ GameObject:
   - component: {fileID: 5185232222421593467}
   - component: {fileID: 3721117417651687854}
   - component: {fileID: 2059128252995185184}
-  - component: {fileID: 1264405853838805330}
   - component: {fileID: 1077559639438859663}
   m_Layer: 5
   m_Name: ContinueButton
@@ -1568,18 +1567,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1264405853838805330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5567354129662913538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: badb56ca40ff5614387ec32157966ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1077559639438859663
 MonoBehaviour:
   m_ObjectHideFlags: 0
