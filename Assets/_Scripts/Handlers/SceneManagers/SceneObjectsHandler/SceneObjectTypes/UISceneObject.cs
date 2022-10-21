@@ -67,5 +67,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public CollectableCounter CollectableCounter { get; set; }
         public NoiseMeterSceneObject NoiseMeterSceneObject { get; set; }
         public Timer Timer { get; set; }
+        public GameObject DebugGUI { get; set; }
     }
 }

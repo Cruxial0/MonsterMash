@@ -18,9 +18,9 @@ namespace _Scripts.GUI.NoiseMeter
             fill.color = gradient.Evaluate(1f);
         }
 
-        public void AddHealth(float health)
+        public void AddNoise(float noise)
         {
-            slider.value += health;
+            slider.value += noise;
 
             if (slider.value >= slider.maxValue)
             {

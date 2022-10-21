@@ -1,30 +1,31 @@
+using System;
+using System.Linq;
 using _Scripts.Handlers;
+using TMPro;
 using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
     public class NoiseObject : UnityEngine.MonoBehaviour
     {
+        private TextMeshProUGUI text;
+        private const float DivisionFactor = 20f;
+        private void Start()
+        {
+            text = PlayerInteractionHandler.SceneObjects.UI.DebugGUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             //Add noise on player collision
             if (collision.gameObject.CompareTag("Player"))
             {
-                var player = PlayerInteractionHandler.SceneObjects.Player;
-                var p = player.MovmentController.prevMovement;
+                var noise = collision.relativeVelocity.magnitude / DivisionFactor;
+                print($"{collision.relativeVelocity.magnitude} -> {collision.relativeVelocity.magnitude / DivisionFactor}");
 
-                //(10,0,0)
-                //(10,0,10)
-
-                var speed = Vector3.Distance(p, player.Transform.position) / Time.deltaTime;
-                var acceleration = speed / Time.deltaTime;
+                text.text = $"Last hit noise: {noise:##.###}";
                 
-                
-
-                print($"{speed}, {acceleration}, {speed / acceleration}");
-                print(player.MovmentController.prevVelocity);
-                
-                PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.AddHealth(0.01f);
+                PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.AddNoise(noise);
                 if (Application.platform != RuntimePlatform.WebGLPlayer)
                 {
                     Handheld.Vibrate();

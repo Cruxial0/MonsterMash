@@ -1,7 +1,9 @@
 using System;
 using _Scripts.Handlers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using Gyroscope = UnityEngine.InputSystem.Gyroscope;
 
 namespace _Scripts.MonoBehaviour.Player
@@ -28,7 +30,7 @@ namespace _Scripts.MonoBehaviour.Player
         public bool isFlat = true;
         public Vector3 prevMovement = new Vector3();
         public Vector3 prevVelocity = new Vector3();
-
+        private TextMeshProUGUI text;
         private void Awake()
         {
             MovementSpeed = DefaultMovementSpeed;
@@ -50,6 +52,8 @@ namespace _Scripts.MonoBehaviour.Player
             Joystick = PlayerInteractionHandler.SceneObjects.UI.MobileJoystick.OnScreenStick;
             //Get the set control preset
             ControlPreset = PlayerInteractionHandler.Self.ControlType;
+            
+            text = PlayerInteractionHandler.SceneObjects.UI.DebugGUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
 
         // Update is called once per frame
@@ -83,8 +87,16 @@ namespace _Scripts.MonoBehaviour.Player
                 transform.eulerAngles = new Vector3( 0, Mathf.Atan2( _rigidbody.velocity.x, _rigidbody.velocity.y) * 180 / Mathf.PI, 0 );
             }
 
+            var speed = Vector3.Distance(prevMovement, transform.position) / Time.deltaTime;
+            var acceleration = speed / Time.deltaTime;
+            
+            if(acceleration > 1)
+                text.text = $"Acceleration: {acceleration}";
+            
             prevMovement = transform.position;
             prevVelocity = _rigidbody.angularVelocity;
+            
+            
         }
 
         //Called when gameObject becomes active

@@ -248,6 +248,9 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             TimerHandler = child.GetComponent<TimerHandler>()
                         };
                         break;
+                    case "Debug":
+                        gui.DebugGUI = child;
+                        break;
                 }
             }
 
