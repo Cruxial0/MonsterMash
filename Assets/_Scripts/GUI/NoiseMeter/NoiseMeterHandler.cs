@@ -18,7 +18,6 @@ public class NoiseMeterHandler : UnityEngine.MonoBehaviour
         MaxNoise = NoiseSprites.Count;
         for (int i = 0; i < MaxNoise; i++)
         {
-            print(NoiseSprites[i].name);
             noiseLevels.Add(i, NoiseSprites[i]);
         }
         noiseMeter = PlayerInteractionHandler.SceneObjects.UI.NoiseMeter;
@@ -27,7 +26,6 @@ public class NoiseMeterHandler : UnityEngine.MonoBehaviour
 
     public void AddNoise()
     {
-        print(noiseMeter.NoiseProperties.CurrentNoise);
         PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Image.sprite =
             noiseLevels[noiseMeter.NoiseProperties.CurrentNoise];
         
