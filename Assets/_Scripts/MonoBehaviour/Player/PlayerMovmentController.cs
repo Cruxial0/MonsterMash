@@ -25,9 +25,9 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public readonly float DefaultMovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public FixedJoystick Joystick;
-        private Quaternion initialGyro;
-        private Quaternion rot = new Quaternion(0, 0, 1, 0);
         public bool isFlat = true;
+        public Vector3 prevMovement = new Vector3();
+        public Vector3 prevVelocity = new Vector3();
 
         private void Awake()
         {
@@ -74,8 +74,17 @@ namespace _Scripts.MonoBehaviour.Player
                     break;
             }
             
-            if(Joystick.Direction != Vector2.zero)
+            if(Joystick.Direction != Vector2.zero && ControlPreset == ControlType.Joystick)
                 transform.eulerAngles = new Vector3( 0, Mathf.Atan2( Joystick.Horizontal, Joystick.Vertical) * 180 / Mathf.PI, 0 );
+            if(ControlPreset == ControlType.Gyroscope)
+            {
+                if(_rigidbody.velocity.x < 0.05f || _rigidbody.velocity.y < 0.05f)
+                    return;
+                transform.eulerAngles = new Vector3( 0, Mathf.Atan2( _rigidbody.velocity.x, _rigidbody.velocity.y) * 180 / Mathf.PI, 0 );
+            }
+
+            prevMovement = transform.position;
+            prevVelocity = _rigidbody.angularVelocity;
         }
 
         //Called when gameObject becomes active
@@ -104,12 +113,12 @@ namespace _Scripts.MonoBehaviour.Player
             if (!Input.gyro.enabled)
             {
                 Input.gyro.enabled = true;
-                initialGyro = Input.gyro.attitude;
             }
-            Quaternion tilt = GyroToUnity(Input.gyro.attitude * rot);
-
-            print($"{tilt.x - initialGyro.x} {tilt.y - initialGyro.y} {tilt.z - initialGyro.z} {tilt.w}");
-            _rigidbody.AddForce(new Vector3(-tilt.y, 0, tilt.x) * MovementSpeed, ForceMode.Force);
+            float moveH = -Input.acceleration.x;
+            float moveV = Input.acceleration.y;
+            
+            print($"{moveH}, {moveV}");
+            _rigidbody.AddForce(new Vector3(-moveH, 0, moveV) * MovementSpeed / 2, ForceMode.Force);
         }
 
         /// <summary>
@@ -136,11 +145,6 @@ namespace _Scripts.MonoBehaviour.Player
                 new Vector3(Joystick.Horizontal * MovementSpeed, 0, Joystick.Vertical * MovementSpeed) * Time.deltaTime;
         }
 
-        private static Quaternion GyroToUnity(Quaternion q)
-        {
-            return new Quaternion(q.x, q.y, -q.z, -q.w);
-        }
-        
     }
     
     

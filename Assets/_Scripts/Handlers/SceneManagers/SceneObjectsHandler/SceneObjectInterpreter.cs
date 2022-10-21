@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Scripts.GUI.NoiseMeter;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneEventObjects;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
 using _Scripts.MonoBehaviour.Camera;
@@ -225,7 +226,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                         };
                         break;
                     case "NoiseMeter":
-                        gui.NoiseMeter = new NoiseMeter
+                        gui.NoiseMeterSceneObject = new NoiseMeterSceneObject()
                         {
                             CanvasRenderer = child.GetComponent<CanvasRenderer>(),
                             RectTransform = child.GetComponent<RectTransform>(),
@@ -235,7 +236,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                                 CurrentNoise = 0,
                                 MaxNoise = 0
                             },
-                            Script = child.GetComponent<NoiseMeterHandler>()
+                            Script = child.GetComponent<NoiseMeter>()
                         };
                         break;
                     case "Timer":
