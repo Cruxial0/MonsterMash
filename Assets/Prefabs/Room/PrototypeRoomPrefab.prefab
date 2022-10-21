@@ -52,7 +52,7 @@ GameObject:
   m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4388640430384703791
 Transform:
@@ -162,7 +162,7 @@ GameObject:
   m_TagString: RoomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4388640431363263923
 Transform:
@@ -271,7 +271,7 @@ GameObject:
   m_TagString: RoomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4388640431544510715
 Transform:
@@ -417,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall with window
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
 --- !u!1 &6118824003506396923 stripped
@@ -520,6 +524,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
       propertyPath: m_Name
       value: wallwithdoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
