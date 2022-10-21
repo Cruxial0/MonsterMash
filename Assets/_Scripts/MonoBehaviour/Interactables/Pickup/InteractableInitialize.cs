@@ -22,8 +22,8 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
             if (!c.collider.CompareTag("Player")) return;
 
             //Find correct object using LINQ
-            _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
-                .AddCollisionEntry(new CollisionEventArgs(collision: c));
+            // _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
+            //     .AddCollisionEntry(new CollisionEventArgs(collision: c));
         }
 
         private void OnTriggerEnter(Collider c)

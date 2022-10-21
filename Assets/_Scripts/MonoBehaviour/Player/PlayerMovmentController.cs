@@ -25,6 +25,9 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public readonly float DefaultMovementSpeed = 10f; //MovementSpeed
         [NonSerialized] public FixedJoystick Joystick;
+        private Quaternion initialGyro;
+        private Quaternion rot = new Quaternion(0, 0, 1, 0);
+        public bool isFlat = true;
 
         private void Awake()
         {
@@ -98,18 +101,15 @@ namespace _Scripts.MonoBehaviour.Player
         /// </summary>
         private void MoveGyroscope()
         {
-            if (_gyroscope != null && _gyroscope.enabled)
+            if (!Input.gyro.enabled)
             {
-                var velocity = _controls.Player.Gyro.ReadValue<Vector3>();
-
-                print("Gyroscope is enabled");
-                print($"clamp constant x: {velocity.normalized}");
-                print($"x: {velocity.x}");
-
-                _rigidbody.AddForce(
-                    new Vector3(velocity.x, 0, velocity.z) * Time.deltaTime,
-                    ForceMode.Force);
+                Input.gyro.enabled = true;
+                initialGyro = Input.gyro.attitude;
             }
+            Quaternion tilt = GyroToUnity(Input.gyro.attitude * rot);
+
+            print($"{tilt.x - initialGyro.x} {tilt.y - initialGyro.y} {tilt.z - initialGyro.z} {tilt.w}");
+            _rigidbody.AddForce(new Vector3(-tilt.y, 0, tilt.x) * MovementSpeed, ForceMode.Force);
         }
 
         /// <summary>
@@ -118,13 +118,13 @@ namespace _Scripts.MonoBehaviour.Player
         private void MoveKeyboard()
         {
             if (_keyboard.wKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(0, 0, MovementSpeed * 2) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.sKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(0, 0, -MovementSpeed) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(0, 0, -MovementSpeed * 2) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.aKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(-MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(-MovementSpeed * 2, 0, 0) * Time.deltaTime, ForceMode.Force);
             if (_keyboard.dKey.IsPressed())
-                _rigidbody.AddForce(new Vector3(MovementSpeed, 0, 0) * Time.deltaTime, ForceMode.Force);
+                _rigidbody.AddForce(new Vector3(MovementSpeed * 2, 0, 0) * Time.deltaTime, ForceMode.Force);
         }
 
         /// <summary>
@@ -134,6 +134,11 @@ namespace _Scripts.MonoBehaviour.Player
         {
             _rigidbody.velocity += 
                 new Vector3(Joystick.Horizontal * MovementSpeed, 0, Joystick.Vertical * MovementSpeed) * Time.deltaTime;
+        }
+
+        private static Quaternion GyroToUnity(Quaternion q)
+        {
+            return new Quaternion(q.x, q.y, -q.z, -q.w);
         }
         
     }

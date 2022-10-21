@@ -9,7 +9,13 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         {
             //Add noise on player collision
             if (collision.gameObject.CompareTag("Player"))
+            {
                 PlayerInteractionHandler.SceneObjects.UI.NoiseMeter.Script.AddNoise();
+                if (Application.platform != RuntimePlatform.WebGLPlayer)
+                {
+                    Handheld.Vibrate();
+                }
+            }
         }
     }
 }
