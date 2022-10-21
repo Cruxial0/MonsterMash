@@ -21,6 +21,7 @@ TagManager:
   - Door
   - PauseMenu
   - EventObject
+  - Debug
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using _Scripts.GUI.NoiseMeter;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.OnScreen;
 using UnityEngine.UI;
@@ -43,13 +44,13 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public TimerHandler TimerHandler { get; set; }
     }
 
-    public class NoiseMeter
+    public class NoiseMeterSceneObject
     {
         public RectTransform RectTransform { get; set; }
         public CanvasRenderer CanvasRenderer { get; set; }
         public Image Image { get; set; } = null;
         public NoiseProperties NoiseProperties { get; set; }
-        public NoiseMeterHandler Script { get; set; }
+        public NoiseMeter Script { get; set; }
     }
 
     public class NoiseProperties
@@ -64,7 +65,8 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public MobileJoystick MobileJoystick { get; set; }
         public CollectableSprite CollectableSprite { get; set; }
         public CollectableCounter CollectableCounter { get; set; }
-        public NoiseMeter NoiseMeter { get; set; }
+        public NoiseMeterSceneObject NoiseMeterSceneObject { get; set; }
         public Timer Timer { get; set; }
+        public GameObject DebugGUI { get; set; }
     }
 }
