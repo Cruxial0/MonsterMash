@@ -248,6 +248,14 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             TimerHandler = child.GetComponent<TimerHandler>()
                         };
                         break;
+                    case "ParentWarning":
+                        gui.ParentWarning = new ParentWarningObject()
+                        {
+                            CanvasRenderer = child.GetComponent<CanvasRenderer>(),
+                            RectTransform = child.GetComponent<RectTransform>(),
+                            Sprite = child.GetComponent<Image>()
+                        };
+                        break;
                     case "Debug":
                         gui.DebugGUI = child;
                         break;

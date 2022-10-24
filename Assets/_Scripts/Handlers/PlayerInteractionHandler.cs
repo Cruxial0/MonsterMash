@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
@@ -6,6 +7,7 @@ using _Scripts.MonoBehaviour.Interactables.Pickup;
 using _Scripts.MonoBehaviour.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace _Scripts.Handlers
 {
@@ -71,7 +73,7 @@ namespace _Scripts.Handlers
         {
             //Set color to red and destroy player
             SceneObjects.UI.Timer.Text.color = Color.red;
-            GameStateManager.Lose();
+            GameStateManager.Lose(LoseCondition.Time);
             Object.Destroy(SceneObjects.Player.Self);
         }
 
