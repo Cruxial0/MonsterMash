@@ -24,7 +24,7 @@ namespace _Scripts.GUI.NoiseMeter
 
             if (slider.value >= slider.maxValue)
             {
-                PlayerInteractionHandler.GameStateManager.Lose();
+                PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Noise);
             }
             
             fill.color = gradient.Evaluate(slider.normalizedValue);

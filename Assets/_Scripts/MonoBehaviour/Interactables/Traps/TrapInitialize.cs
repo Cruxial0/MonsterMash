@@ -42,7 +42,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         public void OnCollision(float playerSpeed)
         {
             //Lose
-            PlayerInteractionHandler.GameStateManager.Lose();
+            PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Trap);
         }
     }
 }

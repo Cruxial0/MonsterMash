@@ -59,6 +59,14 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public int CurrentNoise { get; set; }
     }
 
+    public class ParentWarningObject
+    {
+        public RectTransform RectTransform { get; set; }
+        public CanvasRenderer CanvasRenderer { get; set; }
+
+        public Image Sprite { get; set; }
+    }
+    
     public class UISceneObject
     {
         public CanvasObject CanvasObject { get; set; }
@@ -67,6 +75,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public CollectableCounter CollectableCounter { get; set; }
         public NoiseMeterSceneObject NoiseMeterSceneObject { get; set; }
         public Timer Timer { get; set; }
+        public ParentWarningObject ParentWarning { get; set; }
         public GameObject DebugGUI { get; set; }
     }
 }

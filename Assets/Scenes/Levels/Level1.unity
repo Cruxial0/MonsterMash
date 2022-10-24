@@ -2210,7 +2210,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3342823363164902928, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342823363164902928, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342823363164902929, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: parentEnterCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3342823363164902930, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
       propertyPath: m_RootOrder
@@ -3317,6 +3325,14 @@ PrefabInstance:
     - target: {fileID: 2624048986227296191, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: MaxNoise
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554016959184151144, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}

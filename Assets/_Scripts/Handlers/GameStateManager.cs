@@ -67,7 +67,7 @@ namespace _Scripts.Handlers
             }
         }
 
-        public void Lose()
+        public void Lose(LoseCondition loseCondition)
         {
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
@@ -103,5 +103,13 @@ namespace _Scripts.Handlers
             var go = new GameObject(); //Add empty handler
             go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
         }
+    }
+    
+    public enum LoseCondition
+    {
+        Time,
+        Trap,
+        Noise,
+        Parents
     }
 }

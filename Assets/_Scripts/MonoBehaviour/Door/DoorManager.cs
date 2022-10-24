@@ -3,27 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Handlers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class DoorManager : MonoBehaviour
 {
     public GameObject DoorPivot;
+    public int parentEnterCount;
+    public float enterDelay = 3f;
     [NonSerialized] public bool IsInRoom = false;
     
     private float currTime = 0f;
     private float interval;
-    private float minRand = 3f;
-    private float maxRand = 10f;
+    private float baseInterval;
+    private const float intervalFluctuation = 2f;
     private bool doorOpen = false;
-    public GameObject toSprite;
+    private float currEnterDelay = 0f;
+    private bool parentsApproaching = false;
 
-    
+    private GameObject parentWarning = null;
+    private Renderer doorRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        interval = Random.Range(minRand, maxRand);
-
-        toSprite.active = false;
+        var roundTime = PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.roundTime;
+        baseInterval = roundTime / parentEnterCount - enterDelay - 5f;
+        interval = Random.Range(baseInterval - intervalFluctuation, baseInterval + intervalFluctuation);
+        parentWarning = PlayerInteractionHandler.SceneObjects.UI.ParentWarning.Sprite.gameObject;
+        doorRenderer = PlayerInteractionHandler.SceneObjects.Room.DoorObject.DoorPivot.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -33,28 +41,41 @@ public class DoorManager : MonoBehaviour
 
         if (currTime >= interval)
         {
-            currTime = 0f;
+            parentsApproaching = true;
             
-            if (doorOpen)
+            if (parentsApproaching)
             {
-                DoorPivot.transform.Rotate(new Vector3(0,-60, 0));
-                interval = Random.Range(minRand, maxRand);
-                doorOpen = false;
-                IsInRoom = false;
-                toSprite.active = false;
-                return;
-            }
+                currEnterDelay += Time.deltaTime;
+                parentWarning.SetActive(!doorRenderer.isVisible);
+
+                if (currEnterDelay >= enterDelay)
+                {
+                    parentWarning.SetActive(false);
+                    currTime = 0f;
+
+                    if (doorOpen)
+                    {
+                        DoorPivot.transform.Rotate(new Vector3(0,-60, 0));
+                        interval = Random.Range(baseInterval - intervalFluctuation - enterDelay, baseInterval);
+                        
+                        doorOpen = false;
+                        IsInRoom = false;
+                        parentsApproaching = false;
+                        currEnterDelay = 0f;
+                        return;
+                    }
             
-            interval = 2f;
-            DoorPivot.transform.Rotate(new Vector3(0, 60, 0));
-            doorOpen = true;
-            IsInRoom = true;
-            toSprite.active = true;
+                    interval = 2f;
+                    DoorPivot.transform.Rotate(new Vector3(0, 60, 0));
+                    doorOpen = true;
+                    IsInRoom = true;
+                }
+            }
         }
 
         if (!PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.IsUnderBed && IsInRoom)
         {
-            PlayerInteractionHandler.GameStateManager.Lose();
+            //PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Parents);
         }
     }
 }
