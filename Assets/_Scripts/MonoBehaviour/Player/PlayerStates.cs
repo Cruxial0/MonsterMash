@@ -6,9 +6,15 @@ namespace _Scripts.MonoBehaviour.Player
 {
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
-        public delegate void OnPlayerDestroyedEvent(bool destroyed);
+        public PlayerState PlayerState = PlayerState.None;
+        private Rigidbody playerBody; 
 
         [NonSerialized] public bool Destroyed = false;
+
+        private void Start()
+        {
+            playerBody = PlayerInteractionHandler.SceneObjects.Player.Rigidbody;
+        }
 
         //Invokes OnPlayerDestroyed Event
         private void OnDestroy()
@@ -35,6 +41,7 @@ namespace _Scripts.MonoBehaviour.Player
         
         private void Update()
         {
+            if(playerBody.velocity.magnitude != 0) OnPlayerMoving();
             if(!active) return;
             currTime += Time.deltaTime;
 
@@ -47,5 +54,30 @@ namespace _Scripts.MonoBehaviour.Player
         }
 
         public event OnPlayerDestroyedEvent OnPlayerDestroyed;
+        public delegate void OnPlayerDestroyedEvent(bool destroyed);
+
+        #region PlayerMovingEvent
+
+        public event PlayerMovingEvent PlayerMoving;
+        public delegate void PlayerMovingEvent();
+
+        protected virtual void OnPlayerMoving()
+        {
+            PlayerState |= PlayerState.Moving;
+            PlayerMoving?.Invoke();
+        }
+
+        #endregion
+        
+    }
+
+    [Flags]
+    public enum PlayerState
+    {
+        None = 1 << 0,
+        Dead = 1 << 1,
+        Collided = 1 << 2,
+        Moving = 1 << 3,
+        Buffed = 1 << 4
     }
 }

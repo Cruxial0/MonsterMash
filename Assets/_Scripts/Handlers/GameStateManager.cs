@@ -1,4 +1,5 @@
 ﻿using _Scripts.GUI.PostLevelScreens;
+using _Scripts.MonoBehaviour.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,7 +42,6 @@ namespace _Scripts.Handlers
             {
                 if (lost)
                 {
-                    Debug.Log("Entered");
                     //Load MainMenu
                     var scene = SceneManager.GetActiveScene().buildIndex;
                     SceneManager.LoadScene(scene);
@@ -75,6 +75,7 @@ namespace _Scripts.Handlers
             manager.lost = true;
 
             //Destroy player
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState = PlayerState.Dead;
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to red
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;

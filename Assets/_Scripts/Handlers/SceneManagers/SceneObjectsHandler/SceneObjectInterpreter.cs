@@ -73,6 +73,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
             
             foreach (var child in rootObjects)
             {
+                Debug.Log(child.tag);
                 switch (child.tag)
                 {
                     case "Interactable":
@@ -108,6 +109,49 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                                 break;
                         }
                         break;
+                    case "Furniture":
+                        foreach (Transform c in child.transform)
+                        {
+                            switch (c.tag)
+                            {
+                                case "Interactable":
+                                    switch (c.gameObject.GetComponent<InteractableInitialize>().Type)
+                                    {
+                                        case InteractType.Pickup:
+                                            room.PickupObject.Add(new PickupSceneObject
+                                            {
+                                                Collider = c.GetComponent<Collider>(),
+                                                Script = c.GetComponent<InteractableInitialize>(),
+                                                SpriteMask = c.GetComponent<SpriteMask>(),
+                                                SpriteRenderer = c.GetComponent<SpriteRenderer>(),
+                                                Transform = c.GetComponent<Transform>()
+                                            });
+                                            break;
+                                        case InteractType.Collision:
+                                            Debug.Log(c.name);
+                                            var body = c.transform.GetChild(0).gameObject;
+                                            room.FurnitureObjects.Add(new FurnitureSceneObject
+                                            {
+                                                Rigidbody = c.GetComponent<Rigidbody>(),
+                                                Transform = c.GetComponent<Transform>(),
+                                                Script = c.GetComponent<InteractableInitialize>(),
+                                                Body = new FurnitureBody
+                                                {
+                                                    Collider = body.GetComponent<Collider>(),
+                                                    MeshFilter = body.GetComponent<MeshFilter>(),
+                                                    MeshRenderer = body.GetComponent<MeshRenderer>(),
+                                                    Transform = body.GetComponent<Transform>()
+                                                }
+                                            });
+                                            break;
+                                        case InteractType.Collision | InteractType.Pickup:
+                                            break;
+                                    }
+                             break;
+                            }
+                        }
+                        break;
+                    
                     case "Trap":
                         room.TrapObjects.Add(new TrapSceneObject
                         {

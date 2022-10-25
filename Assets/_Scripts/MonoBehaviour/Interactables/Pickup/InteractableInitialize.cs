@@ -18,6 +18,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
 
         private void OnCollisionEnter(Collision c)
         {
+            OnCollisionDetected?.Invoke(c);
             //If collider is not of tag player, return
             if (!c.collider.CompareTag("Player")) return;
 
@@ -40,6 +41,14 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
         {
             _handler = handler;
+        }
+
+        public event OnCollisionDetectedEvent OnCollisionDetected;
+        public delegate void OnCollisionDetectedEvent(Collision c);
+
+        protected virtual void OnOnCollisionDetected(Collision c)
+        {
+            OnCollisionDetected?.Invoke(c);
         }
     }
 }
