@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!65 &559069365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1333,6 +1334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!65 &616501575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2385,6 +2387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!65 &1047535840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2625,6 +2628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!65 &1086598614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2905,6 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!114 &1330809212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,7 +3228,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.86, y: 2.365522, z: 4.41}
-  m_Center: {x: 0.004689157, y: 1.1924226, z: -0.17434597}
+  m_Center: {x: 0.004689157, y: 0.47, z: -0.17434597}
 --- !u!1 &1770454446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,6 +3281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706960112288321404, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1602659870327568844, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3331,6 +3340,10 @@ PrefabInstance:
     - target: {fileID: 2624048986227296191, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: MaxNoise
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257382202697719665, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3434,6 +3447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!114 &2054067470
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,7 +29,10 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.AddNoise(noise * noiseMultiplyFactor);
                 if (Application.platform != RuntimePlatform.WebGLPlayer)
                 {
+                    #if !UNITY_WEBGL
                     Handheld.Vibrate();
+                    #endif
+                    
                 }
             }
         }

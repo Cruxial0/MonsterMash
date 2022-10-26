@@ -15,7 +15,7 @@ public class DoorManager : MonoBehaviour
     public int parentEnterCount;
     public float enterDelay = 3f;
     public bool enabled;
-    private bool IsInRoom = false;
+    private bool isInRoom = false;
     
     private float currTime = 0f;
     private float interval;
@@ -42,13 +42,13 @@ public class DoorManager : MonoBehaviour
 
     public Boolean ParentsInRoom
     {
-        get { return IsInRoom; }
+        get { return isInRoom; }
         set
         {
-            if (IsInRoom != value && IsInRoom == false)
+            if (isInRoom != value && isInRoom == false)
                 OnParentsEntered();
 
-            IsInRoom = value;
+            isInRoom = value;
         }
     }
 

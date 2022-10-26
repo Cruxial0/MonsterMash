@@ -1,10 +1,9 @@
+#if UNITY_EDITOR
 using System;
 using _Scripts.Handlers;
 using _Scripts.MonoBehaviour.Player;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
 {
@@ -163,3 +162,4 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
         }
     }
 }
+#endif

@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Handlers;
+#if UNITY_EDITOR
 using _Scripts.MonoBehaviour.CommonFunctionality.Editors;
+#endif
 using _Scripts.MonoBehaviour.Player;
 using UnityEditor;
 using UnityEngine;
@@ -108,10 +110,12 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void ScriptOnOnCollisionDetected(Collision c)
         {
+            #if UNITY_EDITOR
             if (c.collider.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]))
             {
                 _audioSource.Play();
             }
+            #endif
         }
         
         public void ToAudioSource(Audio source, AudioSource audioSource)
