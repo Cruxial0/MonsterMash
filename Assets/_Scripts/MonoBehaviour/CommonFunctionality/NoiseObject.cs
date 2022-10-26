@@ -8,6 +8,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
     public class NoiseObject : UnityEngine.MonoBehaviour
     {
+        public float noiseMultiplyFactor = 1f;
         private TextMeshProUGUI text;
         private const float DivisionFactor = 20f;
         private void Start()
@@ -21,11 +22,11 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             if (collision.gameObject.CompareTag("Player"))
             {
                 var noise = collision.relativeVelocity.magnitude / DivisionFactor;
-                print($"{collision.relativeVelocity.magnitude} -> {collision.relativeVelocity.magnitude / DivisionFactor}");
+                print($"{collision.relativeVelocity.magnitude} -> {(collision.relativeVelocity.magnitude / DivisionFactor) * noiseMultiplyFactor}");
 
-                text.text = $"Last hit noise: {noise:##.###}";
+                text.text = $"Last hit noise: {noise * noiseMultiplyFactor:##.###}";
                 
-                PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.AddNoise(noise);
+                PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.AddNoise(noise * noiseMultiplyFactor);
                 if (Application.platform != RuntimePlatform.WebGLPlayer)
                 {
                     Handheld.Vibrate();

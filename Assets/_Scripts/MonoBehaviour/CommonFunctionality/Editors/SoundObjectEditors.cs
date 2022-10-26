@@ -26,7 +26,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
         {
             _editorObject.Update();
             base.DrawDefaultInspector();
-            
+         
             SoundObject sound = (SoundObject)target;
 
             EditorGUI.BeginChangeCheck();
@@ -69,8 +69,23 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
 
             if (GUILayout.Button("Evaluate"))
             {
-                if (sound.source.source == null)
-                    Debug.LogWarning("EVALUATE: Please assign a valid AudioClip to source.");
+                if (sound.source.soundClips.Count == 0)
+                    Debug.LogAssertion("EVALUATE: Please assign a valid AudioClip to source.");
+                switch (sound.soundType)
+                {
+                    case SoundObject.SoundType.Cycle when sound.MaxInterval == 0:
+                        Debug.LogWarning("Consider setting a max interval timer.");
+                        break;
+                    case SoundObject.SoundType.PlayerState when sound.SelectedStates == PlayerState.None:
+                        Debug.LogWarning("Consider setting a player state.");
+                        break;
+                    case SoundObject.SoundType.Collision when sound.SelectedTag == 0:
+                        Debug.LogWarning("Consider setting a collision tag.");
+                        break;
+                    default:
+                        Debug.Log("Everything seems okay.");
+                        break;
+                }
             }
             GUILayout.EndHorizontal();
             _editorObject.ApplyModifiedProperties();
@@ -84,10 +99,12 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
         
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            base.OnGUI(position, property, label);
+            //base.OnGUI(position, property, label);
+
             EditorGUI.BeginProperty(position, label, property);
-            EditorGUI.PropertyField(position, property.FindPropertyRelative("source"));
-            
+
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("soundClips"));
+
             EditorGUI.BeginChangeCheck ();
             EditorGUILayout.GetControlRect (true, 16f, EditorStyles.foldout);
             Rect foldRect = GUILayoutUtility.GetLastRect ();
@@ -115,10 +132,10 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                 EditorGUILayout.PropertyField(property.FindPropertyRelative("volumeRolloff"));
                 EditorGUI.indentLevel--;
             }
+
+            EditorGUI.EndProperty();
             
             GUILayout.Space(20f);
-            
-            EditorGUI.EndProperty();
         }
     }
 }

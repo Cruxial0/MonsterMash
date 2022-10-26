@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Handlers;
 using _Scripts.MonoBehaviour.CommonFunctionality.Editors;
@@ -7,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
@@ -58,16 +60,26 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState)
             {
                 case PlayerState.Moving:
-                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += () =>  _audioSource.Play();
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += PlayerStatesOnPlayerMoving;
                     break;
                 case PlayerState.Dead:
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.OnPlayerDestroyed += PlayerStatesOnOnPlayerDestroyed;
                     break;
                 case PlayerState.Buffed:
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += () => _audioSource.Play();
                     break;
                 case PlayerState.Collided:
                     break;
             }
         }
+
+        private void PlayerStatesOnPlayerMoving()
+        {
+            print("moving");
+            _audioSource.Play();
+        }
+
+        private void PlayerStatesOnOnPlayerDestroyed(bool destroyed) => _audioSource.Play();
 
         private void ScriptOnOnCollisionDetected(Collision c)
         {
@@ -79,7 +91,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         
         public void ToAudioSource(Audio source, AudioSource audioSource)
         {
-            audioSource.clip = source.source;
+            audioSource.clip = RandomAudioClip(source.soundClips);
             audioSource.outputAudioMixerGroup = source.outputMixerGroup;
             audioSource.mute = source.mute;
             audioSource.bypassEffects = source.bypassEffects;
@@ -95,12 +107,18 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             audioSource.reverbZoneMix = source.reverbZoneMix;
             audioSource.rolloffMode = source.volumeRolloff;
         }
+
+        public AudioClip RandomAudioClip(List<AudioClip> clips)
+        {
+            Debug.Log(clips.Count);
+            return clips[Random.Range(0, 1)];
+        }
     }
     
     [Serializable]
     public class Audio
     {
-        public AudioClip source;
+        public List<AudioClip> soundClips;
         public AudioRolloffMode volumeRolloff;
         public AudioMixerGroup outputMixerGroup;
         public bool mute;

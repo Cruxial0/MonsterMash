@@ -7,19 +7,20 @@ namespace _Scripts.MonoBehaviour.Player
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
         public PlayerState PlayerState = PlayerState.None;
-        private Rigidbody playerBody; 
+        private PlayerMovmentController playerBody; 
 
         [NonSerialized] public bool Destroyed = false;
 
         private void Start()
         {
-            playerBody = PlayerInteractionHandler.SceneObjects.Player.Rigidbody;
+            playerBody = PlayerInteractionHandler.SceneObjects.Player.MovmentController;
         }
 
         //Invokes OnPlayerDestroyed Event
         private void OnDestroy()
         {
-            OnPlayerDestroyed?.Invoke(true);
+            var handler = OnPlayerDestroyed;
+            handler?.Invoke(true);
         }
 
         //Destroys parent
@@ -41,7 +42,12 @@ namespace _Scripts.MonoBehaviour.Player
         
         private void Update()
         {
-            if(playerBody.velocity.magnitude != 0) OnPlayerMoving();
+            
+            if (playerBody.acceleration >= 1) OnPlayerMoving();
+            else PlayerState &= ~PlayerState.Moving;
+            
+            if (PlayerState == 0) PlayerState = PlayerState.None;
+            
             if(!active) return;
             currTime += Time.deltaTime;
 
@@ -61,10 +67,34 @@ namespace _Scripts.MonoBehaviour.Player
         public event PlayerMovingEvent PlayerMoving;
         public delegate void PlayerMovingEvent();
 
-        protected virtual void OnPlayerMoving()
+        private void OnPlayerMoving()
         {
-            PlayerState |= PlayerState.Moving;
-            PlayerMoving?.Invoke();
+            if(PlayerState == PlayerState.None)
+                PlayerState = PlayerState.Moving;
+            else
+                PlayerState |= PlayerState.Moving;
+            
+            var handler = PlayerMoving;
+            handler?.Invoke();
+        }
+
+        #endregion
+
+
+        #region PlayerBuffed
+
+        public event PlayerBuffedEvent PlayerBuffed;
+        public delegate void PlayerBuffedEvent();
+
+        public void OnPlayerBuffed()
+        {
+            if(PlayerState == PlayerState.None)
+                PlayerState = PlayerState.Buffed;
+            else
+                PlayerState |= PlayerState.Buffed;
+            
+            var handler = PlayerBuffed;
+            handler?.Invoke();
         }
 
         #endregion

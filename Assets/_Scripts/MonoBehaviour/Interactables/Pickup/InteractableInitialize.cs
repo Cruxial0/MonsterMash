@@ -13,7 +13,6 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         private void Awake()
         {
             //if type is null, gameObject is invalid, thus, destroy.
-            if (Type == null) Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision c)

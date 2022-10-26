@@ -17,7 +17,7 @@ namespace _Scripts.Handlers
         private float delay = 5; //Transition delay
         private bool lost = false; //Lost?
         private bool postLost;
-        private bool enabled = true;
+        private bool _enabled = true;
 
         public GameStateManager(GameObject player, PlayerInteractionHandler handler)
         {
@@ -29,12 +29,12 @@ namespace _Scripts.Handlers
         {
             delay = 3f; //Set delay
             currTime = 0f;
-            enabled = true;
+            _enabled = true;
         }
 
         private void Update()
         {
-            if(!enabled) return;
+            if(!_enabled) return;
 
             currTime += Time.deltaTime; //Increment time
 
@@ -45,7 +45,7 @@ namespace _Scripts.Handlers
                     //Load MainMenu
                     var scene = SceneManager.GetActiveScene().buildIndex;
                     SceneManager.LoadScene(scene);
-                    enabled = false;
+                    _enabled = false;
                     return;
                 }
 

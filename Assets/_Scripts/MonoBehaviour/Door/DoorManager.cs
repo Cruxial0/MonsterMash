@@ -11,6 +11,9 @@ public class DoorManager : MonoBehaviour
     public GameObject DoorPivot;
     public int parentEnterCount;
     public float enterDelay = 3f;
+#pragma warning disable CS0108, CS0114
+    public bool enabled;
+#pragma warning restore CS0108, CS0114
     [NonSerialized] public bool IsInRoom = false;
     
     private float currTime = 0f;
@@ -27,6 +30,7 @@ public class DoorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(!enabled) Destroy(this);
         var roundTime = PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.roundTime;
         baseInterval = roundTime / parentEnterCount - enterDelay - 5f;
         interval = Random.Range(baseInterval - intervalFluctuation, baseInterval + intervalFluctuation);
@@ -37,6 +41,7 @@ public class DoorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!enabled) return;
         currTime += Time.deltaTime;
 
         if (currTime >= interval)
