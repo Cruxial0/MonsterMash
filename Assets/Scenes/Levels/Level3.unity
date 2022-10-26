@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43579924, g: 0.48321396, b: 0.5641255, a: 1}
+  m_IndirectSpecularColor: {r: 0.43832406, g: 0.48637158, b: 0.56664884, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2664,7 +2664,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3301,7 +3301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a127878ba7f5c45af62a3a538b7831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinPrefab: {fileID: 0}
+  WinPrefab: {fileID: 2626518202504174075, guid: 5c8040b73112c7140945d4461e88c23b, type: 3}
 --- !u!65 &2024606192
 BoxCollider:
   m_ObjectHideFlags: 0
