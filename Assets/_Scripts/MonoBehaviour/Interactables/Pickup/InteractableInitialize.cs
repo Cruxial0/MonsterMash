@@ -13,11 +13,11 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         private void Awake()
         {
             //if type is null, gameObject is invalid, thus, destroy.
-            if (Type == null) Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision c)
         {
+            OnCollisionDetected?.Invoke(c);
             //If collider is not of tag player, return
             if (!c.collider.CompareTag("Player")) return;
 
@@ -40,6 +40,14 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
         {
             _handler = handler;
+        }
+
+        public event OnCollisionDetectedEvent OnCollisionDetected;
+        public delegate void OnCollisionDetectedEvent(Collision c);
+
+        protected virtual void OnOnCollisionDetected(Collision c)
+        {
+            OnCollisionDetected?.Invoke(c);
         }
     }
 }

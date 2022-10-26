@@ -196,8 +196,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8713938483471802652}
   serializedVersion: 2
-  m_Mass: 0.01
-  m_Drag: 0
+  m_Mass: 0.15
+  m_Drag: 0.5
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -216,6 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1719f756e2370d4680d148cf5a3bd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlat: 1
+  prevMovement: {x: 0, y: 0, z: 0}
+  prevVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &599270259724979075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36aca0af890745538d461ee5386c2e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerState: 1
 --- !u!1001 &488017466652645249
 PrefabInstance:
   m_ObjectHideFlags: 0
