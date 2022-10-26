@@ -15,7 +15,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
 
         private void OnEnable()
         {
-            _editorObject = new SerializedObject (target);
+            _editorObject = new SerializedObject(target);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             SoundObject sound = (SoundObject)target;
 
             EditorGUI.BeginChangeCheck();
-            
+
             switch (sound.soundType)
             {
                 case SoundObject.SoundType.Collision:
@@ -54,7 +54,15 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                     GUILayout.EndHorizontal();
                     break;
                 case SoundObject.SoundType.PlayerState:
-                    sound.SelectedStates = (PlayerState)EditorGUILayout.EnumPopup("State", sound.SelectedStates);
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label("Player State");
+                    sound.SelectedStates = (PlayerState)EditorGUILayout.EnumFlagsField(sound.SelectedStates);
+                    GUILayout.EndHorizontal();
+                    break;
+                case SoundObject.SoundType.Parents:
+                    var parentObj = serializedObject.FindProperty("parentSounds");
+                    
+                    EditorGUILayout.PropertyField(parentObj);
                     break;
             }
             EditorUtility.SetDirty(this);
@@ -136,6 +144,22 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             EditorGUI.EndProperty();
             
             GUILayout.Space(20f);
+        }
+    }
+
+    [CustomPropertyDrawer(typeof(ParentSounds))]
+    public class ParentSoundsUIE : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            //base.OnGUI(position, property, label);
+            EditorGUI.BeginProperty(position, label, property);
+
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("approachSounds"));
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("enterSounds"));
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("exitSounds"));
+            
+            EditorGUI.EndProperty();
         }
     }
 }

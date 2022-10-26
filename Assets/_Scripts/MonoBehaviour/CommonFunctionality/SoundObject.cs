@@ -17,6 +17,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         public Audio source;
         public SoundType soundType;
 
+        [SerializeField, HideInInspector] public List<AudioClip> parentSounds;
         [HideInInspector] public AudioSource _audioSource;
         [HideInInspector] public int SelectedTag ;
         [HideInInspector] public bool OnlyNoiseObject;
@@ -30,6 +31,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             Collision,
             Cycle,
             PlayerState,
+            Parents
         }
 
         private void Start()
@@ -52,7 +54,30 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 case SoundType.PlayerState:
                     ManageEvents();
                     break;
+                case SoundType.Parents:
+                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsApproach += ScriptOnOnParentsApproach;
+                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsEnter += ScriptOnOnParentsEnter;
+                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsLeave += ScriptOnOnParentsLeave;
+                    break;
             }
+        }
+
+        private void ScriptOnOnParentsLeave(object sender)
+        {
+            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
+            _audioSource.Play();
+        }
+
+        private void ScriptOnOnParentsEnter(object sender)
+        {
+            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
+            _audioSource.Play();
+        }
+
+        private void ScriptOnOnParentsApproach(object sender)
+        {
+            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
+            _audioSource.Play();
         }
 
         private void ManageEvents()
@@ -110,9 +135,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         public AudioClip RandomAudioClip(List<AudioClip> clips)
         {
-            Debug.Log(clips.Count);
-            return clips[Random.Range(0, 1)];
+            return clips[Random.Range(0, clips.Count)];
         }
+    }
+
+    [Serializable]
+    public class ParentSounds
+    {
+        public List<AudioClip> approachSounds;
+        public List<AudioClip> enterSounds = new List<AudioClip>();
+        public List<AudioClip> exitSounds = new List<AudioClip>();
     }
     
     [Serializable]

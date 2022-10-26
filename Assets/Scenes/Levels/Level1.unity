@@ -778,6 +778,7 @@ MonoBehaviour:
     spatialBlend: 0
     reverbZoneMix: 1
   soundType: 2
+  parentSounds: []
   _audioSource: {fileID: 0}
   SelectedTag: 0
   OnlyNoiseObject: 0
@@ -1042,14 +1043,6 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8713938483471802649, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
-      propertyPath: m_Drag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8713938483471802649, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 8713938483471802652, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1119,6 +1112,7 @@ MonoBehaviour:
     spatialBlend: 0
     reverbZoneMix: 1
   soundType: 0
+  parentSounds: []
   _audioSource: {fileID: 0}
   SelectedTag: 0
   OnlyNoiseObject: 0
@@ -2254,23 +2248,24 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2865306a769b9d74aa34dc9f172de03a, type: 3}
     volumeRolloff: 0
     outputMixerGroup: {fileID: 0}
-    mute: 0
-    bypassEffects: 0
+    mute: 1
+    bypassEffects: 1
     bypassListenerEffects: 0
     bypassReverbZones: 0
-    playOnAwake: 0
+    playOnAwake: 1
     loop: 0
-    priority: 128
+    priority: 126
     volume: 0.459
     pitch: 1
     stereoPan: 0
     spatialBlend: 0
     reverbZoneMix: 1
-  soundType: 0
+  soundType: 3
+  parentSounds: []
   _audioSource: {fileID: 0}
   SelectedTag: 5
   OnlyNoiseObject: 0
-  SelectedStates: 2
+  SelectedStates: 0
   MinInterval: 0
   MaxInterval: 0
 --- !u!1001 &1124027589
@@ -2450,6 +2445,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2816040968246318710, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: soundType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816040968246318710, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: SelectedTag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816040968246318710, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: source.soundClips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816040968246318710, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: source.soundClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2865306a769b9d74aa34dc9f172de03a, type: 3}
+    - target: {fileID: 2816040968246318710, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+      propertyPath: parentSounds.exitSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3342823363164902928, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
       propertyPath: m_Name
       value: DoorPivot
@@ -2651,6 +2666,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4092741, y: 0.31841484, z: 0.4092742}
   m_Center: {x: 0.00000009685756, y: 0.1584238, z: 0}
+--- !u!1 &1308303339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342823363164902928, guid: 71163b68ea3ee4071aff9c5d4ebfae13, type: 3}
+  m_PrefabInstance: {fileID: 1271286513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308303343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308303339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips: []
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 3
+  parentSounds: []
+  _audioSource: {fileID: 0}
+  SelectedTag: 0
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1359779584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3516,6 +3572,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706960112288321404, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1602659870327568844, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_RootOrder
       value: 1

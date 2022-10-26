@@ -186,7 +186,8 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             Transform = main.transform,
                             DoorPivot = main,
                             MeshFilter = child.GetComponent<MeshFilter>(),
-                            MeshRenderer = child.GetComponent<MeshRenderer>()
+                            MeshRenderer = child.GetComponent<MeshRenderer>(),
+                            Script = child.GetComponent<DoorManager>()
                         };
                         break;
                 }

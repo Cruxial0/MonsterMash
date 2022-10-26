@@ -8,13 +8,14 @@ using Random = UnityEngine.Random;
 
 public class DoorManager : MonoBehaviour
 {
+    public delegate void ParentsEnterEvent(object sender);
+    public delegate void ParentsApproachingEvent(object sender);
+    
     public GameObject DoorPivot;
     public int parentEnterCount;
     public float enterDelay = 3f;
-#pragma warning disable CS0108, CS0114
     public bool enabled;
-#pragma warning restore CS0108, CS0114
-    [NonSerialized] public bool IsInRoom = false;
+    private bool IsInRoom = false;
     
     private float currTime = 0f;
     private float interval;
@@ -23,6 +24,33 @@ public class DoorManager : MonoBehaviour
     private bool doorOpen = false;
     private float currEnterDelay = 0f;
     private bool parentsApproaching = false;
+
+    public Boolean ParentsApproaching
+    {
+        get { return parentsApproaching;}
+        set
+        {
+            if (parentsApproaching != value && parentsApproaching == false)
+                OnOnParentsApproach();
+
+            if (parentsApproaching != value && parentsApproaching == true)
+                OnParentsLeft();
+            
+            parentsApproaching = value;
+        }
+    }
+
+    public Boolean ParentsInRoom
+    {
+        get { return IsInRoom; }
+        set
+        {
+            if (IsInRoom != value && IsInRoom == false)
+                OnParentsEntered();
+
+            IsInRoom = value;
+        }
+    }
 
     private GameObject parentWarning = null;
     private Renderer doorRenderer;
@@ -36,22 +64,28 @@ public class DoorManager : MonoBehaviour
         interval = Random.Range(baseInterval - intervalFluctuation, baseInterval + intervalFluctuation);
         parentWarning = PlayerInteractionHandler.SceneObjects.UI.ParentWarning.Sprite.gameObject;
         doorRenderer = PlayerInteractionHandler.SceneObjects.Room.DoorObject.DoorPivot.GetComponent<MeshRenderer>();
+
+        ParentsApproaching = false;
+        ParentsInRoom = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(PlayerInteractionHandler.SceneObjects.Player.PlayerStates.Destroyed)
+            parentWarning.SetActive(false);
         if(!enabled) return;
         currTime += Time.deltaTime;
 
         if (currTime >= interval)
         {
-            parentsApproaching = true;
+            ParentsApproaching = true;
             
-            if (parentsApproaching)
+            if (ParentsApproaching)
             {
                 currEnterDelay += Time.deltaTime;
-                parentWarning.SetActive(!doorRenderer.isVisible);
+                //parentWarning.SetActive(!doorRenderer.isVisible);
+                parentWarning.SetActive(true);
 
                 if (currEnterDelay >= enterDelay)
                 {
@@ -64,8 +98,8 @@ public class DoorManager : MonoBehaviour
                         interval = Random.Range(baseInterval - intervalFluctuation - enterDelay, baseInterval);
                         
                         doorOpen = false;
-                        IsInRoom = false;
-                        parentsApproaching = false;
+                        ParentsInRoom = false;
+                        ParentsApproaching = false;
                         currEnterDelay = 0f;
                         return;
                     }
@@ -73,14 +107,25 @@ public class DoorManager : MonoBehaviour
                     interval = 2f;
                     DoorPivot.transform.Rotate(new Vector3(0, 60, 0));
                     doorOpen = true;
-                    IsInRoom = true;
+                    ParentsInRoom = true;
                 }
             }
         }
 
-        if (!PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.IsUnderBed && IsInRoom)
+        if (!PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.IsUnderBed && ParentsInRoom)
         {
-            //PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Parents);
+            PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Parents);
         }
     }
+
+    public delegate void ParentsLeaveEvent(object sender);
+    public event ParentsLeaveEvent OnParentsLeave;
+    protected virtual void OnParentsLeft() =>  OnParentsLeave?.Invoke(this);
+    
+    public event ParentsEnterEvent OnParentsEnter;
+    protected virtual void OnParentsEntered() => OnParentsEnter?.Invoke(this);
+
+    public event ParentsApproachingEvent OnParentsApproach;
+    protected virtual void OnOnParentsApproach() => OnParentsApproach?.Invoke(this);
+    
 }
