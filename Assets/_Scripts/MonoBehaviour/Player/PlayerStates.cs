@@ -6,14 +6,21 @@ namespace _Scripts.MonoBehaviour.Player
 {
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
-        public delegate void OnPlayerDestroyedEvent(bool destroyed);
+        public PlayerState PlayerState = PlayerState.None;
+        private PlayerMovmentController playerBody; 
 
         [NonSerialized] public bool Destroyed = false;
+
+        private void Start()
+        {
+            playerBody = PlayerInteractionHandler.SceneObjects.Player.MovmentController;
+        }
 
         //Invokes OnPlayerDestroyed Event
         private void OnDestroy()
         {
-            OnPlayerDestroyed?.Invoke(true);
+            var handler = OnPlayerDestroyed;
+            handler?.Invoke(true);
         }
 
         //Destroys parent
@@ -35,6 +42,12 @@ namespace _Scripts.MonoBehaviour.Player
         
         private void Update()
         {
+            
+            if (playerBody.acceleration >= 1) OnPlayerMoving();
+            else PlayerState &= ~PlayerState.Moving;
+            
+            if (PlayerState == 0) PlayerState = PlayerState.None;
+            
             if(!active) return;
             currTime += Time.deltaTime;
 
@@ -47,5 +60,54 @@ namespace _Scripts.MonoBehaviour.Player
         }
 
         public event OnPlayerDestroyedEvent OnPlayerDestroyed;
+        public delegate void OnPlayerDestroyedEvent(bool destroyed);
+
+        #region PlayerMovingEvent
+
+        public event PlayerMovingEvent PlayerMoving;
+        public delegate void PlayerMovingEvent();
+
+        private void OnPlayerMoving()
+        {
+            if(PlayerState == PlayerState.None)
+                PlayerState = PlayerState.Moving;
+            else
+                PlayerState |= PlayerState.Moving;
+            
+            var handler = PlayerMoving;
+            handler?.Invoke();
+        }
+
+        #endregion
+
+
+        #region PlayerBuffed
+
+        public event PlayerBuffedEvent PlayerBuffed;
+        public delegate void PlayerBuffedEvent();
+
+        public void OnPlayerBuffed()
+        {
+            if(PlayerState == PlayerState.None)
+                PlayerState = PlayerState.Buffed;
+            else
+                PlayerState |= PlayerState.Buffed;
+            
+            var handler = PlayerBuffed;
+            handler?.Invoke();
+        }
+
+        #endregion
+        
+    }
+
+    [Flags]
+    public enum PlayerState
+    {
+        None = 1 << 0,
+        Dead = 1 << 1,
+        Collided = 1 << 2,
+        Moving = 1 << 3,
+        Buffed = 1 << 4
     }
 }

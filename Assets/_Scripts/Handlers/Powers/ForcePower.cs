@@ -31,6 +31,7 @@ namespace _Scripts.Handlers.Powers
             if(SceneObjects.Player == null) Destroy(this);
             
             currTime += Time.deltaTime; //Increment timer
+            SceneObjects.Player.PlayerStates.OnPlayerBuffed();
             if (currTime > buffTime && active)
             {
                 SceneObjects.Player.MovmentController.MovementSpeed = 

@@ -1,6 +1,7 @@
 using System;
 using _Scripts.Handlers;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -24,13 +25,16 @@ namespace _Scripts.MonoBehaviour.Player
         private Rigidbody _rigidbody; //Attached rigidbody
         private Vector2 _rotate; //Callback value for RotateOnPerformed
         [NonSerialized] public bool CanControl = true;
-        [NonSerialized] public float MovementSpeed = 10f; //MovementSpeed
-        [NonSerialized] public readonly float DefaultMovementSpeed = 10f; //MovementSpeed
+        [NonSerialized] public float MovementSpeed = 16f; //MovementSpeed
+        [NonSerialized] public readonly float DefaultMovementSpeed = 16f; //MovementSpeed
         [NonSerialized] public FixedJoystick Joystick;
         public bool isFlat = true;
         public Vector3 prevMovement = new Vector3();
         public Vector3 prevVelocity = new Vector3();
         private TextMeshProUGUI text;
+        [NonSerialized]public float acceleration = 0;
+        private float prevVertical = 0f;
+        private float prevHorizontal = 0f;
         private void Awake()
         {
             MovementSpeed = DefaultMovementSpeed;
@@ -77,9 +81,19 @@ namespace _Scripts.MonoBehaviour.Player
                     MoveGyroscope();
                     break;
             }
-            
-            if(Joystick.Direction != Vector2.zero && ControlPreset == ControlType.Joystick)
+
+            if (Joystick.Direction != Vector2.zero && ControlPreset == ControlType.Joystick)
+            {
                 transform.eulerAngles = new Vector3( 0, Mathf.Atan2( Joystick.Horizontal, Joystick.Vertical) * 180 / Mathf.PI, 0 );
+                prevHorizontal = Joystick.Horizontal;
+                prevVertical = Joystick.Vertical;
+            }
+
+            if (Joystick.Direction == Vector2.zero && ControlPreset == ControlType.Joystick)
+            {
+                transform.eulerAngles = new Vector3( 0, Mathf.Atan2( prevHorizontal, prevVertical) * 180 / Mathf.PI, 0 );
+            }
+                
             if(ControlPreset == ControlType.Gyroscope)
             {
                 if(_rigidbody.velocity.x < 0.05f || _rigidbody.velocity.y < 0.05f)
@@ -95,8 +109,8 @@ namespace _Scripts.MonoBehaviour.Player
             
             prevMovement = transform.position;
             prevVelocity = _rigidbody.angularVelocity;
-            
-            
+            this.acceleration = acceleration;
+
         }
 
         //Called when gameObject becomes active
