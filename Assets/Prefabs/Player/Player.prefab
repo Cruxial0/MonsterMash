@@ -216,6 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1719f756e2370d4680d148cf5a3bd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlat: 1
+  prevMovement: {x: 0, y: 0, z: 0}
+  prevVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &599270259724979075
 MonoBehaviour:
   m_ObjectHideFlags: 0
