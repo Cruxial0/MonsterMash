@@ -24,7 +24,7 @@ namespace _Scripts.MonoBehaviour.Player
         }
 
         //Destroys parent
-        public void DestroySelf() 
+        public void DestroySelf()
         {
             Destroy(gameObject);
         }
@@ -42,6 +42,7 @@ namespace _Scripts.MonoBehaviour.Player
         
         private void Update()
         {
+            
             if (playerBody.acceleration >= 1) OnPlayerMoving();
             else PlayerState &= ~PlayerState.Moving;
             
