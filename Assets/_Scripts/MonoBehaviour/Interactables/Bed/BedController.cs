@@ -9,27 +9,20 @@ public class BedController : MonoBehaviour
     public GameObject WinPrefab;
 
     [NonSerialized] public bool IsUnderBed;
-    private List<MeshRenderer> _meshFilters = new();
+    private MeshRenderer _meshFilters = new();
 
     private void Start()
     {
-        _meshFilters.Add(GetComponent<MeshRenderer>());
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            _meshFilters.Add(transform.GetChild(i).gameObject.GetComponent<MeshRenderer>());
-        }
+        _meshFilters = PlayerInteractionHandler.SceneObjects.Room.BedObject.MeshRenderer;
     }
 
     private void OnTriggerExit(Collider other)
     {
         IsUnderBed = false;
         
-        foreach (var renderer in _meshFilters)
-        {
-            var c = renderer.material.color;
-            c.a = 1f;
-            renderer.material.color = new Color(c.r, c.g, c.b, c.a);
-        }
+        var c = _meshFilters.material.color;
+        c.a = 1f;
+        _meshFilters.material.color = new Color(c.r, c.g, c.b, c.a);
 
         //Show player
         //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = true;
@@ -41,12 +34,9 @@ public class BedController : MonoBehaviour
         {
             IsUnderBed = true;
 
-            foreach (var renderer in _meshFilters)
-            {
-                var c = renderer.material.color;
-                c.a = 0.5f;
-                renderer.material.color = c;
-            }
+            var c = _meshFilters.material.color;
+            c.a = 0.5f;
+            _meshFilters.material.color = c;
             
 
             //If all objects are picked up, win
