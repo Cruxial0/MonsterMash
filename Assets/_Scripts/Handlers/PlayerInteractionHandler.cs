@@ -142,7 +142,12 @@ namespace _Scripts.Handlers
 
                     var popup = pickupSceneObject.Script.PopupPrefab;
                     var playerPos = SceneObjects.Player.Self.transform.position;
+
                     var obj = Object.Instantiate(popup, playerPos, popup.transform.rotation, SceneObjects.Player.Transform);
+                    
+                    if (_currCollectable == _collectableCount)
+                        obj.GetComponent<PopupFeedback>().LastPickup = true;
+                    
                     // obj.transform.SetParent(SceneObjects.Player.Self.transform);
                     obj.GetComponent<TextMeshPro>().text = $"{_currCollectable}/{_collectableCount}";
                     
