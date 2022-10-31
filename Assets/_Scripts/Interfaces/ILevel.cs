@@ -8,5 +8,13 @@ namespace _Scripts.Interfaces
         public int LevelID { get; } //Local ID of the level
         public Level Level { get; } //Level object
         public List<IEvent> Events { get; } //Events associated with level
+        public StarLevels StarLevels { get; }
+    }
+
+    public class StarLevels
+    {
+        public double ThreeStarRequirement { get; set; }
+        public double TwoStarRequirement { get; set; }
+        public double OneStarRequirement { get; set; }
     }
 }
