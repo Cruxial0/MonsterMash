@@ -1,4 +1,5 @@
-﻿using _Scripts.GUI.PostLevelScreens;
+﻿using System.Linq;
+using _Scripts.GUI.PostLevelScreens;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
 using UnityEngine;
@@ -88,7 +89,7 @@ namespace _Scripts.Handlers
             Instantiate(gameScreens.RestartLevelScreen());
         }
 
-        public void Win()
+        public void Win(float timeLeft)
         {
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
@@ -103,6 +104,16 @@ namespace _Scripts.Handlers
 
             var go = new GameObject(); //Add empty handler
             go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+
+            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
+            
+            int stars = 0;
+            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
+
+
+            print(stars);
         }
     }
     

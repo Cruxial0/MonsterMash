@@ -13,5 +13,12 @@ namespace DefaultNamespace
             LevelName = "Tutorial"
         };
         public List<IEvent> Events => new() { new NoEvent() };
+
+        public StarLevels StarLevels => new StarLevels()
+        {
+            OneStarRequirement = 0.0,
+            TwoStarRequirement = 0.0,
+            ThreeStarRequirement = 0.0
+        };
     }
 }

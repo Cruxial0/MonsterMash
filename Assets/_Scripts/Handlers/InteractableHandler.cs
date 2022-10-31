@@ -45,9 +45,9 @@ namespace _Scripts.Handlers
         public InteractType InteractType { get; } //Interactable Type
 
         //Destroy parent
-        public void Destroy()
+        public void Destroy(float delay = 0f)
         {
-            Object.Destroy(Parent);
+            Object.Destroy(Parent, delay);
         }
 
         //Add Collision Entry

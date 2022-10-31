@@ -1191,6 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!114 &489659336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,6 +1417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!54 &726573216
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1652,6 +1654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!65 &1009812218
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2121,6 +2124,10 @@ PrefabInstance:
       propertyPath: MaxNoise
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6257382202697719665, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -12
@@ -2342,6 +2349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!114 &1368147622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2469,6 +2477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!114 &1500081547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,6 +2875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
+  PopupPrefab: {fileID: 0}
 --- !u!114 &1600535809
 MonoBehaviour:
   m_ObjectHideFlags: 0

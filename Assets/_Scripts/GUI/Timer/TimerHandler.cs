@@ -7,7 +7,7 @@ public class TimerHandler : MonoBehaviour
     public delegate void TimerDepletedEventHandler(object sender);
 
     public float roundTime = 100f; //Round time
-    private float currTime; //Current time
+    [NonSerialized] public float currTime; //Current time
     private TextMeshProUGUI text; //Instance of Text
     private bool timerActive; //Timer active?
 
