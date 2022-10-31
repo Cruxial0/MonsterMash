@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 2980459199253303643, guid: d4df0cddb63cb4b67a13834a76646ed1, type: 3}
+  PopupPrefab: {fileID: 6798315404353995846, guid: 048f7e23312974cd7add255e79ddbc27, type: 3}
 --- !u!33 &6375595429039981961
 MeshFilter:
   m_ObjectHideFlags: 0
