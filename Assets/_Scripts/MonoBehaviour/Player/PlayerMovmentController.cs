@@ -90,6 +90,7 @@ namespace _Scripts.MonoBehaviour.Player
                 if (Joystick.Direction != Vector2.zero) initialSpawn = false;
                 return;
             }
+            
             if (Joystick.Direction != Vector2.zero && ControlPreset == ControlType.Joystick)
             {
                 transform.eulerAngles = new Vector3( 0, Mathf.Atan2( Joystick.Horizontal, Joystick.Vertical) * 180 / Mathf.PI, 0 );
