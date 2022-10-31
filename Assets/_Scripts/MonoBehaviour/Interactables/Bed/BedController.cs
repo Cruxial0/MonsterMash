@@ -41,7 +41,7 @@ public class BedController : MonoBehaviour
 
             //If all objects are picked up, win
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
-                PlayerInteractionHandler.GameStateManager.Win();
+                PlayerInteractionHandler.GameStateManager.Win(PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.currTime);
         }
     }
 }

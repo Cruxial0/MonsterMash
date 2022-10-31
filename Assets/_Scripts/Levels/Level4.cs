@@ -13,5 +13,12 @@ namespace DefaultNamespace
             LevelName = "Level4"
         };
         public List<IEvent> Events => new() { new SecurityCameraEvent() };
+        
+        public StarLevels StarLevels => new StarLevels()
+        {
+            OneStarRequirement = 0.0,
+            TwoStarRequirement = 0.0,
+            ThreeStarRequirement = 0.0
+        };
     }
 }
