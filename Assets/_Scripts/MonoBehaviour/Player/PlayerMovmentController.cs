@@ -35,6 +35,7 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized]public float acceleration = 0;
         private float prevVertical = 0f;
         private float prevHorizontal = 0f;
+        private bool initialSpawn = true;
         private void Awake()
         {
             MovementSpeed = DefaultMovementSpeed;
@@ -58,6 +59,7 @@ namespace _Scripts.MonoBehaviour.Player
             ControlPreset = PlayerInteractionHandler.Self.ControlType;
             
             text = PlayerInteractionHandler.SceneObjects.UI.DebugGUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            this.transform.Rotate(new Vector3(0,90,0));
         }
 
         // Update is called once per frame
@@ -82,6 +84,13 @@ namespace _Scripts.MonoBehaviour.Player
                     break;
             }
 
+            if (initialSpawn)
+            {
+                transform.eulerAngles = new Vector3(0, 90, 0);
+                if (Joystick.Direction != Vector2.zero) initialSpawn = false;
+                return;
+            }
+            
             if (Joystick.Direction != Vector2.zero && ControlPreset == ControlType.Joystick)
             {
                 transform.eulerAngles = new Vector3( 0, Mathf.Atan2( Joystick.Horizontal, Joystick.Vertical) * 180 / Mathf.PI, 0 );

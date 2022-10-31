@@ -5,8 +5,11 @@ using _Scripts.Handlers.Powers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using _Scripts.MonoBehaviour.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
 namespace _Scripts.Handlers
@@ -137,8 +140,15 @@ namespace _Scripts.Handlers
                     var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
                         x.Collider == interactableObject.Parent.GetComponent<Collider>());
 
-                    Vector3 itemPos = SceneObjects.Player.Rigidbody.position;
-                    var obj = Object.Instantiate(pickupSceneObject.Script.PopupPrefab, new Vector3(itemPos.x, itemPos.y + 0.4f, itemPos.z), pickupSceneObject.Script.PopupPrefab.transform.rotation);
+                    var popup = pickupSceneObject.Script.PopupPrefab;
+                    var playerPos = SceneObjects.Player.Self.transform.position;
+                    var obj = Object.Instantiate(popup, playerPos, popup.transform.rotation, SceneObjects.Player.Transform);
+                    
+                    if (_currCollectable == _collectableCount)
+                        obj.GetComponent<PopupFeedback>().LastPickup = true;
+                    
+                    // obj.transform.SetParent(SceneObjects.Player.Self.transform);
+                    obj.GetComponent<TextMeshPro>().text = $"{_currCollectable}/{_collectableCount}";
                     
                     //Remove SceneObject from PickupObject list 
                     SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
