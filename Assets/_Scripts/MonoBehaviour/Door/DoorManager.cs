@@ -89,11 +89,11 @@ public class DoorManager : MonoBehaviour
 
                 if (currEnterDelay >= enterDelay)
                 {
-                    parentWarning.SetActive(false);
                     currTime = 0f;
 
                     if (doorOpen)
                     {
+                        parentWarning.SetActive(false);
                         DoorPivot.transform.Rotate(new Vector3(0,-60, 0));
                         interval = Random.Range(baseInterval - intervalFluctuation - enterDelay, baseInterval);
                         

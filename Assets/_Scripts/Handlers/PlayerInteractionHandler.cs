@@ -136,7 +136,11 @@ namespace _Scripts.Handlers
                     //Get SceneObject from LINQ expression
                     var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
                         x.Collider == interactableObject.Parent.GetComponent<Collider>());
-                    //Remove SceneObject from PickupObject list
+
+                    Vector3 itemPos = SceneObjects.Player.Rigidbody.position;
+                    var obj = Object.Instantiate(pickupSceneObject.Script.PopupPrefab, new Vector3(itemPos.x, itemPos.y + 0.4f, itemPos.z), pickupSceneObject.Script.PopupPrefab.transform.rotation);
+                    
+                    //Remove SceneObject from PickupObject list 
                     SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
 
                     //Invoke event
