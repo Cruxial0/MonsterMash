@@ -10,6 +10,7 @@ using UnityEngine;
 public class LaunchTrap : MonoBehaviour, ITrapCollision
 {
     public ForceDirection trapDirection;
+    public ForceMode forceMode;
     public float launchForce;
     private PlayerInteractionHandler _handler;
 
@@ -47,7 +48,7 @@ public class LaunchTrap : MonoBehaviour, ITrapCollision
     {
         print(_launchDirection[trapDirection]);
         _sceneObjects.Player.Rigidbody
-            .AddForce(_launchDirection[trapDirection] * launchForce, ForceMode.Force);
+            .AddForce(_launchDirection[trapDirection] * launchForce, forceMode);
         
         _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == TrapName)
             .AddCollisionEntry(new TrapEventArgs(this, other));
