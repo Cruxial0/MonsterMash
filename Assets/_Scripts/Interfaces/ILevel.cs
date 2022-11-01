@@ -16,5 +16,6 @@ namespace _Scripts.Interfaces
         public double ThreeStarRequirement { get; set; }
         public double TwoStarRequirement { get; set; }
         public double OneStarRequirement { get; set; }
+        public float NoiseThreshold { get; set; }
     }
 }

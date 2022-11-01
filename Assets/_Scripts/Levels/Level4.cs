@@ -3,7 +3,7 @@ using _Scripts.Handlers;
 using _Scripts.Handlers.Events;
 using _Scripts.Interfaces;
 
-namespace DefaultNamespace
+namespace _Scripts.Levels
 {
     public class Level4 : ILevel
     {
