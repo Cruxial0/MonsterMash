@@ -24,7 +24,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         {
             //If trap is not active, return
             if (!TrapActive) return;
-            print(_playerMovement.magnitude);
+
             if (PlayerInteractionHandler.SceneObjects.Player.Rigidbody.velocity.magnitude < 1.0f)
             {
                 PlayerInteractionHandler.SceneObjects.Player.Rigidbody.AddForce(_playerMovement);
