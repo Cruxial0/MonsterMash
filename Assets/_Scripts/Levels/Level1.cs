@@ -18,7 +18,8 @@ namespace _Scripts.Levels
         {
             OneStarRequirement = 0.0,
             TwoStarRequirement = 20.0,
-            ThreeStarRequirement = 30.0
+            ThreeStarRequirement = 30.0,
+            NoiseThreshold = 0.6f
         };
     }
 }
