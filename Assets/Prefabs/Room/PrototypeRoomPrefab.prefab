@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4388640430384703785}
   - component: {fileID: 4388640430384703790}
   - component: {fileID: 4388640430384703787}
+  - component: {fileID: 1449308819417561931}
   m_Layer: 0
   m_Name: wall1
   m_TagString: RoomWall
@@ -144,6 +145,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
+--- !u!54 &1449308819417561931
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388640430384703788}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4388640431363263920
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +175,7 @@ GameObject:
   - component: {fileID: 4388640431363263885}
   - component: {fileID: 4388640431363263922}
   - component: {fileID: 4388640431363263887}
+  - component: {fileID: 5925032952052363190}
   m_Layer: 0
   m_Name: wall3
   m_TagString: RoomWall
@@ -254,6 +273,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
+--- !u!54 &5925032952052363190
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388640431363263920}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4388640431544510712
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +454,10 @@ PrefabInstance:
       value: wall with window
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
+      propertyPath: m_TagString
+      value: RoomWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -428,6 +468,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
   m_PrefabInstance: {fileID: 6353180301084910506}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1607775934969397067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118824003506396923}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &9095460037936980765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -453,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!4 &6890998566879331393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
@@ -526,6 +583,10 @@ PrefabInstance:
       value: wallwithdoor
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
+      propertyPath: m_TagString
+      value: RoomWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -536,6 +597,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
   m_PrefabInstance: {fileID: 8712792279170773806}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1324868796516538336
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370898387497668223}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &3170612252402677992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -561,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMultiplyFactor: 1
 --- !u!4 &9178537350513300677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7e380dd719f4c8d4f88a4340ff877f27, type: 3}
