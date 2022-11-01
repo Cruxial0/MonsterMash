@@ -10,7 +10,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
     {
         public float noiseMultiplyFactor = 1f;
         private TextMeshProUGUI text;
-        private const float DivisionFactor = 20f;
+        private const float DivisionFactor = 23f;
+        
         private void Start()
         {
             text = PlayerInteractionHandler.SceneObjects.UI.DebugGUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -32,7 +33,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     #if !UNITY_WEBGL
                     Handheld.Vibrate();
                     #endif
-                    
                 }
             }
         }
