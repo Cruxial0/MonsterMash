@@ -24,9 +24,14 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         {
             //If trap is not active, return
             if (!TrapActive) return;
+            print(_playerMovement.magnitude);
+            if (PlayerInteractionHandler.SceneObjects.Player.Rigidbody.velocity.magnitude < 1.0f)
+            {
+                PlayerInteractionHandler.SceneObjects.Player.Rigidbody.AddForce(_playerMovement);
+            }
             //Add force to player based on the entry velocity
-            PlayerInteractionHandler.SceneObjects.Player.Rigidbody.AddForce(_playerMovement *
-                PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed / 4 * Time.deltaTime);
+            PlayerInteractionHandler.SceneObjects.Player.Rigidbody
+                .AddForce(_playerMovement * (PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed * Time.deltaTime));
         }
 
         private void OnTriggerEnter(Collider c)
