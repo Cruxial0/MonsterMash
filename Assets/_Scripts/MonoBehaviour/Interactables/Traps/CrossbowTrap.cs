@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using _Scripts.Extensions.Enum;
 using _Scripts.Handlers;
 using _Scripts.Handlers.Interfaces;
@@ -15,6 +16,9 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     public float projectileMovementMultiplier = 0.02f;
     private bool _isProjectile = false;
     private float _currTime = 0f;
+    private bool _playerHit = false;
+    public float debuffTimeSeconds = 3f;
+    private float _currDebuffTimer = 0f;
     
     private Dictionary<FireDirection, Vector3> _fireDirection = new()
     {
@@ -59,16 +63,32 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
                 this.transform.position += _fireDirection[fireDirection] * projectileMovementMultiplier;
                 break;
         }
+        
+        if(!_isProjectile || !_playerHit) return;
 
+        print(_currDebuffTimer);
+        _currDebuffTimer += Time.deltaTime;
+        
+        if (_currDebuffTimer < debuffTimeSeconds) return;
+
+        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed =
+            PlayerInteractionHandler.SceneObjects.Player.MovmentController.DefaultMovementSpeed;
+        
+        _currDebuffTimer = 0f;
+        _playerHit = false;
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Untagged"))return;
-        if(other.CompareTag("RoomWall")) Destroy(this.gameObject);
+        if (other.CompareTag("RoomWall"))
+        {
+            this.GetComponent<Renderer>().enabled = false;
+            Destroy(this.gameObject, debuffTimeSeconds);
+        }
+        
         if(!other.CompareTag("Player")) return;
         
-        PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Trap);
+        PlayerHit();
     }
 
     [Flags]
@@ -84,13 +104,13 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     public string TrapName { get; }
     public GameObject TrapInstance { get; set; }
     public Animation Animation { get; set; }
-    public void AddInteractionHandlerReference(PlayerInteractionHandler handler)
-    {
-        return;
-    }
+    public void AddInteractionHandlerReference(PlayerInteractionHandler handler) { return; }
 
-    public void OnCollision(float playerSpeed)
+    public void OnCollision(float playerSpeed) { return; }
+
+    private void PlayerHit()
     {
-        return;
+        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed *= 0.5f;
+        _playerHit = true;
     }
 }
