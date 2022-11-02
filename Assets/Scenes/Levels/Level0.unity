@@ -2569,7 +2569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775438075}
   m_LocalRotation: {x: -0.6087614, y: 0, z: 0, w: -0.7933534}
-  m_LocalPosition: {x: 7.18, y: -0.91, z: 4.35}
+  m_LocalPosition: {x: 7.59, y: -0.91, z: 4.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2734,7 +2734,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1969434557}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: ac078154570f7f2479368c61b687b24a, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -2756,6 +2756,28 @@ PlayableDirector:
     value: {fileID: 1735817760}
   - key: {fileID: 3623154608319882017, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -2678380949502047150, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4469600122776288148, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3893501880092033141, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -453735589011628083, guid: 79b19f7592ce85f4295a9685d2e57544, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3524665021284526353, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 1735817760}
+  - key: {fileID: 7055071304012729635, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 63311085}
+  - key: {fileID: 4469600122776288148, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 310964872}
+  - key: {fileID: 3893501880092033141, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 964481086}
+  - key: {fileID: -453735589011628083, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 1775438079}
+  - key: {fileID: 1122656736471924724, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 1775438075}
+  - key: {fileID: -6232905474057491212, guid: ac078154570f7f2479368c61b687b24a, type: 2}
+    value: {fileID: 310964875}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1969434559
