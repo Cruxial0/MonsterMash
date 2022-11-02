@@ -86,7 +86,7 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
             Destroy(this.gameObject, debuffTimeSeconds);
         }
         
-        if(!other.CompareTag("Player")) return;
+        if(!other.CompareTag("Player") || !_isProjectile) return;
         
         PlayerHit();
     }
