@@ -3413,7 +3413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 604356772}
   isEnabled: 1
-  CameraDistace: 7
+  CameraDistace: 9
 --- !u!81 &804935826
 AudioListener:
   m_ObjectHideFlags: 0
