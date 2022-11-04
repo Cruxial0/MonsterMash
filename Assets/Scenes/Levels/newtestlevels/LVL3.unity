@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a9d99763b0ced4641a197c26f8674a91, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6e3a8ed2ba170ba4092a8022f0846e45, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 376ae00eb6b7afd48b71baa0f8ff7a97, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -5538,7 +5538,6 @@ MonoBehaviour:
   player: {fileID: 454904938}
   isEnabled: 1
   CameraDistace: 7
-  halfViewport: 0
 --- !u!81 &804935826
 AudioListener:
   m_ObjectHideFlags: 0
