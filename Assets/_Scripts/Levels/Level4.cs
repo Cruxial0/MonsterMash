@@ -8,7 +8,7 @@ namespace _Scripts.Levels
     public class Level4 : ILevel
     {
         public int LevelID => 4;
-        public Level Level => new Level("Level4")
+        public Level Level => new Level("LVL5")
         {
             LevelName = "Level4"
         };

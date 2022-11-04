@@ -5,14 +5,14 @@ using _Scripts.Interfaces;
 
 namespace _Scripts.Levels
 {
-    public class Level3 : ILevel
+    public class Level6 : ILevel
     {
-        public int LevelID => 3;
-        public Level Level => new Level("LVL3")
+        public int LevelID => 4;
+        public Level Level => new Level("LVL6")
         {
-            LevelName = "Level 3"
+            LevelName = "Level4"
         };
-        public List<IEvent> Events => new() { new NoEvent() };
+        public List<IEvent> Events => new() { new SecurityCameraEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {

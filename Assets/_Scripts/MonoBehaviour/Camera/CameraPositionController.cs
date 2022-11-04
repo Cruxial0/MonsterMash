@@ -40,8 +40,7 @@ namespace _Scripts.MonoBehaviour.Camera
             
             _sceneObjects = PlayerInteractionHandler.SceneObjects;
             
-            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds)
-                floorBounds = _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds;
+            
         }
 
         // Update is called once per frame
