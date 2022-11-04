@@ -71,13 +71,14 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public List<PickupSceneObject> PickupObject = new();
         public List<TrapSceneObject> TrapObjects = new();
         public List<GameObject> Walls = new();
+        public List<GameObject> Floor = new();
         public GameObject ParentObject { get; set; }
-        public GameObject Floor { get; set; }
         public List<LightSceneObject> LightObject { get; set; }
         public BedSceneObject BedObject { get; set; }
         public DoorSceneObject DoorObject { get; set; }
         
         [CanBeNull] [ItemCanBeNull] 
         public List<EventObject> EventObjects { get; set; } = new();
+        public Bounds ActiveFloorBounds { get; set; }
     }
 }

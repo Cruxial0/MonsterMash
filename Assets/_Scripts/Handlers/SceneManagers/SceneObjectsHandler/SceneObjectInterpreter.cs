@@ -63,7 +63,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                 switch (child.tag)
                 {
                     case "RoomFloor":
-                        room.Floor = child.gameObject;
+                        room.Floor.Add(child.gameObject);
                         break;
                     case "RoomWall":
                         room.Walls.Add(child.gameObject);
@@ -73,7 +73,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
             
             foreach (var child in rootObjects)
             {
-                Debug.Log(child.tag);
                 switch (child.tag)
                 {
                     case "Interactable":

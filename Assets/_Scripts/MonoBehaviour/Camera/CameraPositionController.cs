@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using _Scripts.Handlers;
+using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Camera
@@ -10,17 +12,29 @@ namespace _Scripts.MonoBehaviour.Camera
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.
         public float CameraDistace = 7f;
         public float halfViewport;
-
+        
         [NonSerialized] public bool PlayerDestroyed;
 
         private UnityEngine.Camera _camera;
         private Bounds floorBounds;
+        private SceneObjects _sceneObjects;
 
+        private int i = 0;
+        
         private void Start()
         {
             _camera = this.GetComponent<UnityEngine.Camera>();
             halfViewport = _camera.orthographicSize * _camera.aspect;
-            floorBounds = PlayerInteractionHandler.SceneObjects.Room.Floor.GetComponent<Collider>().bounds;
+            
+            // floorBounds = PlayerInteractionHandler.SceneObjects.Room.Floor
+            //     .First(x => x.GetComponent<Collider>().bounds.Contains(player.transform.position))
+            //     .GetComponent<Collider>().bounds;
+            //
+            
+            _sceneObjects = PlayerInteractionHandler.SceneObjects;
+            
+            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorBounds)
+                floorBounds = _sceneObjects.Room.ActiveFloorBounds;
         }
 
         // Update is called once per frame
@@ -29,6 +43,9 @@ namespace _Scripts.MonoBehaviour.Camera
             //if isEnabled is false or player is destroyed, return.
             if (!isEnabled || PlayerDestroyed) return; //return will skip all the code underneath.
 
+            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorBounds)
+                floorBounds = _sceneObjects.Room.ActiveFloorBounds;
+            
             //Define a variable of type Vector3 for player position.
             var playerPos = new Vector3();
 
@@ -52,6 +69,7 @@ namespace _Scripts.MonoBehaviour.Camera
             
             //Apply position to camera.
             transform.position = playerPos;
+            print(PlayerInteractionHandler.SceneObjects.Room.ActiveFloorBounds);
         }
         
         private float WorldBoundaryReached()
