@@ -33,7 +33,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
             if (!c.gameObject.CompareTag("Player")) return;
 
             //Find correct object using LINQ
-            _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
+                _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
                 .AddCollisionEntry(new CollisionEventArgs(c));
         }
 

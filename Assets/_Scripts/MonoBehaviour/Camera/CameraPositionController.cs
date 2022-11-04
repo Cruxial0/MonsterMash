@@ -12,7 +12,7 @@ namespace _Scripts.MonoBehaviour.Camera
         // Adjust camera bounds
         private float PosX = 5.5f;
         private float NegX = 5.73f;
-        private float PosZ = 0;
+        private float PosZ = -2.79f;
         private float NegZ = 4.2f;
         
         public GameObject player; //Public reference to the player object.
@@ -40,8 +40,8 @@ namespace _Scripts.MonoBehaviour.Camera
             
             _sceneObjects = PlayerInteractionHandler.SceneObjects;
             
-            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds)
-                floorBounds = _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds;
+            // if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds)
+            //     floorBounds = _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds;
         }
 
         // Update is called once per frame

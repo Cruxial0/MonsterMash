@@ -282,6 +282,14 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             },
                             Script = child.GetComponent<NoiseMeter>()
                         };
+                        // var c = child.transform.GetChild(0).gameObject;
+                        // gui.Timer = new Timer()
+                        // {
+                        //     CanvasRenderer = c.GetComponent<CanvasRenderer>(),
+                        //     RectTransform = c.GetComponent<RectTransform>(),
+                        //     Text = c.GetComponent<TextMeshProUGUI>(),
+                        //     TimerHandler = c.GetComponent<TimerHandler>()
+                        // };
                         break;
                     case "Timer":
                         gui.Timer = new Timer
