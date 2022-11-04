@@ -15,6 +15,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         private TextMeshPro _textMesh;
         private float _currTime = 0f;
         private float _cycleTime = 0.5f;
+        private int i = 0;
         private void Start()
         {
             _textMesh = this.GetComponent<TextMeshPro>();
@@ -27,13 +28,18 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
         private void Update()
         {
             if(!LastPickup) return;
-            
+
+            if(i == 0)
+                _textMesh.color = Color.HSVToRGB(.64f, .64f, .64f);
+
             // Assign HSV values to float h, s & v. (Since material.color is stored in RGB)
             float h, s, v;
             Color.RGBToHSV(_textMesh.color, out h, out s, out v);
  
             // Use HSV values to increase H in HSVToRGB. It looks like putting a value greater than 1 will round % 1 it
             _textMesh.color = Color.HSVToRGB(h + Time.deltaTime * .65f, s, v);
+
+            i++;
         }
 
         private void LateUpdate()

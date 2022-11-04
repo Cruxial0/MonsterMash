@@ -43,6 +43,8 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
             this.transform.Rotate(new Vector3(0,90,0));
         // Set direction to specified direction
         fireDirection = direction;
+        projectileMovementMultiplier = self.projectileMovementMultiplier;
+        debuffTimeSeconds = self.debuffTimeSeconds;
         // Is projectile.
         _isProjectile = true;
     }
