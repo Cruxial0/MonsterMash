@@ -64,6 +64,12 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public GameObject DoorPivot { get; set; }
         public DoorManager Script { get; set; }
     }
+
+    public class ActiveTile
+    {
+        public Bounds ActiveFloorBounds { get; set; }
+        public bool IsByWall { get; set; }
+    }
     
     public class RoomSceneObject
     {
@@ -79,6 +85,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         
         [CanBeNull] [ItemCanBeNull] 
         public List<EventObject> EventObjects { get; set; } = new();
-        public Bounds ActiveFloorBounds { get; set; }
+        public ActiveTile ActiveFloorTile { get; set; }
     }
 }

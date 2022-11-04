@@ -11,7 +11,7 @@ namespace _Scripts.MonoBehaviour.Camera
         public GameObject player; //Public reference to the player object.
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.
         public float CameraDistace = 7f;
-        public float halfViewport;
+        private float halfViewport;
         
         [NonSerialized] public bool PlayerDestroyed;
 
@@ -33,8 +33,8 @@ namespace _Scripts.MonoBehaviour.Camera
             
             _sceneObjects = PlayerInteractionHandler.SceneObjects;
             
-            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorBounds)
-                floorBounds = _sceneObjects.Room.ActiveFloorBounds;
+            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds)
+                floorBounds = _sceneObjects.Room.ActiveFloorTile.ActiveFloorBounds;
         }
 
         // Update is called once per frame
@@ -43,8 +43,8 @@ namespace _Scripts.MonoBehaviour.Camera
             //if isEnabled is false or player is destroyed, return.
             if (!isEnabled || PlayerDestroyed) return; //return will skip all the code underneath.
 
-            if (_sceneObjects != null && floorBounds != _sceneObjects.Room.ActiveFloorBounds)
-                floorBounds = _sceneObjects.Room.ActiveFloorBounds;
+            var tile = _sceneObjects.Room.ActiveFloorTile;
+            floorBounds = tile.ActiveFloorBounds;
             
             //Define a variable of type Vector3 for player position.
             var playerPos = new Vector3();
@@ -54,28 +54,26 @@ namespace _Scripts.MonoBehaviour.Camera
 
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
-            playerPos.z = position.z - 2f;
+            playerPos.z = position.z;
             playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
             //Clip camera to room bounds
-            if (playerPos.x >= floorBounds.extents.x + 2 - halfViewport) 
-                playerPos.x = floorBounds.extents.x + 2 - halfViewport;
-            if (playerPos.x <= -floorBounds.extents.x - 2 + halfViewport) 
-                playerPos.x = -floorBounds.extents.x - 2 + halfViewport;
-            if (playerPos.z >= floorBounds.extents.z + 1 - (halfViewport / 2)) 
-                playerPos.z = floorBounds.extents.z + 1 - (halfViewport / 2);
-            if (playerPos.z <= -floorBounds.extents.z - 3 + (halfViewport / 2)) 
-                playerPos.z = -floorBounds.extents.z - 3 + (halfViewport / 2);
+            if (playerPos.x >= floorBounds.center.x + floorBounds.extents.x - 5 - halfViewport)
+                playerPos.x = floorBounds.center.x + floorBounds.extents.x - 5 - halfViewport;
+            if (playerPos.x <= floorBounds.center.x - floorBounds.extents.x - 5 + halfViewport)
+                playerPos.x = floorBounds.center.x - floorBounds.extents.x - 5 + halfViewport;
+            if (playerPos.z >= floorBounds.center.z + floorBounds.extents.z + 1 - (halfViewport / 2))
+                playerPos.z = floorBounds.center.z + floorBounds.extents.z + 1 - (halfViewport / 2);
+            if (playerPos.z <= floorBounds.center.z -floorBounds.extents.z - 2 + (halfViewport / 2))
+                playerPos.z = floorBounds.center.z -floorBounds.extents.z - 2 + (halfViewport / 2);
             
             //Apply position to camera.
             transform.position = playerPos;
-            print(PlayerInteractionHandler.SceneObjects.Room.ActiveFloorBounds);
         }
         
         private float WorldBoundaryReached()
         {
             float playerXPosition = player.transform.position.x;
-            Debug.Log(playerXPosition);
             if (playerXPosition + halfViewport >= floorBounds.extents.x)
             {
                 return floorBounds.extents.x - halfViewport;

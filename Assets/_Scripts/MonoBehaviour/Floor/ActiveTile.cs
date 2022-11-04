@@ -6,10 +6,15 @@ using UnityEngine;
 
 public class ActiveTile : MonoBehaviour
 {
+    public bool isByWall;
     private void OnCollisionStay(Collision collisionInfo)
     {
-        if(!collisionInfo.collider.CompareTag("Player")) return;
+        if (!collisionInfo.collider.CompareTag("Player")) return;
 
-        PlayerInteractionHandler.SceneObjects.Room.ActiveFloorBounds = this.GetComponent<Collider>().bounds;
+        PlayerInteractionHandler.SceneObjects.Room.ActiveFloorTile =
+            new _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes.ActiveTile()
+            {
+                ActiveFloorBounds = this.GetComponent<Collider>().bounds,
+            };
     }
 }
