@@ -19,6 +19,7 @@ public class LaunchTrap : MonoBehaviour, ITrapCollision
     private Dictionary<ForceDirection, Vector3> _launchDirection = new()
     {
         { ForceDirection.Left, Vector3.left },
+        { ForceDirection.Forward, Vector3.forward },
         { ForceDirection.Up, Vector3.up },
         { ForceDirection.Right, Vector3.right },
         { ForceDirection.Down, Vector3.down }
@@ -57,8 +58,10 @@ public class LaunchTrap : MonoBehaviour, ITrapCollision
     public enum ForceDirection
     {
         Left,
-        Up,
+        Forward,
         Right,
         Down,
+        Up,
+
     }
 }
