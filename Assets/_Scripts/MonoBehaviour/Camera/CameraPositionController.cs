@@ -2,12 +2,19 @@ using System;
 using System.Linq;
 using _Scripts.Handlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
+using _Scripts.MonoBehaviour.Floor;
 using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Camera
 {
     public class CameraPositionController : UnityEngine.MonoBehaviour
     {
+        // Adjust camera bounds
+        private float PosX = 5.5f;
+        private float NegX = 5.73f;
+        private float PosZ = 0;
+        private float NegZ = 4.2f;
+        
         public GameObject player; //Public reference to the player object.
         public bool isEnabled; //Public bool (true/false) to determine if this code will be executed.
         public float CameraDistace = 7f;
@@ -54,18 +61,23 @@ namespace _Scripts.MonoBehaviour.Camera
 
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
-            playerPos.z = position.z;
+            playerPos.z = position.z - 1f;
             playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
+            //print(tile.ConstraintAxis);
             //Clip camera to room bounds
-            if (playerPos.x >= floorBounds.center.x + floorBounds.extents.x - 5 - halfViewport)
-                playerPos.x = floorBounds.center.x + floorBounds.extents.x - 5 - halfViewport;
-            if (playerPos.x <= floorBounds.center.x - floorBounds.extents.x - 5 + halfViewport)
-                playerPos.x = floorBounds.center.x - floorBounds.extents.x - 5 + halfViewport;
-            if (playerPos.z >= floorBounds.center.z + floorBounds.extents.z + 1 - (halfViewport / 2))
-                playerPos.z = floorBounds.center.z + floorBounds.extents.z + 1 - (halfViewport / 2);
-            if (playerPos.z <= floorBounds.center.z -floorBounds.extents.z - 2 + (halfViewport / 2))
-                playerPos.z = floorBounds.center.z -floorBounds.extents.z - 2 + (halfViewport / 2);
+            if (playerPos.x >= floorBounds.center.x + floorBounds.extents.x + PosX - halfViewport
+                && tile.ConstraintAxis.HasFlag(ConstraintAxis.Right))
+                playerPos.x = floorBounds.center.x + floorBounds.extents.x + PosX - halfViewport;
+            if (playerPos.x <= floorBounds.center.x - floorBounds.extents.x - NegX + halfViewport
+                && tile.ConstraintAxis.HasFlag(ConstraintAxis.Left))
+                playerPos.x = floorBounds.center.x - floorBounds.extents.x - NegX + halfViewport;
+            if (playerPos.z >= floorBounds.center.z + floorBounds.extents.z - PosZ - (halfViewport / 2)
+                && tile.ConstraintAxis.HasFlag(ConstraintAxis.Up))
+                playerPos.z = floorBounds.center.z + floorBounds.extents.z - PosZ - (halfViewport / 2);
+            if (playerPos.z <= floorBounds.center.z -floorBounds.extents.z - NegZ + (halfViewport / 2)
+                && tile.ConstraintAxis.HasFlag(ConstraintAxis.Down))
+                playerPos.z = floorBounds.center.z -floorBounds.extents.z - NegZ + (halfViewport / 2);
             
             //Apply position to camera.
             transform.position = playerPos;

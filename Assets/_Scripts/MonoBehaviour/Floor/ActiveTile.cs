@@ -1,20 +1,32 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using _Scripts.Handlers;
 using UnityEngine;
 
-public class ActiveTile : MonoBehaviour
+namespace _Scripts.MonoBehaviour.Floor
 {
-    public bool isByWall;
-    private void OnCollisionStay(Collision collisionInfo)
+    public class ActiveTile : UnityEngine.MonoBehaviour
     {
-        if (!collisionInfo.collider.CompareTag("Player")) return;
+        public ConstraintAxis ConstraintAxis;
+        private void OnCollisionStay(Collision collisionInfo)
+        {
+            if (!collisionInfo.collider.CompareTag("Player")) return;
 
-        PlayerInteractionHandler.SceneObjects.Room.ActiveFloorTile =
-            new _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes.ActiveTile()
-            {
-                ActiveFloorBounds = this.GetComponent<Collider>().bounds,
-            };
+            PlayerInteractionHandler.SceneObjects.Room.ActiveFloorTile =
+                new _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes.ActiveTile()
+                {
+                    ActiveFloorBounds = this.GetComponent<Collider>().bounds,
+                    ConstraintAxis = this.ConstraintAxis
+                };
+        }
+    }
+    
+    [Flags]
+    public enum ConstraintAxis
+    {
+        None = 1 << 0,
+        Up = 1 << 1,
+        Down = 1 << 2,
+        Right = 1 << 3,
+        Left = 1 << 4
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneEventObjects;
+using _Scripts.MonoBehaviour.Floor;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -68,7 +69,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
     public class ActiveTile
     {
         public Bounds ActiveFloorBounds { get; set; }
-        public bool IsByWall { get; set; }
+        public ConstraintAxis ConstraintAxis { get; set; }
     }
     
     public class RoomSceneObject
