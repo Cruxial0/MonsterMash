@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Handlers.Interfaces;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneEventObjects;
+using _Scripts.MonoBehaviour.Floor;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -64,6 +65,12 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public GameObject DoorPivot { get; set; }
         public DoorManager Script { get; set; }
     }
+
+    public class ActiveTile
+    {
+        public Bounds ActiveFloorBounds { get; set; }
+        public ConstraintAxis ConstraintAxis { get; set; }
+    }
     
     public class RoomSceneObject
     {
@@ -71,13 +78,14 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public List<PickupSceneObject> PickupObject = new();
         public List<TrapSceneObject> TrapObjects = new();
         public List<GameObject> Walls = new();
+        public List<GameObject> Floor = new();
         public GameObject ParentObject { get; set; }
-        public GameObject Floor { get; set; }
         public List<LightSceneObject> LightObject { get; set; }
         public BedSceneObject BedObject { get; set; }
         public DoorSceneObject DoorObject { get; set; }
         
         [CanBeNull] [ItemCanBeNull] 
         public List<EventObject> EventObjects { get; set; } = new();
+        public ActiveTile ActiveFloorTile { get; set; }
     }
 }
