@@ -8,9 +8,9 @@ namespace _Scripts.Levels
     public class Level4 : ILevel
     {
         public int LevelID => 4;
-        public Level Level => new Level("LVL5")
+        public Level Level => new Level("LVL4")
         {
-            LevelName = "Level4"
+            LevelName = "Level 4"
         };
         public List<IEvent> Events => new() { new SecurityCameraEvent() };
         

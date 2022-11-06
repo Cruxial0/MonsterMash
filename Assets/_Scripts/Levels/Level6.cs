@@ -7,10 +7,10 @@ namespace _Scripts.Levels
 {
     public class Level5 : ILevel
     {
-        public int LevelID => 4;
-        public Level Level => new Level("LVL5")
+        public int LevelID => 6;
+        public Level Level => new Level("LVL6")
         {
-            LevelName = "Level4"
+            LevelName = "Level 6"
         };
         public List<IEvent> Events => new() { new SecurityCameraEvent() };
         
