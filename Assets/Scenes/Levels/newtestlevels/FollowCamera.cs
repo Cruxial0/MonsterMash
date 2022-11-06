@@ -7,19 +7,28 @@ public class FollowCamera : MonoBehaviour
 
 
     public float xCordinate = -2f;
-    public GameObject Player;
+    GameObject Player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Player.transform.position + new Vector3(0, 10, xCordinate);
+
+        if(Player == null)
+        {
+            Player = null;
+        }
+        else
+        {
+            transform.position = Player.transform.position + new Vector3(0, 10, xCordinate);
+        }
+        
 
 
 
