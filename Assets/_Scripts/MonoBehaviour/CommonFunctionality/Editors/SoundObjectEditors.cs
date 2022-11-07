@@ -58,11 +58,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                     sound.SelectedStates = (PlayerState)EditorGUILayout.EnumFlagsField(sound.SelectedStates);
                     GUILayout.EndHorizontal();
                     break;
-                case SoundObject.SoundType.Parents:
-                    var parentObj = serializedObject.FindProperty("parentSounds");
-                    
-                    EditorGUILayout.PropertyField(parentObj);
-                    break;
             }
             EditorUtility.SetDirty(this);
             EditorGUI.EndChangeCheck();

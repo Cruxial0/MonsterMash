@@ -1,3 +1,4 @@
+using System;
 using _Scripts.Handlers.PowerHandlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
@@ -14,6 +15,12 @@ namespace _Scripts.Handlers.Powers
         private float currTime;
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
 
+        private void Start()
+        {
+            SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
+                SceneObjects.Player.Sprites.Sprites[3];
+        }
+
         private void FixedUpdate()
         {
             //Increment timer
@@ -21,8 +28,11 @@ namespace _Scripts.Handlers.Powers
             if (currTime > buffTime && active)
             {
                 //Revert speed and drag
-                SceneObjects.Player.MovmentController.MovementSpeed = 70f;
-                SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 3f;
+                SceneObjects.Player.MovmentController.MovementSpeed = 
+                    SceneObjects.Player.MovmentController.DefaultMovementSpeed;
+                
+                SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
+                    SceneObjects.Player.Sprites.Sprites[0];
                 active = false; //Deactivate timer
             }
         }
@@ -36,8 +46,7 @@ namespace _Scripts.Handlers.Powers
         {
             Parent.AddComponent<SlowPower>(); //Add instance of script to object
 
-            SceneObjects.Player.MovmentController.MovementSpeed = 50f; //Set speed of player
-            SceneObjects.Player.Self.gameObject.GetComponent<Rigidbody>().angularDrag = 1f; //Set Angular Drag of player
+            SceneObjects.Player.MovmentController.MovementSpeed = 10f; //Set speed of player
 
             //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
