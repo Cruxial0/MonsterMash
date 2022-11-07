@@ -1,3 +1,4 @@
+using System;
 using _Scripts.Handlers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,17 +10,12 @@ namespace _Scripts.GUI.NoiseMeter
         public Slider slider;
         public Gradient gradient;
         public Image fill;
-
-        public void SetMaxHealth(int health)
-        {
-            slider.maxValue = health;
-            slider.value = health;
-
-            fill.color = gradient.Evaluate(1f);
-        }
+        [NonSerialized] public bool IsMute = false;
 
         public void AddNoise(float noise)
         {
+            if(IsMute) return;
+            
             slider.value += noise;
 
             if (slider.value >= slider.maxValue)

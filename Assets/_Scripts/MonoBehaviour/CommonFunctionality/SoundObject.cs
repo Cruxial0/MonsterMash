@@ -19,7 +19,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         public Audio source;
         public SoundType soundType;
 
-        [SerializeField, HideInInspector] public List<AudioClip> parentSounds;
         [HideInInspector] public AudioSource _audioSource;
         [HideInInspector] public int SelectedTag ;
         [HideInInspector] public bool OnlyNoiseObject;
@@ -32,8 +31,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         {
             Collision,
             Cycle,
-            PlayerState,
-            Parents
+            PlayerState
         }
 
         private void Start()
@@ -55,11 +53,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     break;
                 case SoundType.PlayerState:
                     ManageEvents();
-                    break;
-                case SoundType.Parents:
-                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsApproach += ScriptOnOnParentsApproach;
-                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsEnter += ScriptOnOnParentsEnter;
-                    PlayerInteractionHandler.SceneObjects.Room.DoorObject.Script.OnParentsLeave += ScriptOnOnParentsLeave;
                     break;
             }
         }

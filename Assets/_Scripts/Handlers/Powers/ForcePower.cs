@@ -20,7 +20,7 @@ namespace _Scripts.Handlers.Powers
 
         private void Start()
         {
-            SceneObjects.Player.MovmentController.MovementSpeed = 20f; //Set speed of player
+            SceneObjects.Player.MovmentController.MovementSpeed = 30f; //Set speed of player
             
             SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
                 SceneObjects.Player.Sprites.Sprites[2];

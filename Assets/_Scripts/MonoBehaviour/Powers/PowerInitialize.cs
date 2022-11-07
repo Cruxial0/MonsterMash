@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Handlers;
 using _Scripts.Interfaces;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Scripts.MonoBehaviour.Powers
 {
@@ -24,5 +27,11 @@ namespace _Scripts.MonoBehaviour.Powers
             //Call method IPower.Execute()
             powerObject.PowerObject.Execute();
         }
+    }
+
+    [Serializable]
+    public class Powers<T>
+    {
+        public List<T> PowerNames = new List<T>();
     }
 }
