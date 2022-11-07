@@ -21,13 +21,23 @@ namespace _Scripts.MonoBehaviour.Powers.Editors
         {
             base.DrawDefaultInspector();
             
+            PowerInitialize power = (PowerInitialize)target;
+            
             EditorUtility.SetDirty(this);
             
-            GUILayout.Space(20f);
+            GUILayout.Space(5f);
             GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Validate name"))
+            {
+                bool exists = GetAllPowers().Contains(power.powerName);
+                Debug.Log($"Power exists: {exists}");
+            }
             if (GUILayout.Button("List Powers"))
             {
-                EditorUtility.DisplayDialog("All power names", string.Join(Environment.NewLine, GetAllPowers()), "OK!");
+                EditorUtility
+                    .DisplayDialog("All power names", 
+                        string.Join(Environment.NewLine, GetAllPowers()), 
+                            "Imagine reading these lmao");
             }
             GUILayout.EndHorizontal();
         }
