@@ -44,6 +44,12 @@ namespace _Scripts.Handlers
             {
                 var scene = SceneManager.GetActiveScene();
 
+                if (lost)
+                {
+                    SceneManager.LoadScene(scene.buildIndex);
+                    return;
+                }
+                
                 switch (scene.name)
                 {
                     case "LVL0":
@@ -64,7 +70,7 @@ namespace _Scripts.Handlers
                     case "LVL5":
                         SceneManager.LoadScene("LVL6");
                         return;
-                }
+                }  
 
                 SceneManager.LoadScene("MenuTest");
             }
