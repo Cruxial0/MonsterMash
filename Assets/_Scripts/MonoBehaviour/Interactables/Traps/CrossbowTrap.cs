@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using _Scripts.Extensions.Enum;
 using _Scripts.Handlers;
 using _Scripts.Handlers.Interfaces;
+using cakeslice;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -102,6 +103,7 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         if (other.CompareTag("RoomWall"))
         {
             this.GetComponent<Renderer>().enabled = false; // Fake destroy
+            Destroy(this.GetComponent<Outline>());
             
             // Make sure Update() is allowed to update before destroying
             Destroy(this.gameObject, debuffTimeSeconds); 

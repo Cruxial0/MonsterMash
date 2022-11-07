@@ -112,11 +112,7 @@ namespace _Scripts.Handlers
             if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
             if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
             if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
-                level.StarLevels.NoiseThreshold && stars != 0)
-                stars--;
-
-
-            print(stars);
+                level.StarLevels.NoiseThreshold && stars != 0) stars--;
         }
     }
     
