@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using _Scripts.GUI.PostLevelScreens;
+using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
 using UnityEngine;
@@ -41,26 +42,27 @@ namespace _Scripts.Handlers
 
             if (currTime > delay)
             {
-                if (lost)
-                {
-                    //Load MainMenu
-                    var scene = SceneManager.GetActiveScene().buildIndex;
-                    SceneManager.LoadScene(scene);
-                    _enabled = false;
-                    return;
-                }
+                var scene = SceneManager.GetActiveScene();
 
-                //Switch on Scene names
-                switch (SceneManager.GetActiveScene().name)
+                switch (scene.name)
                 {
-                    case "Level0":
-                        SceneManager.LoadScene("Level1");
+                    case "LVL0":
+                        SceneManager.LoadScene("LVL1");
                         return;
-                    case "Level1":
-                        SceneManager.LoadScene("Level2");
+                    case "LVL1":
+                        SceneManager.LoadScene("LVL2");
                         return;
-                    case "Level2":
-                        SceneManager.LoadScene("Level3");
+                    case "LVL2":
+                        SceneManager.LoadScene("LVL3");
+                        return;
+                    case "LVL3":
+                        SceneManager.LoadScene("LVL4");
+                        return;
+                    case "LVL4":
+                        SceneManager.LoadScene("LVL5");
+                        return;
+                    case "LVL5":
+                        SceneManager.LoadScene("LVL6");
                         return;
                 }
 
