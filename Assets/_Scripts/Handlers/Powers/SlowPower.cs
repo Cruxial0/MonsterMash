@@ -11,7 +11,6 @@ namespace _Scripts.Handlers.Powers
         private bool active = true;
 
         //Assign values for timer
-        private readonly float buffTime = 3f;
         private float currTime;
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
 
@@ -25,7 +24,7 @@ namespace _Scripts.Handlers.Powers
         {
             //Increment timer
             currTime += Time.deltaTime;
-            if (currTime > buffTime && active)
+            if (currTime > PowerDuration && active)
             {
                 //Revert speed and drag
                 SceneObjects.Player.MovmentController.MovementSpeed = 
@@ -38,13 +37,15 @@ namespace _Scripts.Handlers.Powers
         }
 
         public string PowerName => "SlowPower";
+        public float PowerDuration { get; set; }
         public string PowerDescription => "Slows the player down for 3 seconds";
         public PowerObject PowerObject => new(SlowLogic);
         public GameObject Parent { get; set; } = null;
 
         private void SlowLogic()
         {
-            Parent.AddComponent<SlowPower>(); //Add instance of script to object
+            var c = Parent.AddComponent<SlowPower>(); //Add instance of script to object
+            c.PowerDuration = this.PowerDuration;
 
             SceneObjects.Player.MovmentController.MovementSpeed = 10f; //Set speed of player
 

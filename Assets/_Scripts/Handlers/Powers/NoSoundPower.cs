@@ -10,13 +10,15 @@ namespace _Scripts.Handlers.Powers
     {
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
         public string PowerName => "MutePower";
+        public float PowerDuration { get; set; }
         public string PowerDescription => "Prevents noise gain for a period of time.";
         public PowerObject PowerObject => new(MuteLogic);
         public GameObject Parent { get; set; }
 
         public void MuteLogic()
         {
-            Parent.AddComponent<NoSoundPower>(); //Add component of power
+            var c = Parent.AddComponent<NoSoundPower>(); //Add component of power
+            c.PowerDuration = this.PowerDuration;
             
             //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
@@ -44,7 +46,7 @@ namespace _Scripts.Handlers.Powers
 
             _currTime += Time.deltaTime;
             
-            if(_currTime < _buffTime) return;
+            if(_currTime < PowerDuration) return;
             
             PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.IsMute = false;
             PlayerInteractionHandler.SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =

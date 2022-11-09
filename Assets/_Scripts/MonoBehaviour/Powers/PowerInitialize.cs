@@ -11,6 +11,7 @@ namespace _Scripts.MonoBehaviour.Powers
     public class PowerInitialize : UnityEngine.MonoBehaviour
     {
         public string powerName; //Name of associated IPower
+        public float powerDuration = 3f;
 
         private IPower powerObject; //Instance of associated IPower
 
@@ -20,6 +21,8 @@ namespace _Scripts.MonoBehaviour.Powers
             //Get the first power from PowerManager.Powers where the PowerName = powerName
             powerObject = PlayerInteractionHandler.PowerManager.Powers.First(x => x.PowerName == powerName);
             powerObject.Parent = gameObject; //Assign Parent object to this.gameObject
+            powerObject.PowerDuration = powerDuration;
+        
         }
 
         private void OnTriggerEnter(Collider other)

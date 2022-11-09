@@ -11,7 +11,7 @@ namespace _Scripts.Handlers.Powers
         private bool active = true;
 
         //Assign values for timer
-        private readonly float buffTime = 2f;
+        private float buffTime = 2f;
         private float currTime;
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
@@ -32,7 +32,7 @@ namespace _Scripts.Handlers.Powers
             
             currTime += Time.deltaTime; //Increment timer
             SceneObjects.Player.PlayerStates.OnPlayerBuffed();
-            if (currTime > buffTime && active)
+            if (currTime > PowerDuration && active)
             {
                 SceneObjects.Player.MovmentController.MovementSpeed = 
                     SceneObjects.Player.MovmentController.DefaultMovementSpeed; //Revert speed of player
@@ -45,6 +45,7 @@ namespace _Scripts.Handlers.Powers
         }
 
         public string PowerName => "ForcePower";
+        public float PowerDuration { get; set; }
         public string PowerDescription => "Adds instant force to the player";
 
         public PowerObject PowerObject => new(ForceLogic);
@@ -52,7 +53,8 @@ namespace _Scripts.Handlers.Powers
 
         private void ForceLogic()
         {
-            Parent.AddComponent<ForcePower>(); //Add component of power
+            var c = Parent.AddComponent<ForcePower>(); //Add component of power
+            c.PowerDuration = this.PowerDuration;
             
             //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
