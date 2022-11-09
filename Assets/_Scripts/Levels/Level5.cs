@@ -10,9 +10,9 @@ namespace _Scripts.Levels
         public int LevelID => 5;
         public Level Level => new Level("LVL5")
         {
-            LevelName = "Level 5"
+            LevelName = "Percision lvl 2"
         };
-        public List<IEvent> Events => new() { new SecurityCameraEvent() };
+        public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {

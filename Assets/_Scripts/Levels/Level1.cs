@@ -10,7 +10,7 @@ namespace _Scripts.Levels
         public int LevelID => 1;
         public Level Level => new Level("LVL1")
         {
-            LevelName = "Level 1"
+            LevelName = "Speedrun Lvl 2"
         };
         public List<IEvent> Events => new() { new NoEvent() };
         
