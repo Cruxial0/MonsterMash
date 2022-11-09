@@ -8,9 +8,9 @@ namespace _Scripts.Levels
     public class Level0 : ILevel
     {
         public int LevelID => 0;
-        public Level Level => new Level("Level0")
+        public Level Level => new Level("LVL0")
         {
-            LevelName = "Tutorial"
+            LevelName = "Speedrun lvl 1"
         };
         public List<IEvent> Events => new() { new NoEvent() };
 
