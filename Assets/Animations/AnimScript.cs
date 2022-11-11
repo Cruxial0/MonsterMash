@@ -33,16 +33,11 @@ public class AnimScript : MonoBehaviour
 
 
         if (playerVelocity != Vector2.zero)
-        {
             anim.SetBool("Run", true);
-            Debug.Log("IS WORK");
-
-        }
-        else
-        {
+                
+        else      
             anim.SetBool("Run", false);
-            Debug.Log("NO MORE");
-        }
+          
       
        
 
@@ -53,6 +48,6 @@ public class AnimScript : MonoBehaviour
        
         anim.SetTrigger("bump");
 
-        Debug.Log("STEVE");
+       
     }
 }

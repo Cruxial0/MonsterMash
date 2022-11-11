@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -303,7 +303,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &16235921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16235918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &20312713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -415,7 +430,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &20312717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20312714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &28003866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -527,7 +557,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &28003870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28003867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &36264026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -639,7 +684,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &36264030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36264027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &40033539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -999,7 +1059,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &71749675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71749672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &73030982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1178,7 +1253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1216,7 +1291,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &76122630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76122627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &83815311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1395,7 +1485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1433,7 +1523,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &90003478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90003475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &112616594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1717,7 +1822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1755,7 +1860,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &118207694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118207691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &126544382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1955,7 +2075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1993,7 +2113,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &153676304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153676301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &173108235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,7 +2202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2105,7 +2240,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &173108239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173108236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &191122199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,7 +2434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2322,7 +2472,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &210936465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210936462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &227574337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3003,7 +3168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3041,7 +3206,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &309577635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309577632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &317505170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3576,7 +3756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3614,7 +3794,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &394102610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394102607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &409681196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3765,7 +3960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3803,7 +3998,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &410479939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410479936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &414585799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3877,7 +4087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3915,7 +4125,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &414585803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414585800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &423462343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4473,7 +4698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4511,7 +4736,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &495987492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495987489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &512760418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4670,7 +4910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4708,7 +4948,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &521214197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521214194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &534423903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5024,7 +5279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5062,7 +5317,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &594198774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594198771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &604356769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5538,7 +5808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5576,7 +5846,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &721445453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721445450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1 &804935822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5786,7 +6071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xCordinate: -1.85
-  Player: {fileID: 454904938}
 --- !u!1001 &837567426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6168,7 +6452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6206,7 +6490,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &877013963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877013960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &881296731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6280,7 +6579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6318,7 +6617,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &881296735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881296732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &893525898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6652,7 +6966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6690,7 +7004,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &914284260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914284257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &949182010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6764,7 +7093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6802,7 +7131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &949182014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949182011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &975115461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6876,7 +7220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6914,7 +7258,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &975115465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975115462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &975709020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6988,7 +7347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7026,7 +7385,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &975709024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975709021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &988345004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7246,7 +7620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7284,7 +7658,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1044163905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044163902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1049727541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7427,7 +7816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7465,7 +7854,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1095482180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095482177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1119595119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7539,7 +7943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7577,7 +7981,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1119595123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119595120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1147594221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7651,7 +8070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7689,7 +8108,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1147594225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147594222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1153006532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8256,7 +8690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8294,7 +8728,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1178855205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178855202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1182603566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8368,7 +8817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8406,7 +8855,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1182603570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182603567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1205550698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8789,7 +9253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 8
-  VisualFeedback: {fileID: 0}
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
   PopupPrefab: {fileID: 0}
 --- !u!114 &1250400385
 MonoBehaviour:
@@ -8803,7 +9267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
 --- !u!65 &1250400386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9359,7 +9823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 8
-  VisualFeedback: {fileID: 0}
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
   PopupPrefab: {fileID: 0}
 --- !u!114 &1346428560
 MonoBehaviour:
@@ -9373,7 +9837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
 --- !u!65 &1346428561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9460,7 +9924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9498,7 +9962,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1385327249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385327246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1 &1416438434
 GameObject:
   m_ObjectHideFlags: 0
@@ -9666,7 +10145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9704,7 +10183,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1421729194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421729191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1429559111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9936,7 +10430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9974,7 +10468,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1444323313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444323310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1444696480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10109,7 +10618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10147,7 +10656,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1477954545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477954542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1485386958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10221,7 +10745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10259,7 +10783,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1485386962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485386959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1488456443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10333,7 +10872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10371,7 +10910,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1488456447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488456444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1493918046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10445,7 +10999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10483,7 +11037,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1493918050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493918047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1506734450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10557,7 +11126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10595,7 +11164,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1506734454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506734451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1514232987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11009,7 +11593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11047,7 +11631,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1575269303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575269300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1601883708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11198,7 +11797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11236,7 +11835,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1635572067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635572064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1723205791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11371,7 +11985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11409,7 +12023,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1735183725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735183722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1760921943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11762,7 +12391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11800,7 +12429,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1802311360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802311357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1824751271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11913,7 +12557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 8
-  VisualFeedback: {fileID: 0}
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
   PopupPrefab: {fileID: 0}
 --- !u!65 &1824751275
 BoxCollider:
@@ -12155,7 +12799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12193,7 +12837,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1918503120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918503117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1928677999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12344,7 +13003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12382,7 +13041,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1942924117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942924114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1 &1951494568
 GameObject:
   m_ObjectHideFlags: 0
@@ -12554,7 +13228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12592,7 +13266,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1964754870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964754867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1981780770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12666,7 +13355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12704,7 +13393,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1981780774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981780771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1989183035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12778,7 +13482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12816,7 +13520,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1989183039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989183036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &1990572974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12967,7 +13686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13005,7 +13724,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &1993538927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993538924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &2002081427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13079,7 +13813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13117,7 +13851,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &2002081431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002081428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &2020560386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13296,7 +14045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13334,7 +14083,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &2039583833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039583830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &2050405368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13408,7 +14172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_TagString
-      value: RoomWall
+      value: Furniture
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5bbdf5658737962498158fc343eb2514, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13446,7 +14210,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba70a580a00b44afca6b6ad42cbe8f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noiseMultiplyFactor: 1
+  noiseMultiplyFactor: 0.5
+--- !u!114 &2050405372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050405369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bbda16426ff6c4980c9d40ef8970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 8
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
+  PopupPrefab: {fileID: 0}
 --- !u!1001 &2054092550
 PrefabInstance:
   m_ObjectHideFlags: 0

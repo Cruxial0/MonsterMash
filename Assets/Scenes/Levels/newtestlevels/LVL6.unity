@@ -2586,7 +2586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xCordinate: -1.8
-  Player: {fileID: 1964562788}
 --- !u!1001 &809278799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3293,7 +3292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 0}
+  PopupPrefab: {fileID: 1658991680}
 --- !u!114 &1250400385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4362,6 +4361,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noiseMultiplyFactor: 1
+--- !u!1 &1658991680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 952178286386769332, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+  m_PrefabInstance: {fileID: 563750520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1738926619
 PrefabInstance:
   m_ObjectHideFlags: 0

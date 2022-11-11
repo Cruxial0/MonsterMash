@@ -8,7 +8,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
     public class NoiseObject : UnityEngine.MonoBehaviour
     {
-        public float noiseMultiplyFactor = 1f;
+        public float noiseMultiplyFactor = 0.5f;
         private TextMeshProUGUI text;
         private const float DivisionFactor = 23f;
         
