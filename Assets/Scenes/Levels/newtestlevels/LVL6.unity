@@ -5533,6 +5533,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4018341518033278582, guid: 892c179dcdf424fe28abf3d2af0e6b8d, type: 3}
+      propertyPath: projectileLifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018341518033278582, guid: 892c179dcdf424fe28abf3d2af0e6b8d, type: 3}
       propertyPath: fireIntervalSeconds
       value: 2.41
       objectReference: {fileID: 0}
