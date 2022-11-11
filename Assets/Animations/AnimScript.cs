@@ -25,11 +25,10 @@ public class AnimScript : MonoBehaviour
 
         var collided = PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState;
 
-        if (collided == _Scripts.MonoBehaviour.Player.PlayerState.Collided)
-        {
-            anim.SetTrigger("bump");
 
-        }
+        PlayerInteractionHandler.Self.OnCollided += Self_OnCollided;
+
+     
 
 
 
@@ -47,5 +46,13 @@ public class AnimScript : MonoBehaviour
       
        
 
+    }
+
+    private void Self_OnCollided()
+    {
+       
+        anim.SetTrigger("bump");
+
+        Debug.Log("STEVE");
     }
 }
