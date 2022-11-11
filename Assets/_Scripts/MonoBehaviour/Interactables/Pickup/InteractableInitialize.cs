@@ -8,7 +8,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
     {
         public InteractType Type; //Interact type
         public ParticleSystem VisualFeedback; //Visual feedback
-        public GameObject PopupPrefab;
+        //public GameObject PopupPrefab;
         private PlayerInteractionHandler _handler; //Instance of PlayerInteractionHandler
 
         private void Awake()
@@ -21,8 +21,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
             OnCollisionDetected?.Invoke(c);
             //If collider is not of tag player, return
             if (!c.collider.CompareTag("Player")) return;
-
-            print(_handler == null);
+            
             //Find correct object using LINQ
             PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
                 .AddCollisionEntry(new CollisionEventArgs(collision: c));
@@ -34,7 +33,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
             if (!c.gameObject.CompareTag("Player")) return;
 
             //Find correct object using LINQ
-            _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
+            PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
                 .AddCollisionEntry(new CollisionEventArgs(c));
         }
 
