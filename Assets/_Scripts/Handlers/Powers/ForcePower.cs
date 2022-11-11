@@ -31,7 +31,8 @@ namespace _Scripts.Handlers.Powers
             if(SceneObjects.Player == null) Destroy(this);
             
             currTime += Time.deltaTime; //Increment timer
-            SceneObjects.Player.PlayerStates.OnPlayerBuffed();
+            SceneObjects.Player.PlayerStates.SetBuffed(true);
+            //SceneObjects.Player.PlayerStates.OnPlayerBuffed();
             if (currTime > PowerDuration && active)
             {
                 SceneObjects.Player.MovmentController.MovementSpeed = 
@@ -39,9 +40,15 @@ namespace _Scripts.Handlers.Powers
                 
                 SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
                     SceneObjects.Player.Sprites.Sprites[0];
-                
+
                 active = false; //Deactivate timer
+                Destroy(this.gameObject);
             }
+        }
+
+        private void OnDestroy()
+        {
+            SceneObjects.Player.PlayerStates.SetBuffed(false);
         }
 
         public string PowerName => "ForcePower";
