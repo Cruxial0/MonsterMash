@@ -22,9 +22,10 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
             //If collider is not of tag player, return
             if (!c.collider.CompareTag("Player")) return;
 
+            print(_handler == null);
             //Find correct object using LINQ
-            // _handler.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
-            //     .AddCollisionEntry(new CollisionEventArgs(collision: c));
+            PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent == gameObject)
+                .AddCollisionEntry(new CollisionEventArgs(collision: c));
         }
 
         private void OnTriggerEnter(Collider c)

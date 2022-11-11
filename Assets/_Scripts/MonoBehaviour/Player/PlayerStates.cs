@@ -7,8 +7,51 @@ namespace _Scripts.MonoBehaviour.Player
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
         public PlayerState PlayerState = PlayerState.None;
-        private PlayerMovmentController playerBody; 
+        private PlayerMovmentController playerBody;
 
+        private bool _moving = false;
+
+        public Boolean Moving
+        {
+            get => _moving;
+            set
+            {
+                if (_moving != value)
+                {
+                    _moving =  value;
+                    var handler = PlayerMoving;
+                    handler?.Invoke(value);
+                    
+                }
+                else return;
+            }
+        }
+
+        private bool _buffed = false;
+
+        public Boolean Buffed
+        {
+            get => _buffed;
+            set
+            {
+                if (_buffed != value)
+                {
+                    _buffed = value;
+                    print(_buffed);
+                    if(value) SetBuffedPlayerState();
+                    if (!value)
+                    {
+                        print(value);
+                        PlayerState &= ~PlayerState.Buffed;
+                    }
+                    
+                    
+                    var handler = PlayerBuffed;
+                    handler?.Invoke(value);
+                }
+            }
+        }
+        
         [NonSerialized] public bool Destroyed = false;
 
         private void Start()
@@ -44,7 +87,11 @@ namespace _Scripts.MonoBehaviour.Player
         {
             
             if (playerBody.acceleration >= 1) OnPlayerMoving();
-            else PlayerState &= ~PlayerState.Moving;
+            else
+            {
+                PlayerState &= ~PlayerState.Moving;
+                Moving = false;
+            }
             
             if (PlayerState == 0) PlayerState = PlayerState.None;
             
@@ -59,23 +106,27 @@ namespace _Scripts.MonoBehaviour.Player
             }
         }
 
+        public void SetBuffed(bool b)
+        {
+            Buffed = b;
+        }
+
         public event OnPlayerDestroyedEvent OnPlayerDestroyed;
         public delegate void OnPlayerDestroyedEvent(bool destroyed);
 
         #region PlayerMovingEvent
 
         public event PlayerMovingEvent PlayerMoving;
-        public delegate void PlayerMovingEvent();
+        public delegate void PlayerMovingEvent(bool moving);
 
         private void OnPlayerMoving()
         {
+            Moving = true;
+            
             if(PlayerState == PlayerState.None)
                 PlayerState = PlayerState.Moving;
             else
                 PlayerState |= PlayerState.Moving;
-            
-            var handler = PlayerMoving;
-            handler?.Invoke();
         }
 
         #endregion
@@ -84,17 +135,14 @@ namespace _Scripts.MonoBehaviour.Player
         #region PlayerBuffed
 
         public event PlayerBuffedEvent PlayerBuffed;
-        public delegate void PlayerBuffedEvent();
+        public delegate void PlayerBuffedEvent(bool buffed);
 
-        public void OnPlayerBuffed()
+        public void SetBuffedPlayerState()
         {
             if(PlayerState == PlayerState.None)
                 PlayerState = PlayerState.Buffed;
             else
                 PlayerState |= PlayerState.Buffed;
-            
-            var handler = PlayerBuffed;
-            handler?.Invoke();
         }
 
         #endregion

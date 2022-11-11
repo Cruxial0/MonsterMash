@@ -59,20 +59,23 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                     GUILayout.EndHorizontal();
                     break;
             }
-            EditorUtility.SetDirty(this);
+            
             EditorGUI.EndChangeCheck();
             
             GUILayout.Space(20f);
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Play sound"))
+            if (GUILayout.Button("Update values"))
             {
-                sound._audioSource.Play();
+                sound.source = sound.FromAudioSource(sound._audioSource);
             }
-
+            
             if (GUILayout.Button("Evaluate"))
             {
                 if (sound.source.soundClips.Count == 0)
+                {
                     Debug.LogAssertion("EVALUATE: Please assign a valid AudioClip to source.");
+                    return;
+                }
                 switch (sound.soundType)
                 {
                     case SoundObject.SoundType.Cycle when sound.MaxInterval == 0:
@@ -86,7 +89,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                         break;
                     default:
                         Debug.Log("Everything seems okay.");
-                        break;
+                        return;
                 }
             }
             GUILayout.EndHorizontal();

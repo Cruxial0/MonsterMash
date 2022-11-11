@@ -17,6 +17,14 @@ namespace _Scripts.Handlers
             //Get all interactables
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Interactable"))
             {
+                Debug.Log(gameObject.name);
+                Interactibles.Add(new InteractableObject(gameObject,
+                    gameObject.GetComponent<InteractableInitialize>()));
+            }
+            
+            foreach (var gameObject in GameObject.FindGameObjectsWithTag("Furniture"))
+            {
+                Debug.Log(gameObject.name);
                 Interactibles.Add(new InteractableObject(gameObject,
                     gameObject.GetComponent<InteractableInitialize>()));
             }
@@ -37,6 +45,7 @@ namespace _Scripts.Handlers
                 VisualFeedback = initialize.VisualFeedback;
             InteractType = initialize.Type;
             Evaluate(); //Evaluate properties
+            // Debug.Log(VisualFeedback.name);
         }
 
         public GameObject Parent { get; } //Parent

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Extensions;
 using _Scripts.Handlers;
 #if UNITY_EDITOR
 using _Scripts.MonoBehaviour.CommonFunctionality.Editors;
@@ -26,6 +27,12 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         [HideInInspector] public int MinInterval;
         [HideInInspector] public int MaxInterval;
 
+        private bool _moving;
+        private bool _cycle;
+        private bool _buffed;
+        
+        private float _currTime;
+        private float _interval;
         
         public enum SoundType
         {
@@ -37,7 +44,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         private void Start()
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
-            ToAudioSource(source, _audioSource);
+            try
+            {
+                ToAudioSource(source, _audioSource);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("No audio source was found.");
+                throw;
+            }
+            
             DetermineSound();
         }
 
@@ -46,10 +62,11 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (soundType)
             {
                 case SoundType.Collision:
-                    print(gameObject.name);
                     PlayerInteractionHandler.SceneObjects.Room.FurnitureObjects.First(x => x.Transform == transform).Script.OnCollisionDetected += ScriptOnOnCollisionDetected;
                     break;
                 case SoundType.Cycle:
+                    _interval = Random.Range(MinInterval, MaxInterval);
+                    _cycle = true;
                     break;
                 case SoundType.PlayerState:
                     ManageEvents();
@@ -57,47 +74,24 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             }
         }
 
-        private void ScriptOnOnParentsLeave(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
-        }
-
-        private void ScriptOnOnParentsEnter(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
-        }
-
-        private void ScriptOnOnParentsApproach(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
-        }
-
         private void ManageEvents()
         {
-            switch (PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState)
+            switch (SelectedStates)
             {
                 case PlayerState.Moving:
-                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += PlayerStatesOnPlayerMoving;
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += ctx => _moving = ctx;
                     break;
                 case PlayerState.Dead:
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.OnPlayerDestroyed += PlayerStatesOnOnPlayerDestroyed;
                     break;
                 case PlayerState.Buffed:
-                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += () => _audioSource.Play();
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += ctx => _buffed = ctx;
                     break;
                 case PlayerState.Collided:
                     break;
             }
         }
-
-        private void PlayerStatesOnPlayerMoving()
-        {
-            print("moving");
-            _audioSource.Play();
-        }
+        
 
         private void PlayerStatesOnOnPlayerDestroyed(bool destroyed) => _audioSource.Play();
 
@@ -106,11 +100,29 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             #if UNITY_EDITOR
             if (c.collider.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]))
             {
+                _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
             }
             #endif
         }
-        
+
+        private void FixedUpdate()
+        {
+            if (_cycle)
+            {
+                _currTime += Time.deltaTime;
+                if(_currTime < _interval) return;
+                _audioSource.clip = source.GetRandomClip();
+                _audioSource.Play();
+            }
+            
+            if (_moving) _audioSource.Play();
+            if (_buffed)
+            {
+                _audioSource.Play();
+            }
+        }
+
         public void ToAudioSource(Audio source, AudioSource audioSource)
         {
             audioSource.clip = RandomAudioClip(source.soundClips);
@@ -128,6 +140,26 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             audioSource.spatialBlend = source.spatialBlend;
             audioSource.reverbZoneMix = source.reverbZoneMix;
             audioSource.rolloffMode = source.volumeRolloff;
+        }
+
+        public Audio FromAudioSource(AudioSource audioSource)
+        {
+            Audio source = new Audio(); 
+            source.outputMixerGroup = audioSource.outputAudioMixerGroup;
+            source.mute = audioSource.mute;
+            source.bypassEffects = audioSource.bypassEffects;
+            source.bypassListenerEffects = audioSource.bypassListenerEffects;
+            source.bypassReverbZones = audioSource.bypassReverbZones;
+            source.playOnAwake = audioSource.playOnAwake;
+            source.loop = audioSource.loop;
+            source.priority = audioSource.priority;
+            source.volume = audioSource.volume;
+            source.pitch = audioSource.pitch;
+            source.stereoPan = audioSource.panStereo;
+            source.spatialBlend = audioSource.spatialBlend;
+            source.reverbZoneMix = audioSource.reverbZoneMix;
+            source.volumeRolloff = audioSource.rolloffMode;
+            return source;
         }
 
         public AudioClip RandomAudioClip(List<AudioClip> clips)
