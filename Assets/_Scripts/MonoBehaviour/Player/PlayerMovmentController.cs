@@ -32,7 +32,7 @@ namespace _Scripts.MonoBehaviour.Player
         public Vector3 prevMovement = new Vector3();
         public Vector3 prevVelocity = new Vector3();
         private TextMeshProUGUI text;
-        [NonSerialized]public float acceleration = 0;
+        [NonSerialized] public float acceleration = 0;
         private float prevVertical = 0f;
         private float prevHorizontal = 0f;
         private bool initialSpawn = true;

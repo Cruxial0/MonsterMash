@@ -179,6 +179,7 @@ namespace _Scripts.Handlers
                 //In case of type Collision:
                 case InteractType.Collision:
                     //Instantiate VisualFeedback
+                    DetermineVisualFeedback(interactableObject, collisionEvent);
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.ChangeColor(1);
                     break;
             }
@@ -196,14 +197,8 @@ namespace _Scripts.Handlers
             //Play animation
             //Properly position origin point of visualFeedback (using Mesh.bounds?)
 
-            var instantiatePos = obj.Parent.transform.GetChild(0).position;
-            var instantiateScale = obj.Parent.transform.localScale;
+            var instantiatePos = obj.Parent.transform.position;
             instantiatePos.y = 0;
-
-            if (collision.gameObject.transform.position.z < instantiatePos.z)
-                instantiatePos.z -= instantiateScale.z / 0.5f;
-            else
-                instantiatePos.z += instantiateScale.z / 0.5f;
 
             //Create instance of visualFeedback (probably some kind of animation or particle system)
             //Also create it with it's original rotation, and on our gameObject's position.
