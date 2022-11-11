@@ -19,15 +19,11 @@ namespace _Scripts.MonoBehaviour.Player
                 if (_moving != value)
                 {
                     _moving =  value;
-                    print(_moving);
                     var handler = PlayerMoving;
                     handler?.Invoke(value);
                     
                 }
-                else
-                {
-                    return;
-                }
+                else return;
             }
         }
 

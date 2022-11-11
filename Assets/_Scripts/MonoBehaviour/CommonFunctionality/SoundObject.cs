@@ -38,7 +38,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         private void Start()
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
-            ToAudioSource(source, _audioSource);
+            try
+            {
+                ToAudioSource(source, _audioSource);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("No audio source was found.");
+                throw;
+            }
+            
             DetermineSound();
         }
 
@@ -92,12 +101,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     break;
             }
         }
-
-        private void PlayerStatesOnPlayerMoving()
-        {
-            print("moving");
-            _audioSource.Play();
-        }
+        
 
         private void PlayerStatesOnOnPlayerDestroyed(bool destroyed) => _audioSource.Play();
 
@@ -114,11 +118,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         private void FixedUpdate()
         {
             //print(_moving);
-            if (_moving)
-            {
-                print("moving");
-                _audioSource.Play();
-            }
+            if (_moving) _audioSource.Play();
         }
 
         public void ToAudioSource(Audio source, AudioSource audioSource)
@@ -138,6 +138,26 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             audioSource.spatialBlend = source.spatialBlend;
             audioSource.reverbZoneMix = source.reverbZoneMix;
             audioSource.rolloffMode = source.volumeRolloff;
+        }
+
+        public Audio FromAudioSource(AudioSource audioSource)
+        {
+            Audio source = new Audio(); 
+            source.outputMixerGroup = audioSource.outputAudioMixerGroup;
+            source.mute = audioSource.mute;
+            source.bypassEffects = audioSource.bypassEffects;
+            source.bypassListenerEffects = audioSource.bypassListenerEffects;
+            source.bypassReverbZones = audioSource.bypassReverbZones;
+            source.playOnAwake = audioSource.playOnAwake;
+            source.loop = audioSource.loop;
+            source.priority = audioSource.priority;
+            source.volume = audioSource.volume;
+            source.pitch = audioSource.pitch;
+            source.stereoPan = audioSource.panStereo;
+            source.spatialBlend = audioSource.spatialBlend;
+            source.reverbZoneMix = audioSource.reverbZoneMix;
+            source.volumeRolloff = audioSource.rolloffMode;
+            return source;
         }
 
         public AudioClip RandomAudioClip(List<AudioClip> clips)
