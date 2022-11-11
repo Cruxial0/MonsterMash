@@ -197,12 +197,11 @@ namespace _Scripts.Handlers
             //Play animation
             //Properly position origin point of visualFeedback (using Mesh.bounds?)
 
-            var instantiatePos = obj.Parent.transform.position;
-            instantiatePos.y = 0;
+            var instantiatePos = collision.collider.gameObject.transform;
 
             //Create instance of visualFeedback (probably some kind of animation or particle system)
             //Also create it with it's original rotation, and on our gameObject's position.
-            Object.Instantiate(obj.VisualFeedback, instantiatePos, obj.VisualFeedback.transform.rotation);
+            Object.Instantiate(obj.VisualFeedback, instantiatePos);
         }
 
         private delegate void OnInteractablePickupEventHandler(object sender);
