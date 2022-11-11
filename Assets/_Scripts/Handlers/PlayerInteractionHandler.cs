@@ -198,7 +198,6 @@ namespace _Scripts.Handlers
             //Properly position origin point of visualFeedback (using Mesh.bounds?)
 
             var instantiatePos = collision.collider.gameObject.transform;
-            //instantiatePos.y = 0;
 
             //Create instance of visualFeedback (probably some kind of animation or particle system)
             //Also create it with it's original rotation, and on our gameObject's position.
