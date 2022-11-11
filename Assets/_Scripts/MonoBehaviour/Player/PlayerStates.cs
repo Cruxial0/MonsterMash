@@ -7,7 +7,29 @@ namespace _Scripts.MonoBehaviour.Player
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
         public PlayerState PlayerState = PlayerState.None;
-        private PlayerMovmentController playerBody; 
+        private PlayerMovmentController playerBody;
+
+        private bool _moving = false;
+
+        public Boolean Moving
+        {
+            get => _moving;
+            set
+            {
+                if (_moving != value)
+                {
+                    _moving =  value;
+                    print(_moving);
+                    var handler = PlayerMoving;
+                    handler?.Invoke(value);
+                    
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
 
         [NonSerialized] public bool Destroyed = false;
 
@@ -44,7 +66,11 @@ namespace _Scripts.MonoBehaviour.Player
         {
             
             if (playerBody.acceleration >= 1) OnPlayerMoving();
-            else PlayerState &= ~PlayerState.Moving;
+            else
+            {
+                PlayerState &= ~PlayerState.Moving;
+                Moving = false;
+            }
             
             if (PlayerState == 0) PlayerState = PlayerState.None;
             
@@ -65,17 +91,16 @@ namespace _Scripts.MonoBehaviour.Player
         #region PlayerMovingEvent
 
         public event PlayerMovingEvent PlayerMoving;
-        public delegate void PlayerMovingEvent();
+        public delegate void PlayerMovingEvent(bool moving);
 
         private void OnPlayerMoving()
         {
+            Moving = true;
+            
             if(PlayerState == PlayerState.None)
                 PlayerState = PlayerState.Moving;
             else
                 PlayerState |= PlayerState.Moving;
-            
-            var handler = PlayerMoving;
-            handler?.Invoke();
         }
 
         #endregion

@@ -26,6 +26,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         [HideInInspector] public int MinInterval;
         [HideInInspector] public int MaxInterval;
 
+        private bool _moving;
         
         public enum SoundType
         {
@@ -46,7 +47,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (soundType)
             {
                 case SoundType.Collision:
-                    print(gameObject.name);
                     PlayerInteractionHandler.SceneObjects.Room.FurnitureObjects.First(x => x.Transform == transform).Script.OnCollisionDetected += ScriptOnOnCollisionDetected;
                     break;
                 case SoundType.Cycle:
@@ -77,10 +77,10 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void ManageEvents()
         {
-            switch (PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState)
+            switch (SelectedStates)
             {
                 case PlayerState.Moving:
-                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += PlayerStatesOnPlayerMoving;
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += ctx => _moving = ctx;
                     break;
                 case PlayerState.Dead:
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.OnPlayerDestroyed += PlayerStatesOnOnPlayerDestroyed;
@@ -110,7 +110,17 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             }
             #endif
         }
-        
+
+        private void FixedUpdate()
+        {
+            //print(_moving);
+            if (_moving)
+            {
+                print("moving");
+                _audioSource.Play();
+            }
+        }
+
         public void ToAudioSource(Audio source, AudioSource audioSource)
         {
             audioSource.clip = RandomAudioClip(source.soundClips);
