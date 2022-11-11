@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
     guid: 2c8919ae1cd1eee40b969ed07ea0ceb2
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL1.unity
+    path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
     guid: 566b5d4e6c0745042a98546e2fa75182
   - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/LVL2.unity
