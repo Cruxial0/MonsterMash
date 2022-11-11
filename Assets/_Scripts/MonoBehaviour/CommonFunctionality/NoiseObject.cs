@@ -22,6 +22,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             //Add noise on player collision
             if (collision.gameObject.CompareTag("Player"))
             {
+                PlayerInteractionHandler.Self.OnCollidedInvoke();
                 var noise = collision.relativeVelocity.magnitude / DivisionFactor;
                 print($"{collision.relativeVelocity.magnitude} -> {(collision.relativeVelocity.magnitude / DivisionFactor) * noiseMultiplyFactor}");
 
