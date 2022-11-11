@@ -139,6 +139,16 @@ namespace _Scripts.Handlers
                     //Get SceneObject from LINQ expression
                     var pickupSceneObject = SceneObjects.Room.PickupObject.First(x =>
                         x.Collider == interactableObject.Parent.GetComponent<Collider>());
+                    
+                    var popup = pickupSceneObject.Script.PopupPrefab;
+                    var playerPos = SceneObjects.Player.Self.transform.position;
+                    var obj = Object.Instantiate(popup, playerPos, popup.transform.rotation, SceneObjects.Player.Transform);
+                    
+                    if (_currCollectable == _collectableCount)
+                        obj.GetComponent<PopupFeedback>().LastPickup = true;
+                    
+                    // obj.transform.SetParent(SceneObjects.Player.Self.transform);
+                    obj.GetComponent<TextMeshPro>().text = $"{_currCollectable}/{_collectableCount}";
 
                     //Remove SceneObject from PickupObject list 
                     SceneObjects.Room.PickupObject.Remove(pickupSceneObject);
