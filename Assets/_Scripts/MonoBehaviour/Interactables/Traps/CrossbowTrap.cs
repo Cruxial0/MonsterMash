@@ -14,9 +14,11 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     public float fireIntervalSeconds = 3f; // Fire interval for arrows
     public GameObject arrowPrefab; // Arrow to fire
     public float projectileMovementMultiplier = 0.02f; // Arrow movement speed
+    public float projectileLifetime;
     
     private bool _isProjectile = false; // Is object a projectile?
     private float _currTime = 0f; // Counter for fire interval
+    private float _currLifetimeTime = 0f;
     private bool _playerHit = false; // Is player hit?
     
     public float debuffTimeSeconds = 3f; // Debuff (slow) duration
@@ -39,8 +41,19 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     private void EnableProjectileMode(CrossbowTrap self, FireDirection direction = FireDirection.None)
     {
         // Rotate arrow if its shot up/down
-        if(direction == FireDirection.Down || direction == FireDirection.Up)
-            this.transform.Rotate(new Vector3(0,90,0));
+        switch (direction)
+        {
+            case FireDirection.Down:
+                this.transform.Rotate(new Vector3(0,-90,0));
+                break;
+            case FireDirection.Up:
+                this.transform.Rotate(new Vector3(0,90,0));
+                break;
+            case FireDirection.Right:
+                this.transform.Rotate(new Vector3(0,180,0));
+                break;
+        }
+
         // Set direction to specified direction
         fireDirection = direction;
         projectileMovementMultiplier = self.projectileMovementMultiplier;
@@ -75,6 +88,16 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
             
             case true:
                 // Move arrow
+                
+                this._currLifetimeTime += Time.deltaTime;
+
+                if (_currLifetimeTime > projectileLifetime)
+                {
+                    this.GetComponent<Renderer>().enabled = false;
+                    Destroy(this.gameObject, debuffTimeSeconds);
+                    _currLifetimeTime = 0f;
+                }
+                
                 this.transform.position += _fireDirection[fireDirection] * projectileMovementMultiplier;
                 break;
         }
