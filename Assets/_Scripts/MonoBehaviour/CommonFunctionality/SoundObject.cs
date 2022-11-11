@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Extensions;
 using _Scripts.Handlers;
 #if UNITY_EDITOR
 using _Scripts.MonoBehaviour.CommonFunctionality.Editors;
@@ -27,6 +28,11 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         [HideInInspector] public int MaxInterval;
 
         private bool _moving;
+        private bool _cycle;
+        private bool _buffed;
+        
+        private float _currTime;
+        private float _interval;
         
         public enum SoundType
         {
@@ -59,29 +65,13 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     PlayerInteractionHandler.SceneObjects.Room.FurnitureObjects.First(x => x.Transform == transform).Script.OnCollisionDetected += ScriptOnOnCollisionDetected;
                     break;
                 case SoundType.Cycle:
+                    _interval = Random.Range(MinInterval, MaxInterval);
+                    _cycle = true;
                     break;
                 case SoundType.PlayerState:
                     ManageEvents();
                     break;
             }
-        }
-
-        private void ScriptOnOnParentsLeave(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
-        }
-
-        private void ScriptOnOnParentsEnter(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
-        }
-
-        private void ScriptOnOnParentsApproach(object sender)
-        {
-            //_audioSource.clip = RandomAudioClip(parentSounds.exitSounds);
-            _audioSource.Play();
         }
 
         private void ManageEvents()
@@ -95,7 +85,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.OnPlayerDestroyed += PlayerStatesOnOnPlayerDestroyed;
                     break;
                 case PlayerState.Buffed:
-                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += () => _audioSource.Play();
+                    PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += ctx => _buffed = ctx;
                     break;
                 case PlayerState.Collided:
                     break;
@@ -110,6 +100,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             #if UNITY_EDITOR
             if (c.collider.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]))
             {
+                _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
             }
             #endif
@@ -117,8 +108,19 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void FixedUpdate()
         {
-            //print(_moving);
+            if (_cycle)
+            {
+                _currTime += Time.deltaTime;
+                if(_currTime < _interval) return;
+                _audioSource.clip = source.GetRandomClip();
+                _audioSource.Play();
+            }
+            
             if (_moving) _audioSource.Play();
+            if (_buffed)
+            {
+                _audioSource.Play();
+            }
         }
 
         public void ToAudioSource(Audio source, AudioSource audioSource)

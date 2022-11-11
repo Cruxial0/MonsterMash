@@ -27,6 +27,31 @@ namespace _Scripts.MonoBehaviour.Player
             }
         }
 
+        private bool _buffed = false;
+
+        public Boolean Buffed
+        {
+            get => _buffed;
+            set
+            {
+                if (_buffed != value)
+                {
+                    _buffed = value;
+                    print(_buffed);
+                    if(value) SetBuffedPlayerState();
+                    if (!value)
+                    {
+                        print(value);
+                        PlayerState &= ~PlayerState.Buffed;
+                    }
+                    
+                    
+                    var handler = PlayerBuffed;
+                    handler?.Invoke(value);
+                }
+            }
+        }
+        
         [NonSerialized] public bool Destroyed = false;
 
         private void Start()
@@ -81,6 +106,11 @@ namespace _Scripts.MonoBehaviour.Player
             }
         }
 
+        public void SetBuffed(bool b)
+        {
+            Buffed = b;
+        }
+
         public event OnPlayerDestroyedEvent OnPlayerDestroyed;
         public delegate void OnPlayerDestroyedEvent(bool destroyed);
 
@@ -105,17 +135,14 @@ namespace _Scripts.MonoBehaviour.Player
         #region PlayerBuffed
 
         public event PlayerBuffedEvent PlayerBuffed;
-        public delegate void PlayerBuffedEvent();
+        public delegate void PlayerBuffedEvent(bool buffed);
 
-        public void OnPlayerBuffed()
+        public void SetBuffedPlayerState()
         {
             if(PlayerState == PlayerState.None)
                 PlayerState = PlayerState.Buffed;
             else
                 PlayerState |= PlayerState.Buffed;
-            
-            var handler = PlayerBuffed;
-            handler?.Invoke();
         }
 
         #endregion
