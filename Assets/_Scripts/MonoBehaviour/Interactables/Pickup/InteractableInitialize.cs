@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using _Scripts.Handlers;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Pickup
     {
         public InteractType Type; //Interact type
         public ParticleSystem VisualFeedback; //Visual feedback
-        //public GameObject PopupPrefab;
+        public GameObject PopupPrefab;
         private PlayerInteractionHandler _handler; //Instance of PlayerInteractionHandler
 
         private void Awake()
