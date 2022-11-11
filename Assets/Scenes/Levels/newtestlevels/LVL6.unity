@@ -2174,7 +2174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 0}
 --- !u!65 &668724440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3165,7 +3164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 0}
 --- !u!114 &959828944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3292,7 +3290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 1658991680}
 --- !u!114 &1250400385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3745,7 +3742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 0}
 --- !u!114 &1346428560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,11 +4357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noiseMultiplyFactor: 1
---- !u!1 &1658991680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 952178286386769332, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
-  m_PrefabInstance: {fileID: 563750520}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1738926619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4980,7 +4971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   VisualFeedback: {fileID: 0}
-  PopupPrefab: {fileID: 0}
 --- !u!114 &1953924644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5514,7 +5504,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 494675392802251862, guid: 570794a2c139fd249b0f7c511b59aed8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 570794a2c139fd249b0f7c511b59aed8, type: 3}
 --- !u!1001 &6928457876210387400
 PrefabInstance:

@@ -15,33 +15,42 @@ namespace _Scripts.Handlers
         public InteractableHandler()
         {
             string item = "";
-            try
+            //Get all interactables
+            foreach (var gameObject in GameObject.FindGameObjectsWithTag("Interactable"))
             {
-                //Get all interactables
-                foreach (var gameObject in GameObject.FindGameObjectsWithTag("Interactable"))
+                try
                 {
-                    Debug.Log(gameObject.name);
                     Interactibles.Add(new InteractableObject(gameObject,
                         gameObject.GetComponent<InteractableInitialize>()));
-                    item = Interactibles[Interactibles.Count].Parent.name;
+                    //item = Interactibles[Interactibles.Count].Parent.name;
                 }
-
-                foreach (var gameObject in GameObject.FindGameObjectsWithTag("Furniture"))
+                catch (Exception e)
                 {
-                    Debug.Log(gameObject.name);
+                    Debug.Log(e.Message);
+                    continue;
+                }
+                
+            }
+
+            foreach (var gameObject in GameObject.FindGameObjectsWithTag("Furniture"))
+            {
+                try
+                {
                     Interactibles.Add(new InteractableObject(gameObject,
                         gameObject.GetComponent<InteractableInitialize>()));
-                    item = Interactibles[Interactibles.Count].Parent.name;
+                    //item = Interactibles[Interactibles.Count].Parent.name;
                 }
-
+                catch (Exception e)
+                {
+                    Console.WriteLine(item);
+                    continue;
+                }
             }
-            catch(Exception e)
+
+            foreach (var obj in Interactibles)
             {
-                Debug.LogError(item);
-
+                Debug.Log(obj.Parent.name);
             }
-            
-      
         }
     }
 
@@ -56,10 +65,11 @@ namespace _Scripts.Handlers
             //Assign values
             Parent = parent;
             if (initialize.VisualFeedback != null)
+            {
                 VisualFeedback = initialize.VisualFeedback;
+            }
             InteractType = initialize.Type;
             Evaluate(); //Evaluate properties
-            // Debug.Log(VisualFeedback.name);
         }
 
         public GameObject Parent { get; } //Parent
