@@ -211,5 +211,15 @@ namespace _Scripts.Handlers
         }
 
         private delegate void OnInteractablePickupEventHandler(object sender);
+
+        public void OnCollidedInvoke()
+        {
+            //Invoke event
+            var handler = OnCollided;
+            handler?.Invoke();
+        }
+        
+        public event OnCollision OnCollided;
+        public delegate void OnCollision();
     }
 }

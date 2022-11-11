@@ -22,6 +22,7 @@ namespace _Scripts.Handlers.Powers
 
         private void FixedUpdate()
         {
+            
             //Increment timer
             currTime += Time.deltaTime;
             if (currTime > PowerDuration && active)
