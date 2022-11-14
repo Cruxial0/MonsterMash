@@ -38,7 +38,7 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     /// </summary>
     /// <param name="self">Origin script</param>
     /// <param name="direction">Singular direction</param>
-    private void EnableProjectileMode(CrossbowTrap self, FireDirection direction = FireDirection.None)
+    private void EnableProjectileMode(CrossbowTrap self, FireDirection direction)
     {
         // Rotate arrow if its shot up/down
         switch (direction)
@@ -157,7 +157,6 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     [Flags]
     public enum FireDirection
     {
-        None = 1 << 0,
         Left = 1 << 1,
         Up = 1 << 2,
         Right = 1 << 3,

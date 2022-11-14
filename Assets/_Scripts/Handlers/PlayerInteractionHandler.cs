@@ -110,6 +110,7 @@ namespace _Scripts.Handlers
             {
                 SceneObjects.UI.CollectableCounter.Text.color = Color.green;
                 SceneObjects.UI.Timer.Text.color = Color.yellow;
+                PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted = false;
             }
         }
 

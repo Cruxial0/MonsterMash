@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3336677271440144999}
   - component: {fileID: 4147771195089856222}
   - component: {fileID: 4147771195089856221}
+  - component: {fileID: 1821776506999030061}
   m_Layer: 0
   m_Name: BedPrefab
   m_TagString: Bed
@@ -111,3 +112,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinPrefab: {fileID: 2626518202504174075, guid: 5c8040b73112c7140945d4461e88c23b, type: 3}
+--- !u!65 &1821776506999030061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841216701142178738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5703244, y: 1.28, z: 5.100996}
+  m_Center: {x: 0.004689157, y: 0.85, z: -0.17434597}
