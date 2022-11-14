@@ -8,6 +8,7 @@ public class BedController : MonoBehaviour
 {
     public GameObject WinPrefab;
 
+    [NonSerialized] public bool GameStarted = false;
     [NonSerialized] public bool IsUnderBed;
     private MeshRenderer _meshFilters = new();
 
@@ -26,6 +27,7 @@ public class BedController : MonoBehaviour
 
         //Show player
         //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = true;
+        GameStarted = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -43,5 +45,10 @@ public class BedController : MonoBehaviour
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
                 PlayerInteractionHandler.GameStateManager.Win(PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.currTime);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        PlayerInteractionHandler.SceneObjects.Room.BedObject.OuterCollider.enabled = GameStarted;
     }
 }

@@ -174,8 +174,9 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                             MeshFilter = child.GetComponent<MeshFilter>(),
                             MeshRenderer = child.GetComponent<MeshRenderer>(),
                             Rigidbody = child.GetComponent<Rigidbody>(),
-                            Collider = child.GetComponent<Collider>(),
-                            Script = child.GetComponent<BedController>()
+                            Collider = child.GetComponents<Collider>()[0],
+                            Script = child.GetComponent<BedController>(),
+                            OuterCollider = child.GetComponents<Collider>()[1]
                         };
                         break;
                     case "Door":
