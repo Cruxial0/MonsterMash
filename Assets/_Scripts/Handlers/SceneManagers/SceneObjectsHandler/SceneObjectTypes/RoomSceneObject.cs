@@ -54,6 +54,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public MeshRenderer MeshRenderer { get; set; }
         public Rigidbody Rigidbody { get; set; }
         public Collider Collider { get; set; }
+        public Collider OuterCollider { get; set; }
         public BedController Script { get; set; }
     }
 
