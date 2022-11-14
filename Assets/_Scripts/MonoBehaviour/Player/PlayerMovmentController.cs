@@ -60,6 +60,7 @@ namespace _Scripts.MonoBehaviour.Player
             
             text = PlayerInteractionHandler.SceneObjects.UI.DebugGUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             this.transform.Rotate(new Vector3(0,90,0));
+            print(PlayerInteractionHandler.SceneObjects.Room.BedObject.OuterCollider.isTrigger);
         }
 
         // Update is called once per frame

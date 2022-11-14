@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/MenuTest.unity
     guid: 8ecd01e6e04a83749a850a88470e1f8f
-  - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
-    guid: 2c8919ae1cd1eee40b969ed07ea0ceb2
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
     guid: 566b5d4e6c0745042a98546e2fa75182
