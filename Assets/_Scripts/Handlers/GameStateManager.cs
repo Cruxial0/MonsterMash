@@ -34,8 +34,18 @@ namespace _Scripts.Handlers
             _enabled = true;
         }
 
+        private float currAnimTime = 0f;
+        public float AnimTime = 0f;
+        private int i = 0;
+        
         private void Update()
         {
+            currAnimTime += Time.deltaTime;
+            if(currAnimTime < AnimTime) return;
+
+            if (i == 0) GenerateLossScreen();
+            i++;
+            
             if(!_enabled) return;
 
             currTime += Time.deltaTime; //Increment time
@@ -78,11 +88,21 @@ namespace _Scripts.Handlers
 
         public void Lose(LoseCondition loseCondition)
         {
+            var controller = PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.GetCurrentAnimatorClipInfo(0);
+            
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
 
             manager.lost = true;
+            
 
+            manager.AnimTime = controller.First().clip.length;
+            
+            
+        }
+
+        private void GenerateLossScreen()
+        {
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState = PlayerState.Dead;
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
@@ -92,11 +112,11 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             //Disable camera script
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
-
+            gameScreens = new GameStateScreen();
             //Instantiate loss screen
             Instantiate(gameScreens.RestartLevelScreen());
         }
-
+        
         public void Win(float timeLeft)
         {
             //Destroy player
