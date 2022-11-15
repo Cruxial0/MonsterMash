@@ -6,6 +6,9 @@ using UnityEngine;
 public class AnimScript : MonoBehaviour
 {
 
+
+
+    public ParticleSystem deathParticle;
     Animator anim;
 
     Vector2 playerVelocity;
@@ -31,6 +34,11 @@ public class AnimScript : MonoBehaviour
             anim.SetBool("Run", true);
         else      
             anim.SetBool("Run", false);
+
+
+
+        
+
     }
 
     private void Self_OnCollided()
@@ -40,12 +48,15 @@ public class AnimScript : MonoBehaviour
 
     public void deathAnim()
     {
+        Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
+        
         anim.SetTrigger("Death");
     }
 
 
     public void BearTrapAnim()
     {
+        Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         anim.SetTrigger("BearTrap");       
     }
 
