@@ -1,24 +1,22 @@
+using System;
 using _Scripts.Handlers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class AnimScript : MonoBehaviour
 {
 
-
-
     public ParticleSystem deathParticle;
-    Animator anim;
+    [NonSerialized] public Animator Anim;
 
     Vector2 playerVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        
-
+        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,38 +29,33 @@ public class AnimScript : MonoBehaviour
         PlayerInteractionHandler.Self.OnCollided += Self_OnCollided;
 
         if (playerVelocity != Vector2.zero)
-            anim.SetBool("Run", true);
+            Anim.SetBool("Run", true);
         else      
-            anim.SetBool("Run", false);
-
-
-
-        
-
+            Anim.SetBool("Run", false);
     }
 
     private void Self_OnCollided()
     {
-        anim.SetTrigger("bump");   
+        Anim.SetTrigger("bump");   
     }
 
     public void deathAnim()
     {
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         
-        anim.SetTrigger("Death");
+        Anim.SetTrigger("Death");
     }
 
 
     public void BearTrapAnim()
     {
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
-        anim.SetTrigger("BearTrap");       
+        Anim.SetTrigger("BearTrap");       
     }
 
 
     public void EatAnim()
     {
-        anim.SetTrigger("Eat");
+        Anim.SetTrigger("Eat");
     }
 }
