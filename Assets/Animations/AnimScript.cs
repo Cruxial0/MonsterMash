@@ -25,29 +25,33 @@ public class AnimScript : MonoBehaviour
 
         var collided = PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState;
 
-
         PlayerInteractionHandler.Self.OnCollided += Self_OnCollided;
-
-     
-
-
 
         if (playerVelocity != Vector2.zero)
             anim.SetBool("Run", true);
-                
         else      
             anim.SetBool("Run", false);
-          
-      
-       
-
     }
 
     private void Self_OnCollided()
     {
-       
-        anim.SetTrigger("bump");
+        anim.SetTrigger("bump");   
+    }
 
-       
+    public void deathAnim()
+    {
+        anim.SetTrigger("Death");
+    }
+
+
+    public void BearTrapAnim()
+    {
+        anim.SetTrigger("BearTrap");       
+    }
+
+
+    public void EatAnim()
+    {
+        anim.SetTrigger("Eat");
     }
 }
