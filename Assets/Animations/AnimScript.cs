@@ -2,12 +2,14 @@ using System;
 using _Scripts.Handlers;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using System.Threading.Tasks;
 
 public class AnimScript : MonoBehaviour
 {
-
+    public GameObject timeAnim;
     public ParticleSystem deathParticle;
     [NonSerialized] public Animator Anim;
 
@@ -36,7 +38,7 @@ public class AnimScript : MonoBehaviour
 
     private void Self_OnCollided()
     {
-        Anim.SetTrigger("bump");   
+        Anim.SetTrigger("bump");
     }
 
     public void deathAnim()
@@ -50,12 +52,18 @@ public class AnimScript : MonoBehaviour
     public void BearTrapAnim()
     {
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
-        Anim.SetTrigger("BearTrap");       
+        Anim.SetTrigger("BearTrap");
     }
 
 
     public void EatAnim()
     {
         Anim.SetTrigger("Eat");
+    }
+
+    public void TimeAnim()
+    {
+        timeAnim.SetActive(true);
+        Destroy(timeAnim, 5f);
     }
 }

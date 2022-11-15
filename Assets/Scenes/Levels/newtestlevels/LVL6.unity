@@ -1635,7 +1635,7 @@ GameObject:
   - component: {fileID: 580857867}
   m_Layer: 0
   m_Name: DeathAnim
-  m_TagString: Untagged
+  m_TagString: TimeAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1681,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8023768160459139070, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
+      propertyPath: timeAnim
+      value: 
+      objectReference: {fileID: 580857866}
     - target: {fileID: 8713938483471802648, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
       propertyPath: m_RootOrder
       value: 29
