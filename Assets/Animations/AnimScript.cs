@@ -53,6 +53,7 @@ public class AnimScript : MonoBehaviour
     {
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         Anim.SetTrigger("BearTrap");
+        transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
     }
 
 
