@@ -304,11 +304,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Range
-      value: 7.73
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 941148099787692021, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
+      propertyPath: m_Intensity
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4297940769272388831, guid: aad3064292df1f6409eb232d0ea237b0, type: 3}
       propertyPath: m_Constraints
