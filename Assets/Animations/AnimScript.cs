@@ -67,6 +67,5 @@ public class AnimScript : MonoBehaviour
     {
         if(_playerDead) return;
         timeAnim.SetActive(true);
-        Destroy(timeAnim, 5f);
     }
 }

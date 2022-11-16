@@ -166,7 +166,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 405ad1363fb29854491fe9091df16211, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -1600,7 +1600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602659871429674490, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: roundTime
-      value: 45
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1602659871429674492, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_fontSize
@@ -3126,7 +3126,6 @@ GameObject:
   m_Component:
   - component: {fileID: 937259836}
   - component: {fileID: 937259839}
-  - component: {fileID: 937259838}
   - component: {fileID: 937259837}
   - component: {fileID: 937259840}
   m_Layer: 0
@@ -3171,14 +3170,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!81 &937259838
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937259835}
-  m_Enabled: 1
 --- !u!20 &937259839
 Camera:
   m_ObjectHideFlags: 0

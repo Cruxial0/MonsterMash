@@ -115,7 +115,7 @@ namespace _Scripts.Handlers
             switch (loseCondition)
             {
                 case LoseCondition.Time:
-                    manager.AnimTime = 5.1f;
+                    manager.AnimTime = 6.5f;
                     break;
                 default:
                     manager.AnimTime = 2.5f;
