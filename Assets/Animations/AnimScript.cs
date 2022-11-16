@@ -14,6 +14,7 @@ public class AnimScript : MonoBehaviour
     [NonSerialized] public Animator Anim;
 
     Vector2 playerVelocity;
+    private bool _playerDead;
 
     // Start is called before the first frame update
     void Start()
@@ -25,45 +26,46 @@ public class AnimScript : MonoBehaviour
     void Update()
     {
         playerVelocity = PlayerInteractionHandler.SceneObjects.Player.MovmentController.Joystick.Direction;
-
-        var collided = PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState;
-
         PlayerInteractionHandler.Self.OnCollided += Self_OnCollided;
 
-        if (playerVelocity != Vector2.zero)
-            Anim.SetBool("Run", true);
-        else      
-            Anim.SetBool("Run", false);
+        Anim.SetBool("Run", playerVelocity != Vector2.zero);
     }
 
     private void Self_OnCollided()
     {
+        if(_playerDead) return;
         Anim.SetTrigger("bump");
     }
 
     public void deathAnim()
     {
+        if(_playerDead) return;
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         
         Anim.SetTrigger("Death");
+        _playerDead = true;
     }
 
 
     public void BearTrapAnim()
     {
+        if(_playerDead) return;
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         Anim.SetTrigger("BearTrap");
         transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
+        _playerDead = true;
     }
 
 
     public void EatAnim()
     {
+        if(_playerDead) return;
         Anim.SetTrigger("Eat");
     }
 
     public void TimeAnim()
     {
+        if(_playerDead) return;
         timeAnim.SetActive(true);
         Destroy(timeAnim, 5f);
     }
