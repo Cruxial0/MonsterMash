@@ -41,7 +41,8 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                     Plane = sprite,
                     SpriteMask = sprite.GetComponent<SpriteMask>(),
                     SpriteRenderer = sprite.GetComponent<SpriteRenderer>()
-                }
+                },
+                AnimScript = player.GetComponentInChildren<AnimScript>()
             };
         }
 

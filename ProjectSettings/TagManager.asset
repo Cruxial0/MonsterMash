@@ -23,6 +23,7 @@ TagManager:
   - EventObject
   - Debug
   - ParentWarning
+  - TimeAnim
   layers:
   - Default
   - TransparentFX

@@ -43,6 +43,8 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
         {
             //Lose
             PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Trap);
+            PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
+            Destroy(this.gameObject);
         }
     }
 }
