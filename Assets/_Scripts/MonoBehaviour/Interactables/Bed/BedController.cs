@@ -28,6 +28,9 @@ public class BedController : MonoBehaviour
         //Show player
         //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = true;
         GameStarted = true;
+
+        var handler = OnBedExit;
+        handler?.Invoke();
     }
 
     private void OnTriggerStay(Collider other)
@@ -51,4 +54,7 @@ public class BedController : MonoBehaviour
     {
         PlayerInteractionHandler.SceneObjects.Room.BedObject.OuterCollider.enabled = GameStarted;
     }
+
+    public event OnBedExitEventHandler OnBedExit;
+    public delegate void OnBedExitEventHandler();
 }

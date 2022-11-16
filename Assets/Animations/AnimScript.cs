@@ -28,7 +28,8 @@ public class AnimScript : MonoBehaviour
         playerVelocity = PlayerInteractionHandler.SceneObjects.Player.MovmentController.Joystick.Direction;
         PlayerInteractionHandler.Self.OnCollided += Self_OnCollided;
 
-        Anim.SetBool("Run", playerVelocity != Vector2.zero);
+        if(!_playerDead)
+            Anim.SetBool("Run", playerVelocity != Vector2.zero);
     }
 
     private void Self_OnCollided()

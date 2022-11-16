@@ -112,6 +112,8 @@ namespace _Scripts.Handlers
 
             manager.lost = true;
 
+            PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
+            
             switch (loseCondition)
             {
                 case LoseCondition.Time:
