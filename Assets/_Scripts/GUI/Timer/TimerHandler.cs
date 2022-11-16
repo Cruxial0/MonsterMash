@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Handlers;
 using TMPro;
 using UnityEngine;
 
@@ -15,13 +16,15 @@ public class TimerHandler : MonoBehaviour
     {
         text = GetComponent<TextMeshProUGUI>(); //Get Text component and assign it
         currTime = roundTime; //Set Current Time to Round Time
+        
+        SetTime();
     }
 
     // Update is called once per frame
     private void Update()
     {
         //If Timer is active
-        if (timerActive)
+        if (timerActive && PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted)
         {
             //If Current Time is less than 0
             if (currTime < 0)
@@ -32,15 +35,20 @@ public class TimerHandler : MonoBehaviour
                 return;
             }
 
-            var time = new TimeSpan(); //Get new instance of TimeSpan
-            var timeSpan = time.Add(TimeSpan.FromSeconds(currTime)); //TimeSpan += currTime
-
-            text.text = $"{timeSpan.Minutes}:{timeSpan.Seconds:00}"; //Format text
+            SetTime();
 
             currTime -= Time.deltaTime; //Decrease time by Time.deltaTime
         }
     }
 
+    private void SetTime()
+    {
+        var time = new TimeSpan(); //Get new instance of TimeSpan
+        var timeSpan = time.Add(TimeSpan.FromSeconds(currTime)); //TimeSpan += currTime
+
+        text.text = $"{timeSpan.Minutes}:{timeSpan.Seconds:00}"; //Format text
+    }
+    
     //Starts Timer
     public void StartTimer()
     {

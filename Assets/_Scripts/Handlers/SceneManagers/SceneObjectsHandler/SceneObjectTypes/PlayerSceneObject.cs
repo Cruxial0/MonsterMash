@@ -22,5 +22,6 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes
         public PlayerInitialize InitializeScript { get; set; }
         public PlayerStates PlayerStates { get; set; }
         public AssetContainer Sprites { get; set; }
+        public AnimScript AnimScript { get; set; }
     }
 }

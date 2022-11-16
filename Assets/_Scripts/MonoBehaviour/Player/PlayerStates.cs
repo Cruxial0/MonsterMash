@@ -69,6 +69,7 @@ namespace _Scripts.MonoBehaviour.Player
         //Destroys parent
         public void DestroySelf()
         {
+            if(gameObject == null) return;
             Destroy(gameObject);
         }
 
