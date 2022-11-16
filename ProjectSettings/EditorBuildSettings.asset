@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/LVL6.unity
     guid: 63d9b2826bdcb5644aeb722c1cd15509
+  - enabled: 1
+    path: Assets/Scenes/Levels/newtestlevels/Pia levels/DarkLevel.unity
+    guid: c380d7b4e29e3e842865b73fa7c95049
   m_configObjects: {}
