@@ -93,8 +93,8 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
 
                 if (_currLifetimeTime > projectileLifetime)
                 {
-                    this.GetComponent<Renderer>().enabled = false;
-                    Destroy(this.gameObject, debuffTimeSeconds);
+                    
+                    Destroy(this.gameObject, debuffTimeSeconds + 1f);
                     _currLifetimeTime = 0f;
                 }
                 
@@ -107,10 +107,9 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         
         // Increment time
         _currDebuffTimer += Time.deltaTime;
-        
         // If interval didn't elapse, return
-        if (_currDebuffTimer < debuffTimeSeconds) return;
-
+        if (_currDebuffTimer <= debuffTimeSeconds) return;
+        
         // Revert movement speed
         PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed =
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.DefaultMovementSpeed;
@@ -122,9 +121,11 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     public void OnTriggerEnter(Collider other)
     {
         // Destroy object if collided with wall
-        if (other.CompareTag("RoomWall"))
+        if (other.CompareTag("Furniture") && other.name.ToLower().Contains("wall") 
+            || other.CompareTag("RoomWall") && other.name.ToLower().Contains("wall"))
         {
-            this.GetComponent<Renderer>().enabled = false; // Fake destroy
+            this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false; // Fake destroy
+            Destroy(this.GetComponent<Collider>());
             
             // Make sure Update() is allowed to update before destroying
             Destroy(this.gameObject, debuffTimeSeconds); 
