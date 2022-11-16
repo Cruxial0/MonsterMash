@@ -46,11 +46,6 @@ namespace _Scripts.Handlers
                     continue;
                 }
             }
-
-            foreach (var obj in Interactibles)
-            {
-                Debug.Log(obj.Parent.name);
-            }
         }
     }
 
