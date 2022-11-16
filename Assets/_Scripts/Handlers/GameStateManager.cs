@@ -135,16 +135,17 @@ namespace _Scripts.Handlers
         {
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerState = PlayerState.Dead;
-            //PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to red
             PlayerInteractionHandler.SceneObjects.UI.Timer.Text.color = Color.red;
             //Stop timer
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             //Disable camera script
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
-            gameScreens = new GameStateScreen();
+            //gameScreens = new GameStateScreen();
             //Instantiate loss screen
-            Instantiate(gameScreens.RestartLevelScreen());
+            if(lost)
+                Instantiate(gameScreens.RestartLevelScreen());
         }
         
         public void Win(float timeLeft)
@@ -161,7 +162,8 @@ namespace _Scripts.Handlers
             Instantiate(gameScreens.WinLevelScreen());
 
             var go = new GameObject(); //Add empty handler
-            go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+            var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
+            manager.lost = false;
 
             var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
             

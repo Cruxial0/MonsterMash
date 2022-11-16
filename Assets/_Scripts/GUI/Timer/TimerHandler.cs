@@ -11,6 +11,7 @@ public class TimerHandler : MonoBehaviour
     [NonSerialized] public float currTime; //Current time
     private TextMeshProUGUI text; //Instance of Text
     private bool timerActive; //Timer active?
+    [NonSerialized] public bool TimerRun = false;
 
     private void Start()
     {
@@ -18,27 +19,27 @@ public class TimerHandler : MonoBehaviour
         currTime = roundTime; //Set Current Time to Round Time
         
         SetTime();
+
+        PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.OnBedExit += () => TimerRun = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
         //If Timer is active
-        if (timerActive && PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted)
+        if (!timerActive || !TimerRun) return;
+        //If Current Time is less than 0
+        if (currTime < 0)
         {
-            //If Current Time is less than 0
-            if (currTime < 0)
-            {
-                //Disable timer
-                timerActive = false;
-                OnTimerDepleted(); //Call event function
-                return;
-            }
-
-            SetTime();
-
-            currTime -= Time.deltaTime; //Decrease time by Time.deltaTime
+            //Disable timer
+            timerActive = false;
+            OnTimerDepleted(); //Call event function
+            return;
         }
+
+        SetTime();
+
+        currTime -= Time.deltaTime; //Decrease time by Time.deltaTime
     }
 
     private void SetTime()
