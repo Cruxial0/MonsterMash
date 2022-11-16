@@ -142,10 +142,13 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.StopTimer();
             //Disable camera script
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
-            //gameScreens = new GameStateScreen();
+            
             //Instantiate loss screen
-            if(lost)
+            if (lost)
+            {
+                gameScreens = new GameStateScreen();
                 Instantiate(gameScreens.RestartLevelScreen());
+            }
         }
         
         public void Win(float timeLeft)
