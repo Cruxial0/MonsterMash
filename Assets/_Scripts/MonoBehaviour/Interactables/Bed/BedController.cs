@@ -28,6 +28,9 @@ public class BedController : MonoBehaviour
         //Show player
         //PlayerInteractionHandler.SceneObjects.Player.Sprite.SpriteRenderer.enabled = true;
         GameStarted = true;
+
+        var handler = OnBedExit;
+        handler?.Invoke();
     }
 
     private void OnTriggerStay(Collider other)
@@ -43,7 +46,14 @@ public class BedController : MonoBehaviour
 
             //If all objects are picked up, win
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
+            {
                 PlayerInteractionHandler.GameStateManager.Win(PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.currTime);
+
+                foreach (var collider in this.GetComponents<Collider>())
+                {
+                    collider.enabled = false;
+                }
+            }
         }
     }
 
@@ -51,4 +61,7 @@ public class BedController : MonoBehaviour
     {
         PlayerInteractionHandler.SceneObjects.Room.BedObject.OuterCollider.enabled = GameStarted;
     }
+
+    public event OnBedExitEventHandler OnBedExit;
+    public delegate void OnBedExitEventHandler();
 }

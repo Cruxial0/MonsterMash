@@ -114,7 +114,7 @@ public class DoorManager : MonoBehaviour
 
         if (!PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.IsUnderBed && ParentsInRoom)
         {
-            PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Parents);
+            //PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Parents);
         }
     }
 
