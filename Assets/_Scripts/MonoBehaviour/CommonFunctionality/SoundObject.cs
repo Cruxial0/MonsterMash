@@ -132,13 +132,14 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             }
 
             if (_moving && !_audioSource.isPlaying)
-            {
                 _audioSource.Play();
-            }
-            if (_buffed)
-            {
+            else
+                _audioSource.Stop();
+            
+            if (_buffed && !_audioSource.isPlaying)
                 _audioSource.Play();
-            }
+            else
+                _audioSource.Stop();
         }
 
         public void ToAudioSource(Audio source, AudioSource audioSource)
