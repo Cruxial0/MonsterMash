@@ -72,6 +72,11 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Update values"))
             {
+                if (sound._audioSource == null)
+                {
+                    Debug.LogWarning("You can only update values while in play mode.");
+                    return;
+                }
                 sound.source = sound.FromAudioSource(sound._audioSource);
             }
             
@@ -86,6 +91,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                 if (!UnityEditorInternal.InternalEditorUtility.tags.Contains(sound.SelectedTag) && sound.SelectedTag != String.Empty)
                 {
                     Debug.LogWarning("Tag does not exist.");
+                    return;
                 }
                 switch (sound.soundType)
                 {
