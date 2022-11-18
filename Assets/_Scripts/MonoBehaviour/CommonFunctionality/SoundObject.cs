@@ -130,8 +130,11 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
             }
-            
-            if (_moving) _audioSource.Play();
+
+            if (_moving && !_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
             if (_buffed)
             {
                 _audioSource.Play();
