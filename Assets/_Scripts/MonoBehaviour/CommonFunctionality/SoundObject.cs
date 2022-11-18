@@ -187,14 +187,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
     }
 
     [Serializable]
-    public class ParentSounds
-    {
-        public List<AudioClip> approachSounds;
-        public List<AudioClip> enterSounds = new List<AudioClip>();
-        public List<AudioClip> exitSounds = new List<AudioClip>();
-    }
-    
-    [Serializable]
     public class Audio
     {
         public List<AudioClip> soundClips;

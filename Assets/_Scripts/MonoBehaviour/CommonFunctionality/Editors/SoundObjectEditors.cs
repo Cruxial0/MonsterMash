@@ -162,21 +162,5 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             GUILayout.Space(20f);
         }
     }
-
-    [CustomPropertyDrawer(typeof(ParentSounds))]
-    public class ParentSoundsUIE : PropertyDrawer
-    {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            //base.OnGUI(position, property, label);
-            EditorGUI.BeginProperty(position, label, property);
-
-            EditorGUILayout.PropertyField(property.FindPropertyRelative("approachSounds"));
-            EditorGUILayout.PropertyField(property.FindPropertyRelative("enterSounds"));
-            EditorGUILayout.PropertyField(property.FindPropertyRelative("exitSounds"));
-            
-            EditorGUI.EndProperty();
-        }
-    }
 }
 #endif
