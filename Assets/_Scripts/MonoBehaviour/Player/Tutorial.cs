@@ -24,7 +24,7 @@ namespace _Scripts.MonoBehaviour.Player
         // Update is called once per frame
         private void Update()
         {
-            if (_collectablesPickedUp)
+            if (_collectablesPickedUp && PlayerInteractionHandler.SceneObjects.Player.PlayerStates != null)
             {
                 Vector3 playerPos = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
                 Vector3 bedPos = PlayerInteractionHandler.SceneObjects.Room.BedObject.Transform.position;
