@@ -38,7 +38,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         {
             Collision,
             Cycle,
-            PlayerState
+            PlayerState,
+            Music
         }
 
         private void Start()
@@ -70,6 +71,9 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                     break;
                 case SoundType.PlayerState:
                     ManageEvents();
+                    break;
+                case SoundType.Music:
+                    _audioSource.Play();
                     break;
             }
         }

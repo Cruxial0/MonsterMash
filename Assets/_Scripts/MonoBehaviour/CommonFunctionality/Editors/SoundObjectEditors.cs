@@ -64,6 +64,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                     sound.SelectedStates = (PlayerState)EditorGUILayout.EnumFlagsField(sound.SelectedStates);
                     GUILayout.EndHorizontal();
                     break;
+                case SoundObject.SoundType.Music:
+                    break;
             }
             
             EditorGUI.EndChangeCheck();
