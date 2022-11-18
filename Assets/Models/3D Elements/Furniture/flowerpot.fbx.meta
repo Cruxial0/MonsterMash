@@ -3,47 +3,7 @@ guid: e3085c76234eeec45a04f324bf1baca7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pot
-    second: {fileID: 2100000, guid: 6fd0eb3e16b148043a4044fedf7d3e0d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pot.001
-    second: {fileID: 2100000, guid: 6fd0eb3e16b148043a4044fedf7d3e0d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pot.002
-    second: {fileID: 2100000, guid: 6fd0eb3e16b148043a4044fedf7d3e0d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pot.003
-    second: {fileID: 2100000, guid: 6fd0eb3e16b148043a4044fedf7d3e0d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower
-    second: {fileID: 2100000, guid: 21c53abbb2df0e34781c051316875205, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower.001
-    second: {fileID: 2100000, guid: 21c53abbb2df0e34781c051316875205, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower.002
-    second: {fileID: 2100000, guid: 21c53abbb2df0e34781c051316875205, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flower.003
-    second: {fileID: 2100000, guid: 21c53abbb2df0e34781c051316875205, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -91,7 +51,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
