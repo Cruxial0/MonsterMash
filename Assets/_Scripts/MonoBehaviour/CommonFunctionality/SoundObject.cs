@@ -21,7 +21,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         public SoundType soundType;
 
         [HideInInspector] public AudioSource _audioSource;
-        [HideInInspector] public int SelectedTag ;
+        [HideInInspector] public string SelectedTag = "";
         [HideInInspector] public bool OnlyNoiseObject;
         [HideInInspector] public PlayerState SelectedStates = PlayerState.None;
         [HideInInspector] public int MinInterval;
@@ -38,7 +38,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         {
             Collision,
             Cycle,
-            PlayerState
+            PlayerState,
+            Music
         }
 
         private void Start()
@@ -62,7 +63,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (soundType)
             {
                 case SoundType.Collision:
-                    PlayerInteractionHandler.SceneObjects.Room.FurnitureObjects.First(x => x.Transform == transform).Script.OnCollisionDetected += ScriptOnOnCollisionDetected;
+                    PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name).CollisionAdded += OnCollisionAdded;
                     break;
                 case SoundType.Cycle:
                     _interval = Random.Range(MinInterval, MaxInterval);
@@ -71,6 +72,19 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 case SoundType.PlayerState:
                     ManageEvents();
                     break;
+                case SoundType.Music:
+                    _audioSource.Play();
+                    break;
+            }
+        }
+
+        private void OnCollisionAdded(object sender, CollisionEventArgs e)
+        {
+
+            if (e.CollisionEvent.collider.CompareTag(SelectedTag))
+            {
+                _audioSource.clip = source.GetRandomClip();
+                _audioSource.Play();
             }
         }
 
@@ -97,8 +111,9 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void ScriptOnOnCollisionDetected(Collision c)
         {
+            //UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]
             #if UNITY_EDITOR
-            if (c.collider.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]))
+            if (c.collider.CompareTag(SelectedTag))
             {
                 _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
@@ -115,12 +130,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
             }
-            
-            if (_moving) _audioSource.Play();
-            if (_buffed)
-            {
+
+            if (_moving && !_audioSource.isPlaying)
                 _audioSource.Play();
-            }
+            else
+                _audioSource.Stop();
+            
+            if (_buffed && !_audioSource.isPlaying)
+                _audioSource.Play();
+            else
+                _audioSource.Stop();
         }
 
         public void ToAudioSource(Audio source, AudioSource audioSource)
@@ -144,7 +163,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         public Audio FromAudioSource(AudioSource audioSource)
         {
-            Audio source = new Audio(); 
+            Audio source = new Audio();
+            source.soundClips = this.source.soundClips;
             source.outputMixerGroup = audioSource.outputAudioMixerGroup;
             source.mute = audioSource.mute;
             source.bypassEffects = audioSource.bypassEffects;
@@ -168,14 +188,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         }
     }
 
-    [Serializable]
-    public class ParentSounds
-    {
-        public List<AudioClip> approachSounds;
-        public List<AudioClip> enterSounds = new List<AudioClip>();
-        public List<AudioClip> exitSounds = new List<AudioClip>();
-    }
-    
     [Serializable]
     public class Audio
     {

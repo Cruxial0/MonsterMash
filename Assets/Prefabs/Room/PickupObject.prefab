@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6375595429039981961}
   - component: {fileID: 1806674062459991472}
   - component: {fileID: 7256898119223167263}
-  - component: {fileID: 621867174740364052}
+  - component: {fileID: 3638004861707727918}
+  - component: {fileID: 5980339701382771185}
   m_Layer: 0
   m_Name: PickupObject
   m_TagString: Interactable
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 1
   eraseRenderer: 0
---- !u!114 &621867174740364052
+--- !u!114 &3638004861707727918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +139,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4870768629660870658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e921481362a6bf408c4b20d0a437724, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d7f535fe84914097ac496cc5ad1d6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteMaterials:
-  - {fileID: 2100000, guid: 794c4d9a45891904892a67d4026ccd64, type: 2}
-  - {fileID: 2100000, guid: e523d86ddac3cb64590083afaacecc4a, type: 2}
-  - {fileID: 2100000, guid: deef5ffa62a2c4e4f88fe7917ac1e9ca, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 382da31ad4ce14f79b70de111b847e79, type: 2}
+  - {fileID: 2100000, guid: 26b6c736dcc6541f6a6a69653a520b15, type: 2}
+  - {fileID: 2100000, guid: 4293ac2b41c194d71b394bf919c9dc8b, type: 2}
+  - {fileID: 2100000, guid: 9cf55078db959401f8d5813fe89df5b9, type: 2}
+  - {fileID: 2100000, guid: 3493eaa481f644d5daba88968d2c18bd, type: 2}
+  - {fileID: 2100000, guid: 8f4a4dfa20620432e830eaa94f74dcd0, type: 2}
+--- !u!114 &5980339701382771185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870768629660870658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb9fc8b076974ad6886ae3c08e976e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
