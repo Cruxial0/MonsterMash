@@ -63,7 +63,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (soundType)
             {
                 case SoundType.Collision:
-                    PlayerInteractionHandler.SceneObjects.Room.FurnitureObjects.First(x => x.Transform == transform).Script.OnCollisionDetected += ScriptOnOnCollisionDetected;
+                    PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name).CollisionAdded += OnCollisionAdded;
                     break;
                 case SoundType.Cycle:
                     _interval = Random.Range(MinInterval, MaxInterval);
@@ -75,6 +75,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 case SoundType.Music:
                     _audioSource.Play();
                     break;
+            }
+        }
+
+        private void OnCollisionAdded(object sender, CollisionEventArgs e)
+        {
+
+            if (e.CollisionEvent.collider.CompareTag(SelectedTag))
+            {
+                _audioSource.clip = source.GetRandomClip();
+                _audioSource.Play();
             }
         }
 

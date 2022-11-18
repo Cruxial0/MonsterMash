@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts.MonoBehaviour.Interactables.Pickup;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace _Scripts.Handlers
                     Interactibles.Add(new InteractableObject(gameObject,
                         gameObject.GetComponent<InteractableInitialize>()));
                     //item = Interactibles[Interactibles.Count].Parent.name;
+                    
                 }
                 catch (Exception e)
                 {
@@ -38,7 +40,6 @@ namespace _Scripts.Handlers
                 {
                     Interactibles.Add(new InteractableObject(gameObject,
                         gameObject.GetComponent<InteractableInitialize>()));
-                    //item = Interactibles[Interactibles.Count].Parent.name;
                 }
                 catch (Exception e)
                 {
