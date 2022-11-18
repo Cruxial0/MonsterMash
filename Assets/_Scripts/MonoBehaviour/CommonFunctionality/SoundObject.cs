@@ -21,7 +21,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         public SoundType soundType;
 
         [HideInInspector] public AudioSource _audioSource;
-        [HideInInspector] public int SelectedTag ;
+        [HideInInspector] public string SelectedTag = "";
         [HideInInspector] public bool OnlyNoiseObject;
         [HideInInspector] public PlayerState SelectedStates = PlayerState.None;
         [HideInInspector] public int MinInterval;
@@ -97,8 +97,9 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void ScriptOnOnCollisionDetected(Collision c)
         {
+            //UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]
             #if UNITY_EDITOR
-            if (c.collider.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]))
+            if (c.collider.CompareTag(SelectedTag))
             {
                 _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();

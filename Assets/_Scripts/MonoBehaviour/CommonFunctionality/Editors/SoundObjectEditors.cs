@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System;
+using System.Linq;
 using _Scripts.Handlers;
 using _Scripts.MonoBehaviour.Player;
 using UnityEditor;
@@ -29,16 +30,21 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             SoundObject sound = (SoundObject)target;
 
             EditorGUI.BeginChangeCheck();
+           // EditorUtility.SetDirty(this);
 
             switch (sound.soundType)
             {
                 case SoundObject.SoundType.Collision:
                     GUILayout.Space(5f);
-                    sound.OnlyNoiseObject = GUILayout.Toggle(sound.OnlyNoiseObject, "Only NoiseObjects?");
-                    GUILayout.Space(2f);
                     GUILayout.BeginHorizontal();
                     GUILayout.Label("Collision Tag");
-                    sound.SelectedTag = EditorGUILayout.Popup(sound.SelectedTag, UnityEditorInternal.InternalEditorUtility.tags);
+                    sound.SelectedTag = EditorGUILayout.TextField(sound.SelectedTag);
+                    if (GUILayout.Button("Tag List"))
+                    {
+                        EditorUtility.DisplayDialog("Unity Tags",
+                            String.Join(Environment.NewLine, UnityEditorInternal.InternalEditorUtility.tags),
+                            "boing jumpscare");
+                    }
                     GUILayout.EndHorizontal();
                     break;
                 case SoundObject.SoundType.Cycle:
@@ -73,8 +79,13 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
             {
                 if (sound.source.soundClips.Count == 0)
                 {
-                    Debug.LogAssertion("EVALUATE: Please assign a valid AudioClip to source.");
+                    Debug.LogWarning("EVALUATE: Please assign a valid AudioClip to source.");
                     return;
+                }
+
+                if (!UnityEditorInternal.InternalEditorUtility.tags.Contains(sound.SelectedTag) && sound.SelectedTag != String.Empty)
+                {
+                    Debug.LogWarning("Tag does not exist.");
                 }
                 switch (sound.soundType)
                 {
@@ -84,7 +95,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality.Editors
                     case SoundObject.SoundType.PlayerState when sound.SelectedStates == PlayerState.None:
                         Debug.LogWarning("Consider setting a player state.");
                         break;
-                    case SoundObject.SoundType.Collision when sound.SelectedTag == 0:
+                    case SoundObject.SoundType.Collision when sound.SelectedTag == string.Empty:
                         Debug.LogWarning("Consider setting a collision tag.");
                         break;
                     default:
