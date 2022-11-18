@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4377069, g: 0.48558724, b: 0.56586635, a: 1}
+  m_IndirectSpecularColor: {r: 0.4351698, g: 0.48243284, b: 0.5633487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 67c75a58488444debb49bb4425f1afbb, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 376ae00eb6b7afd48b71baa0f8ff7a97, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2823,7 +2823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c187352ba2332854e872245c947cf29b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c187352ba2332854e872245c947cf29b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2982,7 +2982,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1560259784
 MeshCollider:
