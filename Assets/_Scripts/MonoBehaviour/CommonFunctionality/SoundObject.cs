@@ -162,7 +162,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         public Audio FromAudioSource(AudioSource audioSource)
         {
-            Audio source = new Audio(); 
+            Audio source = new Audio();
+            source.soundClips = this.source.soundClips;
             source.outputMixerGroup = audioSource.outputAudioMixerGroup;
             source.mute = audioSource.mute;
             source.bypassEffects = audioSource.bypassEffects;
