@@ -39,7 +39,7 @@ namespace _Scripts.Handlers
             animations = new Dictionary<LoseCondition, UnityAction>();
             animations.Add(LoseCondition.Trap, script.BearTrapAnim);
             animations[LoseCondition.Trap] = script.BearTrapAnim;
-            animations[LoseCondition.Noise] = script.deathAnim;
+            animations[LoseCondition.Noise] = script.NoiseAnim;
             animations[LoseCondition.Time] = script.deathAnim;
         }
         
@@ -125,7 +125,7 @@ namespace _Scripts.Handlers
             }
 
             animations.Add(LoseCondition.Trap, controller.BearTrapAnim);
-            animations.Add(LoseCondition.Noise, controller.deathAnim);
+            animations.Add(LoseCondition.Noise, controller.NoiseAnim);
             animations.Add(LoseCondition.Time, controller.TimeAnim);
 
             animations[loseCondition].Invoke();
