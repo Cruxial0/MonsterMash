@@ -44,7 +44,15 @@ namespace _Scripts.GUI.MainMenu
                 $"'{level.Events.First().EventName}': {level.Events.First().Description}"; //Set second text component
 
             button.onClick.AddListener(LevelButtonClicked); //Add onClick Listener
+            button.interactable = false;
+            var unlockedLevels = PlayerInteractionHandler.SceneObjects.LevelService.levels.UnlockedLevels;
 
+            foreach (var uLevel in unlockedLevels.Where(uLevel => uLevel.SceneName == level.Level.SceneName))
+            {
+                button.interactable = false;
+                break;
+            }
+            
             return btn; //Return button
         }
 

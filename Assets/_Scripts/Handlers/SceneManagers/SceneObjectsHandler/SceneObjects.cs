@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler.SceneObjectTypes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
         public PlayerSceneObject Player; //Scene Player
         public RoomSceneObject Room; //Scene Room
         public UISceneObject UI; //Scene UI
+        public InitializeLevelService LevelService;
 
         public SceneObjects(Scene level, PlayerInteractionHandler handler)
         {
@@ -36,6 +38,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
             Player = _interpreter.GetPlayer(rootObjets);
             Camera = _interpreter.GetMainCamera(rootObjets);
             UI = _interpreter.GetGUI(rootObjets);
+            LevelService = GameObject.Find("LevelService").GetComponent<InitializeLevelService>();
         }
     }
 }

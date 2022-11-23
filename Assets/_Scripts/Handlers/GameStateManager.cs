@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.GUI.PostLevelScreens;
+using _Scripts.Handlers.SceneManagers;
 using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
@@ -24,6 +25,7 @@ namespace _Scripts.Handlers
         private bool lost = false; //Lost?
         private bool postLost;
         private bool _enabled = true;
+        private int stars = 0;
 
         private Dictionary<LoseCondition, UnityAction> animations = new();
 
@@ -76,6 +78,9 @@ namespace _Scripts.Handlers
                     SceneManager.LoadScene(scene.buildIndex);
                     return;
                 }
+
+                PlayerInteractionHandler.SceneObjects.LevelService.levels.AddLevel(new Level(SceneManager.GetActiveScene().name), stars);
+                PlayerInteractionHandler.SceneObjects.LevelService.levels.SaveLevels();
                 
                 switch (scene.name)
                 {
@@ -168,16 +173,12 @@ namespace _Scripts.Handlers
 
             var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
             
-            int stars = 0;
             if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
             if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
             if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
             if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
                 level.StarLevels.NoiseThreshold && stars != 0)
                 stars--;
-
-
-            print(stars);
         }
     }
     
