@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using _Scripts.Interfaces;
-using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
@@ -47,20 +47,31 @@ namespace _Scripts.Handlers
 
     public class Levels
     {
-        internal string FilePath = @"";
-        private List<LevelSave> UnlockedLevels { get; set; }
-
+        private readonly string filePath = @"Config/LevelSave.json";
+        public List<LevelSave> UnlockedLevels { get; set; }
+        public Dictionary<string, int> LevelStarRatings { get; set; }
+        
         public void SaveLevels()
         {
-            File.WriteAllText(FilePath, JsonConvert.SerializeObject(this));
+            File.WriteAllText(filePath, JsonUtility.ToJson(this));
         }
 
         public void LoadLevels()
         {
-            UnlockedLevels = JsonConvert.DeserializeObject<List<LevelSave>>(File.ReadAllText(FilePath));
+            UnlockedLevels = JsonUtility.FromJson<List<LevelSave>>(File.ReadAllText(filePath));
+            UnpackLevels();
+        }
+
+        private void UnpackLevels()
+        {
+            foreach (var levelSave in UnlockedLevels)
+            {
+                LevelStarRatings.Add(levelSave.Level.LevelName, levelSave.StarCount);
+            }
         }
     }
 
+    [Serializable]
     public class LevelSave
     {
         public Level Level { get; set; }
