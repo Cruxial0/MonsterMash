@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 public class AnimScript : MonoBehaviour
 {
     public GameObject timeAnim;
+    public GameObject noiseAnim;
     public ParticleSystem deathParticle;
     [NonSerialized] public Animator Anim;
 
@@ -68,5 +69,13 @@ public class AnimScript : MonoBehaviour
     {
         if(_playerDead) return;
         timeAnim.SetActive(true);
+    }
+
+
+    public void NoiseAnim()
+    {
+        if (_playerDead) return;
+        noiseAnim.SetActive(true);
+        _playerDead = true;
     }
 }
