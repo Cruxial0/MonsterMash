@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using _Scripts.Interfaces;
+<<<<<<< Updated upstream
 using UnityEngine;
+=======
+<<<<<<< HEAD
+
+=======
+using UnityEngine;
+>>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
+>>>>>>> Stashed changes
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
@@ -53,11 +61,25 @@ namespace _Scripts.Handlers
         
         public void SaveLevels()
         {
+<<<<<<< Updated upstream
             File.WriteAllText(filePath, JsonUtility.ToJson(this));
+=======
+<<<<<<< HEAD
+            
+=======
+            File.WriteAllText(filePath, JsonUtility.ToJson(this));
+>>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
+>>>>>>> Stashed changes
         }
 
         public void LoadLevels()
         {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            
+=======
+>>>>>>> Stashed changes
             UnlockedLevels = JsonUtility.FromJson<List<LevelSave>>(File.ReadAllText(filePath));
             UnpackLevels();
         }
@@ -68,6 +90,10 @@ namespace _Scripts.Handlers
             {
                 LevelStarRatings.Add(levelSave.Level.LevelName, levelSave.StarCount);
             }
+<<<<<<< Updated upstream
+=======
+>>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
+>>>>>>> Stashed changes
         }
     }
 

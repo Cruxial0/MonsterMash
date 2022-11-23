@@ -5,7 +5,7 @@ using _Scripts.GUI.PostLevelScreens;
 using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
-using UnityEditor.VersionControl;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -94,9 +94,7 @@ namespace _Scripts.Handlers
                     case "LVL4":
                         SceneManager.LoadScene("LVL5");
                         return;
-                    case "LVL5":
-                        SceneManager.LoadScene("LVL6");
-                        return;
+                    
                 }  
 
                 SceneManager.LoadScene("MenuTest");
