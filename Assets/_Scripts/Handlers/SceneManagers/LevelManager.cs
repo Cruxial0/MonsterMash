@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using _Scripts.Interfaces;
+using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
@@ -40,6 +42,34 @@ namespace _Scripts.Handlers
             {
                 level.Level.LevelScene = SceneManager.GetActiveScene();
             };
+        }
+    }
+
+    public class Levels
+    {
+        internal string FilePath = @"";
+        private List<LevelSave> UnlockedLevels { get; set; }
+
+        public void SaveLevels()
+        {
+            File.WriteAllText(FilePath, JsonConvert.SerializeObject(this));
+        }
+
+        public void LoadLevels()
+        {
+            UnlockedLevels = JsonConvert.DeserializeObject<List<LevelSave>>(File.ReadAllText(FilePath));
+        }
+    }
+
+    public class LevelSave
+    {
+        public Level Level { get; set; }
+        public int StarCount { get; set; }
+
+        public LevelSave(Level level, int starCount)
+        {
+            this.Level = level;
+            this.StarCount = starCount;
         }
     }
 }
