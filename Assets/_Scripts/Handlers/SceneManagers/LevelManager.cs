@@ -4,19 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using _Scripts.Interfaces;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 using Newtonsoft.Json;
->>>>>>> Stashed changes
 using UnityEngine;
-=======
-<<<<<<< HEAD
-
-=======
 using UnityEngine;
->>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
->>>>>>> Stashed changes
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
@@ -80,34 +70,13 @@ namespace _Scripts.Handlers
         
         public void SaveLevels()
         {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            File.WriteAllText(filePath, JsonUtility.ToJson(this));
-=======
-<<<<<<< HEAD
-            
-=======
-            File.WriteAllText(filePath, JsonUtility.ToJson(this));
->>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
->>>>>>> Stashed changes
-=======
             if (!File.Exists(FilePath)) File.Create(FilePath);
             Debug.Log(FilePath);
             File.WriteAllText(FilePath, JsonConvert.SerializeObject(this.UnlockedLevels, Formatting.Indented));
->>>>>>> Stashed changes
         }
 
         public void LoadLevels()
         {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-            
-=======
->>>>>>> Stashed changes
-            UnlockedLevels = JsonUtility.FromJson<List<LevelSave>>(File.ReadAllText(filePath));
-=======
             if (!File.Exists(FilePath)) File.Create(FilePath);
             if(File.ReadAllText(FilePath) != String.Empty)
                 try
@@ -119,8 +88,7 @@ namespace _Scripts.Handlers
                 {
                     Debug.Log(e);
                 }
-                
->>>>>>> Stashed changes
+            
             UnpackLevels();
         }
 
@@ -131,10 +99,6 @@ namespace _Scripts.Handlers
             {
                 LevelStarRatings.Add(levelSave.SceneName, levelSave.StarCount);
             }
-<<<<<<< Updated upstream
-=======
->>>>>>> c79e3e564050be67919d620e8e6a3f0dad715a09
->>>>>>> Stashed changes
         }
     }
     
