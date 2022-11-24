@@ -52,7 +52,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             catch (Exception e)
             {
                 Debug.LogError("No audio source was found.");
-                throw;
+                return;
             }
             
             DetermineSound();
@@ -60,10 +60,13 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void DetermineSound()
         {
+            print(soundType);
             switch (soundType)
             {
                 case SoundType.Collision:
-                    PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name).CollisionAdded += OnCollisionAdded;
+                    print("here");
+                    var obj = PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name);
+                    obj.CollisionAdded += OnCollisionAdded;
                     break;
                 case SoundType.Cycle:
                     _interval = Random.Range(MinInterval, MaxInterval);
@@ -80,7 +83,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void OnCollisionAdded(object sender, CollisionEventArgs e)
         {
-
             if (e.CollisionEvent.collider.CompareTag(SelectedTag))
             {
                 _audioSource.clip = source.GetRandomClip();
@@ -123,6 +125,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void FixedUpdate()
         {
+            if (_audioSource.isPlaying) return;
+            
             if (_cycle)
             {
                 _currTime += Time.deltaTime;
@@ -130,16 +134,16 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 _audioSource.clip = source.GetRandomClip();
                 _audioSource.Play();
             }
-
+            
             if (_moving && !_audioSource.isPlaying)
                 _audioSource.Play();
-            else
-                _audioSource.Stop();
+            //else
+                //_audioSource.Stop();
             
             if (_buffed && !_audioSource.isPlaying)
                 _audioSource.Play();
-            else
-                _audioSource.Stop();
+            //else
+                //_audioSource.Stop();
         }
 
         public void ToAudioSource(Audio source, AudioSource audioSource)
