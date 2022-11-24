@@ -6,7 +6,7 @@ namespace _Scripts.Handlers.SceneManagers
     public class InitializeLevelService : UnityEngine.MonoBehaviour
     {
         public string CurrentLevel;
-        public Levels levels = new Levels();
+        public static Levels levels = new Levels();
 
         private void Start()
         {

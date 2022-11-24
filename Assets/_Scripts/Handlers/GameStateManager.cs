@@ -78,9 +78,9 @@ namespace _Scripts.Handlers
                     SceneManager.LoadScene(scene.buildIndex);
                     return;
                 }
-
-                PlayerInteractionHandler.SceneObjects.LevelService.levels.AddLevel(new Level(SceneManager.GetActiveScene().name), stars);
-                PlayerInteractionHandler.SceneObjects.LevelService.levels.SaveLevels();
+                
+                InitializeLevelService.levels.AddLevel(SceneManager.GetActiveScene().name, stars);
+                InitializeLevelService.levels.SaveLevels();
                 
                 switch (scene.name)
                 {
@@ -156,6 +156,15 @@ namespace _Scripts.Handlers
         
         public void Win(float timeLeft)
         {
+            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
+            
+            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
+            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
+                level.StarLevels.NoiseThreshold && stars != 0)
+                stars--;
+            
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to green
@@ -166,19 +175,11 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             //Instantiate win screen
             Instantiate(gameScreens.WinLevelScreen());
-
+            
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
             manager.lost = false;
-
-            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
-            
-            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
-            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
-                level.StarLevels.NoiseThreshold && stars != 0)
-                stars--;
+            manager.stars = this.stars;
         }
     }
     

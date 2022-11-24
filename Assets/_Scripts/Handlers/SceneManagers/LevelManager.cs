@@ -57,21 +57,33 @@ namespace _Scripts.Handlers
         public void InitPath()
         {
             string startupPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-                .Replace("/Library/ScriptAssemblies", String.Empty));    
+                .Replace(@"\Library\ScriptAssemblies", String.Empty)
+                .Replace(@"/Library/ScriptAssemblies", String.Empty));
             FilePath = Application.isEditor ? Path.Combine(startupPath, "Assets/Resources", "LevelSave.json") : Path.Combine(Application.persistentDataPath, "LevelSave.json");
         }
         
-        public void AddLevel(Level level, int starCount)
+        public void AddLevel(string level, int starCount)
         {
             if (!File.Exists(FilePath)) File.Create(FilePath);
-            UnlockedLevels.Add(new LevelSave(level, starCount));
-            LevelStarRatings.Add(level.SceneName, starCount);
+
+            if (UnlockedLevels.Count(x => x.SceneName == level) > 0)
+            {
+                var instance = UnlockedLevels.First(x => x.SceneName == level);
+                if (instance.StarCount >= starCount) return;
+                instance.StarCount = starCount;
+                LevelStarRatings[level] = starCount;
+                return;
+            }
+            
+            if(UnlockedLevels.Count(x => x.SceneName == level) == 0)
+                UnlockedLevels.Add(new LevelSave(level, starCount));
+            if(!LevelStarRatings.ContainsKey(level))
+                LevelStarRatings.Add(level, starCount);
         }
         
         public void SaveLevels()
         {
             if (!File.Exists(FilePath)) File.Create(FilePath);
-            Debug.Log(FilePath);
             File.WriteAllText(FilePath, JsonConvert.SerializeObject(this.UnlockedLevels, Formatting.Indented));
         }
 
@@ -81,8 +93,7 @@ namespace _Scripts.Handlers
             if(File.ReadAllText(FilePath) != String.Empty)
                 try
                 {
-                    Debug.Log(File.ReadAllText(FilePath));
-                    UnlockedLevels = (JsonConvert.DeserializeObject<LevelSave[]>(FilePath) ?? Array.Empty<LevelSave>()).ToList();
+                    UnlockedLevels = JsonConvert.DeserializeObject<List<LevelSave>>(File.ReadAllText(FilePath)) as List<LevelSave>;
                 }
                 catch (Exception e)
                 {
@@ -90,6 +101,8 @@ namespace _Scripts.Handlers
                 }
             
             UnpackLevels();
+            
+            Debug.Log(JsonConvert.SerializeObject(UnlockedLevels));
         }
 
         private void UnpackLevels()
@@ -104,14 +117,12 @@ namespace _Scripts.Handlers
     
     public class LevelSave
     {
-        [JsonProperty]
         public string SceneName { get; set; }
-        [JsonProperty]
         public int StarCount { get; set; }
         
-        public LevelSave(Level level, int starCount)
+        public LevelSave(string levelName, int starCount)
         {
-            this.SceneName = level.SceneName;
+            this.SceneName = levelName;
             this.StarCount = starCount;
         }
     }
