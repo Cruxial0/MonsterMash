@@ -251,7 +251,7 @@ namespace _Scripts.Handlers.SceneManagers.SceneObjectsHandler
                         {
                             CanvasRenderer = child.GetComponent<CanvasRenderer>(),
                             Image = child.GetComponent<Image>(),
-                            OnScreenStick = child.GetComponent<FixedJoystick>(),
+                            OnScreenStick = child.GetComponent<FloatingJoystick>(),
                             RectTransform = child.GetComponent<RectTransform>()
                         };
                         break;
