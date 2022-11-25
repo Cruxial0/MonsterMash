@@ -53,6 +53,7 @@ namespace _Scripts.Handlers
         private string FilePath { get; set; }
         public List<LevelSave> UnlockedLevels = new List<LevelSave>();
         public Dictionary<string, int> LevelStarRatings = new Dictionary<string, int>();
+        private bool exists;
 
         public void InitPath()
         {
@@ -90,6 +91,7 @@ namespace _Scripts.Handlers
 
         public void LoadLevels()
         {
+            if(exists) return;
             if (!File.Exists(FilePath)) File.Create(FilePath);
             if(File.ReadAllText(FilePath) != String.Empty)
                 try
@@ -100,6 +102,8 @@ namespace _Scripts.Handlers
                 {
                     Debug.Log(e);
                 }
+
+            exists = true;
             
             UnpackLevels();
         }

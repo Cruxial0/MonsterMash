@@ -21,10 +21,15 @@ namespace _Scripts.GUI.MainMenu
         public GameObject ScrollViewerContent2;
         public GameObject ButtonPrefab; //Prefab for button instantiation
 
-        private bool _generated = false;
+        public bool _generated = false;
 
         private void OnEnable()
         {
+            if (LevelButtons.Count > 0 && LevelButtons.ElementAt(0).Key == null)
+            {
+                LevelButtons = new Dictionary<GameObject, ILevel>();
+                _generated = false;
+            }
             if(_generated) return;
             //Get all ILevel objects in project
             var levels = LevelManager.GetAllScenes();
