@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.GUI.PostLevelScreens;
+using _Scripts.Handlers.SceneManagers;
 using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
-using UnityEditor.VersionControl;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ namespace _Scripts.Handlers
         private bool lost = false; //Lost?
         private bool postLost;
         private bool _enabled = true;
+        private int stars = 0;
 
         private Dictionary<LoseCondition, UnityAction> animations = new();
 
@@ -77,6 +79,9 @@ namespace _Scripts.Handlers
                     return;
                 }
                 
+                InitializeLevelService.levels.AddLevel(SceneManager.GetActiveScene().name, stars);
+                InitializeLevelService.levels.SaveLevels();
+                
                 switch (scene.name)
                 {
                     case "LVL0":
@@ -94,9 +99,7 @@ namespace _Scripts.Handlers
                     case "LVL4":
                         SceneManager.LoadScene("LVL5");
                         return;
-                    case "LVL5":
-                        SceneManager.LoadScene("LVL6");
-                        return;
+                    
                 }  
 
                 SceneManager.LoadScene("MenuTest");
@@ -153,6 +156,15 @@ namespace _Scripts.Handlers
         
         public void Win(float timeLeft)
         {
+            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
+            
+            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
+            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
+                level.StarLevels.NoiseThreshold && stars != 0)
+                stars--;
+            
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to green
@@ -163,23 +175,11 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             //Instantiate win screen
             Instantiate(gameScreens.WinLevelScreen());
-
+            
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
             manager.lost = false;
-
-            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
-            
-            int stars = 0;
-            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
-            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
-                level.StarLevels.NoiseThreshold && stars != 0)
-                stars--;
-
-
-            print(stars);
+            manager.stars = this.stars;
         }
     }
     

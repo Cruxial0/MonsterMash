@@ -1,4 +1,6 @@
-﻿using UnityEngine.SceneManagement;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Scripts.Handlers
 {
@@ -12,6 +14,7 @@ namespace _Scripts.Handlers
     /// <summary>
     ///     Level Object
     /// </summary>
+    [Serializable]
     public class Level
     {
         public Level(string sceneName)
@@ -20,7 +23,7 @@ namespace _Scripts.Handlers
         }
 
         public string LevelName { get; set; }
-        public string SceneName { get; }
+        public string SceneName { get; } 
         public Scene LevelScene { get; set; }
     }
 }
