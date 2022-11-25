@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &76122626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &90003474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &116580518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &118207690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2552,7 +2552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 12
+  ConstraintAxis: 0
 --- !u!1001 &210936461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &286859562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 18
+  ConstraintAxis: 0
 --- !u!1 &288640790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,7 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &328565611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3651,7 +3651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &371267285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3756,7 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 10
+  ConstraintAxis: 0
 --- !u!1001 &380909368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4456,7 +4456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 20
+  ConstraintAxis: 0
 --- !u!1 &454904938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8713938483471802652, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
@@ -5638,7 +5638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &709721574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5743,7 +5743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &721445449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6013,14 +6013,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804935822}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3bc77cbd38458a4884e6a82d21b79c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 454904938}
   isEnabled: 1
-  CameraDistace: 10
+  CameraDistace: 9
 --- !u!81 &804935826
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6094,7 +6094,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804935822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2a8f3a7d64dff149bb40d55440039e6, type: 3}
   m_Name: 
@@ -6867,7 +6867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1 &911785008
 GameObject:
   m_ObjectHideFlags: 0
@@ -8530,7 +8530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &1171272107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8635,7 +8635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &1172746381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8740,7 +8740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &1176530197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8845,7 +8845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &1178855201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9244,7 +9244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &1235589029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9422,7 +9422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &1250400382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9727,7 +9727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &1297181806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12001,7 +12001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &1575269299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12742,7 +12742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &1763557977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12847,7 +12847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
 --- !u!1001 &1780926885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14868,7 +14868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 24
+  ConstraintAxis: 0
 --- !u!1001 &2022913555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15336,4 +15336,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce8f1a59f50a440fa9c7a2d71f8578a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConstraintAxis: 6
+  ConstraintAxis: 0
