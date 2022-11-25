@@ -21,8 +21,11 @@ namespace _Scripts.GUI.MainMenu
         public GameObject ScrollViewerContent2;
         public GameObject ButtonPrefab; //Prefab for button instantiation
 
+        private bool _generated = false;
+
         private void OnEnable()
         {
+            if(_generated) return;
             //Get all ILevel objects in project
             var levels = LevelManager.GetAllScenes();
 
@@ -39,6 +42,8 @@ namespace _Scripts.GUI.MainMenu
                 LevelButtons.Add(btn, level); //Add button and level to dictionary
                 i++;
             }
+
+            _generated = true;
         }
 
         private GameObject CreateButtonReference(ILevel level)

@@ -106,16 +106,16 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         if(!_isProjectile || !_playerHit) return;
         
         // Increment time
-        _currDebuffTimer += Time.deltaTime;
-        // If interval didn't elapse, return
-        if (_currDebuffTimer <= debuffTimeSeconds) return;
-        
-        // Revert movement speed
-        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed =
-            PlayerInteractionHandler.SceneObjects.Player.MovmentController.DefaultMovementSpeed;
-        
-        _currDebuffTimer = 0f; // Reset time
-        _playerHit = false;
+        // _currDebuffTimer += Time.deltaTime;
+        // // If interval didn't elapse, return
+        // if (_currDebuffTimer <= debuffTimeSeconds) return;
+        //
+        // // Revert movement speed
+        // PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed =
+        //     PlayerInteractionHandler.SceneObjects.Player.MovmentController.DefaultMovementSpeed;
+        //
+        // _currDebuffTimer = 0f; // Reset time
+        // _playerHit = false;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -124,6 +124,8 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         if (other.CompareTag("Furniture") && other.name.ToLower().Contains("wall") 
             || other.CompareTag("RoomWall") && other.name.ToLower().Contains("wall"))
         {
+            PlayerInteractionHandler.SceneObjects.Player.Transform.SetParent(null);
+            
             this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false; // Fake destroy
             Destroy(this.GetComponent<Collider>());
             
@@ -148,7 +150,11 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     private void PlayerHit()
     {
         // Set movement speed to half
-        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed *= 0.5f;
+        //PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed *= 0.5f;
+
+        var player = PlayerInteractionHandler.SceneObjects.Player.Self;
+        player.transform.SetParent(this.transform);
+        
         _playerHit = true; // Player is hit
     }
     
