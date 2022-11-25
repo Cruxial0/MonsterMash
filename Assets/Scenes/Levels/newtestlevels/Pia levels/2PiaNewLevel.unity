@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43832406, g: 0.48637158, b: 0.56664884, a: 1}
+  m_IndirectSpecularColor: {r: 0.43587255, g: 0.48321933, b: 0.5641542, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 52f0a0519ef8aa2449c52482bfa97364, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 888ca17dfe98f1b46b32501232512c02, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 376ae00eb6b7afd48b71baa0f8ff7a97, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -3616,7 +3616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 8
-  VisualFeedback: {fileID: 0}
+  VisualFeedback: {fileID: 4168444718908889018, guid: 0ae3da40b432bcf45858617bd5bc2339, type: 3}
   PopupPrefab: {fileID: 0}
 --- !u!114 &1250400385
 MonoBehaviour:
@@ -3644,6 +3644,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0400784, y: 4.2492476, z: 0.958991}
   m_Center: {x: 0, y: 2.1155357, z: 0}
+--- !u!114 &1250400390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250400383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 2865306a769b9d74aa34dc9f172de03a, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  OnlyNoiseObject: 0
+  SelectedStates: 8
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1263422861
 PrefabInstance:
   m_ObjectHideFlags: 0

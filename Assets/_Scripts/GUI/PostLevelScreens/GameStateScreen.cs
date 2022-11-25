@@ -9,7 +9,6 @@ namespace _Scripts.GUI.PostLevelScreens
     {
         public GameObject RestartLevelScreen()
         {
-            Debug.Log("here");
             var restartMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
 
             //Get text objects

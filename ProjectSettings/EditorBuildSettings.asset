@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
     guid: 566b5d4e6c0745042a98546e2fa75182
   - enabled: 1
+    path: Assets/Scenes/Levels/newtestlevels/LVL1.unity
+    guid: bd74c784e787db1439b54047ab61bc80
+  - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/LVL2.unity
     guid: e93eaeb374918724ea26c602ba098fde
   - enabled: 1
@@ -26,13 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/LVL5.unity
     guid: ee37f590bd973a246b1137eaaf808265
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/newtestlevels/LVL6.unity
     guid: 63d9b2826bdcb5644aeb722c1cd15509
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/newtestlevels/Pia levels/DarkLevel.unity
     guid: c380d7b4e29e3e842865b73fa7c95049
-  - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL1.unity
-    guid: bd74c784e787db1439b54047ab61bc80
   m_configObjects: {}

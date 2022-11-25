@@ -19,7 +19,7 @@ namespace _Scripts.Levels
             OneStarRequirement = 0.0,
             TwoStarRequirement = 0.0,
             ThreeStarRequirement = 0.0,
-            NoiseThreshold = 100
+            NoiseThreshold = 1f
         };
     }
 }

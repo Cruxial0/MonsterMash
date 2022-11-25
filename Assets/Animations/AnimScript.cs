@@ -1,11 +1,8 @@
 using System;
 using _Scripts.Handlers;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using Object = UnityEngine.Object;
-using System.Threading.Tasks;
+
 
 public class AnimScript : MonoBehaviour
 {
