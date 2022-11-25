@@ -101,8 +101,6 @@ namespace _Scripts.Handlers
                 }
             
             UnpackLevels();
-            
-            Debug.Log(JsonConvert.SerializeObject(UnlockedLevels));
         }
 
         private void UnpackLevels()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using _Scripts.Handlers.PowerHandlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
@@ -13,17 +14,21 @@ namespace _Scripts.Handlers.Powers
         //Assign values for timer
         private float buffTime = 2f;
         private float currTime;
+        private Color defaultColor;
+        private SpriteRenderer spriteRenderer;
+        private RuntimeAnimatorController runtimeAnimatorController;
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
         
-        private static readonly int Emission = Shader.PropertyToID("_EmissionColor");
-
         private void Start()
         {
             SceneObjects.Player.MovmentController.MovementSpeed = 30f; //Set speed of player
-            
-            SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
-                SceneObjects.Player.Sprites.Sprites[2];
+
+            spriteRenderer = SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>();
+            defaultColor = spriteRenderer.color;
+            spriteRenderer.color = new Color(255, 124, 124);
+            runtimeAnimatorController = PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController;
+            PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController = null;
         }
 
         private void FixedUpdate()
@@ -37,9 +42,10 @@ namespace _Scripts.Handlers.Powers
             {
                 SceneObjects.Player.MovmentController.MovementSpeed = 
                     SceneObjects.Player.MovmentController.DefaultMovementSpeed; //Revert speed of player
-                
-                SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
-                    SceneObjects.Player.Sprites.Sprites[0];
+
+                spriteRenderer.color = defaultColor;
+                PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController =
+                    runtimeAnimatorController;
 
                 active = false; //Deactivate timer
                 Destroy(this.gameObject);
