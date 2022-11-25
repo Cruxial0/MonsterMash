@@ -18,6 +18,7 @@ public class AnimScript : MonoBehaviour
     void Start()
     {
         Anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class AnimScript : MonoBehaviour
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         
         Anim.SetTrigger("Death");
+        
         _playerDead = true;
     }
 
