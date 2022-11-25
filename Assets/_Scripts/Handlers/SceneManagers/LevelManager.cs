@@ -60,6 +60,7 @@ namespace _Scripts.Handlers
                 .Replace(@"\Library\ScriptAssemblies", String.Empty)
                 .Replace(@"/Library/ScriptAssemblies", String.Empty));
             FilePath = Application.isEditor ? Path.Combine(startupPath, "Assets/Resources", "LevelSave.json") : Path.Combine(Application.persistentDataPath, "LevelSave.json");
+            Debug.Log(FilePath);
         }
         
         public void AddLevel(string level, int starCount)

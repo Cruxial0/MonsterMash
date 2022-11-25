@@ -84,20 +84,26 @@ namespace _Scripts.Handlers
                 
                 switch (scene.name)
                 {
-                    case "LVL0":
-                        SceneManager.LoadScene("LVL1");
+                    case "Tutorial":
+                        SceneManager.LoadScene("Level 1");
                         return;
-                    case "LVL1":
-                        SceneManager.LoadScene("LVL2");
+                    case "Level 1":
+                        SceneManager.LoadScene("Level 2");
                         return;
-                    case "LVL2":
-                        SceneManager.LoadScene("LVL3");
+                    case "Level 2":
+                        SceneManager.LoadScene("Level 3");
                         return;
-                    case "LVL3":
-                        SceneManager.LoadScene("LVL4");
+                    case "Level 3":
+                        SceneManager.LoadScene("Level 4");
                         return;
-                    case "LVL4":
-                        SceneManager.LoadScene("LVL5");
+                    case "Level 4":
+                        SceneManager.LoadScene("Level 5");
+                        return;
+                    case "Level 5":
+                        SceneManager.LoadScene("Level 6");
+                        return;
+                    case "Level 6":
+                        SceneManager.LoadScene("DarkLevel");
                         return;
                     
                 }  
