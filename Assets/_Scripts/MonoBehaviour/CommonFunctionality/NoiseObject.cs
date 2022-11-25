@@ -24,7 +24,6 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             {
                 PlayerInteractionHandler.Self.OnCollidedInvoke();
                 var noise = collision.relativeVelocity.magnitude / DivisionFactor;
-                print($"{collision.relativeVelocity.magnitude} -> {(collision.relativeVelocity.magnitude / DivisionFactor) * noiseMultiplyFactor}");
 
                 text.text = $"Last hit noise: {noise * noiseMultiplyFactor:##.###}";
                 

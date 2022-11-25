@@ -53,6 +53,7 @@ namespace _Scripts.Handlers
         private string FilePath { get; set; }
         public List<LevelSave> UnlockedLevels = new List<LevelSave>();
         public Dictionary<string, int> LevelStarRatings = new Dictionary<string, int>();
+        private bool exists;
 
         public void InitPath()
         {
@@ -60,6 +61,7 @@ namespace _Scripts.Handlers
                 .Replace(@"\Library\ScriptAssemblies", String.Empty)
                 .Replace(@"/Library/ScriptAssemblies", String.Empty));
             FilePath = Application.isEditor ? Path.Combine(startupPath, "Assets/Resources", "LevelSave.json") : Path.Combine(Application.persistentDataPath, "LevelSave.json");
+            Debug.Log(FilePath);
         }
         
         public void AddLevel(string level, int starCount)
@@ -89,6 +91,7 @@ namespace _Scripts.Handlers
 
         public void LoadLevels()
         {
+            if(exists) return;
             if (!File.Exists(FilePath)) File.Create(FilePath);
             if(File.ReadAllText(FilePath) != String.Empty)
                 try
@@ -99,6 +102,8 @@ namespace _Scripts.Handlers
                 {
                     Debug.Log(e);
                 }
+
+            exists = true;
             
             UnpackLevels();
         }

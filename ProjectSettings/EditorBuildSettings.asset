@@ -9,23 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/MenuTest.unity
     guid: 8ecd01e6e04a83749a850a88470e1f8f
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL0.unity
+    path: Assets/Scenes/Levels/newtestlevels/Tutorial.unity
     guid: 566b5d4e6c0745042a98546e2fa75182
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL1.unity
+    path: Assets/Scenes/Levels/newtestlevels/Level 1.unity
     guid: bd74c784e787db1439b54047ab61bc80
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL2.unity
+    path: Assets/Scenes/Levels/newtestlevels/Level 2.unity
     guid: e93eaeb374918724ea26c602ba098fde
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL3.unity
+    path: Assets/Scenes/Levels/newtestlevels/Level 3.unity
     guid: a10d6dafdbd55e349abb0e5a1f9aa307
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL4.unity
+    path: Assets/Scenes/Levels/newtestlevels/Level 4.unity
     guid: bcf3bdb10d43e104d9208b0e1e704c61
   - enabled: 1
-    path: Assets/Scenes/Levels/newtestlevels/LVL5.unity
+    path: Assets/Scenes/Levels/newtestlevels/Level 5.unity
     guid: ee37f590bd973a246b1137eaaf808265
+  - enabled: 1
+    path: Assets/Scenes/Levels/newtestlevels/Pia levels/Level 6.unity
+    guid: 6d86e5813a0c16443abe4265a0b38834
   - enabled: 1
     path: Assets/Scenes/Levels/newtestlevels/Pia levels/DarkLevel.unity
     guid: c380d7b4e29e3e842865b73fa7c95049

@@ -8,7 +8,7 @@ namespace _Scripts.Levels
     public class Level3 : ILevel
     {
         public int LevelID => 3;
-        public Level Level => new Level("LVL3")
+        public Level Level => new Level("Level 3")
         {
             LevelName = "Speedrun lvl 4"
         };

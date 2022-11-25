@@ -1,14 +1,6 @@
 [
   {
-    "SceneName": "LVL0",
+    "SceneName": "Tutorial",
     "StarCount": 3
-  },
-  {
-    "SceneName": "LVL1",
-    "StarCount": 3
-  },
-  {
-    "SceneName": "LVL2",
-    "StarCount": 2
   }
 ]
