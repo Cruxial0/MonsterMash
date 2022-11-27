@@ -1,15 +1,13 @@
 using System;
 using _Scripts.Handlers;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using Object = UnityEngine.Object;
-using System.Threading.Tasks;
+
 
 public class AnimScript : MonoBehaviour
 {
     public GameObject timeAnim;
+    public GameObject noiseAnim;
     public ParticleSystem deathParticle;
     [NonSerialized] public Animator Anim;
 
@@ -20,6 +18,7 @@ public class AnimScript : MonoBehaviour
     void Start()
     {
         Anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -44,6 +43,7 @@ public class AnimScript : MonoBehaviour
         Object.Instantiate(deathParticle).transform.position = PlayerInteractionHandler.SceneObjects.Player.Transform.position;
         
         Anim.SetTrigger("Death");
+        
         _playerDead = true;
     }
 
@@ -68,5 +68,13 @@ public class AnimScript : MonoBehaviour
     {
         if(_playerDead) return;
         timeAnim.SetActive(true);
+    }
+
+
+    public void NoiseAnim()
+    {
+        if (_playerDead) return;
+        noiseAnim.SetActive(true);
+        _playerDead = true;
     }
 }

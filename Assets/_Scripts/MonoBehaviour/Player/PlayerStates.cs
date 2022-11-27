@@ -11,7 +11,7 @@ namespace _Scripts.MonoBehaviour.Player
 
         private bool _moving = false;
 
-        public Boolean Moving
+        private Boolean Moving
         {
             get => _moving;
             set
@@ -19,11 +19,8 @@ namespace _Scripts.MonoBehaviour.Player
                 if (_moving != value)
                 {
                     _moving =  value;
-                    var handler = PlayerMoving;
-                    handler?.Invoke(value);
-                    
+                    PlayerMoving?.Invoke(_moving);
                 }
-                else return;
             }
         }
 
@@ -37,7 +34,6 @@ namespace _Scripts.MonoBehaviour.Player
                 if (_buffed != value)
                 {
                     _buffed = value;
-                    print(_buffed);
                     if(value) SetBuffedPlayerState();
                     if (!value)
                     {
@@ -87,7 +83,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void Update()
         {
             
-            if (playerBody.acceleration >= 1) OnPlayerMoving();
+            if (playerBody.acceleration >= 1f) OnPlayerMoving();
             else
             {
                 PlayerState &= ~PlayerState.Moving;

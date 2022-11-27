@@ -8,6 +8,10 @@ namespace _Scripts.Handlers.Powers
 {
     public class NoSoundPower : UnityEngine.MonoBehaviour, IPower
     {
+        private RuntimeAnimatorController runtimeAnimatorController;
+        private SpriteRenderer spriteRenderer;
+        private Color defaultColor;
+
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
         public string PowerName => "MutePower";
         public float PowerDuration { get; set; }
@@ -34,8 +38,13 @@ namespace _Scripts.Handlers.Powers
             Parent = this.gameObject;
             
             SceneObjects.UI.NoiseMeterSceneObject.Script.IsMute = true;
-            SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
-                SceneObjects.Player.Sprites.Sprites[3];
+            
+            spriteRenderer = SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>();
+            defaultColor = spriteRenderer.color;
+            spriteRenderer.color = new Color(124, 124, 255);
+            runtimeAnimatorController = PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController;
+            PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController = null;
+
             
             _enabled = true;
         }
@@ -49,8 +58,9 @@ namespace _Scripts.Handlers.Powers
             if(_currTime < PowerDuration) return;
             
             PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.IsMute = false;
-            PlayerInteractionHandler.SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
-                PlayerInteractionHandler.SceneObjects.Player.Sprites.Sprites[0];
+            spriteRenderer.color = defaultColor;
+            PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController =
+                runtimeAnimatorController;
             
             Destroy(this);
         }

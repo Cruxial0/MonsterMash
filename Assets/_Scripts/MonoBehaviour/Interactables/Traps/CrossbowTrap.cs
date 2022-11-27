@@ -14,15 +14,16 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     public float fireIntervalSeconds = 3f; // Fire interval for arrows
     public GameObject arrowPrefab; // Arrow to fire
     public float projectileMovementMultiplier = 0.02f; // Arrow movement speed
-    public float projectileLifetime;
-    
+    public float startupDelay;
+
+    private float currStartupDelay = 0f;
     private bool _isProjectile = false; // Is object a projectile?
     private float _currTime = 0f; // Counter for fire interval
-    private float _currLifetimeTime = 0f;
     private bool _playerHit = false; // Is player hit?
     
     public float debuffTimeSeconds = 3f; // Debuff (slow) duration
     private float _currDebuffTimer = 0f; // Current debuff timer
+    private Transform player;
     
     //Dictionary for getting Vector3 values from FireDirection
     private Dictionary<FireDirection, Vector3> _fireDirection = new()
@@ -70,6 +71,11 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         {
             // In case this object is not a projectile
             case false:
+
+                currStartupDelay += Time.deltaTime;
+                
+                if(currStartupDelay < startupDelay) return;
+
                 _currTime += Time.deltaTime; // Increment time
                 if(_currTime < fireIntervalSeconds) return; // Return if interval is not complete
 
@@ -89,33 +95,14 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
             case true:
                 // Move arrow
                 
-                this._currLifetimeTime += Time.deltaTime;
-
-                if (_currLifetimeTime > projectileLifetime)
-                {
-                    
-                    Destroy(this.gameObject, debuffTimeSeconds + 1f);
-                    _currLifetimeTime = 0f;
-                }
-                
                 this.transform.position += _fireDirection[fireDirection] * projectileMovementMultiplier;
                 break;
         }
         
         // If -isProjectile or _playerHit is false, return
         if(!_isProjectile || !_playerHit) return;
-        
-        // Increment time
-        _currDebuffTimer += Time.deltaTime;
-        // If interval didn't elapse, return
-        if (_currDebuffTimer <= debuffTimeSeconds) return;
-        
-        // Revert movement speed
-        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed =
-            PlayerInteractionHandler.SceneObjects.Player.MovmentController.DefaultMovementSpeed;
-        
-        _currDebuffTimer = 0f; // Reset time
-        _playerHit = false;
+
+        player.position = this.transform.position;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -124,11 +111,10 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
         if (other.CompareTag("Furniture") && other.name.ToLower().Contains("wall") 
             || other.CompareTag("RoomWall") && other.name.ToLower().Contains("wall"))
         {
-            this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false; // Fake destroy
-            Destroy(this.GetComponent<Collider>());
-            
+            PlayerInteractionHandler.SceneObjects.Player.Transform.SetParent(null);
+
             // Make sure Update() is allowed to update before destroying
-            Destroy(this.gameObject, debuffTimeSeconds); 
+            Destroy(this.gameObject); 
         }
         
         // If collider is not player, or object is not projectile, return
@@ -148,7 +134,10 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
     private void PlayerHit()
     {
         // Set movement speed to half
-        PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed *= 0.5f;
+        //PlayerInteractionHandler.SceneObjects.Player.MovmentController.MovementSpeed *= 0.5f;
+
+        player = PlayerInteractionHandler.SceneObjects.Player.Transform;
+
         _playerHit = true; // Player is hit
     }
     

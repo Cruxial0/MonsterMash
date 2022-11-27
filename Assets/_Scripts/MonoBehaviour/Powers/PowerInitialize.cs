@@ -19,7 +19,11 @@ namespace _Scripts.MonoBehaviour.Powers
         private void Start()
         {
             //Get the first power from PowerManager.Powers where the PowerName = powerName
-            powerObject = PlayerInteractionHandler.PowerManager.Powers.First(x => x.PowerName == powerName);
+            var type = PlayerInteractionHandler.PowerManager.Powers.First(x => x.PowerName == powerName).GetType();
+
+            powerObject = Activator.CreateInstance(type) as IPower;
+            print(powerObject.GetType());
+            
             powerObject.Parent = gameObject; //Assign Parent object to this.gameObject
             powerObject.PowerDuration = powerDuration;
         
@@ -30,11 +34,5 @@ namespace _Scripts.MonoBehaviour.Powers
             //Call method IPower.Execute()
             powerObject.PowerObject.Execute();
         }
-    }
-
-    [Serializable]
-    public class Powers<T>
-    {
-        public List<T> PowerNames = new List<T>();
     }
 }

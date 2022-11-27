@@ -8,9 +8,9 @@ namespace _Scripts.Levels
     public class Level0 : ILevel
     {
         public int LevelID => 0;
-        public Level Level => new Level("LVL0")
+        public Level Level => new Level("Tutorial")
         {
-            LevelName = "Speedrun lvl 1"
+            LevelName = "Tutorial"
         };
         public List<IEvent> Events => new() { new NoEvent() };
 
@@ -19,7 +19,7 @@ namespace _Scripts.Levels
             OneStarRequirement = 0.0,
             TwoStarRequirement = 0.0,
             ThreeStarRequirement = 0.0,
-            NoiseThreshold = 100
+            NoiseThreshold = 1f
         };
     }
 }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.GUI.PostLevelScreens;
+using _Scripts.Handlers.SceneManagers;
 using _Scripts.Interfaces;
 using _Scripts.MonoBehaviour.Player;
 using TMPro;
-using UnityEditor.VersionControl;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ namespace _Scripts.Handlers
         private bool lost = false; //Lost?
         private bool postLost;
         private bool _enabled = true;
+        private int stars = 0;
 
         private Dictionary<LoseCondition, UnityAction> animations = new();
 
@@ -39,7 +41,7 @@ namespace _Scripts.Handlers
             animations = new Dictionary<LoseCondition, UnityAction>();
             animations.Add(LoseCondition.Trap, script.BearTrapAnim);
             animations[LoseCondition.Trap] = script.BearTrapAnim;
-            animations[LoseCondition.Noise] = script.deathAnim;
+            animations[LoseCondition.Noise] = script.NoiseAnim;
             animations[LoseCondition.Time] = script.deathAnim;
         }
         
@@ -77,26 +79,33 @@ namespace _Scripts.Handlers
                     return;
                 }
                 
+                InitializeLevelService.levels.AddLevel(SceneManager.GetActiveScene().name, stars);
+                InitializeLevelService.levels.SaveLevels();
+                
                 switch (scene.name)
                 {
-                    case "LVL0":
-                        SceneManager.LoadScene("LVL1");
+                    case "Tutorial":
+                        SceneManager.LoadScene("Level 1");
                         return;
-                    case "LVL1":
-                        SceneManager.LoadScene("LVL2");
+                    case "Level 1":
+                        SceneManager.LoadScene("Level 2");
                         return;
-                    case "LVL2":
-                        SceneManager.LoadScene("LVL3");
+                    case "Level 2":
+                        SceneManager.LoadScene("Level 3");
                         return;
-                    case "LVL3":
-                        SceneManager.LoadScene("LVL4");
+                    case "Level 3":
+                        SceneManager.LoadScene("Level 4");
                         return;
-                    case "LVL4":
-                        SceneManager.LoadScene("LVL5");
+                    case "Level 4":
+                        SceneManager.LoadScene("Level 5");
                         return;
-                    case "LVL5":
-                        SceneManager.LoadScene("LVL6");
+                    case "Level 5":
+                        SceneManager.LoadScene("Level 6");
                         return;
+                    case "Level 6":
+                        SceneManager.LoadScene("DarkLevel");
+                        return;
+                    
                 }  
 
                 SceneManager.LoadScene("MenuTest");
@@ -125,7 +134,7 @@ namespace _Scripts.Handlers
             }
 
             animations.Add(LoseCondition.Trap, controller.BearTrapAnim);
-            animations.Add(LoseCondition.Noise, controller.deathAnim);
+            animations.Add(LoseCondition.Noise, controller.NoiseAnim);
             animations.Add(LoseCondition.Time, controller.TimeAnim);
 
             animations[loseCondition].Invoke();
@@ -153,6 +162,15 @@ namespace _Scripts.Handlers
         
         public void Win(float timeLeft)
         {
+            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
+            
+            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
+            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
+            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
+                level.StarLevels.NoiseThreshold && stars != 0)
+                stars--;
+            
             //Destroy player
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.DestroySelf();
             //Set text color to green
@@ -163,23 +181,11 @@ namespace _Scripts.Handlers
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             //Instantiate win screen
             Instantiate(gameScreens.WinLevelScreen());
-
+            
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
             manager.lost = false;
-
-            var level = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name);
-            
-            int stars = 0;
-            if (level.StarLevels.OneStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.TwoStarRequirement <= timeLeft) stars++;
-            if (level.StarLevels.ThreeStarRequirement <= timeLeft) stars++;
-            if (PlayerInteractionHandler.SceneObjects.UI.NoiseMeterSceneObject.Script.slider.value >=
-                level.StarLevels.NoiseThreshold && stars != 0)
-                stars--;
-
-
-            print(stars);
+            manager.stars = this.stars;
         }
     }
     
