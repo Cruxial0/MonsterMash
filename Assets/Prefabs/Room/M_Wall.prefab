@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6928457875442999963}
   - component: {fileID: 6928457875442999964}
   - component: {fileID: -7406762891461822883}
+  - component: {fileID: 4196327389263629274}
   m_Layer: 0
   m_Name: M_Wall
   m_TagString: RoomWall
@@ -129,3 +130,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4196327389263629274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7847445845766348744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: 
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0

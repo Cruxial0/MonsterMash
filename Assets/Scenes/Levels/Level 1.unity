@@ -2383,6 +2383,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.83771, y: 1.4713358, z: 0.9741106}
   m_Center: {x: 0, y: 0.74177414, z: 0}
+--- !u!114 &471090613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471090606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1 &479694475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2874,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd84044cfd55aca49985d14013e8040a, type: 3}
+--- !u!1 &551182894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2288333413908946300, guid: 991d36de164d65f4ebfbbf38b855a76a, type: 3}
+  m_PrefabInstance: {fileID: 2013143286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &551182901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551182894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Trap
+  OnlyNoiseObject: 0
+  SelectedStates: 4
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &563750520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2915,6 +2993,10 @@ PrefabInstance:
     - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105417479222237979, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -63.000122
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
@@ -3254,14 +3336,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604356772}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   source:
     soundClips:
-    - {fileID: 8300000, guid: 2865306a769b9d74aa34dc9f172de03a, type: 3}
+    - {fileID: 8300000, guid: b557e1bf88a13444c8d60edad7cf1e20, type: 3}
     volumeRolloff: 0
     outputMixerGroup: {fileID: 0}
     mute: 0
@@ -3271,14 +3353,14 @@ MonoBehaviour:
     playOnAwake: 0
     loop: 0
     priority: 128
-    volume: 1
-    pitch: 1
+    volume: 0.851
+    pitch: 1.1
     stereoPan: 0
-    spatialBlend: 0
+    spatialBlend: 0.104
     reverbZoneMix: 1
   soundType: 2
   _audioSource: {fileID: 0}
-  SelectedTag: 0
+  SelectedTag: Player
   OnlyNoiseObject: 0
   SelectedStates: 8
   MinInterval: 0
@@ -4156,6 +4238,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConstraintAxis: 0
+--- !u!1 &902070570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902070572}
+  - component: {fileID: 902070571}
+  m_Layer: 0
+  m_Name: Music Control
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &902070571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902070570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 0f18d836de38d2c4faf5a571728be0d9, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 1
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 3
+  _audioSource: {fileID: 0}
+  SelectedTag: 
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
+--- !u!4 &902070572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902070570}
+  m_LocalRotation: {x: -0, y: -0.0000059604645, z: -0, w: -1}
+  m_LocalPosition: {x: 10, y: 0, z: 4}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 66
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911785008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4731,6 +4881,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0400784, y: 4.2492476, z: 0.958991}
   m_Center: {x: 0, y: 2.1155357, z: 0}
+--- !u!114 &1250400390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250400383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1254516377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6894,6 +7080,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1617901610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617901599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: db1ad8862049d7f428eaaf33b51cc03c, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1.41
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  OnlyNoiseObject: 0
+  SelectedStates: 4
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1665226249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7321,6 +7543,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.83771, y: 1.4713358, z: 0.9741106}
   m_Center: {x: 0, y: 0.74177414, z: 0}
+--- !u!114 &1839900456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839900449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  OnlyNoiseObject: 0
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1899356273
 PrefabInstance:
   m_ObjectHideFlags: 0
