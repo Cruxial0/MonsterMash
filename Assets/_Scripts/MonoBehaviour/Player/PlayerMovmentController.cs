@@ -27,7 +27,7 @@ namespace _Scripts.MonoBehaviour.Player
         [NonSerialized] public bool CanControl = true;
         [NonSerialized] public float MovementSpeed = 16f; //MovementSpeed
         [NonSerialized] public readonly float DefaultMovementSpeed = 16f; //MovementSpeed
-        [NonSerialized] public FixedJoystick Joystick;
+        [NonSerialized] public FloatingJoystick Joystick;
         public bool isFlat = true;
         public Vector3 prevMovement = new Vector3();
         public Vector3 prevVelocity = new Vector3();
