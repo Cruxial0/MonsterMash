@@ -60,7 +60,7 @@ namespace _Scripts.MonoBehaviour.Camera
 
             //Assign position values from player to newly created playerPos variable
             playerPos.x = position.x;
-            playerPos.z = position.z - 1f;
+            playerPos.z = position.z - 2f;
             playerPos.y = position.y + CameraDistace; //+CameraDistance for a consistent height above ground.
 
             //print(tile.ConstraintAxis);
