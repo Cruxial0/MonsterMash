@@ -15,25 +15,28 @@ using Random = UnityEngine.Random;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
+    /// <summary>
+    /// Universal script for adding sound to objects
+    /// </summary>
     public class SoundObject : UnityEngine.MonoBehaviour
     {
         public Audio source;
         public SoundType soundType;
 
-        [HideInInspector] public AudioSource _audioSource;
-        [HideInInspector] public string SelectedTag = "";
-        [HideInInspector] public bool OnlyNoiseObject;
-        [HideInInspector] public PlayerState SelectedStates = PlayerState.None;
-        [HideInInspector] public int MinInterval;
-        [HideInInspector] public int MaxInterval;
+        [HideInInspector] public AudioSource _audioSource; // Associated AudioSource
+        [HideInInspector] public string SelectedTag = ""; // Selected tag in inspector GUI
+        [HideInInspector] public PlayerState SelectedStates = PlayerState.None; // Selected PlayerState
+        [HideInInspector] public int MinInterval; // Min interval for sound loops
+        [HideInInspector] public int MaxInterval; // Max interval for sound loops
 
-        private bool _moving;
-        private bool _cycle;
-        private bool _buffed;
+        private bool _moving; // Player moving?
+        private bool _cycle; // Cycle mode enabled?
+        private bool _buffed; // Player buffed?
         
-        private float _currTime;
-        private float _interval;
+        private float _currTime; // current time for intervals
+        private float _interval; // current interval max time (based on rng between min and max)
         
+        // Selected SoundType
         public enum SoundType
         {
             Collision,
@@ -44,122 +47,124 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void Start()
         {
+            //Append new AudioSource
             _audioSource = gameObject.AddComponent<AudioSource>();
             try
             {
-                ToAudioSource(source, _audioSource);
+                ToAudioSource(source, _audioSource); // Converts Audio to AudioSource
             }
             catch (Exception e)
             {
-                Debug.LogError("No audio source was found.");
+                // If an error is found, no audio source was found, as all other properties are nullable
+                Debug.LogError("No audio source was found."); 
                 return;
             }
             
-            DetermineSound();
+            DetermineSound(); // Handle sound based on SoundType
         }
 
         private void DetermineSound()
         {
-            print(soundType);
+            // Switch on SoundType
             switch (soundType)
             {
                 case SoundType.Collision:
+                    // Check whether object is a trap or furniture
                     if (this.CompareTag("Trap"))
                     {
+                        // Get current TrapObject through Linq expression
                         var trap = PlayerInteractionHandler.Self.TrapHandler.Interactibles.First(x => x.Parent.name == name);
+                        // Subscribe to event
                         trap.TrapCollisionAdded += TrapOnTrapCollisionAdded;
                         break;
                     }
+                    // Get current InteractableObject through Linq expression
                     var obj = PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name);
+                    // Subscribe to event
                     obj.CollisionAdded += OnCollisionAdded;
                     break;
                 case SoundType.Cycle:
-                    _interval = Random.Range(MinInterval, MaxInterval);
-                    _cycle = true;
+                    _interval = Random.Range(MinInterval, MaxInterval); // Get random cycle time
+                    _cycle = true; // Activate cycle mode
                     break;
                 case SoundType.PlayerState:
-                    ManageEvents();
+                    ManageEvents(); // Redirect to ManageEvents method
                     break;
                 case SoundType.Music:
-                    _audioSource.Play();
+                    _audioSource.Play(); // Play audio
                     break;
             }
         }
 
         private void TrapOnTrapCollisionAdded(object sender, TrapEventArgs e)
         {
-            if (e.CollisionEvent.collider.CompareTag(SelectedTag))
-            {
-                _audioSource.clip = source.GetRandomClip();
-                _audioSource.Play();
-            }
+            // Return if collision tag does not match SelectedTag
+            if (!e.CollisionEvent.collider.CompareTag(SelectedTag)) return;
+            _audioSource.clip = source.GetRandomClip(); // Set clip to random clip
+            _audioSource.Play(); // Play audio
         }
 
         private void OnCollisionAdded(object sender, CollisionEventArgs e)
         {
-            if (e.CollisionEvent.collider.CompareTag(SelectedTag))
-            {
-                _audioSource.clip = source.GetRandomClip();
-                _audioSource.Play();
-            }
+            // Return if collision tag does not match SelectedTag
+            if (!e.CollisionEvent.collider.CompareTag(SelectedTag)) return;
+            _audioSource.clip = source.GetRandomClip(); // Set clip to random clip
+            _audioSource.Play(); // Play audio
         }
 
+        /// <summary>
+        /// Manages audio based on PlayerStates
+        /// </summary>
         private void ManageEvents()
         {
             switch (SelectedStates)
             {
+                // Apply lambda expression for _moving property
                 case PlayerState.Moving:
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerMoving += ctx => _moving = ctx;
                     break;
+                // Subscribe to event with method assignment
                 case PlayerState.Dead:
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.OnPlayerDestroyed += PlayerStatesOnOnPlayerDestroyed;
                     break;
+                // Apply lambda expression for _buffed property
                 case PlayerState.Buffed:
                     PlayerInteractionHandler.SceneObjects.Player.PlayerStates.PlayerBuffed += ctx => _buffed = ctx;
-                    break;
-                case PlayerState.Collided:
                     break;
             }
         }
         
 
+        // Play audio
         private void PlayerStatesOnOnPlayerDestroyed(bool destroyed) => _audioSource.Play();
-
-        private void ScriptOnOnCollisionDetected(Collision c)
-        {
-            //UnityEditorInternal.InternalEditorUtility.tags[SelectedTag]
-            #if UNITY_EDITOR
-            if (c.collider.CompareTag(SelectedTag))
-            {
-                _audioSource.clip = source.GetRandomClip();
-                _audioSource.Play();
-            }
-            #endif
-        }
 
         private void FixedUpdate()
         {
+            // Return if AudioSource is playing to avoid overlapping audio
             if (_audioSource.isPlaying) return;
             
+            // If cycle mode is enabled
             if (_cycle)
             {
-                _currTime += Time.deltaTime;
-                if(_currTime < _interval) return;
-                _audioSource.clip = source.GetRandomClip();
-                _audioSource.Play();
+                _currTime += Time.deltaTime; // Increment time
+                if(_currTime < _interval) return; // Return if interval is less than current time
+                _audioSource.clip = source.GetRandomClip(); // Get random clip
+                _audioSource.Play(); // Play random clip
             }
             
             if (_moving && !_audioSource.isPlaying)
-                _audioSource.Play();
-            //else
-                //_audioSource.Stop();
-            
+                _audioSource.Play(); // Play audio if _moving is true
+
             if (_buffed && !_audioSource.isPlaying)
-                _audioSource.Play();
-            //else
-                //_audioSource.Stop();
+                _audioSource.Play(); // Play audio if _buffed is true
+
         }
 
+        /// <summary>
+        /// Converts internal Audio class to AudioSource
+        /// </summary>
+        /// <param name="source">Audio to convert from</param>
+        /// <param name="audioSource">Target AudioSource</param>
         public void ToAudioSource(Audio source, AudioSource audioSource)
         {
             audioSource.clip = RandomAudioClip(source.soundClips);
@@ -178,7 +183,12 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             audioSource.reverbZoneMix = source.reverbZoneMix;
             audioSource.rolloffMode = source.volumeRolloff;
         }
-
+        
+        /// <summary>
+        /// Generates Audio from AudioSource
+        /// </summary>
+        /// <param name="audioSource">Audio source to convert from</param>
+        /// <returns></returns>
         public Audio FromAudioSource(AudioSource audioSource)
         {
             Audio source = new Audio();
@@ -200,12 +210,20 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             return source;
         }
 
-        public AudioClip RandomAudioClip(List<AudioClip> clips)
+        /// <summary>
+        /// Gets a random audio clip
+        /// </summary>
+        /// <param name="clips"></param>
+        /// <returns>Random AudioClip</returns>
+        private AudioClip RandomAudioClip(List<AudioClip> clips)
         {
             return clips[Random.Range(0, clips.Count)];
         }
     }
 
+    /// <summary>
+    /// Custom container for AudioSource essentials
+    /// </summary>
     [Serializable]
     public class Audio
     {
@@ -230,7 +248,5 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         public float spatialBlend = 0f;
         [Range(0f, 1.1f)]
         public float reverbZoneMix = 1f;
-
-        
     }
 }
