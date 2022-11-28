@@ -1,4 +1,5 @@
-#if UNITY_EDITOR
+#if UNITY_EDITOR // This excludes this file from any other build platform other than the unity editor.
+                 // This prevents some build errors when building for Android/WebGL
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,41 +9,42 @@ using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Powers.Editors
 {
+    /// <summary>
+    /// Custom Inspector GUI for Powers
+    /// </summary>
     [CustomEditor(typeof(PowerInitialize))]
     public class PowerInitEditor : Editor
     {
-        SerializedObject _editorObject;
-
-        private void OnEnable()
-        {
-            _editorObject = new SerializedObject(target);
-        }
-
         public override void OnInspectorGUI()
         {
-            base.DrawDefaultInspector();
+            base.DrawDefaultInspector(); // Draws base GUI
             
-            PowerInitialize power = (PowerInitialize)target;
+            PowerInitialize power = (PowerInitialize)target; // Gets associated instance of PowerInitialize
             
-            EditorUtility.SetDirty(this);
+            // Marks this object as dirty. Allows you to make an object without an undo entry.
+            EditorUtility.SetDirty(this); 
             
-            GUILayout.Space(5f);
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Validate name"))
+            GUILayout.Space(5f); // Adds 5px of transparent space
+            GUILayout.BeginHorizontal(); // Begins a horizontal stack panel
+            if (GUILayout.Button("Validate name")) // Creates a button
             {
-                bool exists = GetAllPowers().Contains(power.powerName);
-                Debug.Log($"Power exists: {exists}");
+                bool exists = GetAllPowers().Contains(power.powerName); // Check if powerName is equal to a valid power
+                Debug.Log($"Power exists: {exists}"); // Log result
             }
-            if (GUILayout.Button("List Powers"))
+            if (GUILayout.Button("List Powers")) // Lists all powers
             {
                 EditorUtility
                     .DisplayDialog("All power names", 
                         string.Join(Environment.NewLine, GetAllPowers()), 
                             "Imagine reading these lmao");
             }
-            GUILayout.EndHorizontal();
+            GUILayout.EndHorizontal(); // End the horizontal stack panel
         }
 
+        /// <summary>
+        /// Makes use of reflection to get all Power scripts
+        /// </summary>
+        /// <returns>List of power names</returns>
         private List<string> GetAllPowers()
         {
             var Levels = new List<string>();
