@@ -64,7 +64,12 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             switch (soundType)
             {
                 case SoundType.Collision:
-                    print("here");
+                    if (this.CompareTag("Trap"))
+                    {
+                        var trap = PlayerInteractionHandler.Self.TrapHandler.Interactibles.First(x => x.Parent.name == name);
+                        trap.TrapCollisionAdded += TrapOnTrapCollisionAdded;
+                        break;
+                    }
                     var obj = PlayerInteractionHandler.Self.InteractableHandler.Interactibles.First(x => x.Parent.name == name);
                     obj.CollisionAdded += OnCollisionAdded;
                     break;
@@ -78,6 +83,15 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
                 case SoundType.Music:
                     _audioSource.Play();
                     break;
+            }
+        }
+
+        private void TrapOnTrapCollisionAdded(object sender, TrapEventArgs e)
+        {
+            if (e.CollisionEvent.collider.CompareTag(SelectedTag))
+            {
+                _audioSource.clip = source.GetRandomClip();
+                _audioSource.Play();
             }
         }
 
