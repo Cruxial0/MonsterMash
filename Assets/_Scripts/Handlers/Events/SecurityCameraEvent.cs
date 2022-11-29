@@ -13,11 +13,13 @@ namespace _Scripts.Handlers.Events
         public SceneObjects Objects => PlayerInteractionHandler.SceneObjects;
         private CameraObject _cameraObject;
         private Color c;
+        private static readonly int TintColor = Shader.PropertyToID("_TintColor");
+
         public void ApplyEvent()
         {
             _cameraObject = Objects.Room.EventObjects.First(x => x.GetType() == typeof(CameraObject)) as CameraObject;
             
-            c = _cameraObject.CameraView.MeshRenderer.material.GetColor("_TintColor");
+            c = _cameraObject.CameraView.MeshRenderer.material.GetColor(TintColor);
             
             print(_cameraObject.CameraView.Script.name);
             _cameraObject.CameraView.Script.PlayerInCamera += ScriptOnPlayerInCamera;
@@ -26,12 +28,12 @@ namespace _Scripts.Handlers.Events
 
         private void ScriptOnPlayerExitCamera(object sender)
         {
-            _cameraObject.CameraView.MeshRenderer.material.SetColor("_TintColor", c);
+            _cameraObject.CameraView.MeshRenderer.material.SetColor(TintColor, c);
         }
 
         private void ScriptOnPlayerInCamera(object sender)
         {
-            _cameraObject.CameraView.MeshRenderer.material.SetColor("_TintColor", new Color(255, 0, 0, c.a)); 
+            _cameraObject.CameraView.MeshRenderer.material.SetColor(TintColor, new Color(255, 0, 0, c.a)); 
         }
     }
 }
