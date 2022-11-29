@@ -61,7 +61,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             };
 
             //Append new AudioSource
-            _audioSource = _audioSourceContainer.AddComponent<AudioSource>();
+            _audioSource = CreateOrGetContainer(_audioSourceContainer).AddComponent<AudioSource>();
             try
             {
                 ToAudioSource(source, _audioSource); // Converts Audio to AudioSource
@@ -76,6 +76,22 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             DetermineSound(); // Handle sound based on SoundType
         }
 
+        /// <summary>
+        /// Parents object to an empty container, and returns object
+        /// </summary>
+        /// <param name="objectToAssign">Object to assign to parent object</param>
+        /// <returns>objectToAssign</returns>
+        private GameObject CreateOrGetContainer(GameObject objectToAssign)
+        {
+            GameObject container;
+            if (GameObject.Find("SoundContainers") == null) container = new GameObject("SoundContainers");
+            else container = GameObject.Find("SoundContainers");
+            
+            objectToAssign.transform.SetParent(container.transform);
+
+            return objectToAssign;
+        }
+        
         private void DetermineSound()
         {
             // Switch on SoundType

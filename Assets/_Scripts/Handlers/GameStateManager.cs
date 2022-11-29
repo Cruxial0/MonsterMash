@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 namespace _Scripts.Handlers
 {
@@ -35,16 +36,6 @@ namespace _Scripts.Handlers
             _handler = handler; //Assign value
         }
 
-        private void AssignDict()
-        {
-            var script = PlayerInteractionHandler.SceneObjects.Player.AnimScript;
-            animations = new Dictionary<LoseCondition, UnityAction>();
-            animations.Add(LoseCondition.Trap, script.BearTrapAnim);
-            animations[LoseCondition.Trap] = script.BearTrapAnim;
-            animations[LoseCondition.Noise] = script.NoiseAnim;
-            animations[LoseCondition.Time] = script.deathAnim;
-        }
-        
         private void Awake()
         {
             
@@ -64,52 +55,6 @@ namespace _Scripts.Handlers
 
             if (i == 0) GenerateLossScreen();
             i++;
-            
-            if(!_enabled) return;
-
-            currTime += Time.deltaTime; //Increment time
-
-            if (currTime > delay)
-            {
-                var scene = SceneManager.GetActiveScene();
-
-                if (lost)
-                {
-                    SceneManager.LoadScene(scene.buildIndex);
-                    return;
-                }
-                
-                InitializeLevelService.levels.AddLevel(SceneManager.GetActiveScene().name, stars);
-                InitializeLevelService.levels.SaveLevels();
-                
-                switch (scene.name)
-                {
-                    case "Tutorial":
-                        SceneManager.LoadScene("Level 1");
-                        return;
-                    case "Level 1":
-                        SceneManager.LoadScene("Level 2");
-                        return;
-                    case "Level 2":
-                        SceneManager.LoadScene("Level 3");
-                        return;
-                    case "Level 3":
-                        SceneManager.LoadScene("Level 4");
-                        return;
-                    case "Level 4":
-                        SceneManager.LoadScene("Level 5");
-                        return;
-                    case "Level 5":
-                        SceneManager.LoadScene("Level 6");
-                        return;
-                    case "Level 6":
-                        SceneManager.LoadScene("DarkLevel");
-                        return;
-                    
-                }  
-
-                SceneManager.LoadScene("MenuTest");
-            }
         }
 
         public void Lose(LoseCondition loseCondition)
@@ -180,14 +125,21 @@ namespace _Scripts.Handlers
             //Disable camera script
             PlayerInteractionHandler.SceneObjects.Camera.Script.isEnabled = false;
             //Instantiate win screen
-            Instantiate(gameScreens.WinLevelScreen());
+            Instantiate(gameScreens.WinLevelScreen(stars));
+            
+            InitializeLevelService.levels.AddLevel(SceneManager.GetActiveScene().name, stars);
+            InitializeLevelService.levels.SaveLevels();
             
             var go = new GameObject(); //Add empty handler
             var manager = go.AddComponent<GameStateManager>(); //Add GameStateManager component to object
             manager.lost = false;
             manager.stars = this.stars;
         }
+        
+        
     }
+
+    
     
     public enum LoseCondition
     {
