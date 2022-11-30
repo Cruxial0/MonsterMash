@@ -12,6 +12,7 @@ namespace _Scripts.Levels
         {
             LevelName = "Percision lvl 2"
         };
+        public float LevelTime => 60f;
         public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()

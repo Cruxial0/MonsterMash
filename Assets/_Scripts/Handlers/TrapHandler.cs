@@ -18,7 +18,6 @@ namespace _Scripts.Handlers
             {
                 //Create and add TrapObject to list of Interactables
                 Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<ITrapCollision>()));
-                Debug.Log(gameObject.name);
             }
                 
         }
