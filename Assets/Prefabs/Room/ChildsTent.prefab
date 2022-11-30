@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4732880050038855996}
   - component: {fileID: 7370816017184435702}
   - component: {fileID: 892416563297712451}
+  - component: {fileID: 7013962808752084935}
   m_Layer: 0
   m_Name: ChildsTent
   m_TagString: Untagged
@@ -97,3 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noiseMultiplyFactor: 0.5
+--- !u!65 &7013962808752084935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028198199175023651}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009999999, y: 0.0114312, z: 0.009999999}
+  m_Center: {x: 0, y: 0.00071560073, z: 0}
