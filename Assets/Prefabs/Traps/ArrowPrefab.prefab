@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 476747181500273174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2532783, y: 0.20451, z: 0.20451}
+  m_LocalScale: {x: 2.6046882, y: 0.42503315, z: 0.42503315}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8817383048602919028}
@@ -96,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.64, y: 1, z: 1.85}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6106656270791074599
 GameObject:
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8817383048602919028}
   - component: {fileID: 2416481787517546156}
   - component: {fileID: 7573299269897153701}
+  - component: {fileID: 3207555663426495487}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 6106656270791074599}
   m_LocalRotation: {x: -0.49999928, y: -0.49999928, z: -0.5000007, w: 0.5000007}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.28, y: -0.0364, z: -0.0364}
+  m_LocalScale: {x: -2.715272, y: -0.35298538, z: -0.35298538}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5205509910042671168}
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89ce4f040a1b6644aa14a4cdab9c07b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 047eed3cb886f144e9c58f2949a60a91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,4 +197,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 2
+  eraseRenderer: 0
+--- !u!114 &3207555663426495487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106656270791074599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
   eraseRenderer: 0
