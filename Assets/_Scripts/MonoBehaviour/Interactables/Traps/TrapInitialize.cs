@@ -24,7 +24,7 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
             if (!c.gameObject.CompareTag("Player")) return;
 
             //Get the correct trap object using LINQ
-            _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == TrapName)
+            var args = _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == TrapName)
                 .AddCollisionEntry(new TrapEventArgs(this, c));
         }
 

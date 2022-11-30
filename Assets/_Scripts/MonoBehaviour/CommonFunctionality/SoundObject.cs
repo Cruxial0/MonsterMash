@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Extensions;
 using _Scripts.Handlers;
+using _Scripts.MonoBehaviour.Interactables.Traps;
 #if UNITY_EDITOR
 using _Scripts.MonoBehaviour.CommonFunctionality.Editors;
 #endif
@@ -11,6 +12,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
@@ -29,6 +31,8 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         [HideInInspector] public int MinInterval; // Min interval for sound loops
         [HideInInspector] public int MaxInterval; // Max interval for sound loops
 
+        private GameObject _audioSourceContainer;
+        
         private bool _moving; // Player moving?
         private bool _cycle; // Cycle mode enabled?
         private bool _buffed; // Player buffed?
@@ -47,8 +51,17 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
 
         private void Start()
         {
+            //Create container for AudioSource
+            _audioSourceContainer = new GameObject($"{name}_SoundContainer")
+            {
+                transform =
+                {
+                    position = this.transform.position
+                }
+            };
+
             //Append new AudioSource
-            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource = CreateOrGetContainer(_audioSourceContainer).AddComponent<AudioSource>();
             try
             {
                 ToAudioSource(source, _audioSource); // Converts Audio to AudioSource
@@ -63,6 +76,22 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
             DetermineSound(); // Handle sound based on SoundType
         }
 
+        /// <summary>
+        /// Parents object to an empty container, and returns object
+        /// </summary>
+        /// <param name="objectToAssign">Object to assign to parent object</param>
+        /// <returns>objectToAssign</returns>
+        private GameObject CreateOrGetContainer(GameObject objectToAssign)
+        {
+            GameObject container;
+            if (GameObject.Find("SoundContainers") == null) container = new GameObject("SoundContainers");
+            else container = GameObject.Find("SoundContainers");
+            
+            objectToAssign.transform.SetParent(container.transform);
+
+            return objectToAssign;
+        }
+        
         private void DetermineSound()
         {
             // Switch on SoundType
@@ -99,7 +128,7 @@ namespace _Scripts.MonoBehaviour.CommonFunctionality
         private void TrapOnTrapCollisionAdded(object sender, TrapEventArgs e)
         {
             // Return if collision tag does not match SelectedTag
-            if (!e.CollisionEvent.collider.CompareTag(SelectedTag)) return;
+            if (!e.TriggerEvent.gameObject.CompareTag(SelectedTag)) return;
             _audioSource.clip = source.GetRandomClip(); // Set clip to random clip
             _audioSource.Play(); // Play audio
         }
