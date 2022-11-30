@@ -1301,6 +1301,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &214573236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214573231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: fe191eb3bcbabc74dad4f131b59768fb, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1.04
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &226187220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2416,7 +2451,6 @@ MonoBehaviour:
   soundType: 0
   _audioSource: {fileID: 0}
   SelectedTag: Player
-  OnlyNoiseObject: 0
   SelectedStates: 1
   MinInterval: 0
   MaxInterval: 0
@@ -2911,7 +2945,6 @@ MonoBehaviour:
   soundType: 0
   _audioSource: {fileID: 0}
   SelectedTag: Trap
-  OnlyNoiseObject: 0
   SelectedStates: 4
   MinInterval: 0
   MaxInterval: 0
@@ -2989,6 +3022,10 @@ PrefabInstance:
     - target: {fileID: 2624048986227296191, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: MaxNoise
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2690205504672264395, guid: a821a8dc93d24b0448f2998ff31fc5ee, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3361,7 +3398,6 @@ MonoBehaviour:
   soundType: 2
   _audioSource: {fileID: 0}
   SelectedTag: Player
-  OnlyNoiseObject: 0
   SelectedStates: 8
   MinInterval: 0
   MaxInterval: 0
@@ -4287,7 +4323,6 @@ MonoBehaviour:
   soundType: 3
   _audioSource: {fileID: 0}
   SelectedTag: 
-  OnlyNoiseObject: 0
   SelectedStates: 1
   MinInterval: 0
   MaxInterval: 0
@@ -4913,7 +4948,6 @@ MonoBehaviour:
   soundType: 0
   _audioSource: {fileID: 0}
   SelectedTag: Player
-  OnlyNoiseObject: 0
   SelectedStates: 1
   MinInterval: 0
   MaxInterval: 0
@@ -7112,7 +7146,6 @@ MonoBehaviour:
   soundType: 0
   _audioSource: {fileID: 0}
   SelectedTag: Player
-  OnlyNoiseObject: 0
   SelectedStates: 4
   MinInterval: 0
   MaxInterval: 0
@@ -7576,7 +7609,6 @@ MonoBehaviour:
   soundType: 0
   _audioSource: {fileID: 0}
   SelectedTag: Player
-  OnlyNoiseObject: 0
   SelectedStates: 1
   MinInterval: 0
   MaxInterval: 0
