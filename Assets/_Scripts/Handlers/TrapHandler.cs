@@ -15,8 +15,12 @@ namespace _Scripts.Handlers
         {
             //Get all objects with tag 'Trap' in the Scene
             foreach (var gameObject in GameObject.FindGameObjectsWithTag("Trap"))
+            {
                 //Create and add TrapObject to list of Interactables
                 Interactibles.Add(new TrapObject(gameObject, gameObject.GetComponent<ITrapCollision>()));
+                Debug.Log(gameObject.name);
+            }
+                
         }
     }
 
@@ -47,10 +51,12 @@ namespace _Scripts.Handlers
         }
 
         //Add collision log
-        public void AddCollisionEntry(TrapEventArgs c)
+        public TrapEventArgs AddCollisionEntry(TrapEventArgs c)
         {
             CollisionLog.Add(c); //Add collision to log
             OnCollisionEnter(c); //Invoke event
+
+            return c;
         }
 
         //Event for trap collision

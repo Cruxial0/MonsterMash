@@ -42,6 +42,8 @@ namespace _Scripts.Handlers.Powers
             spriteRenderer = SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>();
             defaultColor = spriteRenderer.color;
             spriteRenderer.color = new Color(124, 124, 255);
+            
+            //Temporarily disable the Runtime Animation Controller
             runtimeAnimatorController = PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController;
             PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController = null;
 
