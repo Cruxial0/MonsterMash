@@ -12,6 +12,7 @@ namespace _Scripts.Levels
         {
             LevelName = "Speedrun Lvl 2"
         };
+        public float LevelTime => 35f;
         public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()

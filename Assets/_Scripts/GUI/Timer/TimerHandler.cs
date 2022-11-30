@@ -1,7 +1,9 @@
 using System;
+using System.Linq;
 using _Scripts.Handlers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerHandler : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class TimerHandler : MonoBehaviour
     private void Start()
     {
         text = GetComponent<TextMeshProUGUI>(); //Get Text component and assign it
+        roundTime = LevelManager.GetAllScenes().First(x => x.Level.SceneName == SceneManager.GetActiveScene().name)
+            .LevelTime;
         currTime = roundTime; //Set Current Time to Round Time
         
         SetTime();

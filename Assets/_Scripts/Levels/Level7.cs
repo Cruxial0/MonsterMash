@@ -12,6 +12,7 @@ namespace _Scripts.Levels
         {
             LevelName = "Dark Level"
         };
+        public float LevelTime => 60f;
         public List<IEvent> Events => new() { new LightsOutEvent() };
         
         public StarLevels StarLevels => new StarLevels()
