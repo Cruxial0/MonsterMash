@@ -95,7 +95,7 @@ public class CrossbowTrap : MonoBehaviour, ITrapCollision
             case true:
                 // Move arrow
                 
-                this.transform.position += _fireDirection[fireDirection] * projectileMovementMultiplier;
+                this.transform.position += _fireDirection[fireDirection] * (projectileMovementMultiplier * Time.deltaTime);
                 break;
         }
         
