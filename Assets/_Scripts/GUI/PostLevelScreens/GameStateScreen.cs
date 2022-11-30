@@ -16,10 +16,10 @@ namespace _Scripts.GUI.PostLevelScreens
         {
             var restartMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
 
-            restartMenu.transform.GetChild(0).GetComponent<Image>().sprite =
+            restartMenu.transform.GetChild(1).GetComponent<Image>().sprite =
                 restartMenu.GetComponent<AssetContainer>().Sprites[4];
             
-            restartMenu.transform.GetChild(3).GetComponent<Button>().interactable = false;
+            restartMenu.transform.GetChild(4).GetComponent<Button>().interactable = false;
 
             return restartMenu;
         }
@@ -29,12 +29,12 @@ namespace _Scripts.GUI.PostLevelScreens
             starCount = stars;
             var winMenu = PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.WinPrefab;
 
-            winMenu.transform.GetChild(0).GetComponent<Image>().sprite =
+            winMenu.transform.GetChild(1).GetComponent<Image>().sprite =
                 winMenu.GetComponent<AssetContainer>().Sprites[stars];
 
-            if (stars < 2)
+            if (stars >= 2)
             {
-                winMenu.transform.GetChild(3).GetComponent<Button>().interactable = false;
+                winMenu.transform.GetChild(4).GetComponent<Button>().interactable = true;
             }
 
             return winMenu;
