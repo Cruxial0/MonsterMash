@@ -3672,6 +3672,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8023768160459139070, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
+      propertyPath: timeAnim
+      value: 
+      objectReference: {fileID: 2027583276}
+    - target: {fileID: 8023768160459139070, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
+      propertyPath: noiseAnim
+      value: 
+      objectReference: {fileID: 2027583277}
     - target: {fileID: 8713938483471802648, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -11735,6 +11743,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c1072afb417db448bc9f231b6f974a, type: 3}
+--- !u!1 &2027583276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7064206070640044913, guid: 11c1072afb417db448bc9f231b6f974a, type: 3}
+  m_PrefabInstance: {fileID: 2027583275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2027583277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7064206069778951376, guid: 11c1072afb417db448bc9f231b6f974a, type: 3}
+  m_PrefabInstance: {fileID: 2027583275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2036296769
 PrefabInstance:
   m_ObjectHideFlags: 0
