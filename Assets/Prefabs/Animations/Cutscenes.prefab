@@ -141,7 +141,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7064206069730684343}
   - component: {fileID: 7064206069730684337}
-  - component: {fileID: 7064206069730684342}
   - component: {fileID: 7064206069730684336}
   m_Layer: 0
   m_Name: Camera
@@ -209,14 +208,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7064206069730684342
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064206069730684340}
-  m_Enabled: 1
 --- !u!95 &7064206069730684336
 Animator:
   serializedVersion: 4
@@ -305,7 +296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7064206069824421127}
   - component: {fileID: 7064206069824421120}
-  - component: {fileID: 7064206069824421121}
   - component: {fileID: 7064206069824421126}
   m_Layer: 0
   m_Name: Camera
@@ -373,14 +363,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7064206069824421121
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064206069824421124}
-  m_Enabled: 1
 --- !u!95 &7064206069824421126
 Animator:
   serializedVersion: 4
