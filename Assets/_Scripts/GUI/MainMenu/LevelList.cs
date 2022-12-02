@@ -72,7 +72,14 @@ namespace _Scripts.GUI.MainMenu
             {
                 button.interactable = true;
                 button.image.sprite = sprites.Sprites[levelSave.StarCount];
+
+                SpriteState ss = new SpriteState();
                 
+                ss.highlightedSprite = sprites.Sprites[levelSave.StarCount + 4];
+                ss.pressedSprite = sprites.Sprites[levelSave.StarCount + 4];
+
+                button.spriteState = ss;
+
                 break;
             }
 
@@ -106,8 +113,17 @@ namespace _Scripts.GUI.MainMenu
                 {
                     var numberImage = button.transform.GetChild(0);
                     var numberSprite = numberImage.GetComponent<Image>();
+                    var sprites = button.GetComponent<AssetContainer>(); //Get multiple text components
+
                     numberImage.gameObject.SetActive(true);
                     button.GetComponent<Button>().interactable = true;
+                    
+                    SpriteState ss = new SpriteState();
+
+                    ss.highlightedSprite = sprites.Sprites[0 + 4];
+                    ss.pressedSprite = sprites.Sprites[0 + 4];
+
+                    button.GetComponent<Button>().spriteState = ss;
                 }
                 else
                 {
