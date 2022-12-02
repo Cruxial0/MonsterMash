@@ -10,16 +10,17 @@ namespace _Scripts.Levels
         public int LevelID => 6;
         public Level Level => new Level("Level 6")
         {
-            LevelName = "Percision lvl 3"
+            LevelName = "Percision lvl 6"
         };
-        public float LevelTime => 60f;
+        public float LevelTime => 45f;
         public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {
-            OneStarRequirement = 0.0,
-            TwoStarRequirement = 0.0,
-            ThreeStarRequirement = 0.0
+            OneStarRequirement = 5,
+            TwoStarRequirement = 10.0,
+            ThreeStarRequirement = 15.0,
+            NoiseThreshold = 0.5f
         };
     }
 }
