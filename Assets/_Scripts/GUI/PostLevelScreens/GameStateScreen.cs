@@ -34,7 +34,8 @@ namespace _Scripts.GUI.PostLevelScreens
 
             if (stars >= 2)
             {
-                winMenu.transform.GetChild(4).GetComponent<Button>().interactable = true;
+                var btn = winMenu.transform.GetChild(4).GetComponent<Button>();
+                btn.interactable = true;
             }
 
             return winMenu;

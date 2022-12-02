@@ -6,6 +6,7 @@ namespace _Scripts.MonoBehaviour.Player
 {
     public class PlayerStates : UnityEngine.MonoBehaviour
     {
+        public bool Disable = false;
         public PlayerState PlayerState = PlayerState.None;
         private PlayerMovmentController playerBody;
 
@@ -83,7 +84,7 @@ namespace _Scripts.MonoBehaviour.Player
         private void Update()
         {
             
-            if (playerBody.acceleration >= 1f) OnPlayerMoving();
+            if (playerBody.acceleration >= 1f && !Disable) OnPlayerMoving();
             else
             {
                 PlayerState &= ~PlayerState.Moving;
@@ -127,7 +128,6 @@ namespace _Scripts.MonoBehaviour.Player
         }
 
         #endregion
-
 
         #region PlayerBuffed
 
