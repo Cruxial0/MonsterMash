@@ -2,5 +2,9 @@
   {
     "SceneName": "Tutorial",
     "StarCount": 3
+  },
+  {
+    "SceneName": "Level 2",
+    "StarCount": 3
   }
 ]

@@ -41,9 +41,11 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
 
         public void OnCollision(float playerSpeed)
         {
+            //PlayerInteractionHandler.SceneObjects.Player.AnimScript;
             //Lose
             PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Trap);
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
+            PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted = true;
             Destroy(this.gameObject);
         }
     }

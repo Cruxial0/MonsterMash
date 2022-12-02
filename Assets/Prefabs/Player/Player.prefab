@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6160cf65415572040a6121e6798e82c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeAnim: {fileID: 0}
+  noiseAnim: {fileID: 0}
   deathParticle: {fileID: 6564252201258773051, guid: c18c340aeb73a9143a01003cc519b742, type: 3}
 --- !u!1 &8713938483471802652
 GameObject:
