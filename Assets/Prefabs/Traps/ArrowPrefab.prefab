@@ -96,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 1, z: 1.85}
+  m_Size: {x: 0.26, y: 1, z: 1.85}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6106656270791074599
 GameObject:
@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 8817383048602919028}
   - component: {fileID: 2416481787517546156}
   - component: {fileID: 7573299269897153701}
-  - component: {fileID: 3207555663426495487}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -125,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6106656270791074599}
   m_LocalRotation: {x: -0.49999928, y: -0.49999928, z: -0.5000007, w: 0.5000007}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.384, y: 0, z: 0}
   m_LocalScale: {x: -2.715272, y: -0.35298538, z: -0.35298538}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -196,19 +195,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 2
-  eraseRenderer: 0
---- !u!114 &3207555663426495487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6106656270791074599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
+  color: 3
   eraseRenderer: 0

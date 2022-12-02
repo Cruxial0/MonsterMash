@@ -12,14 +12,15 @@ namespace _Scripts.Levels
         {
             LevelName = "Speedrun lvl 4"
         };
-        public float LevelTime => 60f;
+        public float LevelTime => 40f;
         public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {
-            OneStarRequirement = 0.0,
-            TwoStarRequirement = 0.0,
-            ThreeStarRequirement = 0.0
+            OneStarRequirement = 25.0,
+            TwoStarRequirement = 10.0,
+            ThreeStarRequirement = 5.0,
+            NoiseThreshold = 0.5f
         };
     }
 }

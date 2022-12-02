@@ -18,8 +18,8 @@ namespace _Scripts.Levels
         public StarLevels StarLevels => new StarLevels()
         {
             OneStarRequirement = 0.0,
-            TwoStarRequirement = 20.0,
-            ThreeStarRequirement = 30.0,
+            TwoStarRequirement = 15.0,
+            ThreeStarRequirement = 20.0,
             NoiseThreshold = 0.6f
         };
     }

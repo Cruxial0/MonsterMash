@@ -8,18 +8,19 @@ namespace _Scripts.Levels
     public class Level7 : ILevel
     {
         public int LevelID => 7;
-        public Level Level => new Level("DarkLevel")
+        public Level Level => new Level("Level 7")
         {
-            LevelName = "Dark Level"
+            LevelName = "Level 7"
         };
-        public float LevelTime => 60f;
+        public float LevelTime => 30f;
         public List<IEvent> Events => new() { new LightsOutEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {
-            OneStarRequirement = 0.0,
-            TwoStarRequirement = 0.0,
-            ThreeStarRequirement = 0.0
+            OneStarRequirement = 2.0,
+            TwoStarRequirement = 5.0,
+            ThreeStarRequirement = 10.0,
+            NoiseThreshold = 0.4f
         };
     }
 }
