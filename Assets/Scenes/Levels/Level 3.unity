@@ -4432,46 +4432,6 @@ MonoBehaviour:
   SelectedStates: 1
   MinInterval: 0
   MaxInterval: 0
---- !u!1 &1097227415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2288333413908946300, guid: 991d36de164d65f4ebfbbf38b855a76a, type: 3}
-  m_PrefabInstance: {fileID: 1588594360}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1097227416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097227415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source:
-    soundClips:
-    - {fileID: 8300000, guid: 2865306a769b9d74aa34dc9f172de03a, type: 3}
-    volumeRolloff: 0
-    outputMixerGroup: {fileID: 0}
-    mute: 0
-    bypassEffects: 0
-    bypassListenerEffects: 0
-    bypassReverbZones: 0
-    playOnAwake: 0
-    loop: 0
-    priority: 128
-    volume: 1
-    pitch: 1
-    stereoPan: 0
-    spatialBlend: 0
-    reverbZoneMix: 1
-  soundType: 0
-  _audioSource: {fileID: 0}
-  SelectedTag: Player
-  SelectedStates: 1
-  MinInterval: 0
-  MaxInterval: 0
 --- !u!1001 &1196229936
 PrefabInstance:
   m_ObjectHideFlags: 0
