@@ -3,6 +3,7 @@ using System.Linq;
 using _Scripts.Handlers.PowerHandlers;
 using _Scripts.Handlers.SceneManagers.SceneObjectsHandler;
 using _Scripts.Interfaces;
+using cakeslice;
 using UnityEngine;
 
 namespace _Scripts.Handlers.Powers
@@ -22,7 +23,7 @@ namespace _Scripts.Handlers.Powers
         
         private void Start()
         {
-            SceneObjects.Player.MovmentController.MovementSpeed = 30f; //Set speed of player
+            SceneObjects.Player.MovmentController.MovementSpeed = 40f; //Set speed of player
 
             spriteRenderer = SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>();
             defaultColor = spriteRenderer.color;
@@ -72,6 +73,7 @@ namespace _Scripts.Handlers.Powers
             //Disable power visuals
             Parent.GetComponent<Renderer>().enabled = false;
             Parent.GetComponent<Collider>().enabled = false;
+            Destroy(Parent.GetComponent<Outline>());
         }
     }
 }
