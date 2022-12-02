@@ -34,6 +34,8 @@ namespace _Scripts.GUI.MainMenu
             //Get all ILevel objects in project
             var levels = LevelManager.GetAllScenes();
 
+            if(LevelButtons.Count > 0 ) return;
+
             int i = 0;
             //for each level in levels, do the following
             foreach (var level in levels.OrderBy(x => x.LevelID))
@@ -55,23 +57,37 @@ namespace _Scripts.GUI.MainMenu
         {
             var btn = Instantiate(ButtonPrefab); //Instantiate prefab
             var button = btn.GetComponent<Button>(); //Get Button Component
-            var text = button.GetComponentsInChildren<TextMeshProUGUI>(); //Get multiple text components
-
-            text[0].text = level.LevelID.ToString();
+            var sprites = button.GetComponent<AssetContainer>(); //Get multiple text components
+            var numberImage = btn.transform.GetChild(0);
+            var numberSprite = numberImage.GetComponent<Image>();
+            var numberSprites = numberImage.GetComponent<AssetContainer>().Sprites;
 
             button.onClick.AddListener(LevelButtonClicked); //Add onClick Listener
             button.interactable = false;
             var unlockedLevels = InitializeLevelService.levels.UnlockedLevels;
+            
+            numberSprite.sprite = numberSprites[level.LevelID];
 
             foreach (var levelSave in unlockedLevels.Where(uLevel => uLevel.SceneName == level.Level.SceneName))
             {
                 button.interactable = true;
-                var starText = new string('*', levelSave.StarCount);
-                text[1].text = $"{starText}"; //Set first text component
+                button.image.sprite = sprites.Sprites[levelSave.StarCount];
+
+                SpriteState ss = new SpriteState();
+                
+                ss.highlightedSprite = sprites.Sprites[levelSave.StarCount + 4];
+                ss.pressedSprite = sprites.Sprites[levelSave.StarCount + 4];
+
+                button.spriteState = ss;
+
                 break;
             }
-            
-            if(button.interactable == false) text[1].text = string.Empty;
+
+            if (!button.interactable)
+            {
+                //button.image.sprite = sprites.Sprites[4];
+                numberSprite.gameObject.SetActive(false);
+            }
             
             return btn; //Return button
         }
@@ -93,7 +109,22 @@ namespace _Scripts.GUI.MainMenu
 
             foreach (var button in LevelButtons.Keys)
             {
-                if(unlock) button.GetComponent<Button>().interactable = true;
+                if (unlock)
+                {
+                    var numberImage = button.transform.GetChild(0);
+                    var numberSprite = numberImage.GetComponent<Image>();
+                    var sprites = button.GetComponent<AssetContainer>(); //Get multiple text components
+
+                    numberImage.gameObject.SetActive(true);
+                    button.GetComponent<Button>().interactable = true;
+                    
+                    SpriteState ss = new SpriteState();
+
+                    ss.highlightedSprite = sprites.Sprites[0 + 4];
+                    ss.pressedSprite = sprites.Sprites[0 + 4];
+
+                    button.GetComponent<Button>().spriteState = ss;
+                }
                 else
                 {
                     var level = LevelButtons[button];
@@ -110,6 +141,9 @@ namespace _Scripts.GUI.MainMenu
                         continue;
                     }
                     
+                    var numberImage = button.transform.GetChild(0);
+                    var numberSprite = numberImage.GetComponent<Image>();
+                    numberImage.gameObject.SetActive(false);
                     button.GetComponent<Button>().interactable = false;
                 }
             }
