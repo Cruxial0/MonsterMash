@@ -12,9 +12,14 @@ public class BedController : MonoBehaviour
     [NonSerialized] public bool IsUnderBed;
     private MeshRenderer _meshFilters = new();
 
+    private float confettiTimeout = 2f;
+    private float currConfettiTime;
+    private GameObject confetti;
+
     private void Start()
     {
         _meshFilters = PlayerInteractionHandler.SceneObjects.Room.BedObject.MeshRenderer;
+        confetti = this.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerExit(Collider other)
@@ -47,6 +52,16 @@ public class BedController : MonoBehaviour
             //If all objects are picked up, win
             if (PlayerInteractionHandler.SceneObjects.Room.PickupObject.Count == 0)
             {
+                if(!confetti.activeSelf)
+                    confetti.SetActive(true);
+
+                PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
+                //PlayerInteractionHandler.SceneObjects.Player.Rigidbody.velocity = new Vector3(1,1,1);
+
+                currConfettiTime += Time.deltaTime;
+                
+                if(currConfettiTime < confettiTimeout) return;
+                
                 PlayerInteractionHandler.GameStateManager.Win(PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.currTime);
 
                 foreach (var collider in this.GetComponents<Collider>())
