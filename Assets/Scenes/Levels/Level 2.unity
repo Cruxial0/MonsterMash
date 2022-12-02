@@ -270,6 +270,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &28003872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28003867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &44190574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -822,6 +857,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &90003480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90003475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &112616594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1070,6 +1140,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &118207696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118207691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &126544382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1400,6 +1505,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &139301471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139301466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &153676300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1547,6 +1687,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &153676306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153676301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
+--- !u!1 &196368961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6796058411872352686, guid: 934095b363ec9e64884be7ab18e0138d, type: 3}
+  m_PrefabInstance: {fileID: 1255708296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &196368962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196368961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &201063381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2614,6 +2830,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &394102615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394102607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &410479935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2761,6 +3012,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &410479941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410479936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &414585799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2908,6 +3194,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &414585805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414585800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1 &454904938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8713938483471802652, guid: 973ead762292ac540b37031d4cb8bb5b, type: 3}
@@ -3709,6 +4030,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6364843e5d9da7f43a369c98be4f95b3, type: 3}
+--- !u!1 &627119401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6928951716319970805, guid: 8d57da22d90c040449b1ed3047ee7b2f, type: 3}
+  m_PrefabInstance: {fileID: 1793671229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &627119402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627119401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &629831866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4348,6 +4709,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &721445455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721445450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &730673941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5404,6 +5800,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &881296737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881296732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &887846692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5551,6 +5982,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &887846701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887846693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &897452352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5954,6 +6420,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &949182016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949182011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &964643275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6544,6 +7045,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1147594230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147594222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1167174459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6796,6 +7332,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1169682896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169682891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1171272107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7258,6 +7829,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1178855207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178855202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1181532665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7478,6 +8084,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1182603575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182603567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1227457449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7696,6 +8337,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0400784, y: 4.2492476, z: 0.958991}
   m_Center: {x: 0, y: 2.1155357, z: 0}
+--- !u!114 &1250400387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250400383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1255708296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8420,6 +9096,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6877956, y: 1.687643, z: 0.86211294}
   m_Center: {x: 0, y: 0.84491825, z: -0.03676218}
+--- !u!114 &1346428562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346428558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1347276810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9314,6 +10025,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1488456449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488456444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1493918046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9461,6 +10208,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1493918052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493918047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1506734450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9608,6 +10391,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1506734456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506734451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b1fcb0c6db5d16349bd69708931a7d89, type: 3}
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1597192024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9945,6 +10764,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1735183727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735183722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 1a287d16941e18846a75793d52ca43a2, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &1780694864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10486,6 +11340,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1931986003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535607556655313153, guid: 5428fbf99e88adb47b0d1086a8f14547, type: 3}
+  m_PrefabInstance: {fileID: 83037124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1931986004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931986003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: fe191eb3bcbabc74dad4f131b59768fb, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1 &1951494568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10731,6 +11625,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1964754872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964754867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 951c83b668f0a414a9443d68b5b86911, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 1
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &2001190591
 PrefabInstance:
   m_ObjectHideFlags: 0

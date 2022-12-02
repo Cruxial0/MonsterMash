@@ -99,7 +99,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2651921311504311191}
-  - {fileID: 1166300591622336583}
   m_Father: {fileID: 1602659871681969812}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1064,18 +1063,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2483180124328193519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7959199, y: 1.7959199, z: 1.7959199}
+  m_LocalScale: {x: 0.8714815, y: 4.8322473, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2690205504672264395}
-  m_Father: {fileID: 5105417479222237979}
-  m_RootOrder: 1
+  m_Father: {fileID: 2651921311504311191}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 154.12997, y: -15.128357}
+  m_AnchoredPosition: {x: 0.06304932, y: -0.345253}
   m_SizeDelta: {x: 113.2, y: 19.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9220002479652016182
@@ -2464,6 +2463,7 @@ GameObject:
   - component: {fileID: 2651921311504311191}
   - component: {fileID: 1135085106200955520}
   - component: {fileID: 2906990491800053493}
+  - component: {fileID: 545045225145052831}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2482,7 +2482,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0607665, y: 0.37165308, z: 1.2828}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1166300591622336583}
   m_Father: {fileID: 5105417479222237979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2529,6 +2530,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &545045225145052831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449263661564021807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &7554016959184151144
 GameObject:
   m_ObjectHideFlags: 0
