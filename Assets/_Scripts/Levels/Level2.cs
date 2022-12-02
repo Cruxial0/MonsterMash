@@ -10,16 +10,16 @@ namespace _Scripts.Levels
         public int LevelID => 2;
         public Level Level => new Level("Level 2")
         {
-            LevelName = "Speedrun lvl 3"
+            LevelName = "Speedrun lvl 2"
         };
         public float LevelTime => 50f;
         public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {
-            OneStarRequirement = 30.0,
+            OneStarRequirement = 10.0,
             TwoStarRequirement = 20.0,
-            ThreeStarRequirement = 10.0,
+            ThreeStarRequirement = 30.0,
             NoiseThreshold = 0.6f
         };
     }

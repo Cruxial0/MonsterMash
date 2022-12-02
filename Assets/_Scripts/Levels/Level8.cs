@@ -5,14 +5,14 @@ using _Scripts.Interfaces;
 
 namespace _Scripts.Levels
 {
-    public class Level7 : ILevel
+    public class Level8 : ILevel
     {
-        public int LevelID => 7;
-        public Level Level => new Level("Level 7")
+        public int LevelID => 9;
+        public Level Level => new Level("DarkLevel")
         {
-            LevelName = "Level 7"
+            LevelName = "DarkLevel"
         };
-        public float LevelTime => 30f;
+        public float LevelTime => 40f;
         public List<IEvent> Events => new() { new LightsOutEvent() };
         
         public StarLevels StarLevels => new StarLevels()
@@ -20,7 +20,7 @@ namespace _Scripts.Levels
             OneStarRequirement = 2.0,
             TwoStarRequirement = 5.0,
             ThreeStarRequirement = 10.0,
-            NoiseThreshold = 0.4f
+            NoiseThreshold = 0.5f
         };
     }
 }
