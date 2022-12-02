@@ -59,6 +59,9 @@ namespace _Scripts.Handlers
 
         public void Lose(LoseCondition loseCondition)
         {
+            PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted = true;
+            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.Disable = true;
+            
             var controller = PlayerInteractionHandler.SceneObjects.Player.AnimScript;
             
             var go = new GameObject(); //Add empty handler

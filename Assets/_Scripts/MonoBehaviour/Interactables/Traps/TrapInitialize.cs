@@ -45,8 +45,6 @@ namespace _Scripts.MonoBehaviour.Interactables.Traps
             //Lose
             PlayerInteractionHandler.GameStateManager.Lose(LoseCondition.Trap);
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
-            PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted = true;
-            PlayerInteractionHandler.SceneObjects.Player.PlayerStates.Disable = true;
             Destroy(this.gameObject);
         }
     }
