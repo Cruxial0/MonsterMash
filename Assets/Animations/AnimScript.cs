@@ -57,7 +57,6 @@ public class AnimScript : MonoBehaviour
         _playerDead = true;
     }
 
-
     public void EatAnim()
     {
         if(_playerDead) return;
@@ -69,8 +68,7 @@ public class AnimScript : MonoBehaviour
         if(_playerDead) return;
         timeAnim.SetActive(true);
     }
-
-
+    
     public void NoiseAnim()
     {
         if (_playerDead) return;
