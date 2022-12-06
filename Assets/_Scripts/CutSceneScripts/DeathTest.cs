@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class DeathTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-        
- 
-    }
-
+    /// <summary>
+    /// Script written by Henrik for debugging purposes
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Furniture")

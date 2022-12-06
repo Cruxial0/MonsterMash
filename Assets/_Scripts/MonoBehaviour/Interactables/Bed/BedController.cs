@@ -26,6 +26,7 @@ public class BedController : MonoBehaviour
     {
         IsUnderBed = false;
         
+        // Change color
         var c = _meshFilters.material.color;
         c.a = 1f;
         _meshFilters.material.color = new Color(c.r, c.g, c.b, c.a);
@@ -55,15 +56,17 @@ public class BedController : MonoBehaviour
                 if(!confetti.activeSelf)
                     confetti.SetActive(true);
 
+                // Disable player control
                 PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
-                //PlayerInteractionHandler.SceneObjects.Player.Rigidbody.velocity = new Vector3(1,1,1);
 
+                // Timer
                 currConfettiTime += Time.deltaTime;
-                
                 if(currConfettiTime < confettiTimeout) return;
                 
+                // Win
                 PlayerInteractionHandler.GameStateManager.Win(PlayerInteractionHandler.SceneObjects.UI.Timer.TimerHandler.currTime);
 
+                // Disable all colliders (obsolete becase of new, improved bed model)
                 foreach (var collider in this.GetComponents<Collider>())
                 {
                     collider.enabled = false;
@@ -74,6 +77,7 @@ public class BedController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Enable or disable access to the bed based on the GameStarted property
         PlayerInteractionHandler.SceneObjects.Room.BedObject.OuterCollider.enabled = GameStarted;
     }
 

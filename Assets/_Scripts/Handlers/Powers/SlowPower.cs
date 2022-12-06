@@ -16,13 +16,13 @@ namespace _Scripts.Handlers.Powers
 
         private void Start()
         {
+            // Set sprite
             SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
                 SceneObjects.Player.Sprites.Sprites[3];
         }
 
         private void FixedUpdate()
         {
-            
             //Increment timer
             currTime += Time.deltaTime;
             if (currTime > PowerDuration && active)
@@ -31,6 +31,7 @@ namespace _Scripts.Handlers.Powers
                 SceneObjects.Player.MovmentController.MovementSpeed = 
                     SceneObjects.Player.MovmentController.DefaultMovementSpeed;
                 
+                // Revert sprite
                 SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>().sprite =
                     SceneObjects.Player.Sprites.Sprites[0];
                 active = false; //Deactivate timer

@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Parents. Never happened.
+/// </summary>
 public class DoorManager : MonoBehaviour
 {
     public delegate void ParentsEnterEvent(object sender);

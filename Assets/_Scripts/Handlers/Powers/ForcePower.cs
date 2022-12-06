@@ -15,8 +15,10 @@ namespace _Scripts.Handlers.Powers
         //Assign values for timer
         private float buffTime = 2f;
         private float currTime;
+
         private Color defaultColor;
         private SpriteRenderer spriteRenderer;
+
         private RuntimeAnimatorController runtimeAnimatorController;
 
         public SceneObjects SceneObjects = PlayerInteractionHandler.SceneObjects;
@@ -25,15 +27,21 @@ namespace _Scripts.Handlers.Powers
         {
             SceneObjects.Player.MovmentController.MovementSpeed = 40f; //Set speed of player
 
+            // Get player sprite renderer
             spriteRenderer = SceneObjects.Player.Sprite.Plane.GetComponent<SpriteRenderer>();
             defaultColor = spriteRenderer.color;
+
+            // Change color of sprite
             spriteRenderer.color = new Color(255, 124, 124);
+
+            // Temporarily disable the player's animation controller
             runtimeAnimatorController = PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController;
             PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController = null;
         }
 
         private void FixedUpdate()
         {
+            // If player does not exist, destroy this script
             if(SceneObjects.Player == null) Destroy(this);
             
             currTime += Time.deltaTime; //Increment timer
@@ -44,17 +52,20 @@ namespace _Scripts.Handlers.Powers
                 SceneObjects.Player.MovmentController.MovementSpeed = 
                     SceneObjects.Player.MovmentController.DefaultMovementSpeed; //Revert speed of player
 
+                // Revert color
                 spriteRenderer.color = defaultColor;
                 PlayerInteractionHandler.SceneObjects.Player.AnimScript.Anim.runtimeAnimatorController =
                     runtimeAnimatorController;
 
                 active = false; //Deactivate timer
-                Destroy(this.gameObject);
+                
+                Destroy(this.gameObject); // Destroy this
             }
         }
 
         private void OnDestroy()
         {
+            // Remove the buffed state when this is destroyed
             SceneObjects.Player.PlayerStates.SetBuffed(false);
         }
 

@@ -24,6 +24,7 @@ public class TimerHandler : MonoBehaviour
         
         SetTime();
 
+        // Lock bed when timer is running
         PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.OnBedExit += () => TimerRun = true;
     }
 
@@ -46,6 +47,9 @@ public class TimerHandler : MonoBehaviour
         currTime -= Time.deltaTime; //Decrease time by Time.deltaTime
     }
 
+    /// <summary>
+    /// Sets formatted time
+    /// </summary>
     private void SetTime()
     {
         var time = new TimeSpan(); //Get new instance of TimeSpan
@@ -55,16 +59,10 @@ public class TimerHandler : MonoBehaviour
     }
     
     //Starts Timer
-    public void StartTimer()
-    {
-        timerActive = true;
-    }
+    public void StartTimer() => timerActive = true;
 
     //Stops Timer
-    public void StopTimer()
-    {
-        timerActive = false;
-    }
+    public void StopTimer() => timerActive = false;
 
     //Event function for when timer depletes
     //Learn more about events at: https://learn.microsoft.com/en-us/dotnet/standard/events/

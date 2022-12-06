@@ -43,7 +43,7 @@ namespace _Scripts.Handlers
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(item);
+                    Debug.Log(item);
                     continue;
                 }
             }

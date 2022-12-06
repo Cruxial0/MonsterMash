@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Camera
 {
+    /// <summary>
+    /// This originally had a tile based system for restricting the camera view to the room.
+    /// It was later scrapped.
+    /// </summary>
     public class CameraPositionController : UnityEngine.MonoBehaviour
     {
         // Adjust camera bounds
@@ -30,17 +34,12 @@ namespace _Scripts.MonoBehaviour.Camera
         
         private void Start()
         {
+            // Get Camera object
             _camera = this.GetComponent<UnityEngine.Camera>();
+            // Get half viewport
             halfViewport = _camera.orthographicSize * _camera.aspect;
             
-            // floorBounds = PlayerInteractionHandler.SceneObjects.Room.Floor
-            //     .First(x => x.GetComponent<Collider>().bounds.Contains(player.transform.position))
-            //     .GetComponent<Collider>().bounds;
-            //
-            
             _sceneObjects = PlayerInteractionHandler.SceneObjects;
-            
-            
         }
 
         // Update is called once per frame
@@ -82,6 +81,7 @@ namespace _Scripts.MonoBehaviour.Camera
             transform.position = playerPos;
         }
         
+        // Obsolete
         private float WorldBoundaryReached()
         {
             float playerXPosition = player.transform.position.x;

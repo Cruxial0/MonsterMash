@@ -21,6 +21,7 @@ public class AddHandlers : MonoBehaviour
     //Swap view to level list
     private void ToLevelSelect()
     {
+        // Hide menu, and show level select
         _levelSelectButton.ToLevelList(gameObject, LevelList);
     }
 }

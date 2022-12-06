@@ -24,12 +24,6 @@ public class LaunchTrap : MonoBehaviour, ITrapCollision
         { ForceDirection.Right, Vector3.right },
         { ForceDirection.Down, Vector3.down }
     };
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public string TrapName => "LaunchTrap";
     public GameObject TrapInstance { get; set; }
@@ -47,10 +41,11 @@ public class LaunchTrap : MonoBehaviour, ITrapCollision
 
     public void OnTriggerEnter(Collider other)
     {
-        print(_launchDirection[trapDirection]);
+        // Launch player
         _sceneObjects.Player.Rigidbody
             .AddForce(_launchDirection[trapDirection] * launchForce, forceMode);
         
+        // Add log
         _handler.TrapHandler.Interactibles.First(x => x.Script.TrapName == TrapName)
             .AddCollisionEntry(new TrapEventArgs(this, other));
     }

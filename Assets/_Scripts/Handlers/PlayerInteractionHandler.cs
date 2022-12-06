@@ -34,10 +34,10 @@ namespace _Scripts.Handlers
             CurrentLevel = SceneManager.GetActiveScene(); //CurrentLevel = ActiveScene
 
             //Instantiate objects
-            ControlType = controlType;
-            InteractableHandler = new InteractableHandler();
-            TrapHandler = new TrapHandler();
-            SceneObjects = new SceneObjects(CurrentLevel, this);
+            ControlType = controlType; // Used for controller type
+            InteractableHandler = new InteractableHandler(); // Instantiate new InteractableHandler
+            TrapHandler = new TrapHandler(); // Instantiate new TrapHandler
+            SceneObjects = new SceneObjects(CurrentLevel, this); // Get all SceneObjects
             GameStateManager = new GameStateManager(SceneObjects.Player.Self, this);
 
             PowerManager.GetAll(); //Get all powers
@@ -187,17 +187,12 @@ namespace _Scripts.Handlers
         }
 
         /// <summary>
-        ///     Currently obsolete, might use later.
+        /// Determine the position of the popup feedback
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="collision"></param>
         private void DetermineVisualFeedback(InteractableObject obj, Collision collision)
         {
-            //TODO:
-            //Play SFX
-            //Play animation
-            //Properly position origin point of visualFeedback (using Mesh.bounds?)
-
             var instantiatePos = collision.collider.gameObject.transform;
 
             //Create instance of visualFeedback (probably some kind of animation or particle system)

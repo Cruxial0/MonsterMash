@@ -15,5 +15,6 @@ public class LevelUnlockToggle : MonoBehaviour
         _toggle.onValueChanged.AddListener(ValueChanged);
     }
 
+    // Unlock levels when value was changed
     private static void ValueChanged(bool v) => LevelList.UnlockAllLevels(v);
 }

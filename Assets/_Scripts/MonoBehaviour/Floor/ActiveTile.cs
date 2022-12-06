@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.Floor
 {
+    /// <summary>
+    /// Used for assiging the active tile, which is in turn used for camera constraints
+    /// </summary>
     public class ActiveTile : UnityEngine.MonoBehaviour
     {
         public ConstraintAxis ConstraintAxis;

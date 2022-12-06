@@ -10,6 +10,7 @@ public class LevelIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set text to scene name
         this.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name;
     }
 }

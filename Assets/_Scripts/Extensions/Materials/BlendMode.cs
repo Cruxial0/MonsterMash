@@ -12,6 +12,11 @@ namespace _Scripts.Extensions.Materials
              Transparent
          }
  
+        /// <summary>
+        /// Changes the blend mode of the passed in material
+        /// </summary>
+        /// <param name="standardShaderMaterial">Material to change</param>
+        /// <param name="blendMode">BlendMode to apply</param>
          public static void ChangeRenderMode(this Material standardShaderMaterial, BlendMode blendMode)
          {
              switch (blendMode)

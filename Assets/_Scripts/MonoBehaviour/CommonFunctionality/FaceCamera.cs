@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
+    /// <summary>
+    /// Experimental script for having objects face the camera
+    /// </summary>
     public class FaceCamera : UnityEngine.MonoBehaviour
     {
         public GameObject ObjectToFace;

@@ -50,18 +50,22 @@ namespace _Scripts.Handlers
         
         private void Update()
         {
+            // Timer to account for animation times
             currAnimTime += Time.deltaTime;
             if(currAnimTime < AnimTime) return;
 
+            // Make sure loss screen is only generated once.
             if (i == 0) GenerateLossScreen();
             i++;
         }
 
         public void Lose(LoseCondition loseCondition)
         {
+            // Reject access to bed
             PlayerInteractionHandler.SceneObjects.Room.BedObject.Script.GameStarted = true;
             PlayerInteractionHandler.SceneObjects.Player.PlayerStates.Disable = true;
             
+            // Get the animation controller
             var controller = PlayerInteractionHandler.SceneObjects.Player.AnimScript;
             
             var go = new GameObject(); //Add empty handler
@@ -69,8 +73,10 @@ namespace _Scripts.Handlers
 
             manager.lost = true;
 
+            // Remove the ability to control the player
             PlayerInteractionHandler.SceneObjects.Player.MovmentController.CanControl = false;
             
+            // Assign a delay based on lose condition
             switch (loseCondition)
             {
                 case LoseCondition.Time:
@@ -81,10 +87,12 @@ namespace _Scripts.Handlers
                     break;
             }
 
+            // Add animation scripts
             animations.Add(LoseCondition.Trap, controller.BearTrapAnim);
             animations.Add(LoseCondition.Noise, controller.NoiseAnim);
             animations.Add(LoseCondition.Time, controller.TimeAnim);
 
+            // Play associated animation
             animations[loseCondition].Invoke();
         }
 

@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
+    /// <summary>
+    /// Script for hiding/showing two objects
+    /// </summary>
     public class HideSelected : UnityEngine.MonoBehaviour
     {
         public GameObject objectToHide;

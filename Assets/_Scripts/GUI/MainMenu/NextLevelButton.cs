@@ -17,6 +17,7 @@ public class NextLevelButton : MonoBehaviour
     {
         var scene = SceneManager.GetActiveScene();
 
+        // Simple switch statement for loading levels, Yuck.
         switch (scene.name)
         {
             case "Tutorial":
@@ -38,6 +39,9 @@ public class NextLevelButton : MonoBehaviour
                 SceneManager.LoadScene("Level 6");
                 return;
             case "Level 6":
+                SceneManager.LoadScene("Level 7");
+                return;
+            case "Level 7":
                 SceneManager.LoadScene("DarkLevel");
                 return;
                     

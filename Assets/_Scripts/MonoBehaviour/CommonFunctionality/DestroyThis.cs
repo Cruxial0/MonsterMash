@@ -1,5 +1,8 @@
 namespace _Scripts.MonoBehaviour.CommonFunctionality
 {
+    /// <summary>
+    /// Reusable script for destroying object
+    /// </summary>
     public class DestroyThis : UnityEngine.MonoBehaviour
     {
         // Start is called before the first frame update
