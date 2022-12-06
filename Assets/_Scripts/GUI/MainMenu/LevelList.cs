@@ -68,6 +68,19 @@ namespace _Scripts.GUI.MainMenu
             
             numberSprite.sprite = numberSprites[level.LevelID];
 
+            if (level.LevelID == 0)
+            {
+                button.interactable = true;
+                button.image.sprite = sprites.Sprites[0];
+
+                SpriteState ss = new SpriteState();
+                
+                ss.highlightedSprite = sprites.Sprites[4];
+                ss.pressedSprite = sprites.Sprites[4];
+
+                button.spriteState = ss;
+            }
+            
             foreach (var levelSave in unlockedLevels.Where(uLevel => uLevel.SceneName == level.Level.SceneName))
             {
                 button.interactable = true;
