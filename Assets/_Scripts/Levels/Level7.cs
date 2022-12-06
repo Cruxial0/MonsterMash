@@ -13,7 +13,7 @@ namespace _Scripts.Levels
             LevelName = "Level 7"
         };
         public float LevelTime => 30f;
-        public List<IEvent> Events => new() { new LightsOutEvent() };
+        public List<IEvent> Events => new() { new NoEvent() };
         
         public StarLevels StarLevels => new StarLevels()
         {
