@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4523683550558279399}
   - component: {fileID: 4523683550558279400}
   - component: {fileID: 4523683550558279403}
+  - component: {fileID: 8279094661364963221}
   m_Layer: 0
   m_Name: IceTrap
   m_TagString: Trap
@@ -111,3 +112,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0.71, z: 0}
+--- !u!114 &8279094661364963221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523683550558279397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: 241e6fb6d13e2484d91a8f7a6cbb8529, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 0.879
+    pitch: 1.63
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 0
+  _audioSource: {fileID: 0}
+  SelectedTag: Player
+  SelectedStates: 1
+  MinInterval: 0
+  MaxInterval: 0

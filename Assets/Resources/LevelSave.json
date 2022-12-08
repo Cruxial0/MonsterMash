@@ -1,0 +1,30 @@
+[
+  {
+    "SceneName": "Tutorial",
+    "StarCount": 3
+  },
+  {
+    "SceneName": "Level 1",
+    "StarCount": 3
+  },
+  {
+    "SceneName": "Level 2",
+    "StarCount": 2
+  },
+  {
+    "SceneName": "Level 3",
+    "StarCount": 2
+  },
+  {
+    "SceneName": "Level 4",
+    "StarCount": 2
+  },
+  {
+    "SceneName": "Level 5",
+    "StarCount": 1
+  },
+  {
+    "SceneName": "Level 6",
+    "StarCount": 1
+  }
+]

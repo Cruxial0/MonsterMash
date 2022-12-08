@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 599270259724979075}
   - component: {fileID: 5240608886762904151}
   - component: {fileID: 4861911762691313613}
+  - component: {fileID: 5547363690028717283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -297,7 +298,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36aca0af890745538d461ee5386c2e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Disable: 0
   PlayerState: 1
+--- !u!114 &5547363690028717283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713938483471802652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3668e4c13922bf4197b0667e58afa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source:
+    soundClips:
+    - {fileID: 8300000, guid: b557e1bf88a13444c8d60edad7cf1e20, type: 3}
+    volumeRolloff: 0
+    outputMixerGroup: {fileID: 0}
+    mute: 0
+    bypassEffects: 0
+    bypassListenerEffects: 0
+    bypassReverbZones: 0
+    playOnAwake: 0
+    loop: 0
+    priority: 128
+    volume: 0.41
+    pitch: 1
+    stereoPan: 0
+    spatialBlend: 0
+    reverbZoneMix: 1
+  soundType: 2
+  _audioSource: {fileID: 0}
+  SelectedTag: 
+  SelectedStates: 8
+  MinInterval: 0
+  MaxInterval: 0
 --- !u!1001 &488017466652645249
 PrefabInstance:
   m_ObjectHideFlags: 0
